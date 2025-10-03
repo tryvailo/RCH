@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Informed About Your Loved One's Care Home | RightCareHome Monitoring</title>
+    <meta name="description" content="Get peace of mind with regular updates on quality, incidents, and changes in your loved one's care home. Starting from £9/month.">
+    <meta name="keywords" content="care home monitoring, family peace of mind, CQC updates, care quality tracking, elderly care monitoring">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-navy': '#1e293b',
+                        'primary-blue': '#2563eb',
+                        'nhs-blue': '#005EB8',
+                        'caring-green': '#059669',
+                        'warmth-orange': '#f59e0b',
+                        'soft-coral': '#fb7185',
+                        'warm-grey': '#64748b',
+                        'light-cream': '#fefce8',
+                        'bg-cream': '#f9f6f2',
+                        'text-dark': '#1f2937',
+                        'text-muted': '#64748b',
+                        'healthcare-blue': '#0066cc',
+                        'warning-red': '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #005EB8;
+            margin: 0;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-left: 0.5rem;
+        }
+        
+        /* Hero Section */
+        .hero-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            background-image: radial-gradient(circle at 20% 50%, white 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, white 0%, transparent 50%),
+                              radial-gradient(circle at 40% 20%, white 0%, transparent 50%);
+        }
+        
+        /* Buttons */
+        .primary-cta {
+            background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .secondary-cta {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-cta:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        /* Cards */
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card.featured {
+            border-color: #2563eb;
+            transform: scale(1.02);
+        }
+        
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        /* Trust badges */
+        .trust-badge {
+            background: white;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+        
+
+        
+        /* Exit intent modal */
+        .exit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .exit-modal.show {
+            display: flex;
+        }
+        
+        .exit-modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .close-modal:hover {
+            color: #374151;
+        }
+        
+        /* Link hover effects */
+        .link-button {
+            color: #2563eb;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .link-button:hover {
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>RightCareHome<span class="subtitle">Monitoring</span></h1>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-blue-800 font-medium">Free Care Quality Checklist:</span>
+                    <input type="email" id="header-email-main" placeholder="your@email.com" 
+                           class="px-3 py-2 border border-gray-300 rounded-lg text-sm w-40 focus:outline-none focus:border-blue-500">
+                    <button id="header-download-main" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                        Get Free Guide
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-16 md:py-20">
+        <div class="floating-elements"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Column - Content -->
+                <div class="text-center lg:text-left">
+                    <div class="mb-6">
+                        <span class="inline-block bg-white/20 backdrop-blur text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            Regular updates for peace of mind
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Stay Informed About Your Loved One's Care Home
+                    </h1>
+                    
+                    <h2 class="text-lg md:text-xl mb-8 text-blue-100 max-w-2xl mx-auto lg:mx-0">
+                        Get peace of mind with regular updates on quality, incidents, and changes
+                    </h2>
+                    
+                    <div class="value-props grid grid-cols-1 gap-3 max-w-xl mx-auto lg:mx-0 mb-8">
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 flex items-center">
+                            <span class="text-yellow-300 mr-3 text-lg">✓</span>
+                            <p class="text-sm font-medium">Regular updates - know about changes when they happen</p>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 flex items-center">
+                            <span class="text-yellow-300 mr-3 text-lg">✓</span>
+                            <p class="text-sm font-medium">Monthly confirmation when everything is fine</p>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 flex items-center">
+                            <span class="text-yellow-300 mr-3 text-lg">✓</span>
+                            <p class="text-sm font-medium">Expert guidance on next steps</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                        <button class="primary-cta">
+                            Start from £9/month
+                        </button>
+                        <button class="secondary-cta">
+                            View Sample Report
+                        </button>
+                    </div>
+                    
+                    <!-- Trust indicators -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-blue-100">
+                        <span>✓ 30-day money-back guarantee</span>
+                        <span>✓ Cancel anytime - no questions asked</span>
+                        <span>✓ Free consultation if unsatisfied</span>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Image and Trust -->
+                <div class="relative">
+                    <div class="relative max-w-lg mx-auto lg:max-w-none">
+                        <!-- Main image with multiple fallback options -->
+                        <div class="rounded-2xl overflow-hidden shadow-2xl mb-6 bg-gradient-to-br from-blue-100 to-green-100">
+                            <img src="assets/images/hero_elderly.png" alt="Elderly woman smiling with family member" 
+                                 class="w-full h-auto" 
+                                 onerror="this.onerror=null; this.src='./assets/images/hero_elderly.png'; setTimeout(() => { if(!this.complete || this.naturalHeight === 0) { this.style.display='none'; this.nextElementSibling.style.display='block'; }}, 100);">
+                            <div class="text-center py-16 px-8" style="display: none;">
+                                <div class="w-24 h-24 bg-blue-200 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-blue-900">Peace of Mind Monitoring</h3>
+                                <p class="text-blue-700 mb-4">Stay connected with your loved one's care</p>
+                                <div class="bg-green-200 rounded-lg p-4">
+                                    <p class="text-sm font-medium text-green-800">✓ Regular updates delivered to your inbox</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Trust badges -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="trust-badge">
+                                <svg class="w-5 h-5 text-nhs-blue" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>CQC Data Partner</span>
+                            </div>
+                            <div class="trust-badge">
+                                <svg class="w-5 h-5 text-caring-green" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>GDPR Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Banner -->
+    <section class="py-8 bg-blue-50 border-b">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-lg text-blue-800 mb-4">
+                <span class="font-semibold">New to care home selection?</span> 
+                <a href="/care-home-selector" class="link-button">Find the perfect care home first →</a>
+            </p>
+            <p class="text-sm text-blue-600">
+                Bundle care home selection + monitoring and save 20%
+            </p>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-text-dark">
+                    What You Get with Regular Monitoring
+                </h2>
+                <p class="text-warm-grey text-lg">
+                    Stay informed without the stress of constant checking
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card group text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Weekly Status Updates</h3>
+                    <ul class="space-y-2 text-warm-grey text-left">
+                        <li>• CQC rating changes</li>
+                        <li>• New complaints filed</li>
+                        <li>• Management updates</li>
+                        <li>• Significant incidents</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card group text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Monthly Analysis</h3>
+                    <ul class="space-y-2 text-warm-grey text-left">
+                        <li>• Quality trend reports</li>
+                        <li>• Comparison with similar homes</li>
+                        <li>• Staff turnover indicators</li>
+                        <li>• Regulatory compliance status</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card group text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Peace of Mind Confirmations</h3>
+                    <ul class="space-y-2 text-warm-grey text-left">
+                        <li>• "All clear" status updates</li>
+                        <li>• Stability confirmations</li>
+                        <li>• Positive review highlights</li>
+                        <li>• No-news-is-good-news reports</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card group text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Expert Support</h3>
+                    <ul class="space-y-2 text-warm-grey text-left">
+                        <li>• Email support included</li>
+                        <li>• Guidance on red flags</li>
+                        <li>• Action recommendations</li>
+                        <li>• Next steps advice</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-text-dark">
+                Choose Your Monitoring Plan
+            </h2>
+            <p class="text-center text-warm-grey mb-12 text-lg">
+                All plans include 30-day money-back guarantee • Cancel anytime
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold text-primary-blue mb-2">
+                        £9<span class="text-lg font-normal text-warm-grey">/month</span>
+                    </div>
+                    <p class="text-caring-green font-medium mb-6">Basic updates</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Monthly status reports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>CQC rating alerts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Major incident notifications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                        Start Starter Plan
+                    </button>
+                </div>
+                
+                <!-- Family Plan (Featured) -->
+                <div class="pricing-card featured">
+                    <span class="badge">Most Popular</span>
+                    <h3 class="text-2xl font-bold mb-4">Family</h3>
+                    <div class="text-4xl font-bold text-primary-blue mb-2">
+                        £19<span class="text-lg font-normal text-warm-grey">/month</span>
+                    </div>
+                    <p class="text-caring-green font-medium mb-6">Detailed monitoring</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Everything in Starter</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Weekly status updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Detailed monthly analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Quality trend tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Priority email support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full primary-cta">
+                        Start Family Plan
+                    </button>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                    <div class="text-4xl font-bold text-primary-blue mb-2">
+                        £39<span class="text-lg font-normal text-warm-grey">/month</span>
+                    </div>
+                    <p class="text-caring-green font-medium mb-6">Expert consultation</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Everything in Family</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Monthly expert consultation call</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Urgent situation support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Custom action plans</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="check-icon">✓</span>
+                            <span>Phone support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                        Start Premium Plan
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bundle offer -->
+            <div class="mt-12 bg-white rounded-lg p-6 border-2 border-blue-200">
+                <div class="text-center">
+                    <h4 class="font-bold mb-4 text-xl">Bundle & Save</h4>
+                    <p class="text-lg mb-4">
+                        <span class="font-semibold">Care Home Selection + Monitoring:</span> 
+                        Get both services and save 20%
+                    </p>
+                    <div class="flex justify-center gap-4">
+                        <span class="text-gray-500 line-through">£168</span>
+                        <span class="text-2xl font-bold text-caring-green">£134</span>
+                        <span class="text-gray-600">for selection + 6 months monitoring</span>
+                    </div>
+                    <button class="mt-4 primary-cta">
+                        Get Bundle Deal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Testimonials -->
+    <section class="py-20 bg-light-cream">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-text-dark">
+                What Local Families Are Saying
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 border-l-4 border-warmth-orange">
+                    <div class="flex items-start mb-4">
+                        <div class="text-warmth-orange text-xl">★★★★★</div>
+                    </div>
+                    <blockquote class="text-warm-grey mb-4 italic">
+                        "The monthly reports helped us catch a staffing issue at Meadowbank Care Home in Birmingham before it became serious. Worth every penny for the peace of mind."
+                    </blockquote>
+                    <div class="font-semibold">— Sarah M., Birmingham</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border-l-4 border-warmth-orange">
+                    <div class="flex items-start mb-4">
+                        <div class="text-warmth-orange text-xl">★★★★★</div>
+                    </div>
+                    <blockquote class="text-warm-grey mb-4 italic">
+                        "Six months of 'all clear' reports gave us confidence that dad is truly well cared for at Oaklands Residential Home. The regular updates are reassuring."
+                    </blockquote>
+                    <div class="font-semibold">— Michael R., Manchester</div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 border-l-4 border-warmth-orange">
+                    <div class="flex items-start mb-4">
+                        <div class="text-warmth-orange text-xl">★★★★★</div>
+                    </div>
+                    <blockquote class="text-warm-grey mb-4 italic">
+                        "When Riverside Care Home's CQC rating was reviewed, we were notified within days. This service keeps us informed without the constant worry."
+                    </blockquote>
+                    <div class="font-semibold">— Jennifer K., Leeds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 hero-gradient text-white">
+        <div class="floating-elements"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-6">
+                Start Monitoring Your Loved One's Care Today
+            </h2>
+            <p class="text-xl mb-10 text-blue-100">
+                Join families who stay informed without the daily worry
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <button class="primary-cta">
+                    Start from £9/month
+                </button>
+                <a href="/care-home-selector" class="secondary-cta">
+                    Find a Care Home First
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-sm">
+                <span>✓ 30-day money-back guarantee</span>
+                <span>✓ Cancel anytime - no questions asked</span>
+                <span>✓ Free consultation if unsatisfied</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-modal" id="exit-modal">
+        <div class="exit-modal-content">
+            <button class="close-modal" id="close-exit-modal">&times;</button>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Wait! Don't Miss This</h3>
+                <p class="text-lg mb-6 text-gray-700">
+                    Before you go, grab our <strong>free Care Quality Checklist</strong>
+                </p>
+                <p class="text-gray-600 mb-6">
+                    Know exactly what questions to ask and red flags to watch for at your loved one's care home.
+                </p>
+                <div class="flex flex-col gap-3 mb-4">
+                    <input type="email" id="exit-email" placeholder="Enter your email address" 
+                           class="px-4 py-3 border border-gray-300 rounded-lg text-center focus:outline-none focus:border-blue-500">
+                    <button id="exit-download" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition">
+                        Send Me the Free Checklist
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500">Join 500+ families who stay informed about care quality</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-navy text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">RightCareHome</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Helping families make informed decisions about care since 2024.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="trust-badge bg-white/10">
+                            <span class="text-xs">CQC Data Partner</span>
+                        </div>
+                        <div class="trust-badge bg-white/10">
+                            <span class="text-xs">GDPR Compliant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="/care-home-selector" class="hover:text-white">Care Home Selection</a></li>
+                        <li><a href="/monitoring" class="hover:text-white">Care Monitoring</a></li>
+                        <li><a href="/bundle" class="hover:text-white">Bundle Package</a></li>
+                        <li><a href="/reports" class="hover:text-white">Sample Reports</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="#" class="hover:text-white">Care Quality Guide</a></li>
+                        <li><a href="#" class="hover:text-white">CQC Ratings Explained</a></li>
+                        <li><a href="#" class="hover:text-white">What to Look For</a></li>
+                        <li><a href="#" class="hover:text-white">Family Rights</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>📧 monitoring@rightcarehome.co.uk</li>
+                        <li>📞 0800 123 4567</li>
+                        <li>Mon-Fri: 9am-6pm</li>
+                        <li>Sat-Sun: 10am-4pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 RightCareHome. All rights reserved.</p>
+                <p class="mt-2">
+                    <a href="#" class="hover:text-white">Privacy Policy</a> • 
+                    <a href="#" class="hover:text-white">Terms of Service</a> • 
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lead capture functionality
+        let exitIntentShown = false;
+
+        // Header main form handler
+        document.getElementById('header-download-main').addEventListener('click', function() {
+            const email = document.getElementById('header-email-main').value;
+            handleLeadCapture(email, 'header-main');
+        });
+
+        // Exit modal form handler
+        document.getElementById('exit-download').addEventListener('click', function() {
+            const email = document.getElementById('exit-email').value;
+            handleLeadCapture(email, 'exit-intent');
+        });
+
+        // Lead capture processing
+        function handleLeadCapture(email, source) {
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Here you would normally send to your email service
+            console.log('Lead captured:', { email, source, timestamp: new Date().toISOString() });
+            
+            // Show success message
+            showSuccessMessage(source);
+            
+            // Track conversion
+            trackLeadCapture(source, email);
+        }
+
+        function showSuccessMessage(source) {
+            const messages = {
+                'header-main': 'Success! Check your email for the checklist.',
+                'exit-intent': 'Perfect! Your free checklist will arrive in your inbox shortly.'
+            };
+            
+            alert(messages[source] || 'Thank you! Check your email for your free guide.');
+            
+            if (source === 'exit-intent') {
+                hideExitModal();
+            }
+        }
+
+        // Exit intent detection
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                showExitModal();
+            }
+        });
+
+        function showExitModal() {
+            exitIntentShown = true;
+            document.getElementById('exit-modal').classList.add('show');
+        }
+
+        function hideExitModal() {
+            document.getElementById('exit-modal').classList.remove('show');
+        }
+
+        // Close modal handlers
+        document.getElementById('close-exit-modal').addEventListener('click', hideExitModal);
+        document.getElementById('exit-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideExitModal();
+            }
+        });
+
+        // Analytics tracking
+        function trackLeadCapture(source, email) {
+            // Google Analytics 4 event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'event_category': 'Lead Generation',
+                    'event_label': source,
+                    'value': 1
+                });
+            }
+            
+            // Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', { 
+                    source: source,
+                    content_name: 'Care Quality Checklist' 
+                });
+            }
+            
+            console.log('Lead tracked:', { source, email, timestamp: new Date().toISOString() });
+        }
+
+        // Prevent form submission on Enter key
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const formType = this.id.includes('main') ? 'header-download-main' : 
+                                    this.id.includes('exit') ? 'exit-download' : 'header-download';
+                    document.getElementById(formType).click();
+                }
+            });
+        });
+
+        // Add header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 10) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // CTA click tracking
+        document.querySelectorAll('.primary-cta, .secondary-cta').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('CTA clicked:', button.textContent.trim());
+            });
+        });
+
+        // Alternative exit intent trigger after time delay
+        setTimeout(() => {
+            if (!exitIntentShown) {
+                setTimeout(showExitModal, 30000);
+            }
+        }, 60000);
+    </script>
+</body>
+</html>

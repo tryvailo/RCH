@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Home Telephone Enquiry Checklist | RightCareHome Birmingham</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1f2937;
+            background: white;
+        }
+        
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 15mm;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #005EB8 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 14pt;
+            opacity: 0.9;
+        }
+        
+        .intro-box {
+            background: #f0f9ff;
+            border-left: 4px solid #005EB8;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        
+        .intro-box p {
+            font-size: 10.5pt;
+            color: #374151;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            background: #005EB8;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .section-header h2 {
+            font-size: 14pt;
+            font-weight: 600;
+        }
+        
+        .question-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: #005EB8;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+            font-size: 10pt;
+            margin-right: 10px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 11pt;
+        }
+        
+        .answer-space {
+            border-bottom: 1px solid #d1d5db;
+            min-height: 40px;
+            margin-top: 8px;
+        }
+        
+        .answer-label {
+            font-size: 9pt;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        
+        .care-home-section {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .care-home-header {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #059669;
+        }
+        
+        .care-home-name {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 5px;
+        }
+        
+        .care-home-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 10pt;
+            color: #4b5563;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        .tips-box {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 25px;
+        }
+        
+        .tips-box h3 {
+            color: #92400e;
+            font-size: 12pt;
+            margin-bottom: 10px;
+        }
+        
+        .tips-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tips-box li {
+            color: #78350f;
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 10pt;
+        }
+        
+        .tips-box li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            font-size: 9pt;
+            color: #6b7280;
+        }
+        
+        .footer-logo {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #005EB8;
+            margin-bottom: 5px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <h1>Care Home Telephone Enquiry Checklist</h1>
+            <div class="subtitle">Your Guide to Making Informed Care Home Calls</div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="intro-box">
+            <p><strong>How to use this checklist:</strong> Use these 15 questions when calling care homes to ensure you gather all essential information. Take notes in the spaces provided to compare homes effectively.</p>
+        </div>
+        
+        <!-- Care Home Template (repeat for each home) -->
+        <div class="care-home-section">
+            <div class="care-home-header">
+                <div class="care-home-name">Care Home Name: _________________________________</div>
+                <div class="care-home-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Phone:</span> _______________________
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Date Called:</span> _______________________
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Spoke With:</span> _______________________
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Call Back:</span> _______________________
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 1: Availability -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Availability & Immediate Needs</h2>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">1</span>
+                        Do you currently have beds available?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">2</span>
+                        What is your typical admission timeline?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">3</span>
+                        Do you offer trial stays or respite care?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+            
+            <!-- Section 2: Medical & Care -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Medical & Care Services</h2>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">4</span>
+                        What level of nursing care is available on-site?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">5</span>
+                        Do you have experience managing [specific condition]?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">6</span>
+                        How do you coordinate with GPs and specialists?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+            
+            <!-- Section 3: Costs -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Costs & Financial Details</h2>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">7</span>
+                        What exactly is included in the weekly fee?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">8</span>
+                        Are there additional charges for activities, laundry, or hairdressing?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">9</span>
+                        What are your annual fee increase policies?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">10</span>
+                        What deposits or registration fees are required?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+            
+            <!-- Section 4: Daily Life -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Daily Life & Family Involvement</h2>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">11</span>
+                        What are your visiting hours and policies?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">12</span>
+                        What activities and social programmes do you offer?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">13</span>
+                        How do you communicate with families about care and wellbeing?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">14</span>
+                        Can you accommodate special dietary requirements?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+                
+                <div class="question-item">
+                    <div class="question-text">
+                        <span class="question-number">15</span>
+                        When can we arrange a viewing?
+                    </div>
+                    <div class="answer-label">Answer:</div>
+                    <div class="answer-space"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tips Box -->
+        <div class="tips-box">
+            <h3>Professional Tips for Telephone Enquiries</h3>
+            <ul>
+                <li>Call during business hours (9am-5pm) when managers are typically available</li>
+                <li>Have a pen and this checklist ready before calling</li>
+                <li>Ask to speak with the manager or person in charge of admissions</li>
+                <li>Take notes during the call - tone and responsiveness matter</li>
+                <li>Ask for any information to be sent via email for your records</li>
+                <li>Request a brochure or information pack if available</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">RightCareHome.co.uk Birmingham</div>
+            <p>Independent Care Home Selection Service • No Care Home Commissions</p>
+            <p style="margin-top: 8px;">For comprehensive assessment with medical matching and safety analysis, visit rightcarehome.co.uk</p>
+        </div>
+    </div>
+</body>
+</html>

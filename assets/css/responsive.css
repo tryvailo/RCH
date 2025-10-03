@@ -1,0 +1,638 @@
+/* responsive.css - Адаптивные стили [NEW 2024] - ПОЛНАЯ ВЕРСИЯ С СОВРЕМЕННЫМИ УЛУЧШЕНИЯМИ */
+
+/* Web font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ================== СОВРЕМЕННЫЕ ПЕРЕМЕННЫЕ ================== */
+
+:root {
+/* Обновленная цветовая палитра 2024 */
+--primary-modern: #4A90E2;
+--primary-dark-modern: #2C5F8B;
+--accent-modern: #E8B86D;
+--accent-hover-modern: #D4A355;
+--success-modern: #6BBF59;
+--background-modern: #F7F5F3;
+--background-soft-modern: #FAF8F5;
+--text-modern: #2D3748;
+--text-secondary-modern: #4A5568;
+--border-modern: #E2D7CC;
+
+/* Современная типографика */
+--font-family-modern: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+/* Адаптивные размеры */
+--section-padding-desktop: 5rem 0;
+--section-padding-tablet: 4rem 0;
+--section-padding-mobile: 3rem 0;
+--container-padding-desktop: 0 2rem;
+--container-padding-tablet: 0 1.5rem;
+--container-padding-mobile: 0 1rem;
+}
+
+/* ================== DESKTOP И БОЛЬШИЕ ЭКРАНЫ (1200px+) ================== */
+
+@media (min-width: 1200px) {
+.section-container {
+padding: var(--container-padding-desktop);
+max-width: 1400px;  /* Увеличено для современного вида */
+}
+
+.hero-container {
+padding: var(--container-padding-desktop);
+max-width: 1400px;
+}
+
+.hero-headline {
+font-size: 4rem !important;  /* Крупнее на больших экранах */
+font-weight: 900 !important;
+}
+
+.section-title {
+font-size: 3.5rem !important;
+font-weight: 800 !important;
+}
+
+/* Расширенные сетки для больших экранов */
+.grid-4-desktop {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 3rem;
+}
+
+.grid-6-desktop {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+gap: 2rem;
+}
+}
+
+/* ================== ПЛАНШЕТЫ И СРЕДНИЕ ЭКРАНЫ (768px - 1024px) ================== */
+
+@media (max-width: 1024px) {
+
+/* Hero секция адаптация - улучшенная */
+.hero-grid {
+grid-template-columns: 1fr !important;
+gap: 3rem !important;
+text-align: center !important;
+}
+
+.hero-content {
+grid-template-columns: 1fr !important;
+gap: 3rem !important;
+text-align: center !important;
+}
+
+.hero-headline {
+font-size: 2.75rem !important;
+line-height: 1.2 !important;
+margin-bottom: 1.5rem !important;
+}
+
+.hero-subtitle {
+font-size: 1.25rem !important;
+margin-bottom: 2rem !important;
+max-width: 600px !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+
+/* Trust badges центрирование */
+.trust-badges-birmingham,
+.trust-badges {
+justify-content: center !important;
+margin-bottom: 2rem !important;
+flex-wrap: wrap !important;
+gap: 1rem !important;
+}
+
+.hero-trust {
+justify-content: center !important;
+}
+
+/* Секции адаптация */
+.section {
+padding: var(--section-padding-tablet) !important;
+}
+
+.section-container {
+padding: var(--container-padding-tablet) !important;
+}
+
+.section-header {
+margin-bottom: 3rem !important;
+}
+
+.section-title {
+font-size: 2.25rem !important;
+margin-bottom: 1rem !important;
+}
+
+.section-subtitle {
+font-size: 1.125rem !important;
+}
+
+/* Сетки адаптация */
+.grid-2 {
+grid-template-columns: 1fr !important;
+gap: 2.5rem !important;
+}
+
+.grid-3 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2rem !important;
+}
+
+.grid-4 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2rem !important;
+}
+
+/* Footer адаптация */
+.footer-grid {
+grid-template-columns: 1fr 1fr !important;
+gap: 2rem !important;
+}
+
+}
+
+/* ================== СМАРТФОНЫ И МАЛЫЕ ЭКРАНЫ (до 768px) ================== */
+
+@media (max-width: 768px) {
+
+/* Базовые настройки для мобильных */
+:root {
+--font-base-mobile: 20px;  /* Увеличен базовый размер */
+--font-large-mobile: 24px;
+--font-heading-mobile: 32px;
+--touch-target-mobile: 60px;  /* Увеличены touch targets */
+--section-spacing-mobile: 2.5rem;
+}
+
+body {
+font-size: var(--font-base-mobile) !important;
+}
+
+/* Header мобильная адаптация */
+.header-container {
+height: 72px !important;
+padding: 0 1rem !important;
+}
+
+.header-logo h1 {
+font-size: 1.5rem !important;
+}
+
+.header-nav {
+display: none; /* Скрываем навигацию, заменяем на мобильное меню */
+}
+
+/* Mobile navigation button */
+.mobile-nav-toggle {
+display: block !important;
+background: none !important;
+border: none !important;
+font-size: 1.5rem !important;
+color: var(--text-modern) !important;
+cursor: pointer !important;
+padding: 8px !important;
+}
+
+/* Hero секция мобильная */
+.hero {
+padding: 3rem 0 !important;
+}
+
+.hero-container {
+padding: 0 1rem !important;
+}
+
+.hero-headline {
+font-size: 2.25rem !important;
+line-height: 1.2 !important;
+margin-bottom: 1rem !important;
+}
+
+.hero-subtitle {
+font-size: 1.125rem !important;
+line-height: 1.6 !important;
+margin-bottom: 1.5rem !important;
+}
+
+.hero-cta-group {
+flex-direction: column !important;
+gap: 1rem !important;
+align-items: stretch !important;
+}
+
+/* Кнопки мобильная адаптация - РАСШИРЕННЫЕ СТИЛИ */
+.btn,
+.primary-cta,
+.primary-btn,
+.secondary-cta,
+.secondary-btn,
+.emergency-cta,
+.hero-primary-cta,
+.hero-secondary-cta,
+.premium-cta,
+.urgent-cta,
+.checkout-btn {
+min-height: 60px !important;
+font-size: 1.125rem !important;
+padding: 18px 24px !important;
+width: 100% !important;
+border-radius: 12px !important;
+font-weight: 700 !important;
+margin: 0.5rem 0 !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 8px !important;
+}
+
+/* Специальные стили для urgent CTA */
+.emergency-cta,
+.urgent-cta {
+min-height: 64px !important;
+font-size: 1.25rem !important;
+font-weight: 900 !important;
+}
+
+/* Trust badges мобильная */
+.trust-badges,
+.trust-badges-birmingham,
+.hero-trust {
+flex-direction: column !important;
+align-items: center !important;
+gap: 1rem !important;
+margin: 2rem 0 !important;
+}
+
+.trust-badge,
+.trust-badge-hero {
+width: 100% !important;
+max-width: 300px !important;
+justify-content: center !important;
+padding: 1rem !important;
+}
+
+/* Секции мобильная адаптация */
+.section {
+padding: var(--section-padding-mobile) !important;
+}
+
+.section-container {
+padding: var(--container-padding-mobile) !important;
+}
+
+.section-title {
+font-size: 2rem !important;
+line-height: 1.3 !important;
+margin-bottom: 1rem !important;
+}
+
+.section-subtitle {
+font-size: 1.125rem !important;
+}
+
+.section-header {
+margin-bottom: 2.5rem !important;
+}
+
+/* Все сетки в одну колонку */
+.grid-2,
+.grid-3,
+.grid-4,
+.metrics-grid,
+.features-grid,
+.testimonials-grid {
+grid-template-columns: 1fr !important;
+gap: 2rem !important;
+}
+
+/* Карточки мобильная адаптация */
+.card,
+.ranking-card,
+.metric-card,
+.testimonial,
+.feature-card {
+padding: 1.5rem !important;
+margin-bottom: 1.5rem !important;
+}
+
+/* Формы мобильная адаптация */
+.form-input,
+.form-select,
+.form-textarea {
+min-height: 56px !important;
+font-size: 1.125rem !important;
+padding: 16px 20px !important;
+}
+
+.form-label {
+font-size: 1.125rem !important;
+font-weight: 600 !important;
+}
+
+/* Tables на мобильных */
+.comparison-table {
+display: block !important;
+overflow-x: auto !important;
+white-space: nowrap !important;
+}
+
+.comparison-table th,
+.comparison-table td {
+padding: 1rem 0.75rem !important;
+font-size: 0.875rem !important;
+}
+
+/* Footer мобильная адаптация */
+.footer {
+padding: 3rem 0 2rem !important;
+}
+
+.footer-container {
+padding: 0 1rem !important;
+}
+
+.footer-grid {
+grid-template-columns: 1fr !important;
+gap: 2rem !important;
+text-align: center !important;
+}
+
+/* Progress indicators мобильная */
+.progress-steps,
+.step-progress {
+flex-direction: column !important;
+gap: 1.5rem !important;
+}
+
+.progress-line {
+display: none !important;
+}
+
+.step-circle,
+.progress-circle {
+width: 56px !important;
+height: 56px !important;
+}
+
+}
+
+/* ================== ОЧЕНЬ МАЛЫЕ ЭКРАНЫ (до 480px) ================== */
+
+@media (max-width: 480px) {
+
+/* Еще более крупные размеры для очень малых экранов */
+:root {
+--font-base-small: 22px;
+--font-large-small: 26px;
+--font-heading-small: 28px;
+--touch-target-small: 64px;
+}
+
+body {
+font-size: var(--font-base-small) !important;
+}
+
+/* Header очень малые экраны */
+.header-container {
+height: 68px !important;
+padding: 0 0.75rem !important;
+}
+
+.header-logo h1 {
+font-size: 1.25rem !important;
+}
+
+/* Hero очень малые экраны */
+.hero {
+padding: 2.5rem 0 !important;
+}
+
+.hero-headline {
+font-size: 1.875rem !important;
+line-height: 1.2 !important;
+}
+
+.hero-subtitle {
+font-size: 1rem !important;
+}
+
+/* Кнопки для очень малых экранов */
+.btn,
+.primary-cta,
+.hero-primary-cta,
+.checkout-btn {
+min-height: var(--touch-target-small) !important;
+font-size: 1.25rem !important;
+padding: 20px !important;
+}
+
+/* Секции очень малые экраны */
+.section-container {
+padding: 0 0.75rem !important;
+}
+
+.section-title {
+font-size: 1.75rem !important;
+}
+
+.section-subtitle {
+font-size: 1rem !important;
+}
+
+/* Карточки очень малые экраны */
+.card,
+.ranking-card {
+padding: 1.25rem !important;
+}
+
+/* Формы очень малые экраны */
+.form-section {
+padding: 1.5rem !important;
+}
+
+.form-input {
+min-height: 60px !important;
+padding: 18px !important;
+}
+
+}
+
+/* ================== АДАПТАЦИЯ ДЛЯ СТАРШИХ ПОЛЬЗОВАТЕЛЕЙ ================== */
+
+@media (max-width: 768px) {
+
+/* Специальные стили для пользователей 55+ на мобильных */
+.age-55-optimized {
+/* Увеличенные touch targets */
+--touch-comfortable: 68px;
+--touch-large: 76px;
+
+/* Увеличенные шрифты */
+--font-base-55: 24px;
+--font-large-55: 28px;
+--font-heading-55: 32px;
+
+/* Увеличенные отступы */
+--spacing-comfortable: 2rem;
+--spacing-large: 3rem;
+}
+
+/* Кнопки для 55+ на мобильных */
+.btn-55-mobile,
+.primary-cta.age-55,
+.emergency-cta.age-55 {
+min-height: 68px !important;
+font-size: 1.375rem !important;
+padding: 22px 28px !important;
+font-weight: 800 !important;
+}
+
+/* Формы для 55+ на мобильных */
+.form-input.age-55 {
+min-height: 64px !important;
+font-size: 1.25rem !important;
+padding: 20px !important;
+border-width: 3px !important;
+}
+
+/* Увеличенные отступы между интерактивными элементами */
+.interactive-elements-55 > * {
+margin-bottom: 2rem !important;
+}
+
+}
+
+/* ================== LANDSCAPE ОРИЕНТАЦИЯ ================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+.hero {
+padding: 2rem 0 !important;
+}
+
+.hero-headline {
+font-size: 2rem !important;
+}
+
+.section {
+padding: 2.5rem 0 !important;
+}
+
+/* Кнопки в landscape немного меньше */
+.btn,
+.primary-cta {
+min-height: 52px !important;
+}
+
+}
+
+/* ================== TABLET PORTRAIT (768px - 1024px) ================== */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+/* Специальные стили для планшетов в portrait */
+.hero-headline {
+font-size: 3rem !important;
+}
+
+.section-title {
+font-size: 2.5rem !important;
+}
+
+/* Кнопки на планшетах */
+.btn,
+.primary-cta {
+min-height: 56px !important;
+font-size: 1.125rem !important;
+padding: 16px 32px !important;
+}
+
+/* Grid для планшетов в portrait */
+.grid-3 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2.5rem !important;
+}
+
+.grid-4 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2rem !important;
+}
+
+}
+
+/* ================== ACCESSIBILITY УЛУЧШЕНИЯ ================== */
+
+/* Поддержка уменьшенной анимации */
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}
+}
+
+/* Высокий контраст */
+@media (prefers-contrast: high) {
+:root {
+--primary-modern: #003399 !important;
+--text-modern: #000000 !important;
+--background-modern: #ffffff !important;
+--border-modern: #666666 !important;
+}
+
+.btn,
+.primary-cta {
+border: 3px solid currentColor !important;
+}
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+:root {
+--background-modern: #1a1a1a !important;
+--background-soft-modern: #2d2d2d !important;
+--text-modern: #ffffff !important;
+--text-secondary-modern: #cccccc !important;
+--border-modern: #444444 !important;
+}
+}
+
+/* ================== PRINT СТИЛИ ================== */
+
+@media print {
+.header,
+.footer,
+.btn,
+.primary-cta,
+.secondary-cta {
+display: none !important;
+}
+
+.section {
+padding: 1rem 0 !important;
+}
+
+.section-title {
+font-size: 1.5rem !important;
+color: #000000 !important;
+}
+
+body {
+font-size: 12pt !important;
+color: #000000 !important;
+background: #ffffff !important;
+}
+
+.card,
+.ranking-card {
+border: 1px solid #000000 !important;
+break-inside: avoid !important;
+}
+}

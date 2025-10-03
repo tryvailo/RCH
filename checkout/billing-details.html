@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Details | RightCareHome Checkout</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-navy': '#1e293b',
+                        'caring-green': '#059669',
+                        'warmth-orange': '#f59e0b',
+                        'warm-grey': '#64748b',
+                        'light-cream': '#fefce8'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .required-mark {
+            color: #ef4444;
+            margin-left: 0.25rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-input.error {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.25rem;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            font-weight: 400;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .order-summary {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e5e7eb;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #6b7280;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #059669;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .info-box p {
+            color: #1e40af;
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-light-cream">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>RightCareHome</h1>
+                <span class="text-sm text-warm-grey">.co.uk</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <!-- Progress Indicator -->
+            <div class="mb-12">
+                <div class="flex justify-center items-center gap-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-caring-green text-white flex items-center justify-center font-bold">✓</div>
+                        <span class="ml-2 text-caring-green">Package</span>
+                    </div>
+                    <div class="w-16 h-1 bg-caring-green"></div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-caring-green text-white flex items-center justify-center font-bold">2</div>
+                        <span class="ml-2 font-semibold text-caring-green">Your Details</span>
+                    </div>
+                    <div class="w-16 h-1 bg-gray-200"></div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center font-bold">3</div>
+                        <span class="ml-2 text-gray-400">Payment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Link -->
+            <a href="/checkout/" class="back-link">
+                ← Back to package selection
+            </a>
+
+            <!-- DEV: Quick Test Fill Button -->
+            <div class="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <button type="button" id="fillTestData" class="text-sm bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                    🧪 Fill Test Data (DEV)
+                </button>
+                <span class="text-xs text-gray-600 ml-2">Click to auto-fill form with test data</span>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                
+                <!-- Order Summary -->
+                <div class="order-summary" id="orderSummary">
+                    <h3 class="text-xl font-bold text-text-dark mb-4">Order Summary</h3>
+                    <div class="summary-row">
+                        <span id="packageName">Standard Assessment</span>
+                        <span id="packagePrice">£99.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="totalPrice">£99.00</span>
+                    </div>
+                </div>
+
+                <!-- Info Box -->
+                <div class="info-box">
+                    <p>
+                        <strong>🔒 Secure Checkout:</strong> Your information is encrypted and never shared with third parties. You'll complete payment on the next page.
+                    </p>
+                </div>
+
+                <!-- Billing Form -->
+                <form id="billingForm" novalidate>
+                    
+                    <h2 class="text-2xl font-bold text-text-dark mb-6">Your Contact Details</h2>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName">
+                            Full Name <span class="required-mark">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            class="form-input" 
+                            placeholder="John Smith"
+                            required
+                            autocomplete="name"
+                        >
+                        <div class="error-message" id="fullNameError">Please enter your full name</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address <span class="required-mark">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="john.smith@example.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span class="required-mark">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            class="form-input" 
+                            placeholder="07700 900000"
+                            required
+                            autocomplete="tel"
+                        >
+                        <div class="error-message" id="phoneError">Please enter a valid UK phone number</div>
+                    </div>
+
+                    <!-- Postcode -->
+                    <div class="form-group">
+                        <label for="postcode">
+                            Postcode <span class="required-mark">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="postcode" 
+                            name="postcode" 
+                            class="form-input" 
+                            placeholder="B1 1AA"
+                            required
+                            autocomplete="postal-code"
+                        >
+                        <div class="error-message" id="postcodeError">Please enter a valid UK postcode</div>
+                    </div>
+
+                    <!-- City/Area -->
+                    <div class="form-group">
+                        <label for="city">
+                            City/Area <span class="required-mark">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="city" 
+                            name="city" 
+                            class="form-input" 
+                            placeholder="Birmingham"
+                            required
+                            autocomplete="address-level2"
+                        >
+                        <div class="error-message" id="cityError">Please enter your city or area</div>
+                    </div>
+
+                    <!-- GDPR Consents -->
+                    <div class="form-group" style="margin-top: 2.5rem;">
+                        
+                        <div class="checkbox-group">
+                            <input 
+                                type="checkbox" 
+                                id="termsConsent" 
+                                name="termsConsent" 
+                                required
+                            >
+                            <label for="termsConsent">
+                                I agree to the <a href="/terms/" target="_blank" class="text-caring-green underline">Terms of Service</a> and <a href="/privacy-policy/" target="_blank" class="text-caring-green underline">Privacy Policy</a> <span class="required-mark">*</span>
+                            </label>
+                        </div>
+                        <div class="error-message" id="termsError">You must agree to the terms to continue</div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input 
+                                type="checkbox" 
+                                id="marketingConsent" 
+                                name="marketingConsent"
+                            >
+                            <label for="marketingConsent">
+                                I would like to receive helpful care home advice and updates via email (you can unsubscribe anytime)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Continue to Payment →
+                    </button>
+
+                    <p class="text-center text-sm text-warm-grey mt-4">
+                        🔒 SSL Secured • Your data is encrypted
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="text-center text-gray-400">
+                <p>© 2025 RightCareHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load package details from sessionStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const packageType = sessionStorage.getItem('selectedPackage');
+            const packagePrice = sessionStorage.getItem('selectedPrice');
+
+            // If no package selected, set defaults for testing
+            if (!packageType || !packagePrice) {
+                // For testing: set default values instead of redirecting
+                sessionStorage.setItem('selectedPackage', 'standard');
+                sessionStorage.setItem('selectedPrice', '99');
+                
+                document.getElementById('packageName').textContent = 'Standard Assessment';
+                document.getElementById('packagePrice').textContent = '£99.00';
+                document.getElementById('totalPrice').textContent = '£99.00';
+                
+                console.warn('No package selected - using default values');
+                return;
+            }
+
+            // Update order summary
+            const packageName = packageType === 'premium' ? 'Premium Assessment' : 'Standard Assessment';
+            document.getElementById('packageName').textContent = packageName;
+            document.getElementById('packagePrice').textContent = `£${packagePrice}.00`;
+            document.getElementById('totalPrice').textContent = `£${packagePrice}.00`;
+        });
+
+        // DEV: Fill test data button
+        document.getElementById('fillTestData').addEventListener('click', function() {
+            document.getElementById('fullName').value = 'John Smith';
+            document.getElementById('email').value = 'john.smith@example.com';
+            document.getElementById('phone').value = '07700 900123';
+            document.getElementById('postcode').value = 'B1 1AA';
+            document.getElementById('city').value = 'Birmingham';
+            document.getElementById('termsConsent').checked = true;
+            
+            // Clear any errors
+            document.querySelectorAll('.form-input.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.error-message.show').forEach(el => el.classList.remove('show'));
+            
+            this.textContent = '✓ Test Data Filled';
+            this.style.background = '#059669';
+            setTimeout(() => {
+                this.textContent = '🧪 Fill Test Data (DEV)';
+                this.style.background = '';
+            }, 2000);
+        });
+
+        // Form validation
+        const form = document.getElementById('billingForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Validation functions
+        const validators = {
+            fullName: (value) => value.trim().length >= 2 && /\s/.test(value.trim()),
+            email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+            phone: (value) => /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/.test(value.replace(/\s/g, '')),
+            postcode: (value) => /^[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i.test(value.trim()),
+            city: (value) => value.trim().length >= 2
+        };
+
+        // Real-time validation
+        ['fullName', 'email', 'phone', 'postcode', 'city'].forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(`${fieldId}Error`);
+
+            field.addEventListener('blur', () => {
+                if (!validators[fieldId](field.value)) {
+                    field.classList.add('error');
+                    errorDiv.classList.add('show');
+                } else {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+
+            field.addEventListener('input', () => {
+                if (field.classList.contains('error') && validators[fieldId](field.value)) {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Validate all fields
+            ['fullName', 'email', 'phone', 'postcode', 'city'].forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorDiv = document.getElementById(`${fieldId}Error`);
+
+                if (!validators[fieldId](field.value)) {
+                    field.classList.add('error');
+                    errorDiv.classList.add('show');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+
+            // Check terms consent
+            const termsConsent = document.getElementById('termsConsent');
+            const termsError = document.getElementById('termsError');
+            
+            if (!termsConsent.checked) {
+                termsError.classList.add('show');
+                isValid = false;
+            } else {
+                termsError.classList.remove('show');
+            }
+
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.form-input.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
+
+            // Save form data to sessionStorage
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                postcode: document.getElementById('postcode').value,
+                city: document.getElementById('city').value,
+                marketingConsent: document.getElementById('marketingConsent').checked,
+                timestamp: new Date().toISOString()
+            };
+
+            sessionStorage.setItem('billingDetails', JSON.stringify(formData));
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            // Redirect to payment page
+            setTimeout(() => {
+                window.location.href = '/checkout/payment.html';
+            }, 500);
+        });
+
+        // Auto-save to prevent data loss
+        let autoSaveTimeout;
+        form.addEventListener('input', () => {
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(() => {
+                const draftData = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    postcode: document.getElementById('postcode').value,
+                    city: document.getElementById('city').value
+                };
+                sessionStorage.setItem('billingDraft', JSON.stringify(draftData));
+            }, 1000);
+        });
+
+        // Restore draft on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const draft = sessionStorage.getItem('billingDraft');
+            if (draft) {
+                const data = JSON.parse(draft);
+                Object.keys(data).forEach(key => {
+                    const field = document.getElementById(key);
+                    if (field && data[key]) {
+                        field.value = data[key];
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

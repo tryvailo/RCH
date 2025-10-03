@@ -1,0 +1,352 @@
+/* RightCareHome Basic Report Styles */
+
+/* Base Styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+/* Header Gradient */
+.report-header {
+    background: linear-gradient(135deg, #0A1628 0%, #1E3A5F 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Standard Cards */
+.standard-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.standard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #005EB8, #059669);
+}
+
+.standard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Ranking Card */
+.ranking-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e5e7eb;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.ranking-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    border-color: #005EB8;
+}
+
+.top-recommendation {
+    border-color: #005EB8;
+    background: linear-gradient(135deg, #fefce8 0%, #eff6ff 100%);
+}
+
+/* Comparison Table */
+.comparison-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+.comparison-table th {
+    background: linear-gradient(135deg, #005EB8 0%, #0066cc 100%);
+    color: white;
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.comparison-table td {
+    padding: 1.25rem;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+}
+
+.comparison-table tr:hover td {
+    background: #f8fafc;
+    transform: scale(1.01);
+}
+
+/* Calculator Section */
+.calculator-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px solid #059669;
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #005EB8, #059669);
+}
+
+.calc-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+
+.calc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    border-color: #005EB8;
+}
+
+/* Progress Bars */
+.progress-bar {
+    background: #e5e7eb;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #005EB8, #059669);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Data Quality Badges */
+.data-quality {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.data-quality.verified {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    border: 1px solid #3B82F6;
+}
+
+.data-quality.high {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid #10B981;
+}
+
+.data-quality.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+    border: 1px solid #F59E0B;
+}
+
+.data-quality.limited {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid #EF4444;
+}
+
+/* Summary Box */
+.summary-box {
+    background: linear-gradient(135deg, #0A1628, #1E3A5F);
+    color: white;
+    padding: 32px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+/* PDF Download Button */
+.pdf-download-btn {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border: 2px solid #f59e0b;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+    cursor: pointer;
+}
+
+.pdf-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+/* Action Items */
+.action-item {
+    background: #f0fdf4;
+    border-left: 4px solid #059669;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.action-item:hover {
+    background: #ecfdf5;
+    transform: translateX(4px);
+}
+
+/* Scenario Buttons */
+.scenario-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.scenario-btn:hover {
+    background: #f8fafc;
+    border-color: #005EB8;
+}
+
+.scenario-btn.active {
+    background: rgba(0, 94, 184, 0.1);
+    border-color: #005EB8;
+    color: #005EB8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .standard-card, .calc-card, .ranking-card {
+        padding: 16px;
+    }
+    
+    body {
+        font-size: 1rem;
+    }
+    
+    .pdf-download-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .pdf-download-btn::after {
+        content: "📄";
+        font-size: 24px;
+    }
+    
+    .pdf-download-btn span {
+        display: none;
+    }
+    
+    .comparison-table {
+        font-size: 0.875rem;
+        min-width: 600px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+    
+    .report-header {
+        background: linear-gradient(135deg, #0A1628, #1E3A5F) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

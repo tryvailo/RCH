@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed | RightCareHome</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'caring-green': '#059669',
+                        'warm-grey': '#64748b',
+                        'light-cream': '#fefce8'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fix missing base styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #005EB8;
+            margin: 0;
+        }
+
+        .text-text-dark {
+            color: #1f2937;
+        }
+
+        .failed-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .failed-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: shake 0.5s ease-out;
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3);
+        }
+
+        .failed-icon svg {
+            width: 60px;
+            height: 60px;
+            stroke: white;
+            stroke-width: 4;
+            stroke-linecap: round;
+            fill: none;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .error-details {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .error-details p {
+            color: #991b1b;
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+
+        .common-issues {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .issue-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .issue-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .issue-icon {
+            color: #3b82f6;
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .retry-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+        }
+
+        .contact-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-light-cream">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>RightCareHome</h1>
+                <span class="text-sm text-warm-grey">.co.uk</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-4">
+        <div class="failed-container">
+            
+            <!-- Failed Icon -->
+            <div class="failed-icon">
+                <svg viewBox="0 0 52 52">
+                    <line x1="16" y1="16" x2="36" y2="36"/>
+                    <line x1="36" y1="16" x2="16" y2="36"/>
+                </svg>
+            </div>
+
+            <!-- Failed Message -->
+            <h1 class="text-4xl font-bold text-text-dark mb-4">Payment Not Completed</h1>
+            <p class="text-xl text-warm-grey mb-6">
+                We couldn't process your payment. Don't worry, no charges were made to your account.
+            </p>
+
+            <!-- Error Details -->
+            <div class="error-details">
+                <p><strong>Error:</strong> <span id="errorMessage">Payment was declined or cancelled</span></p>
+            </div>
+
+            <!-- Common Issues -->
+            <div class="common-issues">
+                <h3 class="text-lg font-bold text-text-dark mb-3">Common Issues & Solutions</h3>
+                
+                <div class="issue-item">
+                    <span class="issue-icon">💳</span>
+                    <div>
+                        <strong class="text-text-dark">Insufficient Funds</strong>
+                        <p class="text-warm-grey text-sm">Ensure your card has sufficient balance</p>
+                    </div>
+                </div>
+
+                <div class="issue-item">
+                    <span class="issue-icon">🔒</span>
+                    <div>
+                        <strong class="text-text-dark">Card Declined</strong>
+                        <p class="text-warm-grey text-sm">Contact your bank to authorize online payments</p>
+                    </div>
+                </div>
+
+                <div class="issue-item">
+                    <span class="issue-icon">📝</span>
+                    <div>
+                        <strong class="text-text-dark">Incorrect Details</strong>
+                        <p class="text-warm-grey text-sm">Double-check card number, expiry date, and CVV</p>
+                    </div>
+                </div>
+
+                <div class="issue-item">
+                    <span class="issue-icon">🌍</span>
+                    <div>
+                        <strong class="text-text-dark">International Card</strong>
+                        <p class="text-warm-grey text-sm">Ensure your card supports UK transactions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-8">
+                <a href="/checkout/payment.html" class="retry-button">
+                    Try Payment Again →
+                </a>
+                <p class="text-sm text-warm-grey mt-4">
+                    Your order details have been saved. You can retry immediately.
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <a href="/checkout/billing-details.html" class="text-caring-green underline text-sm">
+                    ← Update billing details
+                </a>
+                <span class="text-warm-grey mx-2">•</span>
+                <a href="/checkout/" class="text-caring-green underline text-sm">
+                    Change package
+                </a>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="contact-box">
+                <h4 class="text-lg font-bold text-text-dark mb-2">Need Assistance?</h4>
+                <p class="text-warm-grey text-sm mb-4">
+                    If you continue experiencing issues, our team is here to help. We can process your payment manually or offer alternative payment methods.
+                </p>
+                <p class="text-sm mb-2">
+                    <strong>Email:</strong> <a href="mailto:hello@rightcarehome.co.uk" class="text-caring-green font-semibold">hello@rightcarehome.co.uk</a>
+                </p>
+                <p class="text-sm text-warm-grey">
+                    We typically respond within 2 hours during business hours (Mon-Fri, 9am-6pm)
+                </p>
+            </div>
+
+            <!-- Alternative Payment Info -->
+            <div class="info-box mt-4">
+                <h4 class="text-lg font-bold text-text-dark mb-2">Alternative Payment Methods</h4>
+                <p class="text-warm-grey text-sm">
+                    If you prefer, you can also pay via:
+                </p>
+                <ul class="text-left mt-3 space-y-2 text-sm">
+                    <li class="flex items-start">
+                        <span class="text-caring-green mr-2">•</span>
+                        <span>Bank transfer (BACS)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-caring-green mr-2">•</span>
+                        <span>PayPal (contact us for invoice)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-caring-green mr-2">•</span>
+                        <span>Phone payment with our team</span>
+                    </li>
+                </ul>
+                <p class="text-sm text-warm-grey mt-3">
+                    Contact us at <a href="mailto:hello@rightcarehome.co.uk" class="text-caring-green underline">hello@rightcarehome.co.uk</a> to arrange alternative payment
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Display specific error message if available
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get('error');
+            
+            if (errorParam) {
+                const errorMessages = {
+                    'card_declined': 'Your card was declined. Please try a different payment method.',
+                    'insufficient_funds': 'Insufficient funds. Please use a different card.',
+                    'expired_card': 'Your card has expired. Please use a different card.',
+                    'incorrect_cvc': 'Incorrect security code (CVV). Please check and try again.',
+                    'processing_error': 'A processing error occurred. Please try again.',
+                    'cancelled': 'Payment was cancelled. Your order is still available.'
+                };
+                
+                const message = errorMessages[errorParam] || 'Payment could not be processed. Please try again.';
+                document.getElementById('errorMessage').textContent = message;
+            }
+
+            // Check if session data still exists
+            const packageType = sessionStorage.getItem('selectedPackage');
+            if (!packageType) {
+                // If session expired, show different message
+                document.querySelector('.failed-container h1').textContent = 'Session Expired';
+                document.querySelector('.failed-container .text-xl').textContent = 
+                    'Your session has expired. Please start your order again.';
+                document.querySelector('.retry-button').textContent = 'Start New Order';
+                document.querySelector('.retry-button').href = '/checkout/';
+            }
+        });
+
+        // Track failed payment for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'payment_failed', {
+                'event_category': 'checkout',
+                'event_label': sessionStorage.getItem('selectedPackage')
+            });
+        }
+    </script>
+
+</body>
+</html>

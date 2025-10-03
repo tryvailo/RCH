@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error | RightCareHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-2xl w-full text-center">
+            <div class="mb-8">
+                <div class="text-6xl mb-6">⚠️</div>
+                <h1 class="text-6xl font-bold text-red-600 mb-4">500</h1>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Server Error</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Something went wrong on our end. We're working to fix it as quickly as possible.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-semibold mb-4">What you can do:</h3>
+                <ul class="text-left space-y-3 text-gray-700">
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-600">•</span>
+                        <span>Wait a few minutes and try refreshing the page</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-600">•</span>
+                        <span>Check our <a href="/" class="text-blue-600 hover:underline">homepage</a> to see if the service is available</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-600">•</span>
+                        <span>Contact us at <a href="mailto:support@rightcarehome.co.uk" class="text-blue-600 hover:underline">support@rightcarehome.co.uk</a> if the problem persists</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4 justify-center">
+                <button onclick="location.reload()" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Try Again
+                </button>
+                <a href="/" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                    Go Home
+                </a>
+            </div>
+
+            <div class="mt-8 text-sm text-gray-500">
+                <p>Error Reference: <code id="error-ref" class="bg-gray-100 px-2 py-1 rounded">ERR-500-<?php echo date('YmdHis'); ?></code></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate error reference
+        document.getElementById('error-ref').textContent = 'ERR-500-' + Date.now();
+    </script>
+</body>
+</html>

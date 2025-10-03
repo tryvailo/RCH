@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | RightCareHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-2xl w-full text-center">
+            <div class="mb-8">
+                <h1 class="text-9xl font-bold text-blue-600 mb-4">404</h1>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Sorry, we couldn't find the page you're looking for. The link may be broken or the page may have been moved.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-semibold mb-4">Looking for something?</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">🏠</div>
+                        <div class="font-semibold text-gray-800">Homepage</div>
+                        <div class="text-sm text-gray-600">Return to homepage</div>
+                    </a>
+                    <a href="/questionnaire/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">📋</div>
+                        <div class="font-semibold text-gray-800">Assessment</div>
+                        <div class="text-sm text-gray-600">Start care assessment</div>
+                    </a>
+                    <a href="/birmingham/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">📍</div>
+                        <div class="font-semibold text-gray-800">Birmingham</div>
+                        <div class="text-sm text-gray-600">Local care homes</div>
+                    </a>
+                    <a href="mailto:support@rightcarehome.co.uk" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">💬</div>
+                        <div class="font-semibold text-gray-800">Contact Us</div>
+                        <div class="text-sm text-gray-600">Get help</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-sm text-gray-500">
+                <p>If you believe this is an error, please <a href="mailto:support@rightcarehome.co.uk" class="text-blue-600 hover:underline">contact our support team</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Log 404 for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_not_found', {
+                'page_location': window.location.href,
+                'page_referrer': document.referrer
+            });
+        }
+    </script>
+</body>
+</html>

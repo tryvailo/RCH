@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Assessment | RightCareHome Checkout</title>
+    <meta name="description" content="Select your care home assessment package - Standard £99 or Premium £149">
+    
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-navy': '#1e293b',
+                        'primary-blue': '#2563eb',
+                        'nhs-blue': '#005EB8',
+                        'caring-green': '#059669',
+                        'warmth-orange': '#f59e0b',
+                        'warm-grey': '#64748b',
+                        'light-cream': '#fefce8'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .package-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .package-card.selected {
+            border-color: #059669;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+        }
+
+        .package-card.recommended {
+            border: 2px solid #f59e0b;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .price-display {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 1rem 0;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+        }
+
+        .continue-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #4b5563;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #059669;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-light-cream">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>RightCareHome</h1>
+                <span class="text-sm text-warm-grey">.co.uk</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <!-- Progress Indicator -->
+            <div class="mb-12">
+                <div class="flex justify-center items-center gap-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-caring-green text-white flex items-center justify-center font-bold">1</div>
+                        <span class="ml-2 font-semibold text-caring-green">Choose Package</span>
+                    </div>
+                    <div class="w-16 h-1 bg-gray-200"></div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center font-bold">2</div>
+                        <span class="ml-2 text-gray-400">Your Details</span>
+                    </div>
+                    <div class="w-16 h-1 bg-gray-200"></div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center font-bold">3</div>
+                        <span class="ml-2 text-gray-400">Payment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Title -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-text-dark mb-4">Choose Your Assessment Package</h2>
+                <p class="text-xl text-warm-grey max-w-2xl mx-auto">
+                    Select the assessment level that best matches your needs. Both include our 48-hour delivery guarantee.
+                </p>
+            </div>
+
+            <!-- Package Selection Grid -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                
+                <!-- Standard Package -->
+                <div class="package-card" data-package="standard" data-price="99">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">✨</div>
+                        <h3 class="text-2xl font-bold text-text-dark mb-2">Standard Assessment</h3>
+                        <p class="text-warm-grey mb-4">Quick & safety-focused</p>
+                        <div class="price-display">£99</div>
+                        <p class="text-sm text-warm-grey">One-time payment</p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li>Ideal for most situations</li>
+                        <li>Expert matching on core needs</li>
+                        <li>5 personalised care home recommendations</li>
+                        <li>CQC ratings & quality analysis</li>
+                        <li>Essential safety questions checklist</li>
+                        <li>Hidden costs breakdown</li>
+                        <li>48-hour delivery guarantee</li>
+                    </ul>
+
+                    <button type="button" class="continue-btn" onclick="selectPackage('standard', 99)">
+                        Continue with Standard
+                    </button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="package-card recommended" data-package="premium" data-price="149">
+                    <div class="recommended-badge">MOST POPULAR</div>
+                    
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">💎</div>
+                        <h3 class="text-2xl font-bold text-text-dark mb-2">Premium Assessment</h3>
+                        <p class="text-warm-grey mb-4">In-depth & comprehensive</p>
+                        <div class="price-display">£149</div>
+                        <p class="text-sm text-warm-grey">One-time payment</p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li>Recommended for complex cases</li>
+                        <li>Comprehensive analysis of ALL needs</li>
+                        <li>8 personalised care home recommendations</li>
+                        <li>Detailed cultural & social matching</li>
+                        <li>Advanced medical needs analysis</li>
+                        <li>Complete financial planning guide</li>
+                        <li>Priority 24-hour delivery</li>
+                        <li>Direct phone consultation available</li>
+                    </ul>
+
+                    <button type="button" class="continue-btn" onclick="selectPackage('premium', 149)">
+                        Continue with Premium
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Money-Back Guarantee -->
+            <div class="bg-white rounded-2xl p-8 max-w-3xl mx-auto shadow-lg">
+                <div class="text-center">
+                    <div class="text-3xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold text-text-dark mb-3">Our 48-Hour Guarantee</h3>
+                    <p class="text-lg text-warm-grey mb-4">
+                        If we don't deliver your personalised care home report within 48 hours of completing your assessment, you receive a <strong>full refund</strong> – no questions asked.
+                    </p>
+                    <p class="text-sm text-warm-grey">
+                        Plus, we're entirely independent. We never receive commissions from care homes, ensuring our recommendations are genuinely in your best interest.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="security-badge">
+                    <span>🔒</span>
+                    <span>Secure Checkout</span>
+                </div>
+                <div class="security-badge">
+                    <span>💳</span>
+                    <span>Stripe Payment</span>
+                </div>
+                <div class="security-badge">
+                    <span>🏥</span>
+                    <span>NHS Trusted</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="text-center text-gray-400">
+                <p class="mb-2">© 2025 RightCareHome. All rights reserved.</p>
+                <p class="text-sm">
+                    <a href="/privacy-policy/" class="hover:text-white">Privacy Policy</a> • 
+                    <a href="/terms/" class="hover:text-white">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectPackage(packageType, price) {
+            // Save selection to sessionStorage
+            sessionStorage.setItem('selectedPackage', packageType);
+            sessionStorage.setItem('selectedPrice', price);
+            
+            // Visual feedback
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            const selectedCard = document.querySelector(`[data-package="${packageType}"]`);
+            selectedCard.classList.add('selected');
+            
+            // Redirect to billing details after brief delay
+            setTimeout(() => {
+                window.location.href = '/checkout/billing-details.html';
+            }, 300);
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const focusedButton = document.activeElement;
+                if (focusedButton.classList.contains('continue-btn')) {
+                    focusedButton.click();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+/* thank-you.css - Thank you page specific styles */
+
+/* Base Styles for Thank You Page */
+.thank-you-page body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fefce8;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* Success Elements Specific to Thank You Page */
+.thank-you-page .success-checkmark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #059669, #047857);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.thank-you-page .success-checkmark::after {
+    content: '';
+    width: 25px;
+    height: 45px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    animation: checkmark 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+/* Timeline Styles for Thank You Page */
+.thank-you-page .timeline-step {
+    background: white;
+    border-left: 4px solid #f59e0b;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.thank-you-page .timeline-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.thank-you-page .step-number {
+    background: #f59e0b;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+/* Contact Card for Thank You Page */
+.thank-you-page .contact-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #0284c7;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Feature Cards for Thank You Page */
+.thank-you-page .feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.thank-you-page .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.thank-you-page .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Reference Number Display */
+.reference-number-display {
+    background: white;
+    border: 2px solid #059669;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.reference-number-display .reference-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.reference-number-display .reference-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #059669;
+    letter-spacing: 0.5px;
+}
+
+.reference-number-display .reference-note {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-top: 0.5rem;
+}
+
+/* Resource Cards for Thank You Page */
+.resource-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.resource-card h4 {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.resource-card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.resource-card a {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.resource-card a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Mobile Responsive for Thank You Page */
+@media (max-width: 768px) {
+    .thank-you-page .timeline-step {
+        padding: 1rem;
+    }
+    
+    .thank-you-page .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+        margin-right: 0.75rem;
+    }
+    
+    .thank-you-page .contact-card {
+        padding: 1.5rem;
+    }
+
+    .thank-you-page .feature-card {
+        padding: 1rem;
+    }
+
+    .resource-card {
+        padding: 1.25rem;
+    }
+    
+    .reference-number-display {
+        margin: 1.5rem auto;
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-page .timeline-step .flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .thank-you-page .step-number {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .resource-card {
+        padding: 1rem;
+    }
+    
+    .resource-card h4 {
+        font-size: 1rem;
+    }
+    
+    .resource-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Grid layouts for thank you page */
+.thank-you-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.thank-you-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Special styling for guarantee badge on thank you page */
+.thank-you-page .guarantee-badge {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+/* Enhanced styling for main title on thank you page */
+.thank-you-page h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .thank-you-page h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-page h1 {
+        font-size: 1.875rem;
+    }
+}

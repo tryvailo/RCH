@@ -1,0 +1,554 @@
+/* checkout.css - Age 55+ Optimized Checkout Styles [NEW 2024] */
+
+/* Web font imports for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ================== ENHANCED ROOT VARIABLES - 2024 ================== */
+
+:root {
+
+/* Modern Color Palette - 2024 Warm Tones */
+--primary-modern: #4A90E2;
+--primary-dark-modern: #2C5F8B;
+--accent-modern: #E8B86D;
+--accent-hover-modern: #D4A355;
+--success-modern: #6BBF59;
+--background-modern: #F7F5F3;
+--background-soft-modern: #FAF8F5;
+--text-modern: #2D3748;
+--text-secondary-modern: #4A5568;
+--border-modern: #E2D7CC;
+
+/* Typography - 55+ Optimized with Modern Fonts */
+--font-family-modern: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+--font-base-55: 22px;  /* Increased for better readability */
+--font-small-55: 20px;  /* Larger small text */
+--font-large-55: 26px;
+--font-heading-55: 40px;  /* Larger headings */
+--line-height-55: 1.7;
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+--font-weight-extrabold: 800;
+--font-weight-black: 900;
+
+/* Enhanced Touch Targets - Exceeds WCAG AAA */
+--touch-min-55: 64px;  /* Increased minimum */
+--touch-large-55: 72px;  /* Larger for primary actions */
+--touch-xl-55: 80px;  /* Extra large for critical actions */
+
+/* Enhanced Visual Elements */
+--border-emphasis-55: 3px;
+--border-radius-modern: 16px;
+--border-radius-large: 20px;
+--box-shadow-modern: 0 8px 32px rgba(45, 55, 72, 0.08);
+--box-shadow-hover: 0 16px 48px rgba(45, 55, 72, 0.12);
+
+}
+
+/* ================== ENHANCED BASE STYLES ================== */
+
+.checkout-wrapper {
+min-height: 100vh;
+background: linear-gradient(135deg, var(--background-modern) 0%, var(--background-soft-modern) 100%);
+font-family: var(--font-family-modern);
+font-size: var(--font-base-55);
+line-height: var(--line-height-55);
+color: var(--text-modern);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+/* ================== ENHANCED PROGRESS INDICATOR ================== */
+
+.progress-container {
+max-width: 1000px;
+margin: 0 auto 4rem;
+padding: 0 2rem;
+}
+
+.progress-steps {
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+margin: 3rem 0;
+}
+
+.progress-step {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+position: relative;
+z-index: 2;
+}
+
+.progress-circle {
+width: 64px;  /* Larger for better visibility and touch */
+height: 64px;
+border-radius: 50%;
+background: var(--border-modern);
+color: var(--text-secondary-modern);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: var(--font-weight-bold);
+font-size: 1.375rem;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+margin-bottom: 1rem;
+border: 3px solid transparent;
+}
+
+.progress-step.active .progress-circle {
+background: linear-gradient(135deg, var(--primary-modern) 0%, var(--accent-modern) 100%);
+color: white;
+transform: scale(1.15);
+box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+border-color: white;
+}
+
+.progress-step.completed .progress-circle {
+background: linear-gradient(135deg, var(--success-modern) 0%, #059669 100%);
+color: white;
+border-color: var(--success-modern);
+}
+
+.progress-step.completed .progress-circle::before {
+content: '✓';
+font-weight: var(--font-weight-black);
+font-size: 1.5rem;
+}
+
+.progress-label {
+font-size: var(--font-small-55);
+font-weight: var(--font-weight-semibold);
+color: var(--text-modern);
+text-align: center;
+max-width: 120px;
+}
+
+.progress-line {
+position: absolute;
+top: 32px;
+left: 0;
+right: 0;
+height: 4px;
+background: var(--border-modern);
+z-index: 1;
+}
+
+.progress-fill {
+height: 100%;
+background: linear-gradient(90deg, var(--primary-modern) 0%, var(--accent-modern) 100%);
+border-radius: 2px;
+transition: width 0.8s ease-out;
+position: relative;
+}
+
+/* ================== ENHANCED CHECKOUT FORM ================== */
+
+.checkout-form {
+max-width: 800px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.form-section {
+background: white;
+border-radius: var(--border-radius-large);
+padding: 3rem;
+margin-bottom: 2rem;
+box-shadow: var(--box-shadow-modern);
+border: 2px solid var(--border-modern);
+transition: all 0.3s ease;
+}
+
+.form-section:hover {
+transform: translateY(-4px);
+box-shadow: var(--box-shadow-hover);
+border-color: var(--accent-modern);
+}
+
+.form-section h2 {
+font-size: var(--font-heading-55);
+font-weight: var(--font-weight-extrabold);
+color: var(--text-modern);
+margin-bottom: 2rem;
+text-align: center;
+}
+
+.form-section h3 {
+font-size: var(--font-large-55);
+font-weight: var(--font-weight-bold);
+color: var(--text-modern);
+margin-bottom: 1.5rem;
+border-bottom: 3px solid var(--accent-modern);
+padding-bottom: 0.5rem;
+}
+
+/* ================== ENHANCED FORM FIELDS ================== */
+
+.form-group {
+margin-bottom: 2rem;
+}
+
+.form-label {
+display: block;
+font-size: var(--font-base-55);
+font-weight: var(--font-weight-semibold);
+color: var(--text-modern);
+margin-bottom: 1rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+width: 100%;
+padding: 20px 24px;  /* Enhanced padding */
+font-size: var(--font-base-55);
+font-family: var(--font-family-modern);
+line-height: var(--line-height-55);
+color: var(--text-modern);
+background: var(--background-soft-modern);
+border: 3px solid var(--border-modern);
+border-radius: var(--border-radius-modern);
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+min-height: var(--touch-min-55);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+border-color: var(--accent-modern);
+box-shadow: 0 0 0 4px rgba(232, 184, 109, 0.15);
+outline: none;
+transform: translateY(-2px);
+background: white;
+}
+
+.form-input:invalid {
+border-color: #EF4444;
+box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.form-input:valid {
+border-color: var(--success-modern);
+}
+
+/* Enhanced Select Styling */
+.form-select {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23E8B86D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+background-position: right 16px center;
+background-repeat: no-repeat;
+background-size: 20px 16px;
+padding-right: 56px;
+cursor: pointer;
+}
+
+/* ================== ENHANCED BUTTONS ================== */
+
+.checkout-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+padding: 24px 40px;
+font-size: var(--font-base-55);
+font-weight: var(--font-weight-bold);
+font-family: var(--font-family-modern);
+border: none;
+border-radius: var(--border-radius-modern);
+cursor: pointer;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+text-decoration: none;
+min-height: var(--touch-large-55);
+position: relative;
+overflow: hidden;
+}
+
+.btn-primary-checkout {
+background: linear-gradient(135deg, var(--accent-modern) 0%, var(--accent-hover-modern) 100%);
+color: white;
+box-shadow: 0 8px 24px rgba(232, 184, 109, 0.3);
+}
+
+.btn-primary-checkout:hover {
+background: linear-gradient(135deg, var(--accent-hover-modern) 0%, var(--accent-modern) 100%);
+transform: translateY(-3px) scale(1.02);
+box-shadow: 0 12px 32px rgba(232, 184, 109, 0.4);
+color: white;
+}
+
+.btn-secondary-checkout {
+background: var(--background-soft-modern);
+color: var(--primary-modern);
+border: 3px solid var(--primary-modern);
+}
+
+.btn-secondary-checkout:hover {
+background: var(--primary-modern);
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+}
+
+.btn-urgent-checkout {
+background: linear-gradient(135deg, #FF6B35 0%, #FF4500 100%);
+color: white;
+font-weight: var(--font-weight-extrabold);
+animation: pulseGlow 2s ease-in-out infinite;
+min-height: var(--touch-xl-55);
+}
+
+.btn-urgent-checkout:hover {
+background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+transform: translateY(-4px) scale(1.05);
+animation: none;
+color: white;
+}
+
+/* ================== ENHANCED ORDER SUMMARY ================== */
+
+.order-summary {
+background: linear-gradient(135deg, white 0%, var(--background-soft-modern) 100%);
+border: 3px solid var(--accent-modern);
+border-radius: var(--border-radius-large);
+padding: 3rem;
+margin: 2rem 0;
+position: relative;
+overflow: hidden;
+}
+
+.order-summary::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 6px;
+background: linear-gradient(90deg, var(--primary-modern) 0%, var(--accent-modern) 50%, var(--success-modern) 100%);
+}
+
+.summary-title {
+font-size: var(--font-large-55);
+font-weight: var(--font-weight-extrabold);
+color: var(--text-modern);
+margin-bottom: 2rem;
+text-align: center;
+}
+
+.summary-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.5rem 0;
+border-bottom: 2px solid var(--border-modern);
+}
+
+.summary-item:last-child {
+border-bottom: none;
+border-top: 3px solid var(--accent-modern);
+margin-top: 1rem;
+padding-top: 1.5rem;
+}
+
+.summary-label {
+font-size: var(--font-base-55);
+font-weight: var(--font-weight-semibold);
+color: var(--text-modern);
+}
+
+.summary-value {
+font-size: var(--font-base-55);
+font-weight: var(--font-weight-bold);
+color: var(--accent-modern);
+}
+
+.total-value {
+font-size: var(--font-large-55);
+font-weight: var(--font-weight-extrabold);
+color: var(--primary-modern);
+}
+
+/* ================== TRUST INDICATORS - ENHANCED ================== */
+
+.trust-section-checkout {
+background: linear-gradient(135deg, var(--background-soft-modern) 0%, white 100%);
+border: 2px solid var(--success-modern);
+border-radius: var(--border-radius-large);
+padding: 2.5rem;
+margin: 2rem 0;
+text-align: center;
+}
+
+.trust-indicators {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 2rem;
+margin: 2rem 0;
+}
+
+.trust-indicator {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 1.5rem;
+background: white;
+border-radius: var(--border-radius-modern);
+box-shadow: 0 4px 16px rgba(107, 191, 89, 0.1);
+border: 1px solid var(--success-modern);
+min-width: 180px;
+transition: all 0.3s ease;
+}
+
+.trust-indicator:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 24px rgba(107, 191, 89, 0.2);
+}
+
+.trust-icon-checkout {
+width: 56px;
+height: 56px;
+background: linear-gradient(135deg, var(--success-modern), var(--primary-modern));
+color: white;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.75rem;
+margin-bottom: 1rem;
+}
+
+.trust-text-checkout {
+font-size: var(--font-small-55);
+font-weight: var(--font-weight-semibold);
+color: var(--text-modern);
+}
+
+/* ================== ENHANCED MOBILE RESPONSIVENESS ================== */
+
+@media (max-width: 768px) {
+.checkout-wrapper {
+padding: 1rem;
+}
+
+.progress-container {
+padding: 0 1rem;
+}
+
+.progress-steps {
+flex-direction: column;
+gap: 2rem;
+}
+
+.progress-line {
+display: none;
+}
+
+.form-section {
+padding: 2rem;
+margin-bottom: 1.5rem;
+}
+
+.checkout-btn {
+width: 100%;
+padding: 24px;
+min-height: var(--touch-xl-55);
+font-size: var(--font-large-55);
+}
+
+.order-summary {
+padding: 2rem;
+}
+
+.trust-indicators {
+flex-direction: column;
+align-items: center;
+}
+}
+
+@media (max-width: 480px) {
+:root {
+--font-base-55: 24px;
+--font-large-55: 28px;
+--font-heading-55: 36px;
+--touch-min-55: 68px;
+--touch-large-55: 76px;
+--touch-xl-55: 84px;
+}
+
+.form-section h2 {
+font-size: 2rem;
+}
+
+.progress-circle {
+width: 56px;
+height: 56px;
+}
+
+.form-section {
+padding: 1.5rem;
+}
+}
+
+/* ================== ENHANCED ANIMATIONS ================== */
+
+@keyframes pulseGlow {
+0%, 100% { 
+box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); 
+}
+50% { 
+box-shadow: 0 0 0 20px rgba(255, 107, 53, 0); 
+}
+}
+
+@keyframes slideInFade {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.form-section {
+animation: slideInFade 0.8s ease-out forwards;
+}
+
+/* Stagger animation for multiple sections */
+.form-section:nth-child(2) { animation-delay: 0.1s; }
+.form-section:nth-child(3) { animation-delay: 0.2s; }
+.form-section:nth-child(4) { animation-delay: 0.3s; }
+
+/* ================== ACCESSIBILITY ENHANCEMENTS ================== */
+
+/* Focus management */
+*:focus-visible {
+outline: 3px solid var(--accent-modern);
+outline-offset: 3px;
+border-radius: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+:root {
+--primary-modern: #003399;
+--text-modern: #000000;
+--border-modern: #666666;
+--background-modern: #ffffff;
+}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+}

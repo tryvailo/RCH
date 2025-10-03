@@ -1,0 +1,543 @@
+/* ============================================
+
+COMPONENTS.CSS - CONVERSION-OPTIMIZED [NEW 2024]
+
+Modern component library with 2024 trends and enhanced conversion
+
+============================================ */
+
+/* ============================================
+
+ENHANCED BUTTONS - MAXIMUM CONVERSION
+
+============================================ */
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 18px 32px;  /* Increased padding for 2024 */
+font-size: var(--font-base);
+font-weight: var(--font-weight-semibold);
+line-height: 1.2;
+border-radius: var(--radius-lg);  /* More modern radius */
+border: none;
+cursor: pointer;
+transition: var(--transition);
+text-decoration: none;
+min-height: var(--touch-comfortable);  /* Enhanced touch target */
+position: relative;
+overflow: hidden;
+font-family: var(--font-family);
+letter-spacing: 0.02em;  /* Improved readability */
+}
+
+/* Primary CTA - Enhanced for Maximum Conversion */
+
+.btn-primary,
+.primary-cta {
+background: linear-gradient(135deg, var(--accent) 0%, #D4A355 100%);
+color: white;
+box-shadow: var(--shadow-md);
+font-weight: var(--font-weight-bold);
+}
+
+.btn-primary:hover,
+.primary-cta:hover {
+background: linear-gradient(135deg, #D4A355 0%, var(--accent) 100%);
+box-shadow: var(--shadow-lg);
+transform: translateY(-3px) scale(1.02);  /* Enhanced hover effect */
+color: white;
+}
+
+.btn-primary:active,
+.primary-cta:active {
+transform: translateY(-1px) scale(0.98);
+}
+
+/* Emergency/Urgent CTA - NEW High-Converting Style */
+
+.btn-urgent,
+.emergency-cta {
+background: linear-gradient(135deg, #FF6B35 0%, #FF4500 100%);
+color: white;
+font-weight: var(--font-weight-extrabold);
+animation: pulseGlow 2s ease-in-out infinite;
+position: relative;
+}
+
+.btn-urgent:hover,
+.emergency-cta:hover {
+background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+transform: translateY(-3px) scale(1.05);  /* More dramatic effect */
+animation: none;
+color: white;
+}
+
+/* Secondary CTA - Refined for Modern Look */
+
+.btn-secondary,
+.secondary-cta {
+background: var(--background-soft);
+color: var(--primary);
+border: 2px solid var(--primary);
+font-weight: var(--font-weight-medium);
+}
+
+.btn-secondary:hover,
+.secondary-cta:hover {
+background: var(--primary);
+color: white;
+transform: translateY(-2px);
+box-shadow: var(--shadow-md);
+}
+
+/* Large CTA - For Hero Sections */
+
+.btn-large,
+.cta-large {
+padding: 24px 40px;
+font-size: var(--font-large);
+min-height: var(--touch-large);
+border-radius: var(--radius-xl);
+font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+
+ENHANCED CARDS - MODERN DESIGN
+
+============================================ */
+
+.card {
+background: var(--background);
+border: 1px solid var(--border);
+border-radius: var(--radius-xl);  /* More modern radius */
+padding: var(--space-2xl);
+box-shadow: var(--shadow-sm);
+transition: var(--transition);
+position: relative;
+overflow: hidden;
+}
+
+.card:hover {
+transform: translateY(-4px);
+box-shadow: var(--shadow-lg);
+border-color: var(--border-emphasis);
+}
+
+/* Premium Card - Enhanced Styling */
+
+.card-premium {
+background: linear-gradient(135deg, var(--background) 0%, var(--background-soft) 100%);
+border: 2px solid var(--earth-primary);
+position: relative;
+}
+
+.card-premium::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(90deg, var(--accent) 0%, var(--earth-primary) 100%);
+}
+
+.card-premium:hover {
+transform: translateY(-6px);
+box-shadow: var(--shadow-xl);
+}
+
+/* Trust Card - For Building Confidence */
+
+.card-trust {
+border-left: 6px solid var(--success);
+background: var(--background-subtle);
+}
+
+.card-trust::after {
+content: '✓';
+position: absolute;
+top: var(--space-md);
+right: var(--space-md);
+width: 32px;
+height: 32px;
+background: var(--success);
+color: white;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+
+MODERN FORMS - ENHANCED UX
+
+============================================ */
+
+.form-group {
+margin-bottom: var(--space-lg);
+}
+
+.form-label {
+display: block;
+font-size: var(--font-base);
+font-weight: var(--font-weight-medium);
+color: var(--text-primary);
+margin-bottom: var(--space-sm);
+}
+
+.form-input {
+width: 100%;
+padding: 18px 24px;  /* Enhanced padding */
+font-size: var(--font-base);
+line-height: var(--line-height-base);
+color: var(--text-primary);
+background: var(--background);
+border: 2px solid var(--border);
+border-radius: var(--radius-md);
+transition: var(--transition);
+min-height: var(--touch-comfortable);
+}
+
+.form-input:focus {
+border-color: var(--accent);
+box-shadow: 0 0 0 4px rgba(232, 184, 109, 0.15);
+outline: none;
+transform: translateY(-2px);
+}
+
+.form-input:invalid {
+border-color: #EF4444;
+}
+
+.form-input:valid {
+border-color: var(--success);
+}
+
+/* Enhanced Select Styling */
+
+.form-select {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+background-position: right 12px center;
+background-repeat: no-repeat;
+background-size: 16px 12px;
+padding-right: 48px;
+}
+
+/* ============================================
+
+PROGRESS INDICATORS - MODERN STYLE
+
+============================================ */
+
+.progress-bar {
+width: 100%;
+height: 12px;  /* Thicker for better visibility */
+background: var(--border-light);
+border-radius: var(--radius-full);
+overflow: hidden;
+position: relative;
+}
+
+.progress-fill {
+height: 100%;
+background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+border-radius: var(--radius-full);
+transition: width 0.5s ease-out;
+position: relative;
+}
+
+.progress-fill::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+0% { transform: translateX(-100%); }
+100% { transform: translateX(100%); }
+}
+
+/* Step Progress - Enhanced */
+
+.step-progress {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: var(--space-xl) 0;
+}
+
+.step-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+position: relative;
+}
+
+.step-circle {
+width: 48px;  /* Larger for better touch */
+height: 48px;
+border-radius: 50%;
+background: var(--border);
+color: var(--text-tertiary);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: var(--font-weight-bold);
+transition: var(--transition);
+margin-bottom: var(--space-sm);
+}
+
+.step-item.active .step-circle {
+background: var(--primary);
+color: white;
+transform: scale(1.1);
+}
+
+.step-item.completed .step-circle {
+background: var(--success);
+color: white;
+}
+
+.step-item.completed .step-circle::before {
+content: '✓';
+}
+
+/* ============================================
+
+TRUST ELEMENTS - CONVERSION FOCUSED
+
+============================================ */
+
+.trust-badge {
+display: inline-flex;
+align-items: center;
+gap: var(--space-sm);
+padding: var(--space-sm) var(--space-md);
+background: var(--background-soft);
+border: 1px solid var(--border);
+border-radius: var(--radius-md);
+font-size: var(--font-small);
+font-weight: var(--font-weight-medium);
+color: var(--text-primary);
+}
+
+.trust-badges {
+display: flex;
+flex-wrap: wrap;
+gap: var(--space-md);
+justify-content: center;
+margin: var(--space-xl) 0;
+}
+
+/* Social Proof Counter - NEW */
+
+.social-proof {
+background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+color: white;
+padding: var(--space-md) var(--space-lg);
+border-radius: var(--radius-lg);
+text-align: center;
+position: relative;
+animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.social-proof-number {
+font-size: var(--font-xl);
+font-weight: var(--font-weight-black);
+display: block;
+}
+
+.social-proof-text {
+font-size: var(--font-small);
+opacity: 0.9;
+}
+
+/* ============================================
+
+TESTIMONIAL CARDS - ENHANCED
+
+============================================ */
+
+.testimonial {
+background: var(--background);
+border: 1px solid var(--border);
+border-radius: var(--radius-xl);
+padding: var(--space-2xl);
+position: relative;
+box-shadow: var(--shadow-sm);
+}
+
+.testimonial::before {
+content: '"';
+position: absolute;
+top: var(--space-md);
+left: var(--space-md);
+font-size: 4rem;
+color: var(--accent);
+font-family: serif;
+line-height: 1;
+opacity: 0.3;
+}
+
+.testimonial-content {
+font-size: var(--font-base);
+line-height: var(--line-height-loose);
+color: var(--text-primary);
+margin-bottom: var(--space-lg);
+font-style: italic;
+}
+
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: var(--space-md);
+}
+
+.testimonial-avatar {
+width: 56px;
+height: 56px;
+border-radius: 50%;
+background: var(--primary);
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: var(--font-weight-bold);
+font-size: var(--font-large);
+}
+
+.testimonial-info h4 {
+margin: 0;
+font-weight: var(--font-weight-semibold);
+color: var(--text-primary);
+}
+
+.testimonial-info p {
+margin: 0;
+font-size: var(--font-small);
+color: var(--text-secondary);
+}
+
+/* ============================================
+
+ALERTS & NOTIFICATIONS - MODERN
+
+============================================ */
+
+.alert {
+padding: var(--space-lg) var(--space-xl);
+border-radius: var(--radius-lg);
+border-left: 4px solid;
+margin: var(--space-lg) 0;
+display: flex;
+align-items: flex-start;
+gap: var(--space-md);
+}
+
+.alert-success {
+background: rgba(107, 191, 89, 0.1);
+border-color: var(--success);
+color: #065f46;
+}
+
+.alert-warning {
+background: rgba(232, 184, 109, 0.1);
+border-color: var(--accent);
+color: #92400e;
+}
+
+.alert-error {
+background: rgba(239, 68, 68, 0.1);
+border-color: #EF4444;
+color: #991b1b;
+}
+
+.alert-info {
+background: rgba(74, 144, 226, 0.1);
+border-color: var(--primary);
+color: #1e40af;
+}
+
+/* ============================================
+
+MODERN LOADING STATES
+
+============================================ */
+
+.loading-spinner {
+width: 48px;
+height: 48px;
+border: 4px solid var(--border);
+border-top: 4px solid var(--primary);
+border-radius: 50%;
+animation: spin 1s linear infinite;
+margin: var(--space-xl) auto;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+.loading-skeleton {
+background: linear-gradient(90deg, var(--border-light) 25%, rgba(232, 184, 109, 0.1) 50%, var(--border-light) 75%);
+background-size: 200% 100%;
+animation: loading 1.5s infinite;
+border-radius: var(--radius-md);
+}
+
+@keyframes loading {
+0% { background-position: 200% 0; }
+100% { background-position: -200% 0; }
+}
+
+/* ============================================
+
+RESPONSIVE ENHANCEMENTS - 2024
+
+============================================ */
+
+@media (max-width: 768px) {
+.btn {
+padding: 20px 28px;
+font-size: var(--font-base);
+min-height: var(--touch-large);
+}
+
+.card {
+padding: var(--space-xl);
+}
+
+.trust-badges {
+flex-direction: column;
+align-items: center;
+}
+
+.step-progress {
+flex-direction: column;
+gap: var(--space-lg);
+}
+}
+
+@media (max-width: 480px) {
+.btn {
+width: 100%;
+padding: 24px;
+min-height: var(--touch-large);
+}
+
+.testimonial {
+padding: var(--space-lg);
+}
+}
