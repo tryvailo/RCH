@@ -1,0 +1,684 @@
+/* responsive.css - Адаптивные стили [UPDATED 2025] - ПОЛНАЯ ВЕРСИЯ С СОВРЕМЕННОЙ ПАЛИТРОЙ */
+
+/* Web font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ================== СОВРЕМЕННЫЕ ПЕРЕМЕННЫЕ С НОВОЙ ПАЛИТРОЙ ================== */
+:root {
+/* Обновленная цветовая палитра 2025 - теплые землистые тона */
+--primary-modern: #6B7C6E; /* Мягкий шалфей вместо яркого синего */
+--primary-dark-modern: #4A5C4D; /* Темный шалфей */
+--primary-light-modern: #8A9B8D; /* Светлый шалфей */
+
+--accent-modern: #C08B7A; /* Теплая терракота вместо оранжевого */
+--accent-hover-modern: #B07B6A; /* Hover терракота */
+--accent-light-modern: #D4A08F; /* Светлая терракота */
+
+--success-modern: #7A9471; /* Приглушенный зеленый */
+--success-hover-modern: #6B8362; /* Hover зеленый */
+
+/* Теплые нейтральные фоны */
+--background-modern: #FAF7F3; /* Теплый бежевый */
+--background-soft-modern: #F5F2EE; /* Мягкий бежевый */
+--background-subtle-modern: #F8F6F4; /* Тонкий бежевый */
+--background-white-modern: #FFFFFF; /* Чистый белый */
+
+/* Теплые текстовые цвета */
+--text-modern: #2A2B2A; /* Теплый темный */
+--text-secondary-modern: #5A5B5A; /* Вторичный текст */
+--text-tertiary-modern: #8A8B8A; /* Третичный текст */
+
+/* Мягкие границы */
+--border-modern: rgba(107, 124, 110, 0.15); /* Мягкие границы шалфей */
+--border-light-modern: rgba(107, 124, 110, 0.1); /* Очень мягкие границы */
+
+/* Современная типографика */
+--font-family-modern: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+/* Адаптивные размеры */
+--section-padding-desktop: 5rem 0;
+--section-padding-tablet: 4rem 0;
+--section-padding-mobile: 3rem 0;
+--container-padding-desktop: 0 2rem;
+--container-padding-tablet: 0 1.5rem;
+--container-padding-mobile: 0 1rem;
+
+/* Обновленные размеры шрифтов */
+--font-base-modern: 18px;
+--font-large-modern: 20px;
+--font-xl-modern: 24px;
+--font-2xl-modern: 28px;
+--font-3xl-modern: 32px;
+
+/* Мягкие тени */
+--shadow-xs-modern: 0 1px 3px rgba(42, 43, 42, 0.04);
+--shadow-sm-modern: 0 1px 6px rgba(42, 43, 42, 0.06);
+--shadow-md-modern: 0 4px 16px rgba(42, 43, 42, 0.08);
+--shadow-lg-modern: 0 8px 32px rgba(42, 43, 42, 0.10);
+
+/* Современные скругления */
+--radius-sm-modern: 6px;
+--radius-md-modern: 10px;
+--radius-lg-modern: 14px;
+--radius-xl-modern: 18px;
+
+/* Плавные переходы */
+--transition-modern: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================== DESKTOP И БОЛЬШИЕ ЭКРАНЫ (1200px+) ================== */
+@media (min-width: 1200px) {
+.section-container {
+padding: var(--container-padding-desktop);
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.hero-container {
+padding: var(--container-padding-desktop);
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.hero-headline {
+font-size: var(--font-3xl-modern) !important;
+font-weight: 700 !important; /* Уменьшено с 900 */
+line-height: 1.15 !important;
+}
+
+.section-title {
+font-size: var(--font-3xl-modern) !important;
+font-weight: 700 !important; /* Уменьшено с 800 */
+}
+
+/* Расширенные сетки для больших экранов */
+.grid-4-desktop {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 3rem;
+}
+
+.grid-6-desktop {
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+gap: 2rem;
+}
+}
+
+/* ================== ПЛАНШЕТЫ И СРЕДНИЕ ЭКРАНЫ (768px - 1024px) ================== */
+@media (max-width: 1024px) {
+/* Hero секция адаптация */
+.hero-grid,
+.hero-content {
+grid-template-columns: 1fr !important;
+gap: 3rem !important;
+text-align: center !important;
+}
+
+.hero-headline {
+font-size: var(--font-2xl-modern) !important;
+line-height: 1.2 !important;
+margin-bottom: 1.5rem !important;
+}
+
+.hero-subtitle {
+font-size: var(--font-large-modern) !important;
+margin-bottom: 2rem !important;
+max-width: 600px !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+
+/* Trust badges центрирование */
+.trust-badges-birmingham,
+.trust-badges,
+.hero-trust {
+justify-content: center !important;
+margin-bottom: 2rem !important;
+flex-wrap: wrap !important;
+gap: 1rem !important;
+}
+
+/* Секции адаптация */
+.section {
+padding: var(--section-padding-tablet) !important;
+}
+
+.section-container {
+padding: var(--container-padding-tablet) !important;
+}
+
+.section-header {
+margin-bottom: 3rem !important;
+}
+
+.section-title {
+font-size: var(--font-2xl-modern) !important;
+margin-bottom: 1rem !important;
+}
+
+.section-subtitle {
+font-size: var(--font-large-modern) !important;
+}
+
+/* Сетки адаптация */
+.grid-2 {
+grid-template-columns: 1fr !important;
+gap: 2.5rem !important;
+}
+
+.grid-3 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2rem !important;
+}
+
+.grid-4 {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 2rem !important;
+}
+
+/* Footer адаптация */
+.footer-grid {
+grid-template-columns: 1fr 1fr !important;
+gap: 2rem !important;
+}
+}
+
+/* ================== СМАРТФОНЫ И МАЛЫЕ ЭКРАНЫ (до 768px) ================== */
+@media (max-width: 768px) {
+/* Базовые настройки для мобильных с новой палитрой */
+:root {
+--font-base-mobile: var(--font-base-modern);
+--font-large-mobile: var(--font-large-modern);
+--font-heading-mobile: var(--font-2xl-modern);
+--touch-target-mobile: 48px; /* Оптимально для доступности */
+--section-spacing-mobile: 2.5rem;
+}
+
+body {
+font-size: var(--font-base-mobile) !important;
+background: var(--background-modern) !important;
+color: var(--text-modern) !important;
+}
+
+/* Header мобильная адаптация */
+.header-container {
+height: 72px !important;
+padding: 0 1rem !important;
+background: rgba(250, 247, 243, 0.95) !important;
+}
+
+.header-logo h1 {
+font-size: 1.5rem !important;
+color: var(--text-modern) !important;
+}
+
+.header-nav {
+display: none;
+}
+
+.mobile-nav-toggle {
+display: block !important;
+background: none !important;
+border: none !important;
+font-size: 1.5rem !important;
+color: var(--text-modern) !important;
+cursor: pointer !important;
+padding: 8px !important;
+}
+
+/* Hero секция мобильная с новыми цветами */
+.hero {
+padding: 3rem 0 !important;
+background: linear-gradient(135deg, var(--background-modern) 0%, var(--background-soft-modern) 100%) !important;
+}
+
+.hero-container {
+padding: 0 1rem !important;
+}
+
+.hero-headline {
+font-size: var(--font-2xl-modern) !important;
+line-height: 1.2 !important;
+margin-bottom: 1rem !important;
+color: var(--text-modern) !important;
+}
+
+.hero-subtitle {
+font-size: var(--font-large-modern) !important;
+line-height: 1.6 !important;
+margin-bottom: 1.5rem !important;
+color: var(--text-secondary-modern) !important;
+}
+
+.hero-cta-group {
+flex-direction: column !important;
+gap: 1rem !important;
+align-items: stretch !important;
+}
+
+/* Кнопки мобильная адаптация с новой палитрой */
+.btn,
+.primary-cta,
+.primary-btn,
+.secondary-cta,
+.secondary-btn,
+.emergency-cta,
+.hero-primary-cta,
+.hero-secondary-cta,
+.premium-cta,
+.urgent-cta,
+.checkout-btn {
+min-height: 48px !important;
+font-size: var(--font-base-modern) !important;
+padding: 14px 28px !important;
+width: 100% !important;
+border-radius: var(--radius-lg-modern) !important;
+font-weight: 500 !important; /* Уменьшено с 700 */
+margin: 0.5rem 0 !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 8px !important;
+transition: var(--transition-modern) !important;
+}
+
+/* Primary кнопки с новым цветом */
+.btn-primary,
+.primary-cta,
+.primary-btn,
+.hero-primary-cta,
+.premium-cta {
+background: var(--primary-modern) !important;
+color: var(--background-white-modern) !important;
+border: none !important;
+box-shadow: 0 2px 8px rgba(107, 124, 110, 0.15) !important;
+}
+
+.btn-primary:hover,
+.primary-cta:hover,
+.primary-btn:hover {
+background: var(--primary-dark-modern) !important;
+transform: translateY(-1px) !important;
+box-shadow: 0 4px 12px rgba(107, 124, 110, 0.2) !important;
+}
+
+/* Secondary кнопки */
+.btn-secondary,
+.secondary-cta,
+.secondary-btn,
+.hero-secondary-cta {
+background: var(--background-white-modern) !important;
+color: var(--primary-modern) !important;
+border: 1px solid var(--border-modern) !important;
+box-shadow: var(--shadow-xs-modern) !important;
+}
+
+.btn-secondary:hover,
+.secondary-cta:hover,
+.secondary-btn:hover {
+background: var(--background-soft-modern) !important;
+border-color: var(--primary-light-modern) !important;
+transform: translateY(-1px) !important;
+}
+
+/* Accent кнопки */
+.btn-accent,
+.emergency-cta,
+.urgent-cta {
+background: var(--accent-modern) !important;
+color: var(--background-white-modern) !important;
+border: none !important;
+box-shadow: 0 2px 8px rgba(192, 139, 122, 0.15) !important;
+}
+
+.btn-accent:hover,
+.emergency-cta:hover,
+.urgent-cta:hover {
+background: var(--accent-hover-modern) !important;
+transform: translateY(-1px) !important;
+box-shadow: 0 4px 12px rgba(192, 139, 122, 0.2) !important;
+}
+
+/* Trust badges мобильная с новой палитрой */
+.trust-badges,
+.trust-badges-birmingham,
+.hero-trust {
+flex-direction: column !important;
+align-items: center !important;
+gap: 1rem !important;
+margin: 2rem 0 !important;
+}
+
+.trust-badge,
+.trust-badge-hero {
+width: 100% !important;
+max-width: 300px !important;
+justify-content: center !important;
+padding: 1rem !important;
+background: var(--background-white-modern) !important;
+border: 1px solid var(--border-light-modern) !important;
+border-radius: var(--radius-lg-modern) !important;
+color: var(--text-modern) !important;
+}
+
+/* Секции мобильная адаптация */
+.section {
+padding: var(--section-padding-mobile) !important;
+}
+
+.section-container {
+padding: var(--container-padding-mobile) !important;
+}
+
+.section-title {
+font-size: var(--font-xl-modern) !important;
+line-height: 1.3 !important;
+margin-bottom: 1rem !important;
+color: var(--text-modern) !important;
+}
+
+.section-subtitle {
+font-size: var(--font-base-modern) !important;
+color: var(--text-secondary-modern) !important;
+}
+
+.section-header {
+margin-bottom: 2.5rem !important;
+}
+
+/* Все сетки в одну колонку */
+.grid-2,
+.grid-3,
+.grid-4,
+.metrics-grid,
+.features-grid,
+.testimonials-grid {
+grid-template-columns: 1fr !important;
+gap: 2rem !important;
+}
+
+/* Карточки мобильная адаптация с новой палитрой */
+.card,
+.ranking-card,
+.metric-card,
+.testimonial,
+.feature-card,
+.standard-card {
+padding: 1.5rem !important;
+margin-bottom: 1.5rem !important;
+background: var(--background-white-modern) !important;
+border: 1px solid var(--border-light-modern) !important;
+border-radius: var(--radius-xl-modern) !important;
+box-shadow: var(--shadow-sm-modern) !important;
+}
+
+.card:hover,
+.ranking-card:hover,
+.standard-card:hover {
+transform: translateY(-1px) !important; /* Уменьшено движение */
+box-shadow: var(--shadow-md-modern) !important;
+border-color: var(--border-modern) !important;
+}
+
+/* Формы мобильная адаптация */
+.form-input,
+.form-select,
+.form-textarea {
+min-height: 48px !important;
+font-size: var(--font-base-modern) !important;
+padding: 14px 16px !important;
+background: var(--background-white-modern) !important;
+border: 2px solid var(--border-modern) !important;
+border-radius: var(--radius-md-modern) !important;
+color: var(--text-modern) !important;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+border-color: var(--primary-modern) !important;
+box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.15) !important;
+outline: none !important;
+}
+
+.form-label {
+font-size: var(--font-base-modern) !important;
+font-weight: 500 !important; /* Уменьшено с 600 */
+color: var(--text-modern) !important;
+}
+
+/* Tables на мобильных */
+.comparison-table {
+display: block !important;
+overflow-x: auto !important;
+white-space: nowrap !important;
+background: var(--background-white-modern) !important;
+border: 1px solid var(--border-light-modern) !important;
+border-radius: var(--radius-lg-modern) !important;
+}
+
+.comparison-table th,
+.comparison-table td {
+padding: 1rem 0.75rem !important;
+font-size: var(--font-base-modern) !important;
+}
+
+.comparison-table th {
+background: var(--primary-modern) !important;
+color: var(--background-white-modern) !important;
+}
+
+.comparison-table tr:hover td {
+background: var(--background-soft-modern) !important;
+}
+
+/* Footer мобильная адаптация */
+.footer {
+padding: 3rem 0 2rem !important;
+background: var(--text-modern) !important;
+color: var(--background-white-modern) !important;
+}
+
+.footer-container {
+padding: 0 1rem !important;
+}
+
+.footer-grid {
+grid-template-columns: 1fr !important;
+gap: 2rem !important;
+text-align: center !important;
+}
+
+/* Progress indicators мобильная */
+.progress-steps,
+.step-progress {
+flex-direction: column !important;
+gap: 1.5rem !important;
+}
+
+.progress-line {
+display: none !important;
+}
+
+.step-circle,
+.progress-circle {
+width: 56px !important;
+height: 56px !important;
+background: var(--primary-modern) !important;
+color: var(--background-white-modern) !important;
+}
+}
+
+/* ================== ОЧЕНЬ МАЛЫЕ ЭКРАНЫ (до 480px) ================== */
+@media (max-width: 480px) {
+/* Еще более оптимизированные размеры */
+:root {
+--font-base-small: var(--font-base-modern);
+--font-large-small: var(--font-large-modern);
+--font-heading-small: var(--font-xl-modern);
+--touch-target-small: 52px; /* Увеличенные цели касания */
+}
+
+body {
+font-size: var(--font-base-small) !important;
+}
+
+/* Header очень малые экраны */
+.header-container {
+height: 68px !important;
+padding: 0 0.75rem !important;
+}
+
+.header-logo h1 {
+font-size: 1.25rem !important;
+}
+
+/* Hero очень малые экраны */
+.hero {
+padding: 2.5rem 0 !important;
+}
+
+.hero-headline {
+font-size: var(--font-xl-modern) !important;
+line-height: 1.2 !important;
+}
+
+.hero-subtitle {
+font-size: var(--font-base-modern) !important;
+}
+
+/* Кнопки для очень малых экранов */
+.btn,
+.primary-cta,
+.hero-primary-cta,
+.checkout-btn {
+min-height: var(--touch-target-small) !important;
+font-size: var(--font-base-modern) !important;
+padding: 16px 20px !important;
+}
+
+/* Секции очень малые экраны */
+.section-container {
+padding: 0 0.75rem !important;
+}
+
+.section-title {
+font-size: var(--font-xl-modern) !important;
+}
+
+.section-subtitle {
+font-size: var(--font-base-modern) !important;
+}
+
+/* Карточки очень малые экраны */
+.card,
+.ranking-card,
+.standard-card {
+padding: 1.25rem !important;
+}
+
+/* Формы очень малые экраны */
+.form-section {
+padding: 1.5rem !important;
+}
+
+.form-input {
+min-height: var(--touch-target-small) !important;
+padding: 16px !important;
+}
+}
+
+/* ================== LANDSCAPE ОРИЕНТАЦИЯ ================== */
+@media (max-width: 768px) and (orientation: landscape) {
+.hero {
+padding: 2rem 0 !important;
+}
+
+.hero-headline {
+font-size: var(--font-xl-modern) !important;
+}
+
+.section {
+padding: 2.5rem 0 !important;
+}
+
+.btn,
+.primary-cta {
+min-height: 44px !important; /* Меньше в landscape */
+}
+}
+
+/* ================== ACCESSIBILITY УЛУЧШЕНИЯ ================== */
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}
+
+.card:hover,
+.ranking-card:hover,
+.btn:hover {
+transform: none !important;
+}
+}
+
+/* Высокий контраст с новой палитрой */
+@media (prefers-contrast: high) {
+:root {
+--primary-modern: #000000 !important;
+--text-modern: #000000 !important;
+--background-modern: #ffffff !important;
+--border-modern: #666666 !important;
+}
+
+.btn,
+.primary-cta {
+border: 3px solid currentColor !important;
+}
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+:root {
+--background-modern: #1a1a1a !important;
+--background-soft-modern: #2d2d2d !important;
+--text-modern: #ffffff !important;
+--text-secondary-modern: #cccccc !important;
+--border-modern: #444444 !important;
+}
+}
+
+/* ================== PRINT СТИЛИ ================== */
+@media print {
+.header,
+.footer,
+.btn,
+.primary-cta,
+.secondary-cta {
+display: none !important;
+}
+
+.section {
+padding: 1rem 0 !important;
+}
+
+.section-title {
+font-size: 1.5rem !important;
+color: #000000 !important;
+}
+
+body {
+font-size: 12pt !important;
+color: #000000 !important;
+background: #ffffff !important;
+}
+
+.card,
+.ranking-card {
+border: 1px solid #000000 !important;
+break-inside: avoid !important;
+}
+}

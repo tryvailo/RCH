@@ -1,0 +1,644 @@
+/* ============================================
+   FREE_REPORT.CSS - FREE SHORTLIST STYLES [2025 UPDATE]
+   Modern free report styling with updated color palette
+   ============================================ */
+
+/* ===== ENHANCED TYPOGRAPHY FOR 55+ AUDIENCE ===== */
+body {
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+}
+
+p, li, td {
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+}
+
+.text-base {
+  font-size: 18px !important;
+}
+
+.text-sm {
+  font-size: 16px !important;
+}
+
+.text-xs {
+  font-size: 15px !important;
+}
+
+.text-lg {
+  font-size: 20px !important;
+}
+
+.card p,
+.card li {
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+}
+
+strong, .font-semibold, .font-bold {
+  font-weight: 700 !important;
+}
+
+/* ===== HEADER SPECIFIC ===== */
+.report-header-free {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+  animation: headerShimmer 8s ease infinite;
+  background-size: 200% 200%;
+  position: relative;
+  color: var(--text-inverse);
+}
+
+.report-header-free h1,
+.report-header-free h2,
+.report-header-free p,
+.report-header-free .text-xl {
+  color: var(--text-inverse) !important;
+}
+
+@keyframes headerShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.postcode-badge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-md) var(--space-lg);
+  text-align: right;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.postcode-badge p {
+  color: var(--text-inverse) !important;
+}
+
+.report-meta-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-md);
+  display: inline-block;
+  margin-top: var(--space-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+}
+
+/* ===== BORDER TOP ACCENT ===== */
+.border-top-primary {
+  border-top: 3px solid var(--primary);
+}
+
+/* ===== RANKING BADGES ===== */
+.rank-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-inverse);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rank-1 {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: 2px solid var(--primary-dark);
+}
+
+.rank-2 {
+  background: linear-gradient(135deg, var(--success), var(--success-hover));
+  border: 2px solid var(--success-hover);
+}
+
+.rank-3 {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  border: 2px solid var(--accent-hover);
+}
+
+/* ===== IMPROVED BADGE STYLES ===== */
+.badge {
+  font-weight: var(--font-weight-semibold);
+  padding: 8px 16px;
+  font-size: var(--font-sm);
+}
+
+.badge-success {
+  background: var(--success);
+  color: var(--text-inverse);
+  border: 1px solid var(--success-hover);
+}
+
+.badge-primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border: 1px solid var(--primary-dark);
+}
+
+.badge-secondary {
+  background: var(--text-secondary);
+  color: var(--text-inverse);
+  border: 1px solid var(--text-primary);
+}
+
+/* ===== BADGE GROUP ===== */
+.badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ===== ENHANCED ALERTS ===== */
+.alert {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+  margin-bottom: var(--space-lg);
+}
+
+.alert-info {
+  background: rgba(122, 148, 196, 0.15);
+  border-color: var(--info);
+  color: var(--text-primary);
+}
+
+.alert-info p,
+.alert-info h4 {
+  color: var(--text-primary);
+}
+
+.alert-success {
+  background: rgba(122, 148, 113, 0.15);
+  border-color: var(--success);
+  color: var(--text-primary);
+}
+
+.alert-warning {
+  background: rgba(212, 163, 85, 0.15);
+  border-color: var(--warning);
+  color: var(--text-primary);
+}
+
+/* ===== PRICE DISPLAY ===== */
+.price-display {
+  text-align: right;
+}
+
+.price-display .text-3xl {
+  color: var(--primary);
+  font-size: var(--font-4xl);
+  line-height: 1;
+}
+
+.price-display .text-secondary {
+  color: var(--text-tertiary);
+  margin-top: var(--space-xs);
+}
+
+/* ===== RANKING CARDS - IMPROVED VISIBILITY ===== */
+.ranking-card {
+  background: var(--background-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.ranking-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+}
+
+.top-recommendation {
+  border: 2px solid var(--primary);
+  background: linear-gradient(135deg, var(--background-white) 0%, var(--background-soft) 100%);
+  box-shadow: 0 4px 20px rgba(107, 124, 110, 0.15);
+}
+
+.top-recommendation:hover {
+  box-shadow: 0 8px 32px rgba(107, 124, 110, 0.2);
+}
+
+/* ===== CQC HIGHLIGHT BLOCKS ===== */
+.ranking-card .alert-info {
+  background: rgba(122, 148, 196, 0.12);
+  border-left: 4px solid var(--info);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.ranking-card .alert-success {
+  background: rgba(122, 148, 113, 0.12);
+  border-left: 4px solid var(--success);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.ranking-card .alert-warning {
+  background: rgba(212, 163, 85, 0.12);
+  border-left: 4px solid var(--warning);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== LIST STYLES ===== */
+.list-default {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-default li {
+  padding: var(--space-xs) 0;
+  color: var(--text-secondary);
+  font-size: var(--font-base);
+}
+
+.list-default li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+  display: inline-block;
+  width: 1em;
+  margin-right: var(--space-xs);
+}
+
+/* ===== CHECKLIST STYLES ===== */
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.checklist-number {
+  background: var(--primary);
+  color: var(--text-inverse);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+/* ===== CHECKLIST VISIBILITY ===== */
+.checklist-hidden {
+  display: none;
+}
+
+.checklist-visible {
+  display: block;
+}
+
+/* ===== TABLE RESPONSIVE ===== */
+.table-responsive {
+  overflow-x: auto;
+  background: var(--background-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 800px;
+}
+
+.comparison-table thead th {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: var(--text-inverse);
+  padding: var(--space-lg);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+}
+
+.comparison-table tbody td {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--background-soft);
+}
+
+/* ===== ENHANCED COMPARISON TABLE ===== */
+.comparison-table-wrapper {
+  overflow: hidden;
+  padding: 0;
+}
+
+.comparison-table-enhanced {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table-enhanced thead th {
+  padding: 24px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.comparison-table-enhanced thead th.feature-col {
+  background: var(--background-white);
+  color: var(--text-primary);
+  text-align: left;
+  border-bottom: 3px solid var(--border);
+}
+
+.comparison-table-enhanced thead th.free-col {
+  background: #f3f4f6;
+  color: var(--text-secondary);
+  border-bottom: 3px solid var(--border);
+}
+
+.comparison-table-enhanced thead th.premium-col {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  position: relative;
+  border-bottom: 3px solid var(--primary-dark);
+}
+
+.recommended-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-table-enhanced tbody td {
+  padding: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.comparison-table-enhanced tbody td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.comparison-table-enhanced tbody td:nth-child(2) {
+  text-align: center;
+  background: #fafafa;
+  color: var(--text-secondary);
+}
+
+.comparison-table-enhanced tbody td.premium-cell {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(107, 124, 110, 0.08) 0%, rgba(107, 124, 110, 0.12) 100%);
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.comparison-table-enhanced tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== VISUAL INDICATORS ===== */
+.check-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: var(--success);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.cross-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: #e5e7eb;
+  color: #9ca3af;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.feature-value-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 19px !important;
+}
+
+/* ===== FLEX UTILITIES ===== */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ===== FOOTER STYLES ===== */
+.footer {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--text-inverse);
+  padding: var(--space-3xl) 0 var(--space-xl);
+  margin-top: var(--space-3xl);
+  border-top: 3px solid var(--accent);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.footer p {
+  color: var(--text-inverse);
+  margin-bottom: var(--space-sm);
+}
+
+.footer .text-lg {
+  font-size: var(--font-xl);
+  color: var(--text-inverse);
+}
+
+.footer .text-sm {
+  opacity: 0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .report-header-free {
+    padding: var(--space-2xl) 0;
+  }
+
+  .postcode-badge {
+    margin-top: var(--space-md);
+    text-align: center;
+  }
+
+  .rank-badge {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-lg);
+  }
+
+  .comparison-table {
+    font-size: var(--font-sm);
+  }
+
+  .comparison-table thead th,
+  .comparison-table tbody td {
+    padding: var(--space-md) var(--space-sm);
+  }
+  
+  .comparison-table-enhanced thead th {
+    padding: 16px 12px;
+    font-size: 16px;
+  }
+  
+  .comparison-table-enhanced tbody td {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+  
+  .recommended-badge {
+    font-size: 12px;
+    padding: 4px 12px;
+    top: -10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-header-free h1 {
+    font-size: var(--font-2xl);
+  }
+
+  .rank-badge {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-base);
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .report-header-free {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .btn,
+  #toggle-btn {
+    display: none !important;
+  }
+
+  .ranking-card,
+  .card {
+    border: 1px solid var(--border) !important;
+    break-inside: avoid;
+  }
+  
+  .checklist-hidden {
+    display: block !important;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-contrast: high) {
+  .rank-badge,
+  .checklist-number {
+    border: 2px solid var(--text-primary);
+  }
+
+  .comparison-table tbody tr:hover,
+  .comparison-table-enhanced tbody tr:hover {
+    background: #F5F5F5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .report-header-free {
+    animation: none;
+  }
+
+  .fade-in {
+    animation: none;
+  }
+
+  .ranking-card:hover {
+    transform: none;
+  }
+}

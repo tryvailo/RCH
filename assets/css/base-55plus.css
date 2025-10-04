@@ -1,373 +1,652 @@
 /* ============================================
-
-BASE-55+.CSS - AGE-OPTIMIZED DESIGN SYSTEM [NEW 2024]
-
-Specifically optimized for users aged 55+ with modern 2024 trends
-
-============================================ */
+   BASE-55+.CSS - AGE-OPTIMIZED DESIGN SYSTEM [2025 UPDATE]
+   Specifically optimized for users aged 55+ with modern 2025 trends
+   ============================================ */
 
 /* Web font imports for modern typography */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-
-/* NEW 2024 Age 55+ Optimized Color Palette - Warm & Modern */
-
---primary: #4A90E2;  /* Softer, more modern blue */
---primary-dark: #2C5F8B;  /* Balanced darker variant */
---primary-light: #6DA3E8;  /* Lighter variant with warmth */
---accent: #E8B86D;  /* Warm earth tone instead of orange */
---accent-hover: #D4A355;  /* Sophisticated hover state */
---success: #6BBF59;  /* Warmer green with better psychology */
-
-/* Enhanced Text Colors for Better Readability - Warmer Tones */
-
---text-primary: #2D3748;  /* Warmer dark gray instead of pure black */
---text-secondary: #4A5568;  /* Warmer secondary text */
---text-tertiary: #718096;  /* Softer tertiary with warmth */
-
-/* Modern Warm Backgrounds - 2024 Trend */
-
---background: #F7F5F3;  /* Warm white instead of pure white */
---background-soft: #FAF8F5;  /* Subtle warm tint */
---background-subtle: #FDF9F6;  /* Even more subtle warm background */
-
-/* Earth-tone Accents - NEW 2024 */
-
---earth-primary: #C7A882;  /* Sophisticated gold/beige */
---earth-secondary: #A68B66;  /* Deeper earth tone */
---earth-light: #E6D4B7;  /* Light earth accent */
-
-/* Enhanced Borders with Better Contrast */
-
---border: #E2D7CC;  /* Warm border instead of cold gray */
---border-emphasis: #B8A492;  /* For important borders with earth tone */
---border-light: #F0E6D8;  /* Light warm border */
-
-/* Typography - Age 55+ Optimized with Modern Web Fonts */
-
---font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
---font-base: 20px;  /* Maintained large size for 55+ */
---font-small: 18px;  /* Still larger than standard */
---font-large: 24px;  /* Prominent sizing */
---font-xl: 28px;  /* Extra large for headings */
---font-xxl: 36px;  /* Display size */
-
-/* Enhanced Font Weights - Modern Hierarchy */
-
---font-weight-normal: 400;
---font-weight-medium: 500;
---font-weight-semibold: 600;
---font-weight-bold: 700;
---font-weight-extrabold: 800;
---font-weight-black: 900;  /* NEW - For maximum impact headings */
-
-/* Line Heights - Age 55+ Optimized */
-
---line-height-tight: 1.4;
---line-height-base: 1.7;  /* Maintained for readability */
---line-height-loose: 1.8;
-
-/* Spacing System - Touch-Friendly */
-
---space-xs: 6px;
---space-sm: 12px;
---space-md: 16px;
---space-lg: 24px;
---space-xl: 32px;
---space-2xl: 48px;
---space-3xl: 64px;  /* NEW - For better section separation */
-
-/* Enhanced Border Radius - Modern but Age-Friendly */
-
---radius-sm: 6px;
---radius-md: 12px;  /* Slightly larger for modern look */
---radius-lg: 16px;
---radius-xl: 24px;  /* NEW - For cards and major elements */
---radius-full: 9999px;
-
-/* Modern Shadow System - 2024 Enhanced */
-
---shadow-sm: 0 2px 8px rgba(45, 55, 72, 0.08);  /* Warmer shadow */
---shadow-md: 0 6px 20px rgba(45, 55, 72, 0.12);
---shadow-lg: 0 12px 40px rgba(45, 55, 72, 0.15);
---shadow-xl: 0 20px 60px rgba(45, 55, 72, 0.18);  /* NEW - For hero elements */
-
-/* Enhanced Touch Targets - WCAG AAA+ */
-
---touch-min: 56px;  /* Maintained for accessibility */
---touch-comfortable: 64px;  /* NEW - Increased for better UX */
---touch-large: 72px;  /* NEW - For primary actions */
-
-/* Container System */
-
---container-max: 1200px;
---container-padding: 24px;
-
-/* Transitions - Smoother Modern Feel */
-
---transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* More sophisticated easing */
---transition-fast: all 0.15s ease-out;
---transition-slow: all 0.5s ease-out;
-
+  /* ============================================
+     UPDATED 2025 Color Palette - Warm & Muted
+     ============================================ */
+  
+  /* Base colors - warm neutrals */
+  --background: #FAF7F3;
+  --background-soft: #F5F2EE;
+  --background-subtle: #F8F6F4;
+  --background-white: #FFFFFF;
+  
+  /* Primary colors - soft sage instead of bright blue */
+  --primary: #6B7C6E;
+  --primary-dark: #4A5C4D;
+  --primary-light: #8A9B8D;
+  --primary-hover: #5A6B5D;
+  
+  /* Accent colors - warm terracotta instead of bright orange */
+  --accent: #C08B7A;
+  --accent-hover: #B07B6A;
+  --accent-light: #D4A08F;
+  
+  /* Success color - muted green */
+  --success: #7A9471;
+  --success-hover: #6B8362;
+  --success-light: #8FA386;
+  
+  /* Enhanced Text Colors - Warmer Tones */
+  --text-primary: #2A2B2A;
+  --text-secondary: #5A5B5A;
+  --text-tertiary: #8A8B8A;
+  --text-inverse: #FFFFFF;
+  --text-muted: #A0A0A0;
+  
+  /* Soft borders and dividers */
+  --border: rgba(107, 124, 110, 0.15);
+  --border-light: rgba(107, 124, 110, 0.1);
+  --border-strong: rgba(107, 124, 110, 0.25);
+  
+  /* Status colors with better accessibility */
+  --warning: #D4A355;
+  --warning-hover: #C4933F;
+  --error: #C47A7A;
+  --error-hover: #B46A6A;
+  --info: #7A94C4;
+  --info-hover: #6A84B4;
+  
+  /* ============================================
+     Modern Spacing System - More refined
+     ============================================ */
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  
+  /* ============================================
+     Updated Typography Scale - More balanced
+     ============================================ */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Simplified weight system - removed extrabold and black */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Improved font sizes - more balanced progression */
+  --font-xs: 14px;
+  --font-sm: 16px;
+  --font-base: 18px;    /* Optimized for 55+ */
+  --font-lg: 20px;
+  --font-xl: 24px;
+  --font-2xl: 28px;
+  --font-3xl: 32px;
+  --font-4xl: 38px;
+  
+  /* Enhanced line heights for better readability */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-base: 1.6;    /* Improved from 1.7 */
+  --line-height-relaxed: 1.8;
+  
+  /* Modern radius values - more subtle */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 22px;
+  
+  /* Updated shadow system - softer and more natural */
+  --shadow-xs: 0 1px 3px rgba(42, 43, 42, 0.04);
+  --shadow-sm: 0 1px 6px rgba(42, 43, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(42, 43, 42, 0.08);
+  --shadow-lg: 0 8px 32px rgba(42, 43, 42, 0.10);
+  --shadow-xl: 0 16px 48px rgba(42, 43, 42, 0.12);
+  
+  /* Interactive states - more subtle */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Touch targets optimized for 55+ users */
+  --touch-comfortable: 48px;
+  --touch-minimum: 44px;
+  
+  /* Focus styles for accessibility */
+  --focus-ring: 0 0 0 3px rgba(107, 124, 110, 0.3);
+  --focus-ring-offset: 2px;
 }
 
 /* ============================================
-
-GLOBAL ENHANCEMENTS - 2024 MODERN BASE
-
-============================================ */
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-scroll-behavior: smooth;
+  font-size: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-font-family: var(--font-family);
-font-size: var(--font-base);
-line-height: var(--line-height-base);
-color: var(--text-primary);
-background: var(--background);
-margin: 0;
-padding: 0;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-font-feature-settings: "kern" 1, "liga" 1;  /* Better typography rendering */
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
 }
 
-/* Enhanced Typography Hierarchy - 2024 Modern */
+/* ============================================
+   ENHANCED TYPOGRAPHY - MODERN & ACCESSIBLE
+   ============================================ */
 
 h1, h2, h3, h4, h5, h6 {
-font-weight: var(--font-weight-bold);
-line-height: var(--line-height-tight);
-color: var(--text-primary);
-margin: 0 0 var(--space-md) 0;
-font-feature-settings: "kern" 1, "liga" 1;
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
 }
 
-h1 { 
-font-size: var(--font-xxl); 
-font-weight: var(--font-weight-black);  /* Enhanced weight */
-line-height: 1.2; 
-letter-spacing: -0.025em;  /* Improved spacing */
+h1 {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-lg);
 }
 
-h2 { 
-font-size: var(--font-xl); 
-font-weight: var(--font-weight-extrabold);
-line-height: 1.25;
-letter-spacing: -0.02em;
+h2 {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-md);
 }
 
-h3 { 
-font-size: var(--font-large); 
-font-weight: var(--font-weight-bold);
-line-height: 1.3;
+h3 {
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
 }
 
-h4 { 
-font-size: var(--font-base); 
-font-weight: var(--font-weight-semibold);
+h4 {
+  font-size: var(--font-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  margin-bottom: var(--space-sm);
 }
 
-/* Enhanced Link Styles */
+p {
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--font-base);
+  line-height: var(--line-height-base);
+  color: var(--text-secondary);
+}
 
+/* Text variations */
+.text-large {
+  font-size: var(--font-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-xl {
+  font-size: var(--font-xl);
+}
+
+.text-small {
+  font-size: var(--font-sm);
+  line-height: var(--line-height-base);
+}
+
+strong, b {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Links */
 a {
-color: var(--primary);
-text-decoration: none;
-transition: var(--transition);
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: var(--font-weight-medium);
 }
 
 a:hover {
-color: var(--primary-dark);
-transform: translateY(-1px);  /* Subtle lift effect */
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
-a:focus {
-outline: 3px solid var(--accent);  /* Enhanced focus for accessibility */
-outline-offset: 2px;
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
 }
 
-/* ============================================
-
-MODERN FORM ENHANCEMENTS - 2024
-
-============================================ */
-
-input, textarea, select {
-font-family: var(--font-family);
-font-size: var(--font-base);
-line-height: var(--line-height-base);
-padding: 16px 20px;  /* Enhanced padding */
-border: 3px solid var(--border);
-border-radius: var(--radius-md);
-background: var(--background);
-color: var(--text-primary);
-transition: var(--transition);
-min-height: var(--touch-min);
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--space-md) 0;
+  padding-left: var(--space-lg);
+  line-height: var(--line-height-base);
 }
 
-input:focus, textarea:focus, select:focus {
-border-color: var(--accent);
-box-shadow: 0 0 0 4px rgba(232, 184, 109, 0.15);  /* Warm glow */
-outline: none;
-transform: translateY(-2px);  /* Subtle lift */
-}
-
-/* Enhanced placeholder styling */
-
-::placeholder {
-color: var(--text-tertiary);
-font-weight: var(--font-weight-normal);
-opacity: 0.8;
+li {
+  margin-bottom: var(--space-xs);
 }
 
 /* ============================================
+   ACCESSIBILITY & FOCUS STYLES
+   ============================================ */
 
-MODERN UTILITY CLASSES - 2024
-
-============================================ */
-
-/* New spacing utilities */
-
-.space-xs { margin: var(--space-xs); }
-.space-sm { margin: var(--space-sm); }
-.space-md { margin: var(--space-md); }
-.space-lg { margin: var(--space-lg); }
-.space-xl { margin: var(--space-xl); }
-.space-2xl { margin: var(--space-2xl); }
-.space-3xl { margin: var(--space-3xl); }
-
-/* Modern text utilities */
-
-.text-warm { color: var(--text-primary); }
-.text-earth { color: var(--earth-primary); }
-.text-accent { color: var(--accent); }
-
-/* Background utilities with new warm tones */
-
-.bg-warm { background: var(--background); }
-.bg-warm-soft { background: var(--background-soft); }
-.bg-earth { background: var(--earth-light); }
-
-/* Enhanced shadow utilities */
-
-.shadow-modern { box-shadow: var(--shadow-md); }
-.shadow-hero { box-shadow: var(--shadow-xl); }
-
-/* ============================================
-
-ACCESSIBILITY ENHANCEMENTS - 2024
-
-============================================ */
-
-/* Focus management for better accessibility */
-
-.sr-only {
-position: absolute;
-width: 1px;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-clip: rect(0, 0, 0, 0);
-white-space: nowrap;
-border: 0;
-}
-
-/* Enhanced focus indicators */
-
+/* Enhanced focus styles for keyboard navigation */
 *:focus-visible {
-outline: 3px solid var(--accent);
-outline-offset: 2px;
-border-radius: var(--radius-sm);
+  outline: none;
+  box-shadow: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
-/* Reduced motion support */
-
-@media (prefers-reduced-motion: reduce) {
-*, *::before, *::after {
-animation-duration: 0.01ms !important;
-animation-iteration-count: 1 !important;
-transition-duration: 0.01ms !important;
+/* Skip to content link for screen readers */
+.skip-to-content,
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  z-index: 1000;
+  transition: top 0.3s;
 }
+
+.skip-to-content:focus,
+.skip-to-main:focus {
+  top: 6px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ============================================
+   UTILITY CLASSES
+   ============================================ */
 
-MODERN RESPONSIVE ENHANCEMENTS
+/* Modern spacing utilities */
+.m-0 { margin: 0; }
+.mt-sm { margin-top: var(--space-sm); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mb-md { margin-bottom: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }  /* ← ДОБАВИТЬ */
+.mb-2xl { margin-bottom: var(--space-2xl); }  /* ← ДОБАВИТЬ */
 
-============================================ */
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+/* Padding variations */
+.px-sm { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+.px-md { padding-left: var(--space-md); padding-right: var(--space-md); }
+.px-lg { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+.px-xl { padding-left: var(--space-xl); padding-right: var(--space-xl); }
+
+.py-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.py-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+
+.pt-sm { padding-top: var(--space-sm); }
+.pt-md { padding-top: var(--space-md); }
+.pt-lg { padding-top: var(--space-lg); }
+.pr-sm { padding-right: var(--space-sm); }
+.pr-md { padding-right: var(--space-md); }
+.pb-sm { padding-bottom: var(--space-sm); }
+.pb-md { padding-bottom: var(--space-md); }
+.pb-lg { padding-bottom: var(--space-lg); }
+.pl-sm { padding-left: var(--space-sm); }
+.pl-md { padding-left: var(--space-md); }
+
+/* Margin variations */
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-sm { margin-top: var(--space-sm); margin-bottom: var(--space-sm); }
+.my-md { margin-top: var(--space-md); margin-bottom: var(--space-md); }
+.my-lg { margin-top: var(--space-lg); margin-bottom: var(--space-lg); }
+
+.mr-sm { margin-right: var(--space-sm); }
+.mr-md { margin-right: var(--space-md); }
+.ml-sm { margin-left: var(--space-sm); }
+.ml-md { margin-left: var(--space-md); }
+
+/* Background utilities */
+.bg-white { background: var(--background-white); }
+.bg-soft { background: var(--background-soft); }
+.bg-subtle { background: var(--background-subtle); }
+.bg-primary { background: var(--primary); }
+.bg-success { background: var(--success); }
+.bg-warning { background: var(--warning); }
+.bg-error { background: var(--error); }
+.bg-warm { background: var(--background); }  /* ← ДОБАВИТЬ */
+
+
+/* Border radius utilities */
+.rounded { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: 9999px; }
+
+/* Display utilities */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.hidden { display: none; }
+.inline-flex { display: inline-flex; }
+
+/* Text utilities */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-error { color: var(--error); }
+.text-inverse { color: var(--text-inverse); }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-muted { color: var(--text-muted); }  /* ← ДОБАВИТЬ */
+
+
+/* Text size utilities */
+.text-xs { font-size: var(--font-xs); }
+.text-sm { font-size: var(--font-sm); }
+.text-base { font-size: var(--font-base); }
+.text-lg { font-size: var(--font-lg); }
+.text-xl { font-size: var(--font-xl); }
+.text-2xl { font-size: var(--font-2xl); }
+.text-3xl { font-size: var(--font-3xl); }
+.text-4xl { font-size: var(--font-4xl); }
+.text-5xl { font-size: 48px; }
+
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Font family utilities */
+.font-sans { font-family: var(--font-family); }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+.flex-wrap { flex-wrap: wrap; }
+
+/* Grid system */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
 
 @media (max-width: 768px) {
-:root {
---font-base: 22px;  /* Larger on mobile for 55+ users */
---space-lg: 20px;
---space-xl: 28px;
---touch-min: 60px;  /* Larger touch targets on mobile */
---touch-comfortable: 68px;
-}
-
-body {
-padding: 0 var(--space-md);
-}
-}
-
-@media (max-width: 480px) {
-:root {
---font-base: 24px;  /* Even larger on small screens */
---touch-min: 64px;  /* Maximum accessibility */
-}
-}
-
-/* High contrast mode support */
-
-@media (prefers-contrast: high) {
-:root {
---primary: #003399;  /* Higher contrast blue */
---text-primary: #000000;  /* Pure black for maximum contrast */
---border: #666666;  /* Darker borders */
-}
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
+   HIGH CONTRAST MODE SUPPORT
+   ============================================ */
 
-MODERN ANIMATION FRAMEWORK
-
-============================================ */
-
-/* Subtle entrance animations */
-
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border: #666666;
+    --primary: #0066CC;
+    --accent: #CC6600;
+  }
 }
 
-@keyframes pulseGlow {
-0%, 100% { 
-box-shadow: 0 0 0 0 rgba(232, 184, 109, 0.4); 
-}
-50% { 
-box-shadow: 0 0 0 15px rgba(232, 184, 109, 0); 
-}
+/* ============================================
+   LAYOUT CONTAINERS
+   ============================================ */
+
+.container,
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
-/* Animation utility classes */
-
-.animate-fade-in {
-animation: fadeInUp 0.6s ease-out;
+.container-narrow {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
-.animate-pulse-glow {
-animation: pulseGlow 2s ease-in-out infinite;
+.container-wide {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Sections */
+.section {
+  padding: var(--space-3xl) 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.section-title {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-tight);
+}
+
+.section-subtitle {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Spacing utilities - extended */
+.space-y-xs > * + * { margin-top: var(--space-xs); }
+.space-y-sm > * + * { margin-top: var(--space-sm); }
+.space-y-md > * + * { margin-top: var(--space-md); }
+.space-y-lg > * + * { margin-top: var(--space-lg); }
+.space-y-xl > * + * { margin-top: var(--space-xl); }
+
+/* Width utilities */
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+
+/* Height utilities */
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* Position utilities */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* Overflow utilities */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+
+/* Cursor utilities */
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+
+/* Z-index utilities */
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-50 { z-index: 50; }
+.z-100 { z-index: 100; }
+.z-1000 { z-index: 1000; }
+
+/* Opacity utilities */
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* Shadow utilities */
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Line height utilities */
+.leading-none { line-height: 1; }
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-base); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+
+/* Whitespace utilities */
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+/* Max width utilities */
+.max-w-xs { max-width: 320px; }
+.max-w-sm { max-width: 480px; }
+.max-w-md { max-width: 640px; }
+.max-w-lg { max-width: 800px; }
+.max-w-xl { max-width: 1000px; }
+.max-w-2xl { max-width: 1200px; }
+.max-w-full { max-width: 100%; }
+
+/* Min height utilities */
+.min-h-0 { min-height: 0; }
+.min-h-full { min-height: 100%; }
+
+/* Border utilities */
+.border { border: 1px solid var(--border); }
+.border-light { border: 1px solid var(--border-light); }
+.border-strong { border: 1px solid var(--border-strong); }
+.border-none { border: none; }
+.border-t { border-top: 1px solid var(--border-light); }
+.border-b { border-bottom: 1px solid var(--border-light); }
+.border-l { border-left: 1px solid var(--border-light); }
+.border-r { border-right: 1px solid var(--border-light); }
+
+/* ============================================
+   REDUCED MOTION PREFERENCES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 }

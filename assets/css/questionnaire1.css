@@ -1,0 +1,218 @@
+/* questionnaire.css - Questionnaire-specific styles */
+
+/* AGE 55+ OPTIMIZED TYPOGRAPHY */
+.questionnaire-page body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fefce8;
+    color: #1f2937;
+    line-height: 1.7;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Question Section Management */
+.question-section {
+    display: none;
+}
+
+.question-section.active {
+    display: block;
+}
+
+/* Progress specific to questionnaire */
+.progress-text {
+    font-size: 1.125rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Enhanced form inputs for 55+ users */
+.questionnaire-page .form-input {
+    border: 3px solid #e5e7eb;
+    padding: 18px 20px;
+    font-size: 1.125rem;
+    min-height: 56px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.questionnaire-page .form-input:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+}
+
+/* Typography specific to questionnaire */
+.questionnaire-page .section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1f2937;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.questionnaire-page .section-description {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.questionnaire-page .question-label {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+    color: #374151;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+}
+
+.questionnaire-page .help-text {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Navigation buttons specific styling */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e5e7eb;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Utility classes for questionnaire */
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+/* Mobile Optimizations for 55+ users */
+@media (max-width: 768px) {
+    .questionnaire-page body {
+        font-size: 18px;
+    }
+    
+    .questionnaire-page .section-title {
+        font-size: 1.875rem;
+    }
+    
+    .questionnaire-page .section-description {
+        font-size: 1.125rem;
+    }
+    
+    .questionnaire-page .question-label {
+        font-size: 1.125rem;
+    }
+    
+    .questionnaire-page .form-input {
+        font-size: 18px;
+        padding: 16px 18px;
+        min-height: 52px;
+    }
+    
+    .question-section {
+        padding: 24px 20px !important;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .navigation-buttons .button-group {
+        width: 100%;
+    }
+    
+    .navigation-buttons .flex {
+        width: 100%;
+    }
+    
+    .navigation-buttons button,
+    .navigation-buttons .primary-btn,
+    .navigation-buttons .secondary-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .questionnaire-page .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* Header adjustments for questionnaire page */
+@media (max-width: 768px) {
+    .questionnaire-page header .header-content {
+        height: 5rem;
+    }
+    
+    .questionnaire-page header .logo {
+        font-size: 1.5rem;
+    }
+    
+    .questionnaire-page header .header-text {
+        font-size: 1rem;
+    }
+    
+    .questionnaire-page main {
+        padding-top: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .questionnaire-page header .header-content {
+        height: 4rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    
+    .questionnaire-page header .logo {
+        font-size: 1.25rem;
+    }
+    
+    .questionnaire-page header .header-text {
+        font-size: 0.875rem;
+    }
+    
+    .questionnaire-page main {
+        padding-top: 6rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .questionnaire-page main {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+    
+    .questionnaire-page .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .questionnaire-page .section-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .navigation-buttons {
+        margin-top: 2rem;
+        padding-top: 1rem;
+    }
+}

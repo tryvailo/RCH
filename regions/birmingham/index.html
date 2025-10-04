@@ -24,143 +24,18 @@
     <link rel="canonical" href="https://rightcarehome.co.uk/birmingham/">
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="../assets/css/base.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="../../assets/css/base-55plus.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
     
-    <!-- External CSS Files -->
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
-    <link rel="stylesheet" href="../assets/css/layout.css">
-    <link rel="stylesheet" href="../assets/css/regional.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- External CSS Files - Correct Order -->
+    <link rel="stylesheet" href="../../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/regional.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-navy': '#1e293b',
-                        'primary-blue': '#2563eb',
-                        'nhs-blue': '#005EB8',
-                        'caring-green': '#059669',
-                        'warmth-orange': '#f59e0b',
-                        'birmingham-gold': '#d4af37',
-                        'soft-coral': '#fb7185',
-                        'warm-grey': '#64748b',
-                        'light-cream': '#fefce8',
-                        'text-dark': '#1a1a1a',
-                        'text-medium': '#3a3a3a',
-                        'text-muted': '#64748b'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Age 55+ Optimized Styles -->
-    <style>
-        :root {
-            --text-dark-55: #1a1a1a;
-            --text-medium-55: #3a3a3a;
-            --line-height-55: 1.7;
-            --touch-min-55: 56px;
-            --border-emphasis-55: 3px;
-        }
-
-        body {
-            font-size: 20px;
-            line-height: var(--line-height-55);
-            color: var(--text-dark-55);
-        }
-
-        .btn-55, .primary-cta, .secondary-cta {
-            min-height: var(--touch-min-55);
-            padding: 18px 28px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .form-input-55 {
-            min-height: var(--touch-min-55);
-            padding: 18px 20px;
-            border: var(--border-emphasis-55) solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 1.125rem;
-            line-height: var(--line-height-55);
-        }
-
-        .form-input-55:focus {
-            border-color: #f59e0b;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
-        }
-
-        .card-55 {
-            border: 2px solid #e5e7eb;
-            padding: 2rem;
-            border-radius: 16px;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-        }
-
-        *:focus-visible {
-            outline: 3px solid #f59e0b;
-            outline-offset: 3px;
-        }
-
-        .space-y-55 > * + * {
-            margin-top: 1.25rem;
-        }
-
-        .header {
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        a {
-            color: #005EB8;
-            font-weight: 600;
-        }
-
-        a:hover {
-            color: #003d7a;
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-        }
-
-        .birmingham-badge {
-            background: linear-gradient(135deg, #005EB8 0%, #d4af37 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 700;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .trust-element {
-            background: rgba(5, 150, 105, 0.1);
-            border: 2px solid #059669;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        .stat-card-birmingham {
-            background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
-            border: 2px solid #d4af37;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Schema.org markup -->
     <script type="application/ld+json">
@@ -185,255 +60,249 @@
 
 <body>
     <!-- Skip to content -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-warmth-orange text-white px-4 py-2 rounded">
+    <a href="#main-content" class="skip-to-content">
         Skip to main content
     </a>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 hidden">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-lg font-medium">
-                We use cookies to improve your experience. By continuing to browse, you agree to our use of cookies.
-                <a href="/privacy-policy" class="underline font-semibold">Learn more</a>
-            </p>
-            <div class="flex gap-3">
-                <button type="button" id="accept-cookies" class="bg-warmth-orange text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-600 transition min-h-[56px]">
-                    Accept
-                </button>
-                <button type="button" id="decline-cookies" class="bg-gray-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-600 transition min-h-[56px]">
-                    Decline
-                </button>
+    <div id="cookie-consent" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-body">
+                <p class="text-large">
+                    We use cookies to improve your experience. By continuing to browse, you agree to our use of cookies.
+                    <a href="/privacy-policy">Learn more</a>
+                </p>
+                <div class="modal-footer">
+                    <button type="button" id="accept-cookies" class="btn btn-primary">
+                        Accept
+                    </button>
+                    <button type="button" id="decline-cookies" class="btn btn-secondary">
+                        Decline
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Header -->
-    <header class="header sticky top-0 bg-white z-50">
-        <div class="header-container max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="logo flex items-center gap-3">
-                    <h1 class="text-2xl font-bold text-nhs-blue">RightCareHome</h1>
-                    <span class="text-base text-warm-grey">.co.uk</span>
-                    <span class="birmingham-badge text-sm">Birmingham</span>
-                </div>
-                <nav class="header-nav hidden md:flex items-center gap-4 justify-end" aria-label="Main navigation">
-    <a href="/" class="text-lg font-semibold hover:text-nhs-blue whitespace-nowrap">Home</a>
-    <a href="#pricing-plans" class="primary-cta bg-warmth-orange text-white hover-lift inline-block text-center whitespace-nowrap">
-        Get Your Report
-    </a>
-</nav>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">R</div>
+                <h1>RightCareHome<span class="text-tertiary">.co.uk</span></h1>
+                <span class="birmingham-badge">Birmingham</span>
             </div>
+            <nav class="nav nav-primary" aria-label="Main navigation">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#pricing-plans" class="btn btn-primary">
+                    Get Your Report
+                </a>
+            </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section - Birmingham Specific -->
-        <section class="hero-section pt-40 pb-32 bg-gradient-to-br from-nhs-blue via-blue-700 to-birmingham-gold relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <section class="hero">
+            <div class="hero-container">
                     
-                    <!-- Left Column -->
-                    <div class="fade-in">
-                        <div class="mb-8">
-                            <span class="bg-birmingham-gold text-white px-8 py-4 rounded-full font-extrabold text-lg inline-block shadow-lg">
-                                🏙️ Birmingham Specialist Service
-                            </span>
+                <!-- Left Column -->
+                <div class="hero-content">
+                    <h2 class="hero-headline">
+                        Birmingham's Trusted Care Home Assessment Service
+                    </h2>
+                    
+                    <p class="hero-subtext">
+                        Expert analysis of 277 verified Birmingham care homes. Delivered within 48 hours with local market insights and area-specific recommendations.
+                    </p>
+                    
+                    <!-- Birmingham Trust Elements -->
+                    <div class="hero-badges">
+                        <div class="badge badge-success">
+                            <strong>Local Expertise:</strong> Deep knowledge of Birmingham care standards, pricing, and availability
                         </div>
-                        
-                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight">
-                            Birmingham's Trusted Care Home Assessment Service
-                        </h2>
-                        
-                        <p class="text-2xl mb-10 font-bold text-blue-50 leading-relaxed">
-                            Expert analysis of 277 verified Birmingham care homes. Delivered within 48 hours with local market insights and area-specific recommendations.
-                        </p>
-                        
-                        <!-- Birmingham Trust Elements -->
-                        <div class="mb-12 space-y-6">
-                            <div class="trust-element bg-blue-900 bg-opacity-40 text-blue-50 backdrop-blur-sm">
-                                <strong class="font-bold">Local Expertise:</strong> Deep knowledge of Birmingham care standards, pricing, and availability
-                            </div>
-                            <div class="trust-element bg-blue-900 bg-opacity-40 text-blue-50 backdrop-blur-sm">
-                                <strong class="font-bold">Independent Service:</strong> No commissions from care homes - we work for families only
-                            </div>
+                        <div class="badge badge-success">
+                            <strong>Independent Service:</strong> No commissions from care homes - we work for families only
                         </div>
+                    </div>
 
-                        <!-- Birmingham Stats -->
-                        <div class="grid grid-cols-3 gap-6 mb-10">
-                            <div class="stat-card-birmingham card-55 text-center">
-                                <div class="text-4xl font-extrabold text-nhs-blue mb-2">277</div>
-                                <div class="text-sm font-bold text-text-medium">Verified Homes</div>
-                            </div>
-                            <div class="stat-card-birmingham card-55 text-center">
-                                <div class="text-4xl font-extrabold text-nhs-blue mb-2">48h</div>
-                                <div class="text-sm font-bold text-text-medium">Delivery Time</div>
-                            </div>
-                            <div class="stat-card-birmingham card-55 text-center">
-                                <div class="text-4xl font-extrabold text-nhs-blue mb-2">689+</div>
-                                <div class="text-sm font-bold text-text-medium">Families Helped</div>
-                            </div>
+                    <!-- Birmingham Stats -->
+                    <div class="grid grid-3 gap-md mb-xl">
+                        <div class="card card-subtle text-center p-lg">
+                            <div class="price-display">277</div>
+                            <div class="text-small font-medium">Verified Homes</div>
                         </div>
-                        
-                        <div class="mb-10">
-                            <a href="#pricing-plans" class="primary-cta bg-warmth-orange text-white hover-lift inline-block text-lg px-12">
-                                Get Birmingham Report
-                            </a>
+                        <div class="card card-subtle text-center p-lg">
+                            <div class="price-display">48h</div>
+                            <div class="text-small font-medium">Delivery Time</div>
+                        </div>
+                        <div class="card card-subtle text-center p-lg">
+                            <div class="price-display">689+</div>
+                            <div class="text-small font-medium">Families Helped</div>
                         </div>
                     </div>
                     
-                    <!-- Right Column - IDENTICAL Free Guide Form -->
-                    <div class="fade-in">
-                        <div class="bg-white rounded-2xl shadow-2xl p-10 border-3 border-caring-green relative overflow-hidden card-55">
-                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-caring-green to-nhs-blue"></div>
-                            
-                            <div class="text-center mb-10">
-                                <h3 class="text-3xl font-extrabold text-text-dark leading-tight mb-8">Your Free Birmingham Care Home Shortlist</h3>
-                            </div>
-                            
-                            <ul class="space-y-55 mb-12">
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-5 font-bold text-2xl flex-shrink-0">✓</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg text-text-dark leading-tight mb-2">3 Birmingham care homes near your postcode</div>
-                                        <div class="font-medium text-base text-text-medium leading-relaxed">Verified addresses & contact details</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-5 font-bold text-2xl flex-shrink-0">✓</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg text-text-dark leading-tight mb-2">CQC ratings + recent inspection insights</div>
-                                        <div class="font-medium text-base text-text-medium leading-relaxed">Key findings from latest inspections</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-5 font-bold text-2xl flex-shrink-0">✓</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg text-text-dark leading-tight mb-2">Professional telephone enquiry checklist</div>
-                                        <div class="font-medium text-base text-text-medium leading-relaxed">15 essential questions to ask homes</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-5 font-bold text-2xl flex-shrink-0">✓</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg text-text-dark leading-tight mb-2">Complete contact details & directions</div>
-                                        <div class="font-medium text-base text-text-medium leading-relaxed">Phone numbers and exact locations</div>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-5 font-bold text-2xl flex-shrink-0">✓</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg text-text-dark leading-tight mb-2">Downloadable PDF guide</div>
-                                        <div class="font-medium text-base text-text-medium leading-relaxed">Print and take with you</div>
-                                    </div>
-                                </li>
-                            </ul>
-                            
-                            <form class="space-y-55" id="guide-form-birmingham">
-    <!-- Your Area (Postcode Input) -->
-    <div>
-        <label for="guide-postcode-birmingham" class="block text-lg font-bold text-text-dark mb-3">
-            Your area <span class="text-red-600">*</span>
-        </label>
-        <input 
-            type="text" 
-            id="guide-postcode-birmingham" 
-            placeholder="Enter Birmingham postcode (e.g., B1 1AA)" 
-            class="form-input-55 w-full uppercase"
-            required 
-            aria-required="true"
-            pattern="^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$"
-            maxlength="8"
-            autocomplete="postal-code">
-        <div id="postcode-error-birmingham" class="error-message hidden">Please enter a valid Birmingham postcode (e.g., B1 1AA)</div>
-    </div>
-
-    <!-- Email Address -->
-    <div>
-        <label for="guide-email-birmingham" class="block text-lg font-bold text-text-dark mb-3">
-            Email address <span class="text-red-600">*</span>
-        </label>
-        <input 
-            type="email" 
-            id="guide-email-birmingham" 
-            placeholder="your.email@example.com" 
-            class="form-input-55 w-full"
-            required 
-            aria-required="true"
-            autocomplete="email">
-        <div id="email-error-birmingham" class="error-message hidden">Please enter a valid email address</div>
-    </div>
-
-    <button type="submit" class="secondary-cta w-full bg-caring-green text-white hover-lift border-3 border-caring-green text-center">
-        Receive Free Birmingham Shortlist
-    </button>
-</form>
-                            
-                            <p class="text-base text-warm-grey text-center mt-8 font-semibold leading-relaxed">
-                                🔒 Your email is never shared with care homes
-                            </p>
-                        </div>
+                    <div class="hero-cta mt-xl">
+                        <a href="#pricing-plans" class="btn btn-large btn-primary btn-block">
+                            Get Birmingham Report
+                        </a>
                     </div>
-                    
                 </div>
+                
+                <!-- Right Column - Free Guide Form -->
+                <div class="hero-form">
+                    <div class="hero-form-title">Your Free Birmingham Care Home Shortlist</div>
+                    
+                    <ul class="hero-form-benefits">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">3 Birmingham care homes near your postcode</div>
+                                <div class="text-secondary">Verified addresses & contact details</div>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">CQC ratings + recent inspection insights</div>
+                                <div class="text-secondary">Key findings from latest inspections</div>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Professional telephone enquiry checklist</div>
+                                <div class="text-secondary">15 essential questions to ask homes</div>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Complete contact details & directions</div>
+                                <div class="text-secondary">Phone numbers and exact locations</div>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Downloadable PDF guide</div>
+                                <div class="text-secondary">Print and take with you</div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <form class="form" id="guide-form-birmingham">
+                        <div class="form-group">
+                            <label for="guide-postcode-birmingham" class="form-label required">
+                                Your area
+                            </label>
+                            <input 
+                                type="text" 
+                                id="guide-postcode-birmingham" 
+                                placeholder="Enter Birmingham postcode (e.g., B1 1AA)" 
+                                class="form-input"
+                                required 
+                                aria-required="true"
+                                pattern="^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$"
+                                maxlength="8"
+                                autocomplete="postal-code">
+                            <span id="postcode-error-birmingham" class="form-error" style="display: none;">Please enter a valid Birmingham postcode (e.g., B1 1AA)</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guide-email-birmingham" class="form-label required">
+                                Email address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="guide-email-birmingham" 
+                                placeholder="your.email@example.com" 
+                                class="form-input"
+                                required 
+                                aria-required="true"
+                                autocomplete="email">
+                            <span id="email-error-birmingham" class="form-error" style="display: none;">Please enter a valid email address</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent btn-block">
+                            Receive Free Birmingham Shortlist
+                        </button>
+                    </form>
+                    
+                    <p class="text-small text-center mt-md">
+                        🔒 Your email is never shared with care homes
+                    </p>
+                </div>
+                
             </div>
         </section>
 
         <!-- Birmingham Coverage Section -->
-        <section class="py-32 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 fade-in">
-                    <h2 class="text-5xl font-extrabold mb-12 text-text-dark leading-tight">Complete Birmingham Coverage</h2>
-                    <p class="text-2xl text-text-medium max-w-4xl mx-auto leading-relaxed font-medium">
+        <section class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Complete Birmingham Coverage</h2>
+                    <p class="section-subtitle">
                         We cover all Birmingham areas with verified care homes, local market insights, and area-specific pricing analysis.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">City Centre</h3>
-                        <p class="text-lg text-text-medium font-medium">42 verified homes</p>
+                <div class="grid grid-4">
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">City Centre</h3>
+                        <p>42 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Sutton Coldfield</h3>
-                        <p class="text-lg text-text-medium font-medium">38 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Sutton Coldfield</h3>
+                        <p>38 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Edgbaston</h3>
-                        <p class="text-lg text-text-medium font-medium">35 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Edgbaston</h3>
+                        <p>35 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Solihull</h3>
-                        <p class="text-lg text-text-medium font-medium">44 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Solihull</h3>
+                        <p>44 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Harborne</h3>
-                        <p class="text-lg text-text-medium font-medium">28 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Harborne</h3>
+                        <p>28 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Kings Heath</h3>
-                        <p class="text-lg text-text-medium font-medium">25 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Kings Heath</h3>
+                        <p>25 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Moseley</h3>
-                        <p class="text-lg text-text-medium font-medium">22 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Moseley</h3>
+                        <p>22 verified homes</p>
                     </div>
-                    <div class="card-55 bg-white hover-lift text-center">
-                        <div class="text-4xl mb-4">📍</div>
-                        <h3 class="text-xl font-bold text-text-dark mb-3">Other Areas</h3>
-                        <p class="text-lg text-text-medium font-medium">43 verified homes</p>
+                    <div class="card text-center">
+                        <div class="text-4xl mb-md">📍</div>
+                        <h3 class="card-title">Other Areas</h3>
+                        <p>43 verified homes</p>
                     </div>
                 </div>
 
-                <div class="text-center mt-16 fade-in">
-                    <p class="text-xl text-text-medium font-semibold leading-relaxed">
+                <div class="text-center mt-xl">
+                    <p class="text-large">
                         All areas include: Erdington • Northfield • Perry Barr • Selly Oak • Yardley • and more
                     </p>
                 </div>
@@ -441,76 +310,74 @@
         </section>
 
         <!-- Pricing Plans Section -->
-        <section class="py-32 bg-light-cream" id="pricing-plans">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 fade-in">
-                    <h2 class="text-5xl font-extrabold mb-12 text-text-dark leading-tight">Birmingham Care Home Assessment Options</h2>
-                    <p class="text-2xl text-text-medium max-w-4xl mx-auto leading-relaxed font-medium">
+        <section class="section" id="pricing-plans">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Birmingham Care Home Assessment Options</h2>
+                    <p class="section-subtitle">
                         Choose the right level of assessment for your Birmingham care home search.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div class="grid grid-2">
                     <!-- Standard Plan -->
-                    <div class="card-55 bg-white hover-lift fade-in transition-all duration-300">
+                    <div class="card card-elevated">
                         <div class="text-center">
-                            <div class="text-5xl mb-6">✨</div>
-                            <h3 class="text-3xl font-extrabold text-text-dark mb-3 leading-tight">Standard Assessment</h3>
-                            <p class="text-xl text-text-medium mb-6 font-semibold">Quick & safety-focused</p>
-                            <div class="text-5xl font-extrabold text-nhs-blue mb-8">£99</div>
-                            <ul class="text-left space-y-55 mb-10">
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">5 Birmingham care home matches</span>
+                            <div class="text-4xl mb-md">✨</div>
+                            <h3 class="card-title">Standard Assessment</h3>
+                            <p class="text-large mb-md">Quick & safety-focused</p>
+                            <div class="price-display mb-lg">£99</div>
+                            <ul class="mb-xl">
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>5 Birmingham care home matches</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">Local market pricing analysis</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Local market pricing analysis</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">CQC ratings comparison</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>CQC ratings comparison</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">48-hour delivery guarantee</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>48-hour delivery guarantee</span>
                                 </li>
                             </ul>
-                            <a href="/questionnaire/?area=birmingham" class="primary-cta bg-warmth-orange text-white hover-lift inline-block w-full text-center">
+                            <a href="/questionnaire/?area=birmingham" class="btn btn-primary btn-block">
                                 Start Standard Assessment
                             </a>
                         </div>
                     </div>
                     
                     <!-- Premium Plan -->
-                    <div class="card-55 bg-gradient-to-br from-amber-50 to-white border-warmth-orange hover-lift fade-in transition-all duration-300 relative">
-                        <div class="absolute -top-4 right-8 bg-warmth-orange text-white px-6 py-2 rounded-full font-extrabold text-sm shadow-lg">
-                            MOST POPULAR
-                        </div>
+                    <div class="card card-elevated">
+                        <span class="badge badge-warning">MOST POPULAR</span>
                         <div class="text-center">
-                            <div class="text-5xl mb-6">💎</div>
-                            <h3 class="text-3xl font-extrabold text-text-dark mb-3 leading-tight">Premium Assessment</h3>
-                            <p class="text-xl text-text-medium mb-6 font-semibold">In-depth & comprehensive</p>
-                            <div class="text-5xl font-extrabold text-nhs-blue mb-8">£249</div>
-                            <ul class="text-left space-y-55 mb-10">
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">8 Birmingham care home matches</span>
+                            <div class="text-4xl mb-md">💎</div>
+                            <h3 class="card-title">Premium Assessment</h3>
+                            <p class="text-large mb-md">In-depth & comprehensive</p>
+                            <div class="price-display mb-lg">£249</div>
+                            <ul class="mb-xl">
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>8 Birmingham care home matches</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">Detailed local area analysis</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Detailed local area analysis</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">Cultural & social matching</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Cultural & social matching</span>
                                 </li>
-                                <li class="flex items-start">
-                                    <span class="text-caring-green mr-4 text-2xl font-bold flex-shrink-0">✓</span>
-                                    <span class="text-lg font-medium leading-relaxed">Priority 24-hour delivery</span>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Priority 24-hour delivery</span>
                                 </li>
                             </ul>
-                            <a href="/premium-questionnaire/?area=birmingham" class="primary-cta bg-warmth-orange text-white hover-lift inline-block w-full text-center">
+                            <a href="/premium-questionnaire/?area=birmingham" class="btn btn-primary btn-block">
                                 Start Premium Assessment
                             </a>
                         </div>
@@ -520,104 +387,89 @@
         </section>
 
         <!-- Birmingham Local Expertise -->
-        <section class="py-32 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 fade-in">
-                    <h2 class="text-5xl font-extrabold mb-12 text-text-dark leading-tight">Why Choose Our Birmingham Service</h2>
-                    <p class="text-2xl text-text-medium max-w-4xl mx-auto leading-relaxed font-medium">
+        <section class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Our Birmingham Service</h2>
+                    <p class="section-subtitle">
                         Local expertise combined with independent analysis for the best Birmingham care home recommendations.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
-                    <div class="card-55 bg-white hover-lift">
-                        <div class="text-5xl mb-6">🏙️</div>
-                        <h3 class="text-2xl font-extrabold text-text-dark mb-5 leading-tight">Birmingham Market Knowledge</h3>
-                        <p class="text-lg leading-relaxed font-medium text-text-medium">Deep understanding of Birmingham care home pricing, availability patterns, and local quality standards across all areas.</p>
+                <div class="grid grid-4">
+                    <div class="card">
+                        <div class="text-4xl mb-md">🏙️</div>
+                        <h3 class="card-title">Birmingham Market Knowledge</h3>
+                        <p>Deep understanding of Birmingham care home pricing, availability patterns, and local quality standards across all areas.</p>
                     </div>
 
-                    <div class="card-55 bg-white hover-lift">
-                        <div class="text-5xl mb-6">📊</div>
-                        <h3 class="text-2xl font-extrabold text-text-dark mb-5 leading-tight">Real Birmingham Data</h3>
-                        <p class="text-lg leading-relaxed font-medium text-text-medium">Up-to-date information on all 277 Birmingham care homes, refreshed weekly with current availability and pricing.</p>
+                    <div class="card">
+                        <div class="text-4xl mb-md">📊</div>
+                        <h3 class="card-title">Real Birmingham Data</h3>
+                        <p>Up-to-date information on all 277 Birmingham care homes, refreshed weekly with current availability and pricing.</p>
                     </div>
 
-                    <div class="card-55 bg-white hover-lift">
-                        <div class="text-5xl mb-6">🎯</div>
-                        <h3 class="text-2xl font-extrabold text-text-dark mb-5 leading-tight">Area-Specific Matching</h3>
-                        <p class="text-lg leading-relaxed font-medium text-text-medium">Consider your preferred Birmingham neighborhoods, family proximity, and local community connections in our recommendations.</p>
+                    <div class="card">
+                        <div class="text-4xl mb-md">🎯</div>
+                        <h3 class="card-title">Area-Specific Matching</h3>
+                        <p>Consider your preferred Birmingham neighbourhoods, family proximity, and local community connections in our recommendations.</p>
                     </div>
 
-                    <div class="card-55 bg-white hover-lift">
-                        <div class="text-5xl mb-6">✓</div>
-                        <h3 class="text-2xl font-extrabold text-text-dark mb-5 leading-tight">Independent & Unbiased</h3>
-                        <p class="text-lg leading-relaxed font-medium text-text-medium">No commissions from Birmingham care homes - our only obligation is to find the right match for your family.</p>
+                    <div class="card">
+                        <div class="text-4xl mb-md">✓</div>
+                        <h3 class="card-title">Independent & Unbiased</h3>
+                        <p>No commissions from Birmingham care homes - our only obligation is to find the right match for your family.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Section - Birmingham -->
-        <section class="py-32 bg-gradient-to-br from-blue-50 to-green-50">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-24 fade-in">
-                    <h2 class="text-5xl font-extrabold mb-12 text-text-dark leading-tight">Birmingham Families' Experiences</h2>
-                    <p class="text-2xl text-text-medium max-w-4xl mx-auto leading-relaxed font-medium">
+        <section class="section testimonials">
+            <div class="testimonials-container">
+                <div class="section-header">
+                    <h2 class="section-title">Birmingham Families' Experiences</h2>
+                    <p class="section-subtitle">
                         Real testimonials from Birmingham families who used our service.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="card-55 bg-white hover-lift fade-in border-l-4 border-caring-green">
-                        <div class="flex items-center gap-2 mb-6">
-                            <span class="text-3xl text-accent">⭐⭐⭐⭐⭐</span>
+                <div class="grid grid-3">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            The Birmingham-specific report was invaluable. They knew exactly which homes in Sutton Coldfield would suit my mother's needs. We visited just two homes and chose one immediately.
                         </div>
-                        <p class="text-lg text-text-medium leading-relaxed mb-6 italic">
-                            "The Birmingham-specific report was invaluable. They knew exactly which homes in Sutton Coldfield would suit my mother's needs. We visited just two homes and chose one immediately."
-                        </p>
-                        <div class="flex items-start gap-4 pt-6 border-t-2 border-gray-100">
-                            <div class="w-12 h-12 rounded-full bg-caring-green text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
-                                S
-                            </div>
-                            <div>
-                                <p class="font-bold text-text-dark text-lg">Sarah M.</p>
-                                <p class="text-base text-text-medium">Sutton Coldfield</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">S</div>
+                            <div class="testimonial-info">
+                                <h4>Sarah M.</h4>
+                                <p>Sutton Coldfield</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-55 bg-white hover-lift fade-in border-l-4 border-caring-green">
-                        <div class="flex items-center gap-2 mb-6">
-                            <span class="text-3xl text-accent">⭐⭐⭐⭐⭐</span>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            The pricing breakdown for Birmingham homes was eye-opening. We were about to commit to a home charging £1,400/week when they found us equivalent quality for £1,050. Saved us thousands per year.
                         </div>
-                        <p class="text-lg text-text-medium leading-relaxed mb-6 italic">
-                            "The pricing breakdown for Birmingham homes was eye-opening. We were about to commit to a home charging £1,400/week when they found us equivalent quality for £1,050. Saved us thousands per year."
-                        </p>
-                        <div class="flex items-start gap-4 pt-6 border-t-2 border-gray-100">
-                            <div class="w-12 h-12 rounded-full bg-caring-green text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
-                                J
-                            </div>
-                            <div>
-                                <p class="font-bold text-text-dark text-lg">James P.</p>
-                                <p class="text-base text-text-medium">Edgbaston</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">J</div>
+                            <div class="testimonial-info">
+                                <h4>James P.</h4>
+                                <p>Edgbaston</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-55 bg-white hover-lift fade-in border-l-4 border-caring-green">
-                        <div class="flex items-center gap-2 mb-6">
-                            <span class="text-3xl text-accent">⭐⭐⭐⭐⭐</span>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            Living in Harborne, we wanted something nearby. They found three excellent options within 2 miles, all with outstanding CQC ratings. Dad can see his old friends regularly now.
                         </div>
-                        <p class="text-lg text-text-medium leading-relaxed mb-6 italic">
-                            "Living in Harborne, we wanted something nearby. They found three excellent options within 2 miles, all with outstanding CQC ratings. Dad can see his old friends regularly now."
-                        </p>
-                        <div class="flex items-start gap-4 pt-6 border-t-2 border-gray-100">
-                            <div class="w-12 h-12 rounded-full bg-caring-green text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
-                                M
-                            </div>
-                            <div>
-                                <p class="font-bold text-text-dark text-lg">Margaret T.</p>
-                                <p class="text-base text-text-medium">Harborne</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">M</div>
+                            <div class="testimonial-info">
+                                <h4>Margaret T.</h4>
+                                <p>Harborne</p>
                             </div>
                         </div>
                     </div>
@@ -626,91 +478,114 @@
         </section>
 
         <!-- FAQ Section - Birmingham Specific -->
-        <section class="py-32 bg-light-cream">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-20 fade-in">
-                    <h2 class="text-5xl font-extrabold mb-10 text-text-dark leading-tight">Birmingham Care Home Questions</h2>
-                    <p class="text-2xl text-text-medium leading-relaxed font-medium">
+        <section class="section">
+            <div class="faq-container">
+                <div class="section-header">
+                    <h2 class="section-title">Birmingham Care Home Questions</h2>
+                    <p class="section-subtitle">
                         Frequently asked questions about our Birmingham service
                     </p>
                 </div>
                 
-                <div class="space-y-6 fade-in">
-                    <div class="card-55 bg-white rounded-2xl shadow-lg">
-                        <button type="button" class="faq-button w-full p-8 text-left flex justify-between items-center gap-6" aria-expanded="false">
-                            <span class="flex-1 font-bold text-xl text-text-dark leading-tight">How many Birmingham care homes do you cover?</span>
-                            <span class="faq-icon text-3xl text-warmth-orange font-bold flex-shrink-0">+</span>
-                        </button>
-                        <div class="faq-content px-8 pb-0" style="max-height: 0; overflow: hidden; transition: all 0.4s ease;">
-                            <p class="text-lg text-text-medium leading-relaxed font-medium pt-6 pb-8 border-t-2 border-gray-100">We cover all 277 verified care homes across Birmingham and surrounding areas, including Sutton Coldfield, Solihull, Edgbaston, Harborne, and all other Birmingham neighborhoods.</p>
-                        </div>
+                <details class="card">
+                    <summary>
+                        <span class="faq-button">
+                            <span>How many Birmingham care homes do you cover?</span>
+                            <span class="faq-icon">+</span>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>We cover all 277 verified care homes across Birmingham and surrounding areas, including Sutton Coldfield, Solihull, Edgbaston, Harborne, and all other Birmingham neighbourhoods.</p>
                     </div>
-                    
-                    <div class="card-55 bg-white rounded-2xl shadow-lg">
-                        <button type="button" class="faq-button w-full p-8 text-left flex justify-between items-center gap-6" aria-expanded="false">
-                            <span class="flex-1 font-bold text-xl text-text-dark leading-tight">What's the average cost in Birmingham?</span>
-                            <span class="faq-icon text-3xl text-warmth-orange font-bold flex-shrink-0">+</span>
-                        </button>
-                        <div class="faq-content px-8 pb-0" style="max-height: 0; overflow: hidden; transition: all 0.4s ease;">
-                            <p class="text-lg text-text-medium leading-relaxed font-medium pt-6 pb-8 border-t-2 border-gray-100">Birmingham care home costs typically range from £850-£1,400 per week depending on the area and level of care needed. Our reports include detailed pricing analysis specific to your requirements and preferred areas.</p>
-                        </div>
+                </details>
+                
+                <details class="card">
+                    <summary>
+                        <span class="faq-button">
+                            <span>What's the average cost in Birmingham?</span>
+                            <span class="faq-icon">+</span>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Birmingham care home costs typically range from £850-£1,400 per week depending on the area and level of care needed. Our reports include detailed pricing analysis specific to your requirements and preferred areas.</p>
                     </div>
+                </details>
 
-                    <div class="card-55 bg-white rounded-2xl shadow-lg">
-                        <button type="button" class="faq-button w-full p-8 text-left flex justify-between items-center gap-6" aria-expanded="false">
-                            <span class="flex-1 font-bold text-xl text-text-dark leading-tight">Do you work with Birmingham hospitals?</span>
-                            <span class="faq-icon text-3xl text-warmth-orange font-bold flex-shrink-0">+</span>
-                        </button>
-                        <div class="faq-content px-8 pb-0" style="max-height: 0; overflow: hidden; transition: all 0.4s ease;">
-                            <p class="text-lg text-text-medium leading-relaxed font-medium pt-6 pb-8 border-t-2 border-gray-100">Yes, we work with families during hospital discharge and care placement decisions, providing independent analysis that complements hospital discharge support services.</p>
-                        </div>
+                <details class="card">
+                    <summary>
+                        <span class="faq-button">
+                            <span>Do you work with Birmingham hospitals?</span>
+                            <span class="faq-icon">+</span>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Yes, we work with families during hospital discharge and care placement decisions, providing independent analysis that complements hospital discharge support services.</p>
                     </div>
+                </details>
 
-                    <div class="card-55 bg-white rounded-2xl shadow-lg">
-                        <button type="button" class="faq-button w-full p-8 text-left flex justify-between items-center gap-6" aria-expanded="false">
-                            <span class="flex-1 font-bold text-xl text-text-dark leading-tight">Can you help with specific Birmingham areas?</span>
-                            <span class="faq-icon text-3xl text-warmth-orange font-bold flex-shrink-0">+</span>
-                        </button>
-                        <div class="faq-content px-8 pb-0" style="max-height: 0; overflow: hidden; transition: all 0.4s ease;">
-                            <p class="text-lg text-text-medium leading-relaxed font-medium pt-6 pb-8 border-t-2 border-gray-100">Absolutely. We can focus on specific Birmingham neighborhoods based on your family's proximity, community preferences, or other location requirements. Our local expertise covers all Birmingham areas comprehensively.</p>
-                        </div>
+                <details class="card">
+                    <summary>
+                        <span class="faq-button">
+                            <span>Can you help with specific Birmingham areas?</span>
+                            <span class="faq-icon">+</span>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Absolutely. We can focus on specific Birmingham neighbourhoods based on your family's proximity, community preferences, or other location requirements. Our local expertise covers all Birmingham areas comprehensively.</p>
                     </div>
+                </details>
 
-                    <div class="card-55 bg-white rounded-2xl shadow-lg">
-                        <button type="button" class="faq-button w-full p-8 text-left flex justify-between items-center gap-6" aria-expanded="false">
-                            <span class="flex-1 font-bold text-xl text-text-dark leading-tight">How current is your Birmingham data?</span>
-                            <span class="faq-icon text-3xl text-warmth-orange font-bold flex-shrink-0">+</span>
-                        </button>
-                        <div class="faq-content px-8 pb-0" style="max-height: 0; overflow: hidden; transition: all 0.4s ease;">
-                            <p class="text-lg text-text-medium leading-relaxed font-medium pt-6 pb-8 border-t-2 border-gray-100">Our Birmingham care home database is updated weekly with the latest CQC ratings, pricing changes, and availability information. When you order a report, we verify key details within the 48-hour delivery window.</p>
-                        </div>
+                <details class="card">
+                    <summary>
+                        <span class="faq-button">
+                            <span>How current is your Birmingham data?</span>
+                            <span class="faq-icon">+</span>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <p>Our Birmingham care home database is updated weekly with the latest CQC ratings, pricing changes, and availability information. When you order a report, we verify key details within the 48-hour delivery window.</p>
                     </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready to Find the Right Birmingham Care Home?</h2>
+                <p class="cta-text">Get expert, independent recommendations for Birmingham care homes delivered within 48 hours</p>
+                <div class="cta-buttons">
+                    <a href="#pricing-plans" class="btn btn-primary btn-large">Choose Your Assessment</a>
+                    <a href="#guide-form-birmingham" class="btn btn-secondary btn-large">Get Free Shortlist</a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer bg-gray-900 text-white py-20">
-        <div class="footer-container max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <h3 class="text-2xl font-extrabold mb-6">RightCareHome</h3>
-                    <p class="text-lg text-gray-300 leading-relaxed font-medium">Birmingham's trusted care home selection service. Independent, expert analysis of 277 local care homes.</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">R</div>
+                        <span>RightCareHome</span>
+                    </div>
+                    <p class="footer-description">Birmingham's trusted care home selection service. Independent, expert analysis of 277 local care homes.</p>
                 </div>
                 
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Birmingham Service</h4>
-                    <ul class="space-y-4 text-lg text-gray-300 font-medium">
-                        <li><a href="#pricing-plans" class="hover:text-white hover:underline">Birmingham Reports</a></li>
-                        <li><a href="/questionnaire/?area=birmingham" class="hover:text-white hover:underline">Start Assessment</a></li>
-                        <li><a href="#" class="hover:text-white hover:underline">Free Birmingham Guide</a></li>
+                <div class="footer-section">
+                    <h4>Birmingham Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#pricing-plans">Birmingham Reports</a></li>
+                        <li><a href="/questionnaire/?area=birmingham">Start Assessment</a></li>
+                        <li><a href="#">Free Birmingham Guide</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Birmingham Areas</h4>
-                    <ul class="space-y-4 text-lg text-gray-300 font-medium">
+                <div class="footer-section">
+                    <h4>Birmingham Areas</h4>
+                    <ul class="footer-links">
                         <li>City Centre</li>
                         <li>Sutton Coldfield</li>
                         <li>Edgbaston</li>
@@ -719,52 +594,24 @@
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Contact</h4>
-                    <ul class="space-y-4 text-lg text-gray-300 font-medium">
-                        <li><span class="mr-2">📧</span> <a href="mailto:hello@rightcarehome.co.uk" class="hover:text-white hover:underline">hello@rightcarehome.co.uk</a></li>
-                        <li><span class="mr-2">🏙️</span> Serving all Birmingham areas</li>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>📧 <a href="mailto:hello@rightcarehome.co.uk">hello@rightcarehome.co.uk</a></li>
+                        <li>🏙️ Serving all Birmingham areas</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom border-t border-gray-700 pt-8 text-center">
-                <p class="text-base text-gray-400 leading-relaxed font-medium">&copy; 2025 RightCareHome Birmingham. All rights reserved. | Independent care home selection service</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RightCareHome Birmingham. All rights reserved. | Independent care home selection service</p>
             </div>
         </div>
     </footer>
 
-    <!-- Screen reader styles -->
-    <style>
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        
-        .sr-only:focus {
-            position: static;
-            width: auto;
-            height: auto;
-            padding: inherit;
-            margin: inherit;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-        }
-    </style>
-
     <!-- JavaScript -->
-    <script src="../assets/js/main.js"></script>
-    
-    <!-- Cookie Consent Script -->
     <script>
+        // Cookie Consent
         (function() {
             const consentBanner = document.getElementById('cookie-consent');
             const acceptBtn = document.getElementById('accept-cookies');
@@ -773,45 +620,83 @@
             const cookieConsent = localStorage.getItem('cookieConsent');
             
             if (!cookieConsent) {
-                consentBanner.classList.remove('hidden');
+                consentBanner.style.display = 'flex';
             }
             
             acceptBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'accepted');
-                consentBanner.classList.add('hidden');
+                consentBanner.style.display = 'none';
             });
             
             declineBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'declined');
-                consentBanner.classList.add('hidden');
+                consentBanner.style.display = 'none';
             });
         })();
-    </script>
-    
-    <!-- FAQ functionality -->
-    <script>
-        document.querySelectorAll('.faq-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const content = this.nextElementSibling;
+        
+        // FAQ functionality
+        document.querySelectorAll('details').forEach(detail => {
+            detail.addEventListener('toggle', function() {
                 const icon = this.querySelector('.faq-icon');
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                document.querySelectorAll('.faq-button').forEach(btn => {
-                    if (btn !== this) {
-                        btn.setAttribute('aria-expanded', 'false');
-                        btn.nextElementSibling.style.maxHeight = '0';
-                        btn.querySelector('.faq-icon').textContent = '+';
-                    }
-                });
-                
-                if (isExpanded) {
-                    this.setAttribute('aria-expanded', 'false');
-                    content.style.maxHeight = '0';
-                    icon.textContent = '+';
-                } else {
-                    this.setAttribute('aria-expanded', 'true');
-                    content.style.maxHeight = content.scrollHeight + 'px';
+                if (this.open) {
                     icon.textContent = '−';
+                } else {
+                    icon.textContent = '+';
+                }
+            });
+        });
+
+        // Form validation
+        const form = document.getElementById('guide-form-birmingham');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const postcodeInput = document.getElementById('guide-postcode-birmingham');
+            const emailInput = document.getElementById('guide-email-birmingham');
+            const postcodeError = document.getElementById('postcode-error-birmingham');
+            const emailError = document.getElementById('email-error-birmingham');
+            
+            let isValid = true;
+            
+            // Validate postcode
+            const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$/i;
+            if (!postcodeRegex.test(postcodeInput.value.trim())) {
+                postcodeError.style.display = 'block';
+                postcodeInput.classList.add('error');
+                isValid = false;
+            } else {
+                postcodeError.style.display = 'none';
+                postcodeInput.classList.remove('error');
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                emailError.style.display = 'block';
+                emailInput.classList.add('error');
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+                emailInput.classList.remove('error');
+            }
+            
+            if (isValid) {
+                // Submit form
+                alert('Thank you! Your free Birmingham shortlist will be sent to ' + emailInput.value);
+                form.reset();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });

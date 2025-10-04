@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Free Birmingham Care Home Shortlist | RightCareHome</title>
+    <meta name="description" content="Your free shortlist of 3 Birmingham care homes based on location proximity">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nhs-blue': '#005EB8',
+                        'caring-green': '#059669',
+                        'warmth-orange': '#f59e0b',
+                        'birmingham-gold': '#d4af37',
+                        'light-cream': '#fefce8'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Typography optimized for 50+ age group */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        h1 { font-size: 2.25rem; line-height: 1.2; }
+        h2 { font-size: 1.875rem; line-height: 1.3; }
+        h3 { font-size: 1.5rem; line-height: 1.4; }
+        h4 { font-size: 1.25rem; line-height: 1.4; }
+        
+        p, li, td { 
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .text-sm { font-size: 0.95rem !important; }
+        .text-xs { font-size: 0.875rem !important; }
+        
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .comparison-card { transition: all 0.3s ease; }
+        .comparison-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-nhs-blue to-caring-green text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2">Your Free Birmingham Shortlist</h1>
+                    <p class="text-xl opacity-90">3 Care Homes Near Your Location</p>
+                </div>
+                <div class="text-right bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4">
+                    <p class="text-sm opacity-75">Based on postcode:</p>
+                    <p class="text-2xl font-bold">B15 2TT</p>
+                </div>
+            </div>
+            <div class="mt-6 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 inline-block">
+                <p class="text-sm">Generated: 29 September 2025 • Distance-based matching</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Value Proposition -->
+    <section class="py-10 bg-blue-50 border-y border-blue-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-6">
+                <p class="text-lg text-gray-800 leading-relaxed mb-4">
+                    This free shortlist identifies the 3 care homes closest to postcode <strong>B15 2TT</strong>, 
+                    showing current CQC ratings and inspection highlights.
+                </p>
+                <p class="text-base text-gray-700">
+                    For assessment based on specific medical conditions, safety analysis, and long-term cost planning, 
+                    our comprehensive service uses a 32-question evaluation of your requirements.
+                </p>
+            </div>
+            <div class="text-center">
+                <a href="/questionnaire/" class="inline-block bg-nhs-blue text-white px-10 py-4 rounded-md text-base font-semibold hover:bg-blue-700 transition-colors">
+                    View Comprehensive Assessment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Understanding the Difference -->
+    <section class="py-10 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Understanding This Shortlist's Scope</h3>
+                <p class="text-gray-700 mb-4">
+                    This free shortlist provides a helpful starting point by identifying care homes near your location. 
+                    However, proximity is just one factor in finding suitable care.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">What this includes:</p>
+                        <ul class="space-y-1 text-gray-600">
+                            <li>• Distance from your postcode</li>
+                            <li>• Current CQC ratings</li>
+                            <li>• Recent inspection highlights</li>
+                            <li>• Listed weekly fees</li>
+                            <li>• Basic contact information</li>
+                            <li>• Telephone enquiry checklist</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">What requires further assessment:</p>
+                        <ul class="space-y-1 text-gray-600">
+                            <li>• Suitability for specific medical conditions</li>
+                            <li>• Detailed safety protocols and incident history</li>
+                            <li>• Long-term financial planning</li>
+                            <li>• Cultural and personal compatibility</li>
+                            <li>• Placement success probability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 Care Homes -->
+    <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Your 3 Closest Care Homes</h2>
+            
+            <!-- Care Home 1 -->
+            <div class="comparison-card bg-white border-2 border-gray-200 rounded-xl p-8 mb-6 shadow-lg">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-nhs-blue text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Manor House Care Home</h3>
+                                <p class="text-gray-600">Acocks Green, Birmingham B27 8LE</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">CQC: Good</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">8.2 miles away</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-3xl font-bold text-nhs-blue">£1,200</p>
+                        <p class="text-gray-600">per week</p>
+                    </div>
+                </div>
+                
+                <!-- CQC Highlights -->
+                <div class="bg-blue-50 border-l-4 border-nhs-blue p-4 mb-4">
+                    <p class="text-sm font-semibold text-gray-800 mb-2">CQC Inspection Highlights (March 2024):</p>
+                    <p class="text-sm text-gray-700">
+                        "Staff demonstrated good understanding of individual care needs and safeguarding procedures. 
+                        Medication management systems were well-documented and regularly audited. 
+                        Residents and families spoke positively about the caring approach of staff."
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        CQC Ratings: Safe (Good) • Effective (Good) • Caring (Good) • Responsive (Good) • Well-led (Good)
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Key Strengths:</p>
+                        <ul class="space-y-1 text-gray-600">
+                            <li>• Nursing care available</li>
+                            <li>• On-site physiotherapy</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Contact:</p>
+                        <p class="text-gray-600">Phone: 0121 707 XXXX</p>
+                        <p class="text-gray-600">Email: info@manorhouse.co.uk</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Care Home 2 -->
+            <div class="comparison-card bg-white border-2 border-gray-200 rounded-xl p-8 mb-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-caring-green text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Digby Manor Care Home</h3>
+                                <p class="text-gray-600">Hall Green, Birmingham B28 9EX</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">CQC: Good</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">6.5 miles away</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-3xl font-bold text-caring-green">£1,050</p>
+                        <p class="text-gray-600">per week</p>
+                    </div>
+                </div>
+                
+                <!-- CQC Highlights -->
+                <div class="bg-green-50 border-l-4 border-caring-green p-4 mb-4">
+                    <p class="text-sm font-semibold text-gray-800 mb-2">CQC Inspection Highlights (January 2024):</p>
+                    <p class="text-sm text-gray-700">
+                        "The service demonstrated strong person-centred approach to dementia care. 
+                        Activities were tailored to individual preferences and cognitive abilities. 
+                        Family members praised the communication and involvement in care planning."
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        CQC Ratings: Safe (Good) • Effective (Good) • Caring (Good) • Responsive (Good) • Well-led (Good)
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Key Strengths:</p>
+                        <ul class="space-y-1 text-gray-600">
+                            <li>• Dementia care specialist</li>
+                            <li>• Family-run facility</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Contact:</p>
+                        <p class="text-gray-600">Phone: 0121 777 XXXX</p>
+                        <p class="text-gray-600">Email: enquiries@digbymanor.co.uk</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Care Home 3 -->
+            <div class="comparison-card bg-white border-2 border-gray-200 rounded-xl p-8 mb-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-warmth-orange text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Bishops Manor Care Home</h3>
+                                <p class="text-gray-600">Edgbaston, Birmingham B15 3ES</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">CQC: Good</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">4.1 miles away</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-3xl font-bold text-warmth-orange">£1,150</p>
+                        <p class="text-gray-600">per week</p>
+                    </div>
+                </div>
+                
+                <!-- CQC Highlights -->
+                <div class="bg-orange-50 border-l-4 border-warmth-orange p-4 mb-4">
+                    <p class="text-sm font-semibold text-gray-800 mb-2">CQC Inspection Highlights (April 2024):</p>
+                    <p class="text-sm text-gray-700">
+                        "Modern facilities with attention to dignity and privacy. 
+                        Staff received regular training in specialist care techniques. 
+                        Residents had access to varied activities and the home maintained strong links with the local community."
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        CQC Ratings: Safe (Good) • Effective (Good) • Caring (Good) • Responsive (Good) • Well-led (Good)
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Key Strengths:</p>
+                        <ul class="space-y-1 text-gray-600">
+                            <li>• Close to city centre</li>
+                            <li>• Modern facilities</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700 mb-2">Contact:</p>
+                        <p class="text-gray-600">Phone: 0121 454 XXXX</p>
+                        <p class="text-gray-600">Email: reception@bishopsmanor.co.uk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Comparison -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Quick Comparison</h2>
+            
+            <div class="overflow-x-auto bg-white rounded-xl shadow-lg">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-100 border-b-2 border-gray-200">
+                            <th class="p-4 text-left font-bold">Care Home</th>
+                            <th class="p-4 text-center font-bold">Distance</th>
+                            <th class="p-4 text-center font-bold">CQC Rating</th>
+                            <th class="p-4 text-center font-bold">Weekly Fee</th>
+                            <th class="p-4 text-center font-bold">Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b hover:bg-blue-50">
+                            <td class="p-4 font-semibold">Manor House</td>
+                            <td class="p-4 text-center">8.2 mi</td>
+                            <td class="p-4 text-center"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Good</span></td>
+                            <td class="p-4 text-center font-bold">£1,200</td>
+                            <td class="p-4 text-center">0121 707 XXXX</td>
+                        </tr>
+                        <tr class="border-b hover:bg-blue-50">
+                            <td class="p-4 font-semibold">Digby Manor</td>
+                            <td class="p-4 text-center">6.5 mi</td>
+                            <td class="p-4 text-center"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Good</span></td>
+                            <td class="p-4 text-center font-bold">£1,050</td>
+                            <td class="p-4 text-center">0121 777 XXXX</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50">
+                            <td class="p-4 font-semibold">Bishops Manor</td>
+                            <td class="p-4 text-center">4.1 mi</td>
+                            <td class="p-4 text-center"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Good</span></td>
+                            <td class="p-4 text-center font-bold">£1,150</td>
+                            <td class="p-4 text-center">0121 454 XXXX</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Why Comprehensive Assessment Matters</h2>
+            <p class="text-gray-700 mb-8">
+                Based on our work with Birmingham families, we've observed that distance-based selection sometimes 
+                overlooks important considerations. Here are three common scenarios:
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="font-semibold text-lg mb-3 text-gray-800">Medical Capability</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        A Birmingham family found their chosen home, whilst having a 'Good' CQC rating, 
+                        lacked the specific diabetes management protocols their mother required. 
+                        Relocation was necessary within the first month.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Comprehensive assessment includes detailed medical capability matching
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="font-semibold text-lg mb-3 text-gray-800">Safety Considerations</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        CQC ratings provide valuable information, but detailed incident history and 
+                        fall prevention protocols require deeper analysis. One family discovered their 
+                        father's needs weren't adequately addressed after reviewing full inspection reports.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Our reports analyze complete CQC inspection history
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="font-semibold text-lg mb-3 text-gray-800">Financial Planning</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Listed fees represent base costs. A Hall Green family found their weekly costs 
+                        increased by nearly 30% due to necessary additional services not included in 
+                        the advertised rate.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Full reports include comprehensive cost analysis over 1-5 years
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 bg-white rounded-lg p-6 border border-gray-300">
+                <p class="text-gray-700 mb-4">
+                    Our comprehensive assessment service addresses these considerations through 
+                    a 32-question evaluation of your specific requirements.
+                </p>
+                <a href="/questionnaire/" class="inline-block bg-nhs-blue text-white px-10 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors">
+                    Learn About Comprehensive Assessment
+                </a>
+                <p class="text-xs text-gray-500 mt-3">689 Birmingham families have used our service</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telephone Enquiry Checklist -->
+    <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Telephone Enquiry Checklist</h2>
+                <p class="text-lg text-gray-600 mb-2">
+                    Use this checklist when calling care homes to ensure you gather all essential information
+                </p>
+                <button onclick="toggleChecklist()" class="text-nhs-blue font-semibold hover:underline" id="toggle-btn">
+                    Show Full Checklist (15 questions)
+                </button>
+            </div>
+            
+            <div id="checklist-content" style="display: none;" class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <!-- Availability & Immediate Needs -->
+                    <div class="bg-white rounded-lg p-6 border border-gray-200">
+                        <h3 class="font-bold text-nhs-blue mb-4 text-xl">Availability & Immediate Needs</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-nhs-blue font-bold">1.</span>
+                                <span>Do you currently have beds available?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-nhs-blue font-bold">2.</span>
+                                <span>What is your typical admission timeline?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-nhs-blue font-bold">3.</span>
+                                <span>Do you offer trial stays or respite care?</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Medical & Care Services -->
+                    <div class="bg-white rounded-lg p-6 border border-gray-200">
+                        <h3 class="font-bold text-caring-green mb-4 text-xl">Medical & Care Services</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-caring-green font-bold">4.</span>
+                                <span>What level of nursing care is available on-site?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-caring-green font-bold">5.</span>
+                                <span>Do you have experience managing [specific condition, e.g., diabetes]?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-caring-green font-bold">6.</span>
+                                <span>How do you coordinate with GPs and specialists?</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Costs & Fees -->
+                    <div class="bg-white rounded-lg p-6 border border-gray-200">
+                        <h3 class="font-bold text-warmth-orange mb-4 text-xl">Costs & Financial Details</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-warmth-orange font-bold">7.</span>
+                                <span>What exactly is included in the weekly fee?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-warmth-orange font-bold">8.</span>
+                                <span>Are there additional charges for activities, laundry, or hairdressing?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-warmth-orange font-bold">9.</span>
+                                <span>What are your annual fee increase policies?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-warmth-orange font-bold">10.</span>
+                                <span>What deposits or registration fees are required?</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Daily Life & Family Involvement -->
+                    <div class="bg-white rounded-lg p-6 border border-gray-200">
+                        <h3 class="font-bold text-purple-700 mb-4 text-xl">Daily Life & Family Involvement</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-700 font-bold">11.</span>
+                                <span>What are your visiting hours and policies?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-700 font-bold">12.</span>
+                                <span>What activities and social programmes do you offer?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-700 font-bold">13.</span>
+                                <span>How do you communicate with families about care and wellbeing?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-700 font-bold">14.</span>
+                                <span>Can you accommodate special dietary requirements?</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-700 font-bold">15.</span>
+                                <span>When can we arrange a viewing?</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- PDF Download Info -->
+                <div class="bg-nhs-blue text-white rounded-lg p-6 text-center">
+                    <h4 class="text-xl font-bold mb-3">Printable PDF Checklist</h4>
+                    <p class="mb-4 text-blue-100">
+                        This telephone enquiry checklist has been included in your email, 
+                        along with the free shortlist and space to record answers from each care home
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button 
+                            onclick="window.print()"
+                            class="bg-white text-nhs-blue px-8 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"
+                        >
+                            Print This Page
+                        </button>
+                        <a 
+                            href="telephone-enquiry-checklist.pdf"
+                            download
+                            class="bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-md font-semibold hover:bg-white/30 transition-colors border border-white/30 inline-block"
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+                    <p class="text-xs text-blue-100 mt-3">Tip: Print and take with you during phone calls to care homes</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-500">
+                    <strong>Note:</strong> Our comprehensive assessment includes a detailed 37-point professional checklist 
+                    for in-person visits, covering medical protocols and safety observations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN UPSELL SECTION -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Headline -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-semibold mb-4 text-gray-800">Comprehensive Assessment Service</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    For families requiring detailed analysis based on specific medical conditions and care needs, 
+                    we offer a comprehensive assessment service using a 32-question evaluation framework.
+                </p>
+            </div>
+
+            <!-- Feature Comparison Table -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-12 border border-gray-200">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-slate-100">
+                            <th class="p-5 text-left font-semibold text-base">Feature</th>
+                            <th class="p-5 text-center font-semibold text-base text-gray-600">Free Shortlist</th>
+                            <th class="p-5 text-center font-semibold text-base text-nhs-blue bg-blue-50">Comprehensive Report</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Care homes shown</td>
+                            <td class="p-5 text-center text-gray-600">3 closest</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">5 best matches</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Selection criteria</td>
+                            <td class="p-5 text-center text-gray-600">Distance from postcode</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">32-question assessment</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Match explanation</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center text-green-700 bg-blue-50">Included</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Medical capability analysis</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">Scored assessment</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Safety assessment</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">Incident history review</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Financial projections</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">1-5 year analysis</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Hidden costs review</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center text-green-700 bg-blue-50">Included</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Visit preparation</td>
+                            <td class="p-5 text-center text-gray-600">15 questions</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">37-point checklist</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-5 font-medium">Data transparency</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">Sources documented</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-medium">Action timeline</td>
+                            <td class="p-5 text-center text-gray-400">—</td>
+                            <td class="p-5 text-center font-semibold text-nhs-blue bg-blue-50">7-day plan included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- What's Included -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800">Medical Capability Assessment</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Detailed analysis of each home's capacity to manage specific conditions including 
+                        diabetes, mobility support, and cognitive impairment care protocols.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Based on CQC inspection reports and licensed care capabilities
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800">Safety & Quality Review</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Comprehensive review of CQC inspection history, incident reports, and 
+                        fall prevention protocols specific to each recommended home.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Includes scoring system for transparency
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800">Financial Planning</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        1-5 year cost projections including inflation scenarios, potential additional 
+                        charges, and Birmingham City Council funding eligibility assessment.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Helps with long-term budgeting decisions
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800">Placement Success Analysis</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Assessment of cultural fit, language support availability, and family 
+                        integration opportunities at each recommended home.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Based on your specific requirements
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service Details -->
+            <div class="bg-slate-100 rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-3 gap-6 text-center mb-6">
+                    <div>
+                        <p class="text-2xl font-semibold text-nhs-blue">277</p>
+                        <p class="text-sm text-gray-600">Birmingham homes analysed</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold text-nhs-blue">48 hours</p>
+                        <p class="text-sm text-gray-600">Report delivery time</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold text-nhs-blue">Independent</p>
+                        <p class="text-sm text-gray-600">No care home commissions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="/questionnaire/" class="inline-block bg-nhs-blue text-white text-lg font-semibold px-12 py-4 rounded-md hover:bg-blue-700 transition-colors shadow-sm">
+                    Request Comprehensive Assessment — £99
+                </a>
+                <p class="text-sm text-gray-600 mt-4">48-hour delivery • 30-day search support included</p>
+                <p class="text-xs text-gray-500 mt-2">
+                    30-day money-back guarantee available
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="py-12 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-white rounded-lg p-8 border border-slate-200">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">About This Shortlist</h3>
+                <p class="text-gray-700 mb-4">
+                    This free shortlist identifies care homes near your postcode with current CQC ratings. 
+                    It provides a helpful starting point for your search.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    For assessment based on specific medical conditions, safety requirements, and long-term 
+                    financial planning, please consider our comprehensive evaluation service.
+                </p>
+                <p class="text-sm text-gray-600 mb-4">
+                    <strong>Please note:</strong> Always verify current information directly with care homes, 
+                    including bed availability, specific care capabilities, and detailed fee structures.
+                </p>
+                <a href="/questionnaire/" class="inline-block bg-nhs-blue text-white font-semibold px-8 py-3 rounded-md hover:bg-blue-700 transition-colors">
+                    Learn About Comprehensive Assessment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-lg mb-4">RightCareHome Birmingham</p>
+            <p class="text-gray-400 mb-4">Independent care home selection service • No care home commissions</p>
+            <p class="text-sm text-gray-400">
+                Always verify information directly with care homes. This shortlist is based on proximity and 
+                does not assess suitability for specific medical or care requirements.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.comparison-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Toggle checklist visibility
+        function toggleChecklist() {
+            const content = document.getElementById('checklist-content');
+            const btn = document.getElementById('toggle-btn');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                btn.textContent = 'Hide Checklist';
+            } else {
+                content.style.display = 'none';
+                btn.textContent = 'Show Full Checklist (15 questions)';
+            }
+        }
+    </script>
+</body>
+</html>

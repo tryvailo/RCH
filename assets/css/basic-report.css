@@ -1,0 +1,1199 @@
+/* ============================================
+   BASIC_REPORT.CSS - CARE HOME REPORT STYLES [2025 FINAL]
+   Complete visual overhaul with enhanced contrast and accessibility
+   Optimized for 55+ audience with maximum readability
+   ============================================ */
+
+/* ============================================
+   CRITICAL TYPOGRAPHY ENFORCEMENT
+   Forces readable sizes even if other CSS fails
+   ============================================ */
+body {
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+  color: var(--text-primary) !important;
+}
+
+p, li, td, span, div {
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+}
+
+.text-base { font-size: 18px !important; }
+.text-sm { font-size: 16px !important; }
+.text-xs { font-size: 15px !important; }
+.text-lg { font-size: 20px !important; }
+.text-xl { font-size: 24px !important; }
+.text-2xl { font-size: 28px !important; }
+.text-3xl { font-size: 32px !important; }
+.text-4xl { font-size: 38px !important; }
+.text-5xl { font-size: 48px !important; }
+
+.card p,
+.card li,
+.card span {
+  font-size: 18px !important;
+  line-height: 1.7 !important;
+}
+
+strong, 
+.font-semibold, 
+.font-bold,
+b {
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   ENHANCED REPORT HEADER - FIXED
+   ============================================ */
+.report-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-inverse) !important;
+  padding: var(--space-3xl) 0;
+}
+
+/* Direct children of report-header should be white */
+.report-header > * h1,
+.report-header > * h2,
+.report-header > * h3,
+.report-header > * p,
+.report-header > * .text-xl,
+.report-header > * .text-lg {
+  color: var(--text-inverse) !important;
+}
+
+/* Top-level headings always white */
+.report-header > .section-container > .flex > div > h1,
+.report-header > .section-container > .flex > div > p.text-xl {
+  color: var(--text-inverse) !important;
+}
+
+/* CRITICAL FIX: Content INSIDE cards must use normal colors */
+.report-header .card,
+.report-header .card * {
+  color: var(--text-primary) !important;
+}
+
+.report-header .card {
+  background: var(--background-white) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Specific overrides for card content */
+.report-header .card .text-primary {
+  color: var(--text-primary) !important;
+}
+
+.report-header .card .text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.report-header .card .text-tertiary {
+  color: var(--text-tertiary) !important;
+}
+
+.report-header .card .text-3xl,
+.report-header .card .text-2xl,
+.report-header .card .text-xl,
+.report-header .card .text-lg,
+.report-header .card .text-4xl {
+  color: var(--text-primary) !important;
+}
+
+.report-header .card .font-bold {
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   ENHANCED BADGES - Maximum visibility
+   ============================================ */
+.badge {
+  font-weight: 700 !important;
+  padding: 8px 18px !important;
+  font-size: 16px !important;
+  border-radius: var(--radius-2xl) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  text-transform: none !important;
+}
+
+.badge-success {
+  background: var(--success) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--success-hover) !important;
+  box-shadow: 0 2px 8px rgba(122, 148, 113, 0.3) !important;
+}
+
+.badge-primary {
+  background: var(--primary) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--primary-dark) !important;
+  box-shadow: 0 2px 8px rgba(107, 124, 110, 0.3) !important;
+}
+
+.badge-secondary {
+  background: var(--text-secondary) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--text-primary) !important;
+  box-shadow: 0 2px 6px rgba(90, 91, 90, 0.25) !important;
+}
+
+.badge-warning {
+  background: var(--warning) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--warning-hover) !important;
+  box-shadow: 0 2px 6px rgba(212, 163, 85, 0.25) !important;
+}
+
+.badge-error {
+  background: var(--error) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--error-hover) !important;
+  box-shadow: 0 2px 6px rgba(196, 122, 122, 0.25) !important;
+}
+
+/* ============================================
+   RANKING BADGES - Enhanced gradients
+   ============================================ */
+.rank-badge,
+.testimonial-avatar {
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--text-inverse) !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  border: 3px solid var(--primary-dark) !important;
+}
+
+/* Override components.css testimonial-avatar */
+.testimonial-avatar {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  border: 3px solid var(--primary-dark) !important;
+}
+
+.rank-1 {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  border: 3px solid var(--primary-dark) !important;
+}
+
+.rank-2 {
+  background: linear-gradient(135deg, var(--success), var(--success-hover)) !important;
+  border: 3px solid var(--success-hover) !important;
+}
+
+.rank-3 {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover)) !important;
+  border: 3px solid var(--accent-hover) !important;
+}
+
+.rank-4,
+.rank-5 {
+  background: linear-gradient(135deg, var(--text-secondary), var(--text-primary)) !important;
+  border: 3px solid var(--text-primary) !important;
+}
+
+/* ============================================
+   DATA QUALITY BADGES - Enhanced visibility
+   ============================================ */
+.data-quality {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--space-xs) !important;
+  padding: 6px 14px !important;
+  border-radius: var(--radius-lg) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.data-quality.verified,
+.data-quality.high {
+  background: var(--success) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--success-hover) !important;
+  box-shadow: 0 2px 6px rgba(122, 148, 113, 0.25) !important;
+}
+
+.data-quality.medium {
+  background: var(--warning) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--warning-hover) !important;
+  box-shadow: 0 2px 6px rgba(212, 163, 85, 0.25) !important;
+}
+
+.data-quality.limited {
+  background: var(--error) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--error-hover) !important;
+  box-shadow: 0 2px 6px rgba(196, 122, 122, 0.25) !important;
+}
+
+/* ============================================
+   STANDARD CARDS - Enhanced depth
+   ============================================ */
+.standard-card {
+  background: var(--background-white) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: var(--space-xl) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  margin-bottom: var(--space-lg) !important;
+}
+
+.standard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--success));
+}
+
+.standard-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  border-color: var(--primary) !important;
+}
+
+/* ============================================
+   CARD-SUBTLE - Enhanced visibility
+   ============================================ */
+.card-subtle {
+  background: var(--background-white) !important;
+  border: 2px solid var(--border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: var(--space-lg) !important;
+  margin-bottom: var(--space-md) !important;
+  transition: var(--transition) !important;
+}
+
+.card-subtle:hover {
+  background: var(--background-soft) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--primary-light) !important;
+}
+
+/* ============================================
+   RANKING CARDS - Maximum depth
+   ============================================ */
+.ranking-card {
+  transition: var(--transition) !important;
+  border: 2px solid var(--border-light) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: var(--background-white) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  padding: var(--space-xl) !important;
+  margin-bottom: var(--space-xl) !important;
+}
+
+.ranking-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--primary) !important;
+}
+
+.top-recommendation {
+  border: 3px solid var(--primary) !important;
+  background: linear-gradient(135deg, var(--background-white) 0%, var(--background-soft) 100%) !important;
+  box-shadow: 0 6px 24px rgba(107, 124, 110, 0.2) !important;
+}
+
+.top-recommendation:hover {
+  box-shadow: 0 12px 40px rgba(107, 124, 110, 0.25) !important;
+}
+
+/* ============================================
+   ALERTS - CRITICAL FIX for ranking cards
+   ============================================ */
+.alert {
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  border-left: 4px solid !important;
+  margin-bottom: var(--space-lg) !important;
+}
+
+.alert-info {
+  background: rgba(122, 148, 196, 0.15) !important;
+  border-left-color: var(--info) !important;
+  color: var(--text-primary) !important;
+}
+
+.alert-success {
+  background: rgba(122, 148, 113, 0.15) !important;
+  border-left-color: var(--success) !important;
+  color: var(--text-primary) !important;
+}
+
+.alert-warning {
+  background: rgba(212, 163, 85, 0.15) !important;
+  border-left-color: var(--warning) !important;
+  color: var(--text-primary) !important;
+}
+
+.alert-error {
+  background: rgba(196, 122, 122, 0.15) !important;
+  border-left-color: var(--error) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Enhanced alerts inside ranking cards */
+.ranking-card .alert-info {
+  background: rgba(122, 148, 196, 0.15) !important;
+  border-left: 5px solid var(--info) !important;
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 3px 10px rgba(122, 148, 196, 0.15) !important;
+}
+
+.ranking-card .alert-success {
+  background: rgba(122, 148, 113, 0.15) !important;
+  border-left: 5px solid var(--success) !important;
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 3px 10px rgba(122, 148, 113, 0.15) !important;
+}
+
+.ranking-card .alert-warning {
+  background: rgba(212, 163, 85, 0.15) !important;
+  border-left: 5px solid var(--warning) !important;
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 3px 10px rgba(212, 163, 85, 0.15) !important;
+}
+
+.ranking-card .alert-error {
+  background: rgba(196, 122, 122, 0.15) !important;
+  border-left: 5px solid var(--error) !important;
+  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 3px 10px rgba(196, 122, 122, 0.15) !important;
+}
+
+/* ============================================
+   COMPARISON TABLE - Enhanced
+   ============================================ */
+.comparison-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+  background: var(--background-white) !important;
+  width: 100% !important;
+}
+
+.comparison-table th {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+  color: var(--text-inverse) !important;
+  padding: var(--space-xl) var(--space-lg) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  border: none !important;
+}
+
+.comparison-table th:first-child {
+  text-align: left !important;
+}
+
+.comparison-table td {
+  padding: var(--space-lg) !important;
+  font-size: 18px !important;
+  transition: var(--transition) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  background: var(--background-white) !important;
+}
+
+.comparison-table tbody tr:hover td {
+  background: var(--background-soft) !important;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Table wrapper */
+.table-responsive {
+  overflow-x: auto !important;
+  background: var(--background-white) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  margin-bottom: var(--space-xl) !important;
+}
+
+/* ============================================
+   COMPARISON TABLE - RANKING BADGES & COLORS
+   ============================================ */
+
+/* Colored circular badges for home numbers */
+.ranking-badge {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.ranking-badge-1 { 
+  background: #2563eb;
+}
+
+.ranking-badge-2 { 
+  background: #059669;
+}
+
+.ranking-badge-3 { 
+  background: #d97706;
+}
+
+.ranking-badge-4 { 
+  background: #d97706;
+}
+
+.ranking-badge-5 { 
+  background: #6b7280;
+}
+
+/* Colored Match % */
+.match-percent {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.match-excellent { 
+  color: #2563eb;
+}
+
+.match-high { 
+  color: #059669;
+}
+
+.match-good { 
+  color: #d97706;
+}
+
+.match-medium { 
+  color: #6b7280;
+}
+
+/* Bold price highlighting */
+.price-value {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+/* Enhanced table styling */
+.comparison-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Priority highlighting for top 3 */
+.comparison-table tbody tr:nth-child(1) {
+  background-color: #eff6ff;
+}
+
+.comparison-table tbody tr:nth-child(2) {
+  background-color: #f0fdf4;
+}
+
+.comparison-table tbody tr:nth-child(3) {
+  background-color: #fef3c7;
+}
+
+/* ============================================
+   CALCULATOR SECTION
+   ============================================ */
+.calculator-section {
+  background: linear-gradient(135deg, var(--background-white) 0%, var(--background-soft) 100%) !important;
+  border: 3px solid var(--success) !important;
+  border-radius: var(--radius-2xl) !important;
+  padding: var(--space-3xl) !important;
+  margin: var(--space-3xl) 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.calculator-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--success), var(--accent));
+}
+
+.calc-card {
+  background: var(--background-white) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--radius-xl) !important;
+  padding: var(--space-xl) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06) !important;
+  margin-bottom: var(--space-xl) !important;
+  transition: var(--transition) !important;
+}
+
+.calc-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Calculator container with space for total cost card */
+.calculator-container {
+  position: relative;
+  padding-right: 260px;
+}
+
+/* Total projected cost card */
+.total-projected-cost {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 240px;
+  padding: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(107, 124, 110, 0.3);
+  z-index: 10;
+}
+
+.total-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.total-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+.progress-bar {
+  background: var(--background-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  height: 14px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary), var(--success)) !important;
+  height: 100% !important;
+  border-radius: var(--radius-md) !important;
+  transition: width 0.8s ease !important;
+  position: relative !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ============================================
+   SUMMARY BOX
+   ============================================ */
+.summary-box {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+  color: var(--text-inverse) !important;
+  padding: var(--space-2xl) !important;
+  border-radius: var(--radius-2xl) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 20px rgba(107, 124, 110, 0.3) !important;
+}
+
+.summary-box h2,
+.summary-box h3,
+.summary-box p,
+.summary-box strong {
+  color: var(--text-inverse) !important;
+}
+
+.summary-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(122, 148, 113, 0.15) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   PDF DOWNLOAD BUTTON
+   ============================================ */
+.pdf-download-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+  color: var(--text-inverse) !important;
+  border: 3px solid var(--accent-hover) !important;
+  font-weight: 700 !important;
+  padding: var(--space-sm) var(--space-lg) !important;
+  border-radius: var(--radius-lg) !important;
+  transition: var(--transition) !important;
+  position: fixed !important;
+  top: var(--space-lg) !important;
+  right: var(--space-lg) !important;
+  z-index: 1000 !important;
+  box-shadow: 0 6px 16px rgba(192, 139, 122, 0.3) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
+  font-size: 18px !important;
+  min-height: var(--touch-comfortable) !important;
+}
+
+.pdf-download-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(192, 139, 122, 0.4) !important;
+  background: var(--accent-hover) !important;
+}
+
+/* ============================================
+   ACTION ITEMS
+   ============================================ */
+.action-item {
+  background: rgba(122, 148, 113, 0.12) !important;
+  border-left: 5px solid var(--success) !important;
+  padding: var(--space-md) var(--space-lg) !important;
+  margin: var(--space-md) 0 !important;
+  border-radius: var(--radius-lg) !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 2px 6px rgba(122, 148, 113, 0.1) !important;
+}
+
+.action-item:hover {
+  background: rgba(122, 148, 113, 0.18) !important;
+  transform: translateX(6px) !important;
+  box-shadow: 0 3px 8px rgba(122, 148, 113, 0.15) !important;
+}
+
+/* ============================================
+   SCENARIO BUTTONS
+   ============================================ */
+.scenario-btn {
+  transition: var(--transition) !important;
+  cursor: pointer !important;
+  padding: var(--space-lg) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--radius-lg) !important;
+  background: var(--background-white) !important;
+  width: 100% !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  font-family: var(--font-family) !important;
+  min-height: var(--touch-comfortable) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+.scenario-btn:hover {
+  background: var(--background-soft) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.scenario-btn.active {
+  background: var(--primary) !important;
+  border-color: var(--primary-dark) !important;
+  color: var(--text-inverse) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(107, 124, 110, 0.25) !important;
+}
+
+/* ============================================
+   PRICE DISPLAY - Maximum contrast
+   ============================================ */
+.price-display {
+  text-align: right !important;
+}
+
+.price-display .text-3xl,
+.price-display .text-4xl {
+  color: var(--primary) !important;
+  font-size: 42px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+}
+
+.price-display .text-secondary {
+  color: var(--text-tertiary) !important;
+  margin-top: var(--space-xs) !important;
+  font-size: 18px !important;
+}
+
+/* When price-display used as direct class */
+.price-display {
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  line-height: 1.1 !important;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.cta-section {
+  background: linear-gradient(135deg, var(--background-white) 0%, var(--background-soft) 100%) !important;
+  border-radius: var(--radius-2xl) !important;
+  padding: var(--space-3xl) !important;
+  margin: var(--space-2xl) 0 !important;
+  border: 3px solid var(--primary) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 20px rgba(107, 124, 110, 0.15) !important;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--success), var(--accent));
+}
+
+.cta-container {
+  text-align: center !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.cta-title {
+  font-size: var(--font-3xl) !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: var(--space-lg) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+.cta-text {
+  font-size: var(--font-lg) !important;
+  color: var(--text-secondary) !important;
+  line-height: var(--line-height-relaxed) !important;
+}
+
+/* ============================================
+   ENHANCED FOOTER
+   ============================================ */
+.footer {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+  color: var(--text-inverse) !important;
+  padding: var(--space-3xl) 0 var(--space-xl) !important;
+  margin-top: var(--space-3xl) !important;
+  border-top: 4px solid var(--accent) !important;
+}
+
+.footer-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 var(--space-lg) !important;
+}
+
+.footer-content {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr !important;
+  gap: var(--space-2xl) !important;
+  margin-bottom: var(--space-2xl) !important;
+}
+
+.footer-brand {
+  max-width: 400px !important;
+}
+
+.footer-logo {
+  font-size: var(--font-2xl) !important;
+  font-weight: 700 !important;
+  color: var(--text-inverse) !important;
+  margin-bottom: var(--space-md) !important;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: var(--line-height-relaxed) !important;
+  font-size: 18px !important;
+}
+
+.footer-section h4 {
+  color: var(--text-inverse) !important;
+  margin-bottom: var(--space-md) !important;
+  font-size: 20px !important;
+}
+
+.footer-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-links li {
+  margin-bottom: var(--space-sm) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.6 !important;
+  font-size: 18px !important;
+}
+
+.footer-links a {
+  color: var(--text-inverse) !important;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+}
+
+.footer-links a:hover {
+  color: var(--accent-light) !important;
+  text-decoration: underline !important;
+}
+
+.footer-links strong {
+  color: var(--text-inverse) !important;
+  font-weight: 700 !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding-top: var(--space-lg) !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 16px !important;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.footer .text-lg {
+  font-size: 20px !important;
+  color: var(--text-inverse) !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 17px !important;
+  }
+  
+  p, li, td {
+    font-size: 17px !important;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xl) !important;
+  }
+  
+  .standard-card, 
+  .calc-card, 
+  .ranking-card {
+    padding: var(--space-lg) !important;
+  }
+  
+  .calculator-section {
+    padding: var(--space-xl) !important;
+    margin: var(--space-xl) 0 !important;
+  }
+  
+  .calculator-container {
+    padding-right: 0;
+  }
+  
+  .total-projected-cost {
+    position: static;
+    width: 100%;
+    margin-top: 24px;
+    padding: 16px;
+  }
+  
+  .summary-box,
+  .cta-section {
+    padding: var(--space-xl) !important;
+  }
+  
+  .pdf-download-btn {
+    position: fixed !important;
+    bottom: var(--space-lg) !important;
+    right: var(--space-lg) !important;
+    top: auto !important;
+    width: 64px !important;
+    height: 64px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    font-size: 24px !important;
+  }
+  
+  .pdf-download-btn span {
+    display: none !important;
+  }
+  
+  .pdf-download-btn::after {
+    content: "📄";
+    font-size: 28px !important;
+  }
+  
+  .rank-badge,
+  .testimonial-avatar {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 20px !important;
+  }
+  
+  .ranking-badge {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .match-percent {
+    font-size: 1.25rem;
+  }
+  
+  .price-value {
+    font-size: 1.25rem;
+  }
+  
+  .comparison-table {
+    font-size: 16px !important;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: var(--space-md) var(--space-sm) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .standard-card,
+  .calc-card,
+  .ranking-card {
+    padding: var(--space-md) !important;
+  }
+  
+  .calculator-section {
+    padding: var(--space-lg) var(--space-sm) !important;
+  }
+  
+  .summary-box {
+    padding: var(--space-xl) var(--space-md) !important;
+  }
+  
+  .cta-section {
+    padding: var(--space-xl) var(--space-md) !important;
+  }
+  
+  .cta-title {
+    font-size: 26px !important;
+  }
+  
+  .cta-text {
+    font-size: 17px !important;
+  }
+  
+  .rank-badge,
+  .testimonial-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 18px !important;
+  }
+  
+  .badge {
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .no-print,
+  .pdf-download-btn {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .report-header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .footer {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .standard-card,
+  .ranking-card,
+  .calc-card {
+    border: 2px solid #ccc !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .section {
+    page-break-inside: avoid !important;
+  }
+  
+  .badge-success,
+  .badge-primary,
+  .badge-secondary,
+  .badge-warning {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+@media (prefers-contrast: high) {
+  .standard-card,
+  .ranking-card,
+  .calc-card {
+    border: 3px solid var(--text-primary) !important;
+  }
+  
+  .btn-primary {
+    background: var(--text-primary) !important;
+    color: var(--background-white) !important;
+    border: 3px solid var(--text-primary) !important;
+  }
+  
+  .btn-secondary {
+    background: var(--background-white) !important;
+    color: var(--text-primary) !important;
+    border: 3px solid var(--text-primary) !important;
+  }
+  
+  .rank-badge,
+  .testimonial-avatar,
+  .ranking-badge {
+    border: 3px solid var(--text-primary) !important;
+  }
+  
+  .badge {
+    border-width: 3px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .standard-card:hover,
+  .ranking-card:hover,
+  .calc-card:hover,
+  .action-item:hover {
+    transform: none !important;
+  }
+  
+  .progress-fill::after {
+    animation: none !important;
+  }
+  
+  .summary-box::before {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   COMPARISON TABLE - Cell Content Fix
+   ============================================ */
+.comparison-table td {
+  padding: var(--space-lg) !important;
+  font-size: 18px !important;
+  transition: var(--transition) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  background: var(--background-white) !important;
+  vertical-align: middle !important; /* ADD THIS */
+  position: relative !important; /* ADD THIS */
+}
+
+/* Ensure badges stay inside table cells */
+.comparison-table .badge {
+  position: relative !important; /* CHANGE from any absolute positioning */
+  display: inline-flex !important;
+  white-space: nowrap !important;
+  max-width: 100% !important; /* ADD THIS */
+}
+
+/* Prevent badge overflow */
+.comparison-table td {
+  overflow: visible !important; /* Keep visible but contain children */
+}
