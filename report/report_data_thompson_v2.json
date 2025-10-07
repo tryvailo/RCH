@@ -1,0 +1,170 @@
+{
+  "report_meta": {
+    "report_date": "5 October 2025",
+    "report_id": "RCH-2025-1005-001",
+    "version": "2.0",
+    "questionnaire_responses": 18,
+    "generation_time": "24 hours",
+    "total_homes_analysed": 156,
+    "service_location": "Birmingham"
+  },
+  "client_summary": {
+    "contact_name": "Sarah Thompson",
+    "contact_email": "sarah.thompson@email.com",
+    "contact_phone": "+44 7891 234 567",
+    "relationship": "Daughter",
+    "patient_name": "Margaret Thompson",
+    "patient_age": 78
+  },
+  "search_criteria": {
+    "location": {
+      "city": "Birmingham",
+      "area": "Edgbaston area",
+      "search_radius": "Within 10 miles"
+    },
+    "budget": {
+      "range": "£1000-1200 weekly",
+      "currency": "£",
+      "includes_extras": false
+    },
+    "care_requirements": {
+      "care_level": [
+        "Nursing care"
+      ],
+      "medical_conditions": [
+        "Diabetes",
+        "Other chronic conditions"
+      ],
+      "mobility_status": "Uses walking aid",
+      "medication_needs": "Full assistance"
+    }
+  },
+  "medical_profile": {
+    "safety_assessment": {
+      "fall_risk": "Moderate risk",
+      "safety_score": 75,
+      "critical_needs": [
+        "Fall prevention",
+        "Diabetes management"
+      ]
+    },
+    "health_conditions": {
+      "allergies": [
+        "None known"
+      ],
+      "dietary": [
+        "No restrictions"
+      ],
+      "mobility": "Walking frame user",
+      "medications": "Complex diabetes management required"
+    },
+    "social_preferences": {
+      "personality": "Moderately social",
+      "cultural_needs": [
+        "Russian language support preferred"
+      ]
+    }
+  },
+  "placement_timeline": {
+    "urgency": "Soon (2-6 weeks)",
+    "priority": "High",
+    "special_notes": "Family needs time to prepare but placement should not be delayed too long"
+  },
+  "top_recommendations": [
+    {
+      "rank": 1,
+      "name": "Manor House Care Home",
+      "location": "Acocks Green, Birmingham",
+      "distance": "8.2 miles",
+      "weekly_fee": 1200,
+      "currency": "£",
+      "match_score": 87,
+      "cqc_rating": "Outstanding",
+      "key_strengths": [
+        "Diabetes specialist nursing",
+        "Physiotherapy on-site",
+        "Fall prevention protocols",
+        "Good family access"
+      ],
+      "verify_questions": [
+        "Confirm Russian-speaking staff availability",
+        "Review diabetes management protocols",
+        "Check current bed availability"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Digby Manor Care Home",
+      "location": "Edgbaston, Birmingham",
+      "distance": "6.5 miles",
+      "weekly_fee": 1050,
+      "currency": "£",
+      "match_score": 82,
+      "cqc_rating": "Good",
+      "key_strengths": [
+        "Excellent diabetes protocols",
+        "Close to family location",
+        "Strong family satisfaction ratings"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Bishops Manor Care Home",
+      "location": "Hall Green, Birmingham",
+      "distance": "4.1 miles",
+      "weekly_fee": 1150,
+      "currency": "£",
+      "match_score": 79,
+      "cqc_rating": "Good",
+      "key_strengths": [
+        "Outstanding dementia expertise",
+        "Central Birmingham location",
+        "Good transport links"
+      ]
+    }
+  ],
+  "quick_comparison": {
+    "best_for_budget": "Digby Manor Care Home (£1050/week)",
+    "best_for_location": "Bishops Manor Care Home (4.1 miles)",
+    "best_for_medical": "Manor House Care Home (87% match)",
+    "best_overall": "Manor House Care Home (Outstanding CQC + 87% match)"
+  },
+  "next_actions": [
+    {
+      "priority": "URGENT",
+      "action": "Contact top 2 recommendations",
+      "timeline": "Within 48 hours",
+      "details": [
+        "Call Manor House Care Home to confirm bed availability",
+        "Schedule visits for next week",
+        "Prepare questions about diabetes care protocols"
+      ]
+    },
+    {
+      "priority": "HIGH",
+      "action": "Prepare for care home visits",
+      "timeline": "Before visits",
+      "details": [
+        "Gather medical records",
+        "Prepare list of questions",
+        "Plan visit schedule with family"
+      ]
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Financial planning",
+      "timeline": "This week",
+      "details": [
+        "Review funding options",
+        "Calculate total monthly costs",
+        "Check council support eligibility"
+      ]
+    }
+  ],
+  "contact_information": {
+    "service_name": "RightCareHome Birmingham",
+    "version": "Simplified Report v2.0",
+    "email": "birmingham@rightcarehome.co.uk",
+    "description": "18-question streamlined care home matching service"
+  }
+}

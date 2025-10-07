@@ -1,1530 +1,614 @@
-Создайте файл `report/premium_report_new.html` с этим полным исправленным кодом:
-
-```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Intelligence Report - The Thompson Family | RightCareHome Birmingham</title>
-    <meta name="description" content="Premium real-time care home intelligence report with interactive evidence viewer and comprehensive analysis">
+    <title>Premium Care Home Report - The Thompson Family | RightCareHome Birmingham</title>
+    <meta name="description" content="Comprehensive premium care home analysis with real-time monitoring and risk assessment">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'premium-gold': '#D4AF37',
-                        'premium-navy': '#0A1628',
-                        'premium-blue': '#1E3A5F',
-                        'signal-green': '#10B981',
-                        'signal-amber': '#F59E0B',
-                        'signal-red': '#EF4444',
-                        'evidence-blue': '#3B82F6',
-                        'realtime-purple': '#8B5CF6',
-                        'trust-teal': '#14B8A6',
-                        'caring-green': '#059669',
-                        'warmth-orange': '#f59e0b',
-                        'nhs-blue': '#005EB8',
-                        'birmingham-blue': '#005EB8',
-                        'light-cream': '#fefce8'
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files in correct order -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/basic-report.css">
+    <link rel="stylesheet" href="../assets/css/premium_extensions.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- FIXED: Correct relative paths -->
-    <link rel="stylesheet" href="../assets/css/premium_report_styles.css">
+    <!-- JavaScript -->
+    <script src="../assets/js/premium_report.js" defer></script>
 </head>
 
 <body>
     <!-- Download Button -->
-    <button onclick="downloadHTML()" class="download-html-btn">
-        Download Full Report
+    <button onclick="downloadHTML()" class="btn btn-primary" style="position: fixed; top: var(--space-lg); right: var(--space-lg); z-index: 1000;">
+        Download Report
     </button>
 
     <!-- Premium Header -->
-    <header class="premium-header text-white py-16 relative">
-        <div class="absolute top-4 right-4">
-            <span class="premium-badge">PREMIUM INTELLIGENCE REPORT</span>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row items-start justify-between mb-8 gap-4">
+    <header class="premium-header text-inverse p-2xl">
+        <div class="section-container">
+            <div class="flex justify-between items-start mb-lg">
                 <div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">RightCareHome Birmingham</h1>
-                    <p class="text-lg sm:text-xl opacity-90">Premium Real-Time Intelligence Service</p>
-                    <div class="bg-white/20 rounded-lg px-4 py-2 mt-4 inline-block">
-                        <span class="text-sm font-semibold">Independent Analysis Service</span>
+                    <h1 class="text-4xl font-bold mb-sm">RightCareHome Birmingham</h1>
+                    <div class="premium-badge mt-md">
+                        <span class="font-semibold">PREMIUM REPORT</span>
                     </div>
                 </div>
-                <div class="text-left md:text-right w-full md:w-auto">
-                    <div class="live-indicator bg-white/20 text-white">
-                        <span class="bg-white w-2 h-2 rounded-full animate-pulse"></span>
-                        LIVE DATA
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 mt-4">
-                        <p class="text-sm opacity-75">Report Date</p>
-                        <p class="text-xl sm:text-2xl font-bold">23 September 2025</p>
+                <div class="text-right">
+                    <div class="card p-lg">
+                        <p class="text-sm text-secondary">Report Date</p>
+                        <p class="text-2xl font-bold">23 September 2025</p>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 mt-8">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Premium Intelligence Report for the Thompson Family</h2>
-                <p class="text-base sm:text-lg opacity-90">Enhanced with real-time market signals, evidence-based confidence scoring, and continuous monitoring capabilities for Margaret Thompson (78 years) requiring Type 2 diabetes management, mobility assistance, and mild cognitive impairment support in Edgbaston area</p>
+            <div class="card p-2xl mt-lg">
+                <h2 class="text-3xl font-bold mb-md">Premium Intelligence Report for the Thompson Family</h2>
+                <p class="text-lg text-secondary">Comprehensive analysis for Margaret Thompson (78) requiring Type 2 diabetes management, mobility assistance, and cognitive impairment support in Edgbaston</p>
                 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8">
-                    <div class="text-center p-2">
-                        <div class="text-2xl sm:text-3xl font-bold text-premium-gold">277</div>
-                        <div class="text-xs sm:text-sm opacity-75">Homes Analyzed</div>
+                <div class="grid grid-4 gap-md mt-xl">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">277</div>
+                        <div class="text-sm text-secondary">Homes Analyzed</div>
                     </div>
-                    <div class="text-center p-2">
-                        <div class="text-2xl sm:text-3xl font-bold text-premium-gold">48</div>
-                        <div class="text-xs sm:text-sm opacity-75">Data Sources</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">48</div>
+                        <div class="text-sm text-secondary">Data Sources</div>
                     </div>
-                    <div class="text-center p-2">
-                        <div class="text-2xl sm:text-3xl font-bold text-premium-gold">LIVE</div>
-                        <div class="text-xs sm:text-sm opacity-75">Market Signals</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-success">LIVE</div>
+                        <div class="text-sm text-secondary">Market Signals</div>
                     </div>
-                    <div class="text-center p-2">
-                        <div class="text-2xl sm:text-3xl font-bold text-premium-gold">7-DAY</div>
-                        <div class="text-xs sm:text-sm opacity-75">Monitoring Active</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">7-DAY</div>
+                        <div class="text-sm text-secondary">Monitoring Active</div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Insights Section -->
-    <!-- Hero Insights Section -->
-<section class="hero-insights">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-6 sm:mb-8">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Premium Intelligence: Last 48 Hours</h2>
-            <p class="text-base sm:text-lg text-gray-600">Critical signals detected across 156 data points - take action now</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
-            <div class="hero-card live">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="signal-dot positive"></div>
-                    <span class="hero-status live">LIVE ALERT - 2 HOURS AGO</span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold mb-2">Manor House: Bed Available</h3>
-                <p class="text-sm sm:text-base text-gray-600 mb-4">Admissions team confirmed availability by phone today. Window closing in 48-72 hours.</p>
-                
-                <!-- NEW: Freshness Badge -->
-                <div class="freshness-badge verified-today">
-                    ✓ Verified Today
-                </div>
-                <span class="freshness-timestamp">Last checked: 2 hours ago</span>
-                
-                <button onclick="showEvidence('availability')" class="text-blue-600 font-semibold text-sm hover:text-blue-700 mt-3 block">
-                    View verification →
-                </button>
-            </div>
-
-            <div class="hero-card risk">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="signal-dot warning"></div>
-                    <span class="hero-status risk">RISK DETECTED - 3 DAYS AGO</span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold mb-2">Digby Manor: Staff Turnover Signal</h3>
-                <p class="text-sm sm:text-base text-gray-600 mb-4">3 nursing positions posted on Indeed in last 14 days. Recommend asking about stability during visit.</p>
-                
-                <!-- NEW: Freshness Badge -->
-                <div class="freshness-badge current">
-                    📅 Current
-                </div>
-                <span class="freshness-timestamp">Updated: 3 days ago</span>
-                
-                <button onclick="showEvidence('jobs')" class="text-amber-600 font-semibold text-sm hover:text-amber-700 mt-3 block">
-                    See evidence →
-                </button>
-            </div>
-
-            <div class="hero-card intel">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="signal-dot intel"></div>
-                    <span class="hero-status intel">MARKET INTEL - 6 DAYS AGO</span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold mb-2">Pricing Window Closing</h3>
-                <p class="text-sm sm:text-base text-gray-600 mb-4">Manor House last increased fees 6 months ago. Industry average: 12 months. Next increase likely Q2 2026 (+5-8%).</p>
-                
-                <!-- NEW: Freshness Badge -->
-                <div class="freshness-badge current">
-                    📅 Current
-                </div>
-                <span class="freshness-timestamp">Analyzed: 6 days ago</span>
-                
-                <button onclick="showEvidence('pricing')" class="text-purple-600 font-semibold text-sm hover:text-purple-700 mt-3 block">
-                    Full analysis →
-                </button>
-            </div>
-        </div>
-
-        <!-- NEW: Quick Action Block -->
-        <div class="quick-action-block">
-            <div class="quick-action-header">
-                <div class="quick-action-icon">⚡</div>
-                <h3 class="quick-action-title">What to Do in the Next 48 Hours</h3>
-            </div>
-            <div class="quick-action-steps">
-                <div class="action-step">
-                    <div class="action-step-number">1</div>
-                    <div>
-                        <strong>Call Manor House Today</strong>
-                        <p class="text-sm text-gray-600 mt-1">Confirm bed availability before the 48-hour window closes</p>
-                    </div>
-                </div>
-                <div class="action-step">
-                    <div class="action-step-number">2</div>
-                    <div>
-                        <strong>Schedule Visit This Week</strong>
-                        <p class="text-sm text-gray-600 mt-1">Book 2-3 hour tour to verify diabetes protocols and meet staff</p>
-                    </div>
-                </div>
-                <div class="action-step">
-                    <div class="action-step-number">3</div>
-                    <div>
-                        <strong>Ask About Staff Stability</strong>
-                        <p class="text-sm text-gray-600 mt-1">During Digby Manor visit, inquire about average staff tenure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-6 sm:mt-8 bg-gradient-to-r from-green-500 to-teal-500 text-white p-4 rounded-xl flex items-center gap-4">
-            <div class="pulse-indicator"></div>
-            <div>
-                <strong>7-Day Active Monitoring:</strong> We're tracking 48 data sources for these homes
-                <span class="text-xs block mt-1 opacity-90">Next scan: in 4 hours | Coverage: 156 signals across 3 homes</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Executive Summary -->
-    <section class="py-8 sm:py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-8 sm:mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">Executive Summary</h2>
-                <p class="text-lg sm:text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed">
-                    This premium report transforms weeks of research into verified, real-time intelligence—delivered 
-                    with evidence-based confidence scoring and continuous monitoring
-                </p>
+    <!-- 1. EXECUTIVE SUMMARY -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Your Decision in 30 Seconds</h2>
+                <p class="section-subtitle">The three most important things you need to know</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6 sm:gap-10 mb-8 sm:mb-12">
-                <div class="signal-card">
-                    <div class="text-center">
-                        <div class="text-4xl sm:text-5xl mb-4 sm:mb-6">⚡</div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-premium-gold mb-2 sm:mb-3">48 Hours</h3>
-                        <p class="text-gray-600 text-lg sm:text-xl">From enquiry to premium analysis</p>
-                    </div>
+            <div class="grid grid-3 gap-lg">
+                <div class="standard-card decision-card primary p-xl">
+                    <div class="decision-number">1</div>
+                    <h3 class="text-xl font-bold mb-md">Recommended Home</h3>
+                    <p class="decision-highlight">Manor House Care Home</p>
+                    <p class="text-secondary mb-sm">87% match • £1,200/week • 8.2 miles</p>
+                    <p class="text-sm mb-md">Outstanding CQC rating with confirmed diabetes protocols</p>
+                    <span class="alert alert-error inline-block">Bed available - contact within 48 hours</span>
                 </div>
                 
-                <div class="signal-card">
-                    <div class="text-center">
-                        <div class="text-4xl sm:text-5xl mb-4 sm:mb-6">🎯</div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-caring-green mb-2 sm:mb-3">5 Verified</h3>
-                        <p class="text-gray-600 text-lg sm:text-xl">Real-time verified recommendations</p>
-                    </div>
-                </div>
-                
-                <div class="signal-card">
-                    <div class="text-center">
-                        <div class="text-4xl sm:text-5xl mb-4 sm:mb-6">📊</div>
-                        <h3 class="text-2xl sm:text-3xl font-bold text-warmth-orange mb-2 sm:mb-3">100% Transparent</h3>
-                        <p class="text-gray-600 text-lg sm:text-xl">Every claim with timestamped source</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="premium-summary mb-8 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 relative z-10">🎯 Premium Intelligence Summary</h2>
-                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 relative z-10">
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-premium-gold">What Makes This Premium:</h3>
-                        <ul class="space-y-2 sm:space-y-3">
-                            <li class="flex items-start gap-3">
-                                <span class="text-premium-gold">✓</span>
-                                <span>Real-time availability verification from 5 sources</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-premium-gold">✓</span>
-                                <span>Last 30 days incident & regulatory monitoring</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-premium-gold">✓</span>
-                                <span>Financial stability pulse beyond Companies House</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-premium-gold">✓</span>
-                                <span>Evidence pack with timestamped sources</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-premium-gold">✓</span>
-                                <span>7-day monitoring with change alerts</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-premium-gold">Your Premium Advantage:</h3>
-                        <div class="bg-white/10 rounded-xl p-4 sm:p-6">
-                            <div class="text-xl sm:text-2xl font-bold mb-2">87% Confidence Score</div>
-                            <p class="opacity-90">Based on 48 real-time signals collected in the last 72 hours</p>
-                            <div class="mt-4">
-                                <div class="text-sm opacity-75 mb-2">Top Risk Mitigated:</div>
-                                <div class="bg-green-500/20 text-green-700 px-3 py-1 rounded-full inline-block">
-                                    ✓ No critical incidents in 30 days
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RTR Score Deep Dive -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="rtr-explainer">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">🎯 What is Real-Time Relevance (RTR) Score?</h2>
-                
-                <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-                    <div>
-                        <p class="text-base sm:text-lg mb-4 sm:mb-6">RTR measures how <strong>current and actionable</strong> our data is. Unlike static reports that use 6-month-old information, we score homes on data freshness.</p>
-                        
-                        <div class="space-y-3 sm:space-y-4">
-                            <div class="rtr-level-item">
-                                <div class="rtr-icon excellent">
-                                    <span>✓</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-base sm:text-lg">81% = EXCELLENT</p>
-                                    <p class="text-sm text-gray-600">Manor House: 8 of 10 key signals updated in last 7 days</p>
-                                </div>
-                            </div>
-
-                            <div class="rtr-level-item">
-                                <div class="rtr-icon moderate">
-                                    <span>⚠</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-base sm:text-lg">50-70% = MODERATE</p>
-                                    <p class="text-sm text-gray-600">Some data is 30+ days old, verify during visit</p>
-                                </div>
-                            </div>
-
-                            <div class="rtr-level-item">
-                                <div class="rtr-icon stale">
-                                    <span>✗</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-base sm:text-lg">&lt;50% = STALE</p>
-                                    <p class="text-sm text-gray-600">Most data is 60+ days old, high uncertainty</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rtr-breakdown">
-    <h4 class="font-bold mb-3 sm:mb-4 text-base sm:text-lg">Manor House RTR Breakdown (81%)</h4>
-    
-    <div class="space-y-3">
-        <div class="rtr-metric">
-            <div class="rtr-metric-header">
-                <span>Availability Status</span>
-                <div>
-                    <span class="freshness-badge verified-today" style="margin: 0;">✓ Verified Today</span>
-                </div>
-            </div>
-            <div class="freshness-timestamp" style="text-align: right; margin-top: 4px;">Last checked: 2 hours ago</div>
-            <div class="rtr-bar">
-                <div class="rtr-bar-fill excellent" style="width: 100%"></div>
-            </div>
-        </div>
-
-        <div class="rtr-metric">
-            <div class="rtr-metric-header">
-                <span>Staff Stability</span>
-                <div>
-                    <span class="freshness-badge verified-today" style="margin: 0;">✓ Verified Today</span>
-                </div>
-            </div>
-            <div class="freshness-timestamp" style="text-align: right; margin-top: 4px;">Job postings checked: 2 days ago</div>
-            <div class="rtr-bar">
-                <div class="rtr-bar-fill excellent" style="width: 95%"></div>
-            </div>
-        </div>
-
-        <div class="rtr-metric">
-            <div class="rtr-metric-header">
-                <span>Incident Check</span>
-                <div>
-                    <span class="freshness-badge verified-today" style="margin: 0;">✓ Verified Today</span>
-                </div>
-            </div>
-            <div class="freshness-timestamp" style="text-align: right; margin-top: 4px;">30-day scan completed today</div>
-            <div class="rtr-bar">
-                <div class="rtr-bar-fill excellent" style="width: 90%"></div>
-            </div>
-        </div>
-
-        <div class="rtr-metric">
-            <div class="rtr-metric-header">
-                <span>Pricing Data</span>
-                <div>
-                    <span class="freshness-badge check-required" style="margin: 0;">⚠️ Check Required</span>
-                </div>
-            </div>
-            <div class="freshness-timestamp" style="text-align: right; margin-top: 4px;">Last increase: 6 months ago</div>
-            <div class="rtr-bar">
-                <div class="rtr-bar-fill moderate" style="width: 60%"></div>
-            </div>
-        </div>
-
-        <div class="rtr-metric">
-            <div class="rtr-metric-header">
-                <span>Family Reviews</span>
-                <div>
-                    <span class="freshness-badge current" style="margin: 0;">📅 Current</span>
-                </div>
-            </div>
-            <div class="freshness-timestamp" style="text-align: right; margin-top: 4px;">Latest review: 3 days ago</div>
-            <div class="rtr-bar">
-                <div class="rtr-bar-fill excellent" style="width: 92%"></div>
-            </div>
-        </div>
-    </div>
-
-    <p class="text-xs text-gray-500 mt-4"><strong>Bottom line:</strong> You can trust 8/10 data points. The pricing needs verification during your call (we'll remind you).</p>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Real-Time Market Signals -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Real-Time Market Intelligence</h2>
-                <p class="text-lg sm:text-xl text-gray-600">Live signals from web monitoring - Updated every 24 hours</p>
-                <span class="premium-badge mt-2 inline-block">PREMIUM EXCLUSIVE</span>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
-    <div class="signal-card">
-        <div class="flex justify-between items-start mb-4">
-            <h3 class="font-bold text-base sm:text-lg">
-                <span class="tooltip-trigger">
-                    Availability
-                    <span class="tooltip-content">Real-time monitoring of bed availability across all shortlisted homes. We check provider websites, admissions portals, and make verification calls.</span>
-                </span>
-            </h3>
-            <span class="data-quality live">LIVE</span>
-        </div>
-        <div class="confidence-ring mx-auto mb-4">
-            <svg width="120" height="120">
-                <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <circle cx="60" cy="60" r="54" class="confidence-ring-bg"></circle>
-                <circle cx="60" cy="60" r="54" class="confidence-ring-progress" 
-                        style="stroke-dasharray: 240 340; stroke-dashoffset: 0"></circle>
-            </svg>
-            <div class="confidence-value">72%</div>
-        </div>
-        <p class="text-sm text-gray-600">High probability of current openings</p>
-        
-        <!-- NEW: What This Means Box -->
-        <div class="meaning-box">
-            <div class="meaning-box-title">💡 What this means:</div>
-            <div>We've verified availability within the last 2 hours. This is current, actionable data.</div>
-        </div>
-        
-        <div class="mt-3 pt-3 border-t">
-            <p class="text-xs text-gray-500">Last signal: 2 hours ago</p>
-            <p class="text-xs text-green-600 font-semibold">↗ Admissions mentioned today</p>
-        </div>
-    </div>
-    
-    <div class="signal-card">
-        <div class="flex justify-between items-start mb-4">
-            <h3 class="font-bold text-base sm:text-lg">
-                <span class="tooltip-trigger">
-                    Incident Risk
-                    <span class="tooltip-content">Continuous monitoring of CQC reports, local news, social media, and regulatory notices for any concerning incidents or enforcement actions.</span>
-                </span>
-            </h3>
-            <span class="data-quality recent">7 DAYS</span>
-        </div>
-        <div class="confidence-ring mx-auto mb-4">
-            <svg width="120" height="120">
-                <circle cx="60" cy="60" r="54" class="confidence-ring-bg"></circle>
-                <circle cx="60" cy="60" r="54" class="confidence-ring-progress" 
-                        style="stroke: #10B981; stroke-dasharray: 30 340; stroke-dashoffset: 0"></circle>
-            </svg>
-            <div class="confidence-value">5%</div>
-        </div>
-        <p class="text-sm text-gray-600">Minimal recent incidents detected</p>
-        
-        <!-- NEW: What This Means Box -->
-        <div class="meaning-box">
-            <div class="meaning-box-title">💡 What this means:</div>
-            <div>Clean safety record in last 30 days. No red flags detected across all monitoring channels.</div>
-        </div>
-        
-        <div class="mt-3 pt-3 border-t">
-            <p class="text-xs text-gray-500">Monitoring: CQC, News, Social</p>
-            <p class="text-xs text-green-600 font-semibold">✓ Clear last 30 days</p>
-        </div>
-    </div>
-    
-    <div class="signal-card">
-        <div class="flex justify-between items-start mb-4">
-            <h3 class="font-bold text-base sm:text-lg">
-                <span class="tooltip-trigger">
-                    Financial Health
-                    <span class="tooltip-content">Analysis of Companies House filings, payment histories, parent company stability, and market positioning indicators.</span>
-                </span>
-            </h3>
-            <span class="data-quality verified">VERIFIED</span>
-        </div>
-        <div class="confidence-ring mx-auto mb-4">
-            <svg width="120" height="120">
-                <circle cx="60" cy="60" r="54" class="confidence-ring-bg"></circle>
-                <circle cx="60" cy="60" r="54" class="confidence-ring-progress" 
-                        style="stroke: #10B981; stroke-dasharray: 300 340; stroke-dashoffset: 0"></circle>
-            </svg>
-            <div class="confidence-value">92%</div>
-        </div>
-        <p class="text-sm text-gray-600">Strong financial indicators</p>
-        
-        <!-- NEW: What This Means Box -->
-        <div class="meaning-box">
-            <div class="meaning-box-title">💡 What this means:</div>
-            <div>Provider is financially stable with 3+ years profitable operation. Low risk of sudden closure.</div>
-        </div>
-        
-        <div class="mt-3 pt-3 border-t">
-            <p class="text-xs text-gray-500">Sources: 4 financial databases</p>
-            <p class="text-xs text-green-600 font-semibold">✓ No concerning signals</p>
-        </div>
-    </div>
-    
-    <div class="signal-card">
-        <div class="flex justify-between items-start mb-4">
-            <h3 class="font-bold text-base sm:text-lg">
-                <span class="tooltip-trigger">
-                    Overall RTR Score
-                    <span class="tooltip-content">Real-Time Relevance: Measures how current our data is. 81% means 8 out of 10 key signals were updated in the last 7 days.</span>
-                </span>
-            </h3>
-            <span class="data-quality live">COMPOSITE</span>
-        </div>
-        <div class="confidence-ring mx-auto mb-4">
-            <svg width="120" height="120">
-                <circle cx="60" cy="60" r="54" class="confidence-ring-bg"></circle>
-                <circle cx="60" cy="60" r="54" class="confidence-ring-progress" 
-                        style="stroke: url(#goldGradient); stroke-dasharray: 275 340; stroke-dashoffset: 0"></circle>
-            </svg>
-            <div class="confidence-value">81%</div>
-        </div>
-        <p class="text-sm text-gray-600">Premium confidence score</p>
-        
-        <!-- NEW: What This Means Box -->
-        <div class="meaning-box">
-            <div class="meaning-box-title">💡 What this means:</div>
-            <div>You can trust 8/10 data points as current (within 7 days). This is excellent for decision-making.</div>
-        </div>
-        
-        <div class="mt-3 pt-3 border-t">
-            <p class="text-xs text-gray-500">Algorithm: v2.3 Premium</p>
-            <p class="text-xs text-blue-600 font-semibold">48 signals analyzed</p>
-        </div>
-    </div>
-</div>
-
-            <div class="premium-feature">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">📊 Evidence Pack - Timestamped Sources</h3>
-                <div class="freshness-timeline">
-                    <div class="timeline-item recent">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <p class="font-semibold">Admissions Currently Open</p>
-                                <p class="text-sm text-gray-600">Manor House actively accepting residents</p>
-                            </div>
-                            <span class="text-xs text-green-600 font-bold">TODAY</span>
-                        </div>
-                        <a href="#" class="evidence-link">Provider website</a>
-                    </div>
-                    
-                    <div class="timeline-item recent">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <p class="font-semibold">Nursing Staff Recruitment</p>
-                                <p class="text-sm text-gray-600">2 new nursing positions posted</p>
-                            </div>
-                            <span class="text-xs text-amber-600 font-bold">2 DAYS AGO</span>
-                        </div>
-                        <a href="#" class="evidence-link">Indeed UK</a>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <p class="font-semibold">CQC Rating Confirmed</p>
-                                <p class="text-sm text-gray-600">Outstanding rating maintained</p>
-                            </div>
-                            <span class="text-xs text-gray-600">5 DAYS AGO</span>
-                        </div>
-                        <a href="#" class="evidence-link">cqc.org.uk</a>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <p class="font-semibold">Community Award</p>
-                                <p class="text-sm text-gray-600">Birmingham Care Excellence Award</p>
-                            </div>
-                            <span class="text-xs text-gray-600">1 WEEK AGO</span>
-                        </div>
-                        <a href="#" class="evidence-link">Birmingham Mail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Evidence Explorer -->
-    <section class="py-8 sm:py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="evidence-explorer">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">🔍 Interactive Evidence Explorer</h2>
-                <p class="text-gray-600 mb-4 sm:mb-6">Click any data point below to see full verification trail with sources and methodology</p>
-                
-                <div class="timeline-nodes">
-                    <button class="timeline-node active" onclick="showEvidence('availability')" data-evidence="availability">
-                        <div class="node-dot positive"></div>
-                        <div class="font-semibold text-sm sm:text-base">Availability</div>
-                        <div class="text-xs text-gray-500">18 hrs ago</div>
-                    </button>
-                    <button class="timeline-node" onclick="showEvidence('jobs')" data-evidence="jobs">
-                        <div class="node-dot warning"></div>
-                        <div class="font-semibold text-sm sm:text-base">Job Postings</div>
-                        <div class="text-xs text-gray-500">3 days ago</div>
-                    </button>
-                    <button class="timeline-node" onclick="showEvidence('reviews')" data-evidence="reviews">
-                        <div class="node-dot neutral"></div>
-                        <div class="font-semibold text-sm sm:text-base">Reviews</div>
-                        <div class="text-xs text-gray-500">3 days ago</div>
-                    </button>
-                    <button class="timeline-node" onclick="showEvidence('cqc')" data-evidence="cqc">
-                        <div class="node-dot positive"></div>
-                        <div class="font-semibold text-sm sm:text-base">CQC Check</div>
-                        <div class="text-xs text-gray-500">5 days ago</div>
-                    </button>
-                    <button class="timeline-node" onclick="showEvidence('pricing')" data-evidence="pricing">
-                        <div class="node-dot intel"></div>
-                        <div class="font-semibold text-sm sm:text-base">Pricing Intel</div>
-                        <div class="text-xs text-gray-500">6 days ago</div>
-                    </button>
-                </div>
-                
-                <div id="evidence-detail-panel" class="evidence-detail-panel">
-    <div id="evidence-content">
-        <!-- Default content shown on load -->
-        <div class="evidence-item verified">
-            <h3 class="text-xl font-bold mb-4 text-green-600">✅ Availability Intelligence: Manor House</h3>
-            <div class="evidence-body" style="white-space: pre-line; line-height: 1.8;">
-Admissions team confirmed availability by phone today.
-
-Premium Analysis: Window closing in 48-72 hours based on typical admission patterns.
-
-Sources verified:
-- Provider website (Today, 09:15 GMT)
-- Phone confirmation (Today, 14:32 GMT)
-- Admissions portal check (2 hours ago)
-            </div>
-            <div class="evidence-metadata mt-6 pt-4 border-t">
-                <div class="flex flex-col sm:flex-row justify-between gap-2 text-sm text-gray-600">
-                    <span>📊 Confidence: High</span>
-                    <span>📅 Last Updated: 23 Sep 2025</span>
-                    <span>✓ Verified Source</span>
-                </div>
-            </div>
-        </div>
-        <div class="mt-4 text-center">
-            <p class="text-sm text-gray-500 italic">👆 Click other timeline nodes above to explore different evidence types</p>
-        </div>
-    </div>
-</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Monitoring Dashboard -->
-    <section class="monitoring-dashboard">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">🔴 LIVE: Your 7-Day Monitoring Dashboard</h2>
-                <p class="text-lg sm:text-xl text-gray-300">Real-time tracking of your shortlisted homes - updates every hour</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-12">
-                <div class="status-card green">
-                    <div class="text-2xl sm:text-3xl font-bold">3</div>
-                    <div class="text-xs sm:text-sm text-gray-300 mt-2">Homes Tracked</div>
-                    <div class="text-xs text-green-400 mt-2">● All systems green</div>
-                </div>
-
-                <div class="status-card blue">
-                    <div class="text-2xl sm:text-3xl font-bold">156</div>
-                    <div class="text-xs sm:text-sm text-gray-300 mt-2">Data Points</div>
-                    <div class="text-xs text-blue-400 mt-2">Last check: 47 min ago</div>
-                </div>
-
-                <div class="status-card amber">
-                    <div class="text-2xl sm:text-3xl font-bold">2</div>
-                    <div class="text-xs sm:text-sm text-gray-300 mt-2">Alerts Sent</div>
-                    <div class="text-xs text-amber-400 mt-2">Last: Today 14:32</div>
-                </div>
-
-                <div class="status-card purple">
-                    <div class="text-2xl sm:text-3xl font-bold">5</div>
-                    <div class="text-xs sm:text-sm text-gray-300 mt-2">Days Remaining</div>
-                    <div class="text-xs text-purple-400 mt-2">Expires: 28 Sep 2025</div>
-                </div>
-
-                <div class="status-card green">
-                    <div class="text-2xl sm:text-3xl font-bold">98%</div>
-                    <div class="text-xs sm:text-sm text-gray-300 mt-2">System Uptime</div>
-                    <div class="text-xs text-green-400 mt-2">● Fully operational</div>
-                </div>
-            </div>
-
-            <div class="activity-feed">
-                <h3 class="text-lg sm:text-xl font-bold mb-4 flex items-center gap-2">
-                    <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-                    Live Activity Feed
-                </h3>
-
-                <div class="space-y-3 max-h-96 overflow-y-auto">
-                    <div class="activity-item">
-                        <span class="text-xs text-gray-400">47 min ago</span>
-                        <div class="flex-1">
-                            <p class="text-sm"><strong class="text-green-400">✓ Check complete:</strong> Manor House - No incidents, availability confirmed</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <span class="text-xs text-gray-400">2 hrs ago</span>
-                        <div class="flex-1">
-                            <p class="text-sm"><strong class="text-blue-400">ℹ️ Update:</strong> Manor House confirmed bed availability via phone call</p>
-                            <button onclick="showEvidence('availability')" class="text-xs text-blue-400 mt-1">View call transcript →</button>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <span class="text-xs text-gray-400">5 hrs ago</span>
-                        <div class="flex-1">
-                            <p class="text-sm"><strong class="text-amber-400">⚠️ Alert:</strong> Digby Manor - 3 nursing positions posted on Indeed</p>
-                            <button onclick="showEvidence('jobs')" class="text-xs text-amber-400 mt-1">See job postings →</button>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <span class="text-xs text-gray-400">1 day ago</span>
-                        <div class="flex-1">
-                            <p class="text-sm"><strong class="text-green-400">✓ Verified:</strong> All 3 homes - CQC ratings unchanged</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <span class="text-xs text-gray-400">1 day ago</span>
-                        <div class="flex-1">
-                            <p class="text-sm"><strong class="text-blue-400">ℹ️ Scan complete:</strong> No pricing changes detected across tracked homes</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-4 text-center">
-                    <button class="text-premium-gold font-semibold text-sm">View full monitoring log →</button>
-                </div>
-            </div>
-
-            <div class="alert-preferences">
-                <h3 class="text-lg sm:text-xl font-bold mb-4">🔔 Your Alert Preferences</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                    <div class="alert-checkbox">
-                        <input type="checkbox" checked id="alert-availability">
-                        <label for="alert-availability" class="text-sm">Availability changes</label>
-                    </div>
-                    <div class="alert-checkbox">
-                        <input type="checkbox" checked id="alert-pricing">
-                        <label for="alert-pricing" class="text-sm">Price adjustments</label>
-                    </div>
-                    <div class="alert-checkbox">
-                        <input type="checkbox" checked id="alert-incidents">
-                        <label for="alert-incidents" class="text-sm">Incident reports</label>
-                    </div>
-                    <div class="alert-checkbox">
-                        <input type="checkbox" checked id="alert-staff">
-                        <label for="alert-staff" class="text-sm">Staff changes</label>
-                    </div>
-                    <div class="alert-checkbox">
-                        <input type="checkbox" id="alert-reviews">
-                        <label for="alert-reviews" class="text-sm">Review updates</label>
-                    </div>
-                    <div class="alert-checkbox">
-                        <input type="checkbox" id="alert-competitor">
-                        <label for="alert-competitor" class="text-sm">Competitor activity</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Sources & Reliability -->
-    <section class="py-8 sm:py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Data Sources & Reliability</h2>
-                <p class="text-lg sm:text-xl text-gray-600">Complete transparency about our data sources and analytical methods</p>
-                <span class="premium-badge mt-2 inline-block">ENHANCED WITH PREMIUM SIGNALS</span>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-                <div class="standard-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl sm:text-3xl mr-3">🏛️</span>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold">Official Regulatory Data</h3>
-                            <span class="data-quality verified">95% Reliable</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div>
-                            <strong>Includes:</strong>
-                            <ul class="list-disc list-inside mt-1 text-sm">
-                                <li>CQC ratings and inspections</li>
-                                <li>NHS Directory services</li>
-                                <li>Licensed care capabilities</li>
-                            </ul>
-                        </div>
-                        <div><strong>Last Updated:</strong> 01 September 2024</div>
-                        <div class="text-green-700 font-semibold">✅ Fully Verified</div>
-                    </div>
-                </div>
-
-                <div class="standard-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl sm:text-3xl mr-3">🌐</span>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold">Market Data</h3>
-                            <span class="data-quality medium">70% Reliable</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div>
-                            <strong>Includes:</strong>
-                            <ul class="list-disc list-inside mt-1 text-sm">
-                                <li>Pricing information</li>
-                                <li>Bed availability</li>
-                                <li>Service descriptions</li>
-                            </ul>
-                        </div>
-                        <div><strong>Aggregated From:</strong> Multiple public sources</div>
-                        <div class="text-amber-700 font-semibold">⚠️ Requires confirmation when contacting</div>
-                    </div>
-                </div>
-
-                <div class="standard-card">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl sm:text-3xl mr-3">📊</span>
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold">Financial Analysis</h3>
-                            <span class="data-quality high">90% Reliable</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div><strong>Source:</strong> Companies House</div>
-                        <div>
-                            <strong>Includes:</strong>
-                            <ul class="list-disc list-inside mt-1 text-sm">
-                                <li>Financial stability</li>
-                                <li>Corporate structure</li>
-                                <li>Profitability history</li>
-                            </ul>
-                        </div>
-                        <div class="text-blue-700 font-semibold">✅ Official government records</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="premium-feature mb-6 sm:mb-8">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">⚡ Premium Real-Time Sources</h3>
-                <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
-                    <div class="bg-white rounded-lg p-4">
-                        <h4 class="font-bold text-premium-gold mb-2">Live Web Monitoring</h4>
-                        <p class="text-sm text-gray-600 mb-2">Continuous scanning 24/7</p>
-                        <span class="data-quality live">REAL-TIME</span>
-                    </div>
-                    <div class="bg-white rounded-lg p-4">
-                        <h4 class="font-bold text-premium-gold mb-2">Social Signals</h4>
-                        <p class="text-sm text-gray-600 mb-2">Job boards, news mentions, reviews</p>
-                        <span class="data-quality recent">HOURLY</span>
-                    </div>
-                    <div class="bg-white rounded-lg p-4">
-                        <h4 class="font-bold text-premium-gold mb-2">Incident Monitoring</h4>
-                        <p class="text-sm text-gray-600 mb-2">CQC alerts, local authority notices</p>
-                        <span class="data-quality verified">IMMEDIATE</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 sm:p-8 mb-6 sm:mb-8">
-                <h3 class="text-xl sm:text-2xl font-bold text-yellow-800 mb-4 sm:mb-6">🔍 Critical to Verify During Visit</h3>
-                
-                <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div>
-                        <h4 class="font-bold text-yellow-800 mb-3">Must Verify:</h4>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2 font-bold">●</span>
-                                <span>Current bed availability (changes daily)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2 font-bold">●</span>
-                                <span>Specific diabetes management protocols</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2 font-bold">●</span>
-                                <span>Qualifications of assigned care staff</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-yellow-800 mb-3">Recommended to Confirm:</h4>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-gray-500 mr-2 font-bold">•</span>
-                                <span>Staff language capabilities</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-500 mr-2 font-bold">•</span>
-                                <span>Physiotherapy scheduling</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-500 mr-2 font-bold">•</span>
-                                <span>Additional service costs</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Source Credibility Matrix -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-center">📊 Source Credibility Matrix</h2>
-            <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-10 text-center">Not all sources are equal. Here's how we weight reliability</p>
-            
-            <div class="credibility-grid">
-                <div class="credibility-item tier-1">
-                    <div class="tier-badge">TIER 1: HIGHEST</div>
-                    <div class="credibility-score">95-100%</div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2">Official Government Sources</h4>
-                    <ul class="text-sm space-y-1 mb-3">
-                        <li>• CQC inspection reports (100%)</li>
-                        <li>• Companies House filings (98%)</li>
-                        <li>• Local authority records (95%)</li>
+                <div class="standard-card decision-card risk p-xl">
+                    <div class="decision-number">2</div>
+                    <h3 class="text-xl font-bold mb-md">Key Risk to Verify</h3>
+                    <p class="decision-highlight">Diabetes Protocol Details</p>
+                    <p class="text-secondary mb-sm">Critical to verify during visit:</p>
+                    <ul class="text-sm space-y-xs">
+                        <li>Glucose monitoring frequency (4x daily minimum)</li>
+                        <li>Insulin administration protocols</li>
+                        <li>Emergency hypoglycaemia response</li>
                     </ul>
-                    <div class="usage-badge">For: Compliance, Financial stability</div>
                 </div>
-
-                <div class="credibility-item tier-2">
-                    <div class="tier-badge">TIER 2: HIGH</div>
-                    <div class="credibility-score">80-94%</div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2">Direct Provider Sources</h4>
-                    <ul class="text-sm space-y-1 mb-3">
-                        <li>• Provider website (90%)</li>
-                        <li>• Official job postings (85%)</li>
-                        <li>• Provider social media (80%)</li>
-                    </ul>
-                    <div class="usage-badge">For: Availability, Services, Pricing</div>
-                </div>
-
-                <div class="credibility-item tier-3">
-                    <div class="tier-badge">TIER 3: MODERATE</div>
-                    <div class="credibility-score">60-79%</div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2">Third-Party Verified</h4>
-                    <ul class="text-sm space-y-1 mb-3">
-                        <li>• Verified family reviews (75%)</li>
-                        <li>• Industry databases (70%)</li>
-                        <li>• Local news mentions (65%)</li>
-                    </ul>
-                    <div class="usage-badge">For: Reputation, Context, Trends</div>
-                </div>
-
-                <div class="credibility-item tier-4">
-                    <div class="tier-badge">TIER 4: SUPPLEMENTARY</div>
-                    <div class="credibility-score">30-59%</div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2">Unverified Public Info</h4>
-                    <ul class="text-sm space-y-1 mb-3">
-                        <li>• Anonymous reviews (50%)</li>
-                        <li>• Social media comments (40%)</li>
-                        <li>• Forum discussions (30%)</li>
-                    </ul>
-                    <div class="usage-badge">For: Red flag detection only</div>
+                
+                <div class="standard-card decision-card action p-xl">
+                    <div class="decision-number">3</div>
+                    <h3 class="text-xl font-bold mb-md">Your Next Action</h3>
+                    <p class="decision-highlight">Contact Manor House Today</p>
+                    <p class="text-secondary mb-md">Availability confirmed 2 hours ago. Typical window: 48-72 hours.</p>
+                    <a href="tel:+441214567890" class="btn btn-primary btn-block">0121 456 7890</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expert Analysis -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">📊 Expert Data Analysis</h2>
-                <p class="text-lg sm:text-xl text-gray-600">Professional assessment enhanced with premium verification</p>
+    <!-- 2. TOP 5 RANKINGS -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Top 5 Birmingham Recommendations</h2>
+                <p class="section-subtitle">Ranked by match to Margaret's specific needs</p>
             </div>
             
-            <div class="ranking-card p-6 sm:p-8 mb-6 sm:mb-8">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
-                    <span class="mr-3">🛡️</span>
-                    Safety Risk Assessment: 91/100
-                </h3>
-                
-                <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-green-800 mb-3">Confirmed Safety Measures:</h4>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-green-600 mr-2">✓</span>
-                                <span>CQC 'Good' rating maintained 3 years</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-600 mr-2">✓</span>
-                                <span>Fall prevention protocols listed in licence</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-600 mr-2">✓</span>
-                                <span>No serious incident reports in 12 months</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-amber-50 p-4 rounded-lg">
-                        <h4 class="font-bold text-amber-800 mb-3">Verify During Visit:</h4>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-amber-600 mr-2">⚠️</span>
-                                <span>Physical fall prevention measures in corridors</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-amber-600 mr-2">⚠️</span>
-                                <span>Emergency response time protocols</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-amber-600 mr-2">⚠️</span>
-                                <span>Secure dementia unit physical barriers</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ranking-card p-6 sm:p-8 mb-6 sm:mb-8">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
-                    <span class="mr-3">⚕️</span>
-                    Medical Capability Alignment: 87/100
-                </h3>
-                
-                <div class="space-y-4">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-gray-50 rounded-lg gap-2">
-                        <div>
-                            <strong>Type 2 Diabetes Management</strong>
-                            <p class="text-sm text-gray-600">Daily insulin monitoring and dietary management</p>
-                        </div>
-                        <div class="text-left sm:text-right">
-                            <span class="data-quality high">CQC Confirmed</span>
-                            <p class="text-xs text-gray-500 mt-1">Nursing care licence</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-gray-50 rounded-lg gap-2">
-                        <div>
-                            <strong>Mobility Support & Physiotherapy</strong>
-                            <p class="text-sm text-gray-600">Walking frame assistance and muscle strengthening</p>
-                        </div>
-                        <div class="text-left sm:text-right">
-                            <span class="data-quality high">On-site Confirmed</span>
-                            <p class="text-xs text-gray-500 mt-1">CQC inspection notes</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-gray-50 rounded-lg gap-2">
-                        <div>
-                            <strong>Cognitive Impairment Support</strong>
-                            <p class="text-sm text-gray-600">Memory activities and orientation support</p>
-                        </div>
-                        <div class="text-left sm:text-right">
-                            <span class="data-quality medium">Verify Details</span>
-                            <p class="text-xs text-gray-500 mt-1">General dementia care licence</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ranking-card p-6 sm:p-8 mb-6 sm:mb-8">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
-                    <span class="mr-3">📈</span>
-                    Placement Success Prediction: 84%
-                </h3>
-                
-                <div class="grid grid-cols-3 gap-3 sm:gap-6 mb-4 sm:mb-6">
-                    <div class="text-center p-3 sm:p-4 bg-green-50 rounded-lg">
-                        <div class="text-2xl sm:text-3xl font-bold text-green-600">4</div>
-                        <div class="text-xs sm:text-sm text-green-800">Strong Alignment Factors</div>
-                    </div>
-                    <div class="text-center p-3 sm:p-4 bg-yellow-50 rounded-lg">
-                        <div class="text-2xl sm:text-3xl font-bold text-yellow-600">2</div>
-                        <div class="text-xs sm:text-sm text-yellow-800">Moderate Considerations</div>
-                    </div>
-                    <div class="text-center p-3 sm:p-4 bg-red-50 rounded-lg">
-                        <div class="text-2xl sm:text-3xl font-bold text-red-600">1</div>
-                        <div class="text-xs sm:text-sm text-red-800">Risk Factor</div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
+            <div class="ranking-card top-recommendation p-2xl mb-lg">
+                <div class="flex justify-between items-start mb-lg">
                     <div>
-                        <h4 class="font-bold text-green-800 mb-3">Key Success Factors:</h4>
-                        <ul class="space-y-2">
-                            <li class="bg-green-50 p-3 rounded border-l-4 border-green-500">
-                                <strong>Medical Capability Match</strong>
-                                <p class="text-sm text-green-700 mt-1">CQC-confirmed nursing care aligns with diabetes requirements</p>
-                            </li>
-                            <li class="bg-green-50 p-3 rounded border-l-4 border-green-500">
-                                <strong>Proximity Convenience</strong>
-                                <p class="text-sm text-green-700 mt-1">8.2 miles enables regular family visits from Edgbaston</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-amber-800 mb-3">Risk Mitigation Strategies:</h4>
-                        <ul class="space-y-2">
-                            <li class="bg-amber-50 p-3 rounded border-l-4 border-amber-500">
-                                <strong>Language Support Uncertainty</strong>
-                                <p class="text-sm text-amber-700 mt-1">Pre-visit call to confirm Russian-speaking staff availability</p>
-                            </li>
-                            <li class="bg-amber-50 p-3 rounded border-l-4 border-amber-500">
-                                <strong>Trial Period Recommendation</strong>
-                                <p class="text-sm text-amber-700 mt-1">2-week trial placement to assess adaptation</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ranking-card p-6 sm:p-8">
-                <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
-                    <span class="mr-3">💰</span>
-                    Financial Stability Analysis
-                </h3>
-                
-                <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
-                    <div class="text-center p-4 border rounded-lg">
-                        <div class="text-base sm:text-lg font-bold text-gray-800">Market Positioning</div>
-                        <div class="text-2xl sm:text-3xl font-bold text-blue-600 my-2">+8%</div>
-                        <div class="text-sm text-gray-600">above regional average</div>
-                    </div>
-                    <div class="text-center p-4 border rounded-lg">
-                        <div class="text-base sm:text-lg font-bold text-gray-800">Hidden Costs Risk</div>
-                        <div class="text-2xl sm:text-3xl font-bold text-green-600 my-2">LOW</div>
-                        <div class="text-sm text-gray-600">comprehensive fee structure</div>
-                    </div>
-                    <div class="text-center p-4 border rounded-lg">
-                        <div class="text-base sm:text-lg font-bold text-gray-800">Financial Stability</div>
-                        <div class="text-2xl sm:text-3xl font-bold text-green-600 my-2">92/100</div>
-                        <div class="text-sm text-gray-600">3 years profitable operation</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Top 5 Birmingham Recommendations -->
-    <section class="py-8 sm:py-12 bg-light-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Top 5 Birmingham Care Home Recommendations</h2>
-                <p class="text-lg sm:text-xl text-gray-600">AI-ranked with real-time relevance signals</p>
-            </div>
-            
-            <div class="ranking-card top-recommendation bg-white rounded-xl p-6 sm:p-8 mb-6 sm:mb-8">
-                <div class="flex flex-col lg:flex-row justify-between items-start mb-6 gap-4">
-                    <div class="w-full lg:w-auto">
-                        <div class="flex items-start gap-3 sm:gap-4 mb-3">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-premium-gold text-premium-navy rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold flex-shrink-0">1</div>
+                        <div class="flex items-start gap-md mb-sm">
+                            <div class="ranking-number primary">1</div>
                             <div>
-                                <h3 class="text-2xl sm:text-3xl font-bold">Manor House Care Home</h3>
-                                <p class="text-sm sm:text-base text-gray-600">Acocks Green, Birmingham • 8.2 miles from Edgbaston</p>
+                                <h3 class="text-3xl font-bold">Manor House Care Home</h3>
+                                <p class="text-secondary">Acocks Green • 8.2 miles</p>
+                                <p class="text-xs text-tertiary">Data verified: 2 hours ago</p>
                             </div>
                         </div>
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">87% Match</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">CQC Outstanding</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">81% RTR Score</span>
+                        <div class="flex gap-sm mt-sm flex-wrap">
+                            <span class="badge badge-success">87% Match</span>
+                            <span class="badge badge-primary">CQC Outstanding</span>
+                            <span class="freshness-indicator verified">Verified Today</span>
                         </div>
                     </div>
-                    <div class="text-left lg:text-right w-full lg:w-auto">
-                        <p class="text-2xl sm:text-3xl font-bold">£1,200</p>
-                        <p class="text-gray-600">per week</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 mb-6 border-2 border-premium-gold">
-                    <h4 class="font-semibold mb-3 text-premium-gold">Premium Real-Time Intelligence</h4>
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                        <div>
-                            <div class="text-xs text-gray-600 mb-1">Availability</div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-green-500" style="width: 85%"></div>
-                            </div>
-                            <div class="text-xs font-bold mt-1">85%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-600 mb-1">Staff Stability</div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-green-500" style="width: 92%"></div>
-                            </div>
-                            <div class="text-xs font-bold mt-1">92%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-600 mb-1">Recent Updates</div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500" style="width: 78%"></div>
-                            </div>
-                            <div class="text-xs font-bold mt-1">78%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-600 mb-1">Market Position</div>
-                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-purple-500" style="width: 88%"></div>
-                            </div>
-                            <div class="text-xs font-bold mt-1">88%</div>
-                        </div>
+                    <div class="text-right">
+                        <p class="price-display">£1,200</p>
+                        <p class="text-secondary">per week</p>
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-4 sm:gap-6 mb-6">
+                <div class="grid grid-3 gap-lg mb-lg">
                     <div>
-                        <h4 class="font-bold text-caring-green mb-3">Medical Capability (40%)</h4>
-                        <div class="progress-bar mb-3">
+                        <h4 class="font-bold text-success mb-sm">Medical (40%)</h4>
+                        <div class="progress-bar mb-sm">
                             <div class="progress-fill" style="width: 95%"></div>
                         </div>
-                        <p class="text-gray-600 text-sm">High compliance</p>
+                        <p class="text-sm text-secondary">Licensed nursing with diabetes expertise</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-caring-green mb-3">Cultural Fit (35%)</h4>
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" style="width: 78%"></div>
+                        <h4 class="font-bold text-success mb-sm">Cultural (35%)</h4>
+                        <div class="progress-bar mb-sm">
+                            <div class="progress-fill bg-warning" style="width: 78%"></div>
                         </div>
-                        <p class="text-gray-600 text-sm">Good alignment</p>
+                        <p class="text-sm text-secondary">Verify Russian-speaking staff</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-caring-green mb-3">Location (25%)</h4>
-                        <div class="progress-bar mb-3">
+                        <h4 class="font-bold text-success mb-sm">Location (25%)</h4>
+                        <div class="progress-bar mb-sm">
                             <div class="progress-fill" style="width: 90%"></div>
                         </div>
-                        <p class="text-gray-600 text-sm">Excellent access</p>
+                        <p class="text-sm text-secondary">20 minutes, regular buses</p>
                     </div>
+                </div>
+
+                <!-- Key Strengths -->
+                <div class="alert alert-info mb-lg">
+                    <h4 class="font-bold mb-md text-xl">Why Manor House Aligns with Margaret's Needs:</h4>
+                    <ul class="space-y-md">
+                        <li class="flex items-start gap-sm">
+                            <span class="text-success text-2xl">✓</span>
+                            <span class="text-lg"><strong>Diabetes Management:</strong> CQC-confirmed nursing care capabilities include medication management protocols</span>
+                        </li>
+                        <li class="flex items-start gap-sm">
+                            <span class="text-success text-2xl">✓</span>
+                            <span class="text-lg"><strong>Physiotherapy Services:</strong> On-site physiotherapy noted in latest CQC inspection report</span>
+                        </li>
+                        <li class="flex items-start gap-sm">
+                            <span class="text-success text-2xl">✓</span>
+                            <span class="text-lg"><strong>Cognitive Support:</strong> Licensed for dementia care with structured activity programmes</span>
+                        </li>
+                        <li class="flex items-start gap-sm">
+                            <span class="text-success text-2xl">✓</span>
+                            <span class="text-lg"><strong>Proximity:</strong> 8.2 miles from Edgbaston, accessible via A38 with good transport links</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                <div class="ranking-card p-4 sm:p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-caring-green text-white rounded-full flex items-center justify-center font-bold">2</div>
-                                <h4 class="text-lg sm:text-xl font-bold">Digby Manor Care Home</h4>
+            <!-- Other homes compact -->
+            <div class="grid grid-2 gap-lg">
+                <div class="standard-card p-lg">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-sm mb-sm">
+                                <div class="ranking-number secondary">2</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Digby Manor</h4>
+                                    <p class="text-sm text-secondary">6.5 miles • £1,050/week</p>
+                                </div>
                             </div>
-                            <p class="text-sm text-gray-600">6.5 miles • £1,050/week</p>
                         </div>
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">82% Match</span>
+                        <span class="badge badge-success">82%</span>
                     </div>
-                    <p class="text-sm sm:text-base text-gray-700 mb-3">Strong diabetes protocols and excellent family satisfaction</p>
+                    <p class="text-sm mb-sm">Strong diabetes protocols</p>
+                    <p class="text-xs text-warning font-semibold">Recent staff recruitment - verify tenure</p>
                 </div>
                 
-                <div class="ranking-card p-4 sm:p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-warmth-orange text-white rounded-full flex items-center justify-center font-bold">3</div>
-                                <h4 class="text-lg sm:text-xl font-bold">Bishops Manor Care Home</h4>
+                <div class="standard-card p-lg">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-sm mb-sm">
+                                <div class="ranking-number tertiary">3</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Bishops Manor</h4>
+                                    <p class="text-sm text-secondary">4.1 miles • £1,150/week</p>
+                                </div>
                             </div>
-                            <p class="text-sm text-gray-600">4.1 miles • £1,150/week</p>
                         </div>
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">79% Match</span>
+                        <span class="badge badge-success">79%</span>
                     </div>
-                    <p class="text-sm sm:text-base text-gray-700 mb-3">Outstanding dementia expertise</p>
+                    <p class="text-sm">Outstanding dementia expertise</p>
                 </div>
 
-                <div class="ranking-card p-4 sm:p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
-                                <h4 class="text-lg sm:text-xl font-bold">Edgbaston Manor</h4>
+                <div class="standard-card p-lg">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-sm mb-sm">
+                                <div class="ranking-number neutral">4</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Edgbaston Manor</h4>
+                                    <p class="text-sm text-secondary">3.0 miles • £1,299/week</p>
+                                </div>
                             </div>
-                            <p class="text-sm text-gray-600">3.0 miles • £1,299/week</p>
                         </div>
-                        <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs font-semibold">76% Match</span>
+                        <span class="badge badge-warning">76%</span>
                     </div>
-                    <p class="text-sm sm:text-base text-gray-700 mb-3">Closest location, premium facilities</p>
+                    <p class="text-sm">Closest with premium facilities</p>
                 </div>
 
-                <div class="ranking-card p-4 sm:p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
-                                <h4 class="text-lg sm:text-xl font-bold">Metchley Manor</h4>
+                <div class="standard-card p-lg">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-sm mb-sm">
+                                <div class="ranking-number neutral">5</div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Metchley Manor</h4>
+                                    <p class="text-sm text-secondary">2.8 miles • £1,099/week</p>
+                                </div>
                             </div>
-                            <p class="text-sm text-gray-600">2.8 miles • £1,099/week</p>
                         </div>
-                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold">74% Match</span>
+                        <span class="badge badge-secondary">74%</span>
                     </div>
-                    <p class="text-sm sm:text-base text-gray-700 mb-3">Good value with comprehensive care</p>
+                    <p class="text-sm">Best value, solid alternative</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Birmingham Cost Calculator -->
-<section class="py-8 sm:py-12 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="calculator-section">
-            <div class="text-center mb-8 sm:mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">💰 Premium Cost Calculator</h2>
-                <p class="text-lg sm:text-xl text-gray-600 mb-4">See the complete financial picture over 1-5 years</p>
-                <span class="premium-badge">INCLUDES PREMIUM INSIGHTS</span>
+    <!-- 3. CRITICAL ACTIONS -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">What to Do in the Next 48 Hours</h2>
+                <p class="section-subtitle">Priority actions based on real-time intelligence</p>
+            </div>
+            
+            <div class="card premium-action-card p-xl">
+                <div class="premium-action-header mb-lg">
+                    <div class="premium-action-icon">⚡</div>
+                    <h3 class="text-2xl font-bold">Immediate Actions</h3>
+                </div>
+                <div class="premium-action-steps">
+                    <div class="action-step-item">
+                        <div class="action-step-number">1</div>
+                        <div>
+                            <strong>Call Manor House Today</strong>
+                            <p class="text-sm text-secondary mt-xs">Admissions team confirmed availability by phone today. Window closing in 48-72 hours.</p>
+                            <p class="text-sm font-semibold mt-xs text-primary">Phone: 0121 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="action-step-item">
+                        <div class="action-step-number">2</div>
+                        <div>
+                            <strong>Schedule Visit This Week</strong>
+                            <p class="text-sm text-secondary mt-xs">Book 2-3 hour tour to verify diabetes protocols and meet staff</p>
+                        </div>
+                    </div>
+                    <div class="action-step-item">
+                        <div class="action-step-number">3</div>
+                        <div>
+                            <strong>Ask About Staff Stability</strong>
+                            <p class="text-sm text-secondary mt-xs">During Digby Manor visit, inquire about average staff tenure</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="calc-card mb-6 sm:mb-10">
-                <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div>
-                        <label for="care-home-select" class="block font-bold text-gray-800 mb-3 sm:mb-4 text-lg sm:text-xl">Select Birmingham Care Home:</label>
-                        <select id="care-home-select" class="w-full border-2 border-gray-300 rounded-lg p-3">
-                            <option value="">Choose a Birmingham care home...</option>
-                            <option value="manor_house">Manor House (87% match) - £1,200/week</option>
-                            <option value="digby_manor">Digby Manor (82% match) - £1,050/week</option>
-                            <option value="bishops_manor">Bishops Manor (79% match) - £1,150/week</option>
-                            <option value="edgbaston_manor">Edgbaston Manor (76% match) - £1,299/week</option>
-                            <option value="metchley_manor">Metchley Manor (74% match) - £1,099/week</option>
+            <!-- Quick Information -->
+            <div class="card premium-summary mt-xl p-xl">
+                <h3 class="text-2xl font-bold mb-lg">What You Can Learn During Initial Enquiry</h3>
+                <ul class="grid grid-2 gap-md">
+                    <li><strong>Availability:</strong> Manor House (yes), Digby Manor (waitlist), Bishops Manor (yes)</li>
+                    <li><strong>Hidden costs:</strong> Activities (£50-100/month), hairdressing, chiropody, transport</li>
+                    <li><strong>Russian-speaking staff:</strong> Ask which shifts (crucial for Margaret)</li>
+                    <li><strong>Trial period:</strong> Request 2-week placement to assess adaptation</li>
+                    <li><strong>Viewing slots:</strong> Aim for 2-3 hour visits during mealtimes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COST CALCULATOR -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Cost Calculator</h2>
+                <p class="section-subtitle">Complete financial picture over 1-5 years</p>
+            </div>
+
+            <div class="calc-card mb-xl">
+                <div class="grid grid-2 gap-lg">
+                    <div class="w-full">
+                        <label for="care-home-select" class="form-label">Select Care Home:</label>
+                        <select id="care-home-select" class="form-select w-full">
+                            <option value="">Choose...</option>
+                            <option value="manor_house">Manor House - £1,200/week</option>
+                            <option value="digby_manor">Digby Manor - £1,050/week</option>
+                            <option value="bishops_manor">Bishops Manor - £1,150/week</option>
                         </select>
                     </div>
                     
-                    <div>
-                        <label for="time-slider" class="block font-bold text-gray-800 mb-3 sm:mb-4 text-lg sm:text-xl">
-                            Time Period: <span id="time-display" class="text-birmingham-blue">3 years</span>
+                    <div class="w-full">
+                        <label for="time-slider" class="form-label">
+                            Period: <span id="time-display" class="text-primary">3 years</span>
                         </label>
-                        <input type="range" id="time-slider" min="1" max="5" step="0.5" value="3" class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <input type="range" id="time-slider" min="1" max="5" step="0.5" value="3" class="form-input w-full">
+                        <div class="flex justify-between text-tertiary text-sm mt-xs">
+                            <span>1 year</span>
+                            <span>5 years</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div id="calculator-results" style="display: none;">
-                <div class="grid lg:grid-cols-3 gap-6 sm:gap-10 mb-8 sm:mb-12">
-                    <div class="calc-card">
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Base Costs</h3>
-                        <div class="space-y-4 sm:space-y-6">
-                            <div class="flex justify-between items-center py-3 sm:py-4 border-b">
-                                <span>Weekly Fee</span>
+                <div class="grid grid-3 gap-xl mb-xl">
+                    <div class="card p-lg">
+                        <h3 class="text-2xl font-bold mb-lg">Base Costs</h3>
+                        <div class="space-y-md">
+                            <div class="flex justify-between py-sm">
+                                <span>Weekly</span>
                                 <span id="weekly-fee" class="font-bold text-xl">£0</span>
                             </div>
-                            <div class="flex justify-between items-center py-3 sm:py-4 border-b">
-                                <span>Annual Cost</span>
+                            <div class="flex justify-between py-sm">
+                                <span>Annual</span>
                                 <span id="annual-cost" class="font-bold text-xl">£0</span>
                             </div>
-                            <div class="flex justify-between items-center py-3 sm:py-4">
-                                <span>Total Basic Care</span>
-                                <span id="basic-total" class="font-bold text-xl text-blue-600">£0</span>
+                            <div class="flex justify-between py-sm font-bold">
+                                <span>Total</span>
+                                <span id="basic-total" class="text-primary text-xl">£0</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="calc-card">
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Additional Costs</h3>
-                        <div class="space-y-4 sm:space-y-6">
-                            <div class="flex justify-between items-center py-3 sm:py-4 border-b">
-                                <span>Registration Fee</span>
-                                <span id="registration-fee" class="font-bold">£0</span>
+                    <div class="card p-lg">
+                        <h3 class="text-2xl font-bold mb-lg">Additional</h3>
+                        <div class="space-y-md">
+                            <div class="flex justify-between py-sm">
+                                <span>Registration</span>
+                                <span id="registration-fee" class="font-bold">£500</span>
                             </div>
-                            <div class="flex justify-between items-center py-3 sm:py-4 border-b">
+                            <div class="flex justify-between py-sm">
                                 <span>Activities</span>
                                 <span id="activity-cost" class="font-bold">£0</span>
                             </div>
-                            <div class="flex justify-between items-center py-3 sm:py-4 border-b">
-                                <span>Medical Extras</span>
+                            <div class="flex justify-between py-sm">
+                                <span>Medical</span>
                                 <span id="medical-cost" class="font-bold">£0</span>
                             </div>
-                            <div class="flex justify-between items-center py-3 sm:py-4">
-                                <span>Transport</span>
-                                <span id="transport-cost" class="font-bold">£0</span>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="calc-card">
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Scenarios</h3>
-                        <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                            <button class="scenario-btn w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base" data-scenario="optimistic">
-                                📈 Conservative (3%)
-                            </button>
-                            <button class="scenario-btn active w-full p-3 sm:p-4 border-2 border-premium-gold bg-yellow-50 rounded-xl text-sm sm:text-base" data-scenario="realistic">
-                                📊 Realistic (5%)
-                            </button>
-                            <button class="scenario-btn w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base" data-scenario="pessimistic">
-                                📉 Cautious (7%)
-                            </button>
+                    <div class="card p-lg">
+                        <h3 class="text-2xl font-bold mb-lg">Scenarios</h3>
+                        <div class="space-y-sm mb-lg">
+                            <button class="scenario-btn btn btn-secondary btn-block" data-scenario="optimistic">Conservative (3%)</button>
+                            <button class="scenario-btn btn btn-primary btn-block active" data-scenario="realistic">Realistic (5%)</button>
+                            <button class="scenario-btn btn btn-secondary btn-block" data-scenario="pessimistic">Cautious (7%)</button>
                         </div>
-                        <div class="bg-gradient-to-r from-caring-green to-premium-gold text-white p-4 sm:p-6 rounded-xl text-center">
-                            <div class="text-base sm:text-lg">Total Projected:</div>
-                            <div id="total-projected" class="text-2xl sm:text-3xl font-bold">£0</div>
+                        <div class="card premium-total-cost">
+                            <div>Total Projected:</div>
+                            <div id="total-projected" class="text-3xl font-bold">£0</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="calc-card mb-8 sm:mb-12">
-                    <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Cost Progression</h3>
-                    <div style="height: 400px; position: relative;">
-                        <canvas id="cost-chart"></canvas>
-                    </div>
-                </div>
-
-                <div class="calc-card">
-                    <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Complete Comparison</h3>
-                    
-                    <!-- Mobile warning -->
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 md:hidden">
-                        <p class="text-sm text-blue-800">
-                            📱 <strong>Swipe left</strong> to see all columns
-                        </p>
-                    </div>
-                    
-                    <div class="overflow-x-auto -mx-4 sm:mx-0">
-                        <div class="inline-block min-w-full align-middle">
-                            <div class="overflow-hidden border border-gray-200 rounded-lg">
-                                <table class="comparison-table min-w-full" style="min-width: 900px;">
-                                    <thead>
-                                        <tr class="bg-gradient-to-r from-blue-900 to-blue-700">
-                                            <th class="p-3 sm:p-4 md:p-6 text-left text-white font-bold text-sm sm:text-base" style="min-width: 200px;">
-                                                Care Home
-                                            </th>
-                                            <th class="p-3 sm:p-4 md:p-6 text-center text-white font-bold text-sm sm:text-base" style="min-width: 120px;">
-                                                Weekly Fee
-                                            </th>
-                                            <th class="p-3 sm:p-4 md:p-6 text-center text-white font-bold text-sm sm:text-base" style="min-width: 150px;">
-                                                5-Year Total
-                                            </th>
-                                            <th class="p-3 sm:p-4 md:p-6 text-center text-white font-bold text-sm sm:text-base" style="min-width: 140px;">
-                                                Monthly Avg
-                                            </th>
-                                            <th class="p-3 sm:p-4 md:p-6 text-center text-white font-bold text-sm sm:text-base" style="min-width: 180px;">
-                                                vs London Savings
-                                            </th>
-                                            <th class="p-3 sm:p-4 md:p-6 text-center text-white font-bold text-sm sm:text-base" style="min-width: 200px;">
-                                                Premium Intel
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="comparison-tbody" class="bg-white divide-y divide-gray-200">
-                                        <!-- Populated by JavaScript -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Table legend/notes -->
-                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                        <p class="text-xs sm:text-sm text-gray-600">
-                            <strong>Note:</strong> All projections based on realistic scenario (5% annual inflation). 
-                            London savings calculated using 35% premium over Birmingham prices.
-                        </p>
+                <div class="card p-xl">
+                    <h3 class="text-2xl font-bold mb-lg">Cost Progression Over Time</h3>
+                    <div style="height: 400px;">
+                        <canvas id="costChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-    <!-- Risk Mitigation Playbook -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">🛡️ Your Risk Mitigation Playbook</h2>
-            <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-10">Actionable strategies based on detected signals</p>
+    </section>
 
-            <div class="playbook-grid">
-                <div class="playbook-card high-priority">
-                    <div class="risk-header">
-                        <span class="risk-level high">HIGH PRIORITY</span>
-                        <span class="risk-id">#1</span>
-                    </div>
-                    <h3 class="playbook-title">Staff Turnover at Digby Manor</h3>
-                    
-                    <div class="risk-details">
-                        <div class="detail-row">
-                            <strong>Signal:</strong>
-                            <span>3 nursing positions in 14 days</span>
+    <!-- 5. RISK MITIGATION PLAYBOOK -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Risk Mitigation Playbook</h2>
+                <p class="section-subtitle">Actionable strategies based on detected signals</p>
+            </div>
+
+            <div class="grid grid-2 gap-lg">
+                <!-- Risk #1: Staff Turnover -->
+                <div class="standard-card p-xl border-left-warning">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex items-center gap-sm">
+                            <span class="text-2xl">⚠️</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Risk #1: Staff Turnover</h3>
+                                <p class="text-sm text-warning">HIGH PRIORITY</p>
+                            </div>
                         </div>
-                        <div class="detail-row">
+                        <span class="text-3xl font-bold text-warning">1</span>
+                    </div>
+                    
+                    <div class="space-y-sm mb-md">
+                        <div class="flex justify-between">
+                            <strong>Signal:</strong>
+                            <span>3 nursing positions posted in 14 days</span>
+                        </div>
+                        <div class="flex justify-between">
                             <strong>Impact:</strong>
                             <span>Care quality disruption</span>
                         </div>
-                    </div>
-
-                    <div class="mt-6">
-                        <h4 class="font-bold text-base sm:text-lg mb-3">✓ Mitigation Steps:</h4>
-                        <div class="action-checklist">
-                            <label class="action-item">
-                                <input type="checkbox">
-                                <span><strong>During visit:</strong> Ask "What's your average staff tenure?"</span>
-                            </label>
-                            <label class="action-item">
-                                <input type="checkbox">
-                                <span><strong>Contract:</strong> Negotiate 30-day trial period</span>
-                            </label>
+                        <div class="flex justify-between">
+                            <strong>Location:</strong>
+                            <span>Digby Manor</span>
                         </div>
                     </div>
 
-                    <div class="outcome-scenarios">
-                        <div class="scenario best">
-                            <strong>Best case:</strong> Expansion hiring → Proceed
+                    <div class="mb-md">
+                        <h4 class="font-bold mb-sm">Mitigation Steps:</h4>
+                        <ul class="space-y-sm text-sm">
+                            <li>During visit: Ask "What's your average staff tenure?"</li>
+                            <li>Expected answer: "2+ years for nursing staff"</li>
+                            <li>Red flag: Evasive answers or "we're growing"</li>
+                            <li>Contract: Negotiate 30-day trial period</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-xs">
+                        <div class="alert alert-success text-sm p-sm">
+                            <strong>Best case:</strong> Expansion hiring → Proceed with confidence
                         </div>
-                        <div class="scenario worst">
-                            <strong>Worst case:</strong> Evasive answers → Reconsider
+                        <div class="alert alert-error text-sm p-sm">
+                            <strong>Worst case:</strong> High turnover → Consider alternative
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk #2: Language Support -->
+                <div class="standard-card p-xl border-left-info">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex items-center gap-sm">
+                            <span class="text-2xl">🗣️</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Risk #2: Language Support</h3>
+                                <p class="text-sm text-info">MEDIUM PRIORITY</p>
+                            </div>
+                        </div>
+                        <span class="text-3xl font-bold text-info">2</span>
+                    </div>
+                    
+                    <div class="space-y-sm mb-md">
+                        <div class="flex justify-between">
+                            <strong>Signal:</strong>
+                            <span>Russian-speaking staff not confirmed</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Impact:</strong>
+                            <span>Communication barriers</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Location:</strong>
+                            <span>All homes</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-md">
+                        <h4 class="font-bold mb-sm">Mitigation Steps:</h4>
+                        <ul class="space-y-sm text-sm">
+                            <li>Pre-visit call: "Do you have Russian-speaking staff?"</li>
+                            <li>Expected: Specific names and shifts</li>
+                            <li>Red flag: "We have translators available"</li>
+                            <li>Request: Meet Russian speaker during visit</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-xs">
+                        <div class="alert alert-success text-sm p-sm">
+                            <strong>Best case:</strong> Native speaker on day shifts
+                        </div>
+                        <div class="alert alert-error text-sm p-sm">
+                            <strong>Worst case:</strong> No consistent language support
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk #3: Diabetes Protocol Gaps -->
+                <div class="standard-card p-xl border-left-error">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex items-center gap-sm">
+                            <span class="text-2xl">💉</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Risk #3: Diabetes Protocol Gaps</h3>
+                                <p class="text-sm text-error">HIGH PRIORITY</p>
+                            </div>
+                        </div>
+                        <span class="text-3xl font-bold text-error">3</span>
+                    </div>
+                    
+                    <div class="space-y-sm mb-md">
+                        <div class="flex justify-between">
+                            <strong>Signal:</strong>
+                            <span>Generic diabetes care mentioned</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Impact:</strong>
+                            <span>Inadequate management</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Location:</strong>
+                            <span>All homes</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-md">
+                        <h4 class="font-bold mb-sm">Mitigation Steps:</h4>
+                        <ul class="space-y-sm text-sm">
+                            <li>Ask: "How often do you check glucose levels?"</li>
+                            <li>Expected: "4 times daily minimum"</li>
+                            <li>Red flag: "As needed" or vague responses</li>
+                            <li>Request: See actual monitoring sheets</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-xs">
+                        <div class="alert alert-success text-sm p-sm">
+                            <strong>Best case:</strong> Detailed protocols with documentation
+                        </div>
+                        <div class="alert alert-error text-sm p-sm">
+                            <strong>Worst case:</strong> Basic care only → Look elsewhere
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk #4: Pricing Increase Window -->
+                <div class="standard-card p-xl border-left-warning">
+                    <div class="flex justify-between items-start mb-md">
+                        <div class="flex items-center gap-sm">
+                            <span class="text-2xl">💰</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Risk #4: Pricing Increase</h3>
+                                <p class="text-sm text-warning">MEDIUM PRIORITY</p>
+                            </div>
+                        </div>
+                        <span class="text-3xl font-bold text-warning">4</span>
+                    </div>
+                    
+                    <div class="space-y-sm mb-md">
+                        <div class="flex justify-between">
+                            <strong>Signal:</strong>
+                            <span>Manor House fees unchanged 6 months</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Impact:</strong>
+                            <span>5-8% increase likely Q2 2026</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <strong>Location:</strong>
+                            <span>Manor House</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-md">
+                        <h4 class="font-bold mb-sm">Mitigation Steps:</h4>
+                        <ul class="space-y-sm text-sm">
+                            <li>Ask: "When was your last fee increase?"</li>
+                            <li>Request: 12-month fee guarantee in writing</li>
+                            <li>Negotiate: 60-day notice period for increases</li>
+                            <li>Budget: Plan for 5% increase in year 2</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-xs">
+                        <div class="alert alert-success text-sm p-sm">
+                            <strong>Best case:</strong> Fee guarantee secured for 18 months
+                        </div>
+                        <div class="alert alert-error text-sm p-sm">
+                            <strong>Worst case:</strong> Increase within 6 months
                         </div>
                     </div>
                 </div>
@@ -1532,98 +616,358 @@ Sources verified:
         </div>
     </section>
 
-    <!-- Verification Checklist -->
-    <section class="py-8 sm:py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Essential Verification Checklist</h2>
-                <p class="text-lg sm:text-xl text-gray-600">Critical questions for your visit</p>
+    <!-- 6. COMPREHENSIVE VERIFICATION CHECKLIST -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Comprehensive Verification Checklist</h2>
+                <p class="section-subtitle">20+ critical questions with expected answers and red flags</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
-                <div class="ranking-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">🥼 Medical Care</h3>
-                    <div class="bg-red-50 border-l-4 border-red-500 p-4">
-                        <h4 class="font-bold text-red-800">Diabetes Protocols</h4>
-                        <ul class="mt-3 space-y-1 text-red-700 text-sm">
-                            <li>• How frequently do you monitor glucose?</li>
-                            <li>• Who administers insulin?</li>
-                        </ul>
+            <div class="grid grid-2 gap-xl">
+                <!-- Medical Care Section -->
+                <div class="ranking-card p-xl">
+                    <h3 class="text-2xl font-bold mb-lg flex items-center">
+                        <span class="mr-sm text-3xl">🥼</span>
+                        Medical Care Verification
+                    </h3>
+                    
+                    <div class="space-y-lg">
+                        <div class="alert alert-error">
+                            <h4 class="font-bold text-lg">Diabetes Management Protocol</h4>
+                            <p class="mt-sm"><strong>Why Critical:</strong> CQC confirms nursing licence but diabetes-specific protocols not detailed in public records</p>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "How frequently do you monitor blood glucose levels?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Before meals and bedtime - 4 times daily minimum"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "As needed" or "when they feel unwell"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Who administers insulin injections?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Qualified nurses on every shift"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "Care assistants under supervision"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "What's your hypoglycaemia emergency protocol?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Specific steps with glucose gel/ambulance criteria</p>
+                                    <p class="text-error text-sm">✗ Red flag: Vague "we call the doctor" response</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "How do you coordinate with Margaret's current GP?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Regular medication reviews and shared care plans</p>
+                                    <p class="text-error text-sm">✗ Red flag: "We'll contact them if needed"</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning">
+                            <h4 class="font-bold text-lg">Physiotherapy Services</h4>
+                            <p class="mt-sm"><strong>Why Important:</strong> CQC notes on-site physiotherapy but schedule and intensity not specified</p>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "What's the typical physiotherapy schedule for mobility support?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "2-3 sessions per week, individualized programs"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "Group exercises once a week"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Are walking frame assessments conducted regularly?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Monthly reviews with occupational therapist"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "When residents request it"</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <h4 class="font-bold text-lg">Cognitive Support</h4>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "What cognitive stimulation activities do you provide?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Structured daily activities with qualified staff</p>
+                                    <p class="text-error text-sm">✗ Red flag: "TV and basic crafts"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "How do you handle confusion or agitation?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Person-centered approach with de-escalation techniques</p>
+                                    <p class="text-error text-sm">✗ Red flag: "We use medication to keep them calm"</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="ranking-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">🌐 Cultural Support</h3>
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-                        <h4 class="font-bold text-blue-800">Language</h4>
-                        <ul class="mt-3 space-y-1 text-blue-700 text-sm">
-                            <li>• Russian-speaking staff available?</li>
-                            <li>• Which shifts?</li>
-                        </ul>
+                <!-- Cultural & Communication Section -->
+                <div class="ranking-card p-xl">
+                    <h3 class="text-2xl font-bold mb-lg flex items-center">
+                        <span class="mr-sm text-3xl">🌍</span>
+                        Cultural & Communication
+                    </h3>
+                    
+                    <div class="space-y-lg">
+                        <div class="alert alert-info">
+                            <h4 class="font-bold text-lg">Language Support</h4>
+                            <p class="mt-sm"><strong>Why Important:</strong> Staff listings suggest Eastern European personnel but Russian language not specifically confirmed</p>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "Do you have Russian-speaking care staff?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Specific names of staff members</p>
+                                    <p class="text-error text-sm">✗ Red flag: "We can arrange translators when needed"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Which shifts do Russian speakers typically work?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Day shifts Monday-Friday" or consistent schedule</p>
+                                    <p class="text-error text-sm">✗ Red flag: "It varies" or "occasional coverage"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Can Russian-speaking staff assist with medical consultations?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Yes, they attend GP visits and medication reviews"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "We use phone translation services"</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            <h4 class="font-bold text-lg">Family Involvement</h4>
+                            <p class="mt-sm"><strong>Current Situation:</strong> Good accessibility from Edgbaston but family integration policies need confirmation</p>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "What are your visiting hours and policies?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "8am-8pm daily, no restrictions on family visits"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "2pm-4pm daily" or very restricted hours</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Can family participate in care planning meetings?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "Monthly care reviews with family input"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "We update families when necessary"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "Do you have a family room for private visits?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Dedicated space available for booking</p>
+                                    <p class="text-error text-sm">✗ Red flag: "Visits happen in the main lounge"</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning">
+                            <h4 class="font-bold text-lg">Daily Life & Activities</h4>
+                            
+                            <div class="mt-md space-y-md">
+                                <div>
+                                    <p class="font-semibold">Q: "What's a typical daily schedule for residents?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Structured day with choice and flexibility</p>
+                                    <p class="text-error text-sm">✗ Red flag: "Residents can do what they like" (no structure)</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "How do you accommodate dietary preferences?"</p>
+                                    <p class="text-success text-sm">✓ Expected: Menu choices with cultural food options</p>
+                                    <p class="text-error text-sm">✗ Red flag: "One menu for everyone"</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="font-semibold">Q: "What happens if Margaret wants to maintain her routines from home?"</p>
+                                    <p class="text-success text-sm">✓ Expected: "We encourage personal routines and adapt our schedule"</p>
+                                    <p class="text-error text-sm">✗ Red flag: "Everyone follows the same routine here"</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Documents to Bring -->
+            <div class="alert alert-info mt-lg">
+                <h4 class="font-bold mb-md text-xl">Documents to Bring on Visit</h4>
+                <div class="grid grid-2 gap-lg">
+                    <ul class="space-y-sm text-lg">
+                        <li>Current diabetes medication list from GP</li>
+                        <li>Recent blood glucose monitoring records</li>
+                        <li>Mobility assessment (if available)</li>
+                        <li>Cognitive assessment reports</li>
+                    </ul>
+                    <ul class="space-y-sm text-lg">
+                        <li>List of Margaret's preferred activities and routines</li>
+                        <li>Emergency contact information</li>
+                        <li>Current care needs assessment</li>
+                        <li>This analysis report for reference</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Next Steps Timeline -->
-    <section class="py-8 sm:py-12 bg-light-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Your Next Steps</h2>
-                <p class="text-lg sm:text-xl text-gray-600">A structured 7-day action plan</p>
+    <!-- 7. 7-DAY ACTION TIMELINE -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Your 7-Day Action Timeline</h2>
+                <p class="section-subtitle">Structured plan with ready-to-use templates</p>
             </div>
             
-            <div class="space-y-6 sm:space-y-8">
-                <div class="ranking-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-blue-800">Days 1-2: Initial Contact</h3>
-                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
+            <div class="space-y-lg">
+                <!-- Days 1-2 -->
+                <div class="ranking-card p-xl">
+                    <h3 class="text-2xl font-bold mb-md text-primary">Days 1-2: Initial Contact</h3>
+                    <div class="grid grid-2 gap-lg">
                         <div>
-                            <h4 class="font-bold mb-3">Priority Calls:</h4>
-                            <ul class="space-y-2">
-                                <li>📞 Manor House: Confirm availability</li>
-                                <li>📞 Digby Manor: Secondary option</li>
+                            <h4 class="font-bold mb-md text-lg">Priority Calls:</h4>
+                            <ul class="space-y-sm">
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-primary font-bold">1.</span>
+                                    <span><strong>Manor House Care Home:</strong> Confirm bed availability and arrange visit (0121 456 7890)</span>
+                                </li>
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-primary font-bold">2.</span>
+                                    <span><strong>Digby Manor:</strong> Secondary option, schedule visit (0121 567 8901)</span>
+                                </li>
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-3">Key Questions:</h4>
-                            <ul class="space-y-2 text-gray-700 text-sm">
-                                <li>• Current bed availability</li>
-                                <li>• Earliest visit date</li>
+                            <h4 class="font-bold mb-md text-lg">Key Questions for Phone Call:</h4>
+                            <ul class="space-y-sm text-sm">
+                                <li>Current bed availability</li>
+                                <li>Earliest possible visit date</li>
+                                <li>Diabetes care protocols</li>
+                                <li>Russian-speaking staff availability</li>
+                                <li>Weekly fee confirmation</li>
                             </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Ready-to-Use Email Template -->
+                    <div class="card-subtle p-lg mt-lg">
+                        <div class="flex justify-between items-center mb-md">
+                            <h4 class="font-bold text-lg">Ready-to-Use Email Template</h4>
+                            <button onclick="copyToClipboard('email-template-1')" class="btn btn-secondary btn-small">
+                                Copy Template
+                            </button>
+                        </div>
+                        
+                        <div id="email-template-1" class="card p-md">
+                            <pre class="font-sans text-sm">Subject: Care Home Enquiry for Mother (Type 2 Diabetes, Mobility Support)
+
+Dear [Care Home Name] Team,
+
+I am writing to enquire about residential care for my 78-year-old mother, Margaret, who requires:
+
+- Type 2 diabetes management (daily insulin monitoring)
+- Mobility support with walking frame
+- Mild cognitive impairment support
+
+Key questions:
+1. Do you currently have availability?
+2. What are your diabetes care protocols?
+3. Is physiotherapy available on-site?
+4. What is your weekly fee, including all standard services?
+
+We are based in Edgbaston and would like to arrange a visit at your earliest convenience.
+
+Best regards,
+[Your Name]
+[Your Phone]</pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Days 3-5 -->
+                <div class="ranking-card p-xl">
+                    <h3 class="text-2xl font-bold mb-md text-success">Days 3-5: Care Home Visits</h3>
+                    <div class="grid grid-2 gap-lg">
+                        <div>
+                            <h4 class="font-bold mb-md text-lg">Visit Structure (2-3 hours each):</h4>
+                            <ul class="space-y-sm">
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-success">🥼</span>
+                                    <span>Meet with nursing team (30 mins)</span>
+                                </li>
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-success">🏠</span>
+                                    <span>Tour facilities and available rooms (45 mins)</span>
+                                </li>
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-success">🍽️</span>
+                                    <span>Observe meal time and dining (30 mins)</span>
+                                </li>
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-success">📋</span>
+                                    <span>Review care plans and documentation (30 mins)</span>
+                                </li>
+                                <li class="flex items-start gap-sm">
+                                    <span class="text-success">💬</span>
+                                    <span>Speak with current residents/families (15 mins)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-md text-lg">Critical Observations:</h4>
+                            <ul class="space-y-sm text-sm">
+                                <li>Staff-to-resident interaction quality</li>
+                                <li>Cleanliness and maintenance standards</li>
+                                <li>Activity levels and resident engagement</li>
+                                <li>Security measures for dementia care</li>
+                                <li>Noise levels and atmosphere</li>
+                                <li>Food quality and presentation</li>
+                                <li>Outdoor spaces and accessibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Visit Booking Template -->
+                    <div class="card-subtle p-lg mt-lg">
+                        <div class="flex justify-between items-center mb-md flex-wrap gap-sm">
+                            <h4 class="font-bold text-lg">Visit Booking Template</h4>
+                            <button onclick="copyToClipboard('email-template-2')" class="btn btn-secondary btn-small">
+                                Copy Template
+                            </button>
+                        </div>
+                        
+                        <div id="email-template-2" class="card p-md overflow-x-auto">
+                            <pre class="font-sans text-sm whitespace-pre-wrap">Subject: Visit Booking - Margaret Thompson
+
+Dear [Manager Name],
+
+Thank you for confirming availability. I would like to book a comprehensive visit to tour the facilities and meet your care team.
+
+Preferred dates: [Date 1], [Date 2], or [Date 3]
+Time: Morning (9-11am) if possible
+Duration: 2-3 hours
+Attendees: Myself and [family member name]
+
+During the visit, we would particularly like to:
+- Meet the nursing staff who manage diabetes care
+- See the physiotherapy facilities
+- Understand your daily activity schedule
+- Discuss pricing and contract terms
+- Meet a Russian-speaking staff member if available
+
+Please confirm a suitable time and let us know what documentation we should bring.
+
+Kind regards,
+[Your Name]
+[Your Phone]</pre>
                         </div>
                     </div>
                 </div>
 
-                <div class="ranking-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-green-800">Days 3-5: Care Home Visits</h3>
-                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
-                        <div>
-                            <h4 class="font-bold mb-3">Visit Structure (2-3 hours each):</h4>
-                            <ul class="space-y-2">
-                                <li>🥼 Meet with nursing team</li>
-                                <li>🏠 Tour facilities and rooms</li>
-                                <li>🍽️ Observe meal time</li>
-                                <li>📋 Review care plans</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-3">Critical Observations:</h4>
-                            <ul class="space-y-2 text-gray-700 text-sm">
-                                <li>• Staff-to-resident interaction quality</li>
-                                <li>• Cleanliness and maintenance standards</li>
-                                <li>• Activity levels and engagement</li>
-                                <li>• Security measures for dementia care</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ranking-card p-6 sm:p-8">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-purple-800">Days 6-7: Decision Making</h3>
-                    <div class="bg-purple-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                        <h4 class="font-bold text-purple-800 mb-3">Decision Criteria (in order of importance):</h4>
-                        <ol class="space-y-2 text-purple-700 text-sm">
+                <!-- Days 6-7 -->
+                <div class="ranking-card p-xl">
+                    <h3 class="text-2xl font-bold mb-md text-accent">Days 6-7: Decision Making</h3>
+                    <div class="card p-lg">
+                        <h4 class="font-bold mb-md text-lg">Decision Criteria (in order of importance):</h4>
+                        <ol class="space-y-sm">
                             <li><strong>1. Safety & Medical Capability:</strong> Can they safely manage Margaret's diabetes and mobility needs?</li>
                             <li><strong>2. Staff Quality & Communication:</strong> Do staff demonstrate competence and compassion?</li>
                             <li><strong>3. Cultural Fit:</strong> Will Margaret feel comfortable and understood?</li>
@@ -1632,24 +976,70 @@ Sources verified:
                         </ol>
                     </div>
                     
-                    <div class="premium-feature">
-                        <h4 class="font-bold text-premium-gold mb-3">⚡ Premium Decision Support</h4>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <p class="text-sm mb-2"><strong>Real-time monitoring active:</strong></p>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Availability changes</li>
-                                    <li>• Price adjustments</li>
-                                    <li>• Incident alerts</li>
-                                </ul>
+                    <div class="mt-lg">
+                        <h4 class="font-bold mb-md text-lg">Decision Matrix Template:</h4>
+                        <div class="card p-md">
+                            <div class="table-container">
+                                <table class="w-full text-sm min-w-[600px]">
+                                    <thead>
+                                        <tr class="bg-soft">
+                                            <th class="text-left p-sm font-bold">Criteria</th>
+                                            <th class="text-center p-sm font-bold">Weight</th>
+                                            <th class="text-center p-sm font-bold">Manor House</th>
+                                            <th class="text-center p-sm font-bold">Digby Manor</th>
+                                            <th class="text-center p-sm font-bold">Bishops Manor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="p-sm">Medical Capability</td>
+                                            <td class="text-center p-sm">40%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-sm">Staff Quality</td>
+                                            <td class="text-center p-sm">25%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-sm">Cultural Fit</td>
+                                            <td class="text-center p-sm">20%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-sm">Location/Access</td>
+                                            <td class="text-center p-sm">10%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-sm">Value for Money</td>
+                                            <td class="text-center p-sm">5%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                        <tr class="font-bold bg-soft">
+                                            <td class="p-sm">TOTAL SCORE</td>
+                                            <td class="text-center p-sm">100%</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                            <td class="text-center p-sm">__ / 10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div>
-                                <p class="text-sm mb-2"><strong>Decision timeline support:</strong></p>
-                                <ul class="text-sm space-y-1">
-                                    <li>• 48-hour decision window</li>
-                                    <li>• Market change alerts</li>
-                                    <li>• Backup option monitoring</li>
-                                </ul>
+                            
+                            <!-- Mobile hint -->
+                            <div class="block md:hidden mt-sm p-sm bg-info text-info-text rounded text-xs">
+                                💡 Scroll horizontally to see all columns
                             </div>
                         </div>
                     </div>
@@ -1658,93 +1048,386 @@ Sources verified:
         </div>
     </section>
 
-    <!-- Premium Ongoing Support -->
-    <section class="py-8 sm:py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-6 sm:mb-10">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">⚡ Premium Ongoing Support</h2>
-                <p class="text-lg sm:text-xl text-gray-600">7-day active monitoring included with your premium report</p>
+    <!-- 8. MONITORING & SUPPORT -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">7-Day Monitoring & Support</h2>
+                <p class="section-subtitle">Active tracking included with your premium report</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-                <div class="premium-feature text-center">
-                    <div class="text-4xl sm:text-5xl mb-4">📊</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Real-Time Monitoring</h3>
-                    <p class="text-gray-600">We monitor your shortlisted homes for changes in availability, pricing, or incidents</p>
+            <div class="grid grid-3 gap-lg mb-xl">
+                <div class="card premium-feature text-center p-xl">
+                    <div class="text-5xl mb-lg">📊</div>
+                    <h3 class="text-xl font-bold mb-md">Real-Time Monitoring</h3>
+                    <p class="text-secondary">We monitor your shortlisted homes for changes in availability, pricing, incidents, and staff movements</p>
+                    <div class="mt-md">
+                        <span class="freshness-indicator verified">Active for 7 days</span>
+                    </div>
                 </div>
                 
-                <div class="premium-feature text-center">
-                    <div class="text-4xl sm:text-5xl mb-4">🚨</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Instant Alerts</h3>
-                    <p class="text-gray-600">Immediate notification of critical changes that could affect your decision</p>
+                <div class="card premium-feature text-center p-xl">
+                    <div class="text-5xl mb-lg">🚨</div>
+                    <h3 class="text-xl font-bold mb-md">Instant Alerts</h3>
+                    <p class="text-secondary">Email and SMS alerts for critical changes that could affect your decision timeline</p>
+                    <div class="mt-md">
+                        <span class="freshness-indicator current">Email + SMS</span>
+                    </div>
                 </div>
                 
-                <div class="premium-feature text-center">
-                    <div class="text-4xl sm:text-5xl mb-4">🎯</div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-3">Decision Support</h3>
-                    <p class="text-gray-600">Priority phone support during your decision-making window</p>
+                <div class="card premium-feature text-center p-xl">
+                    <div class="text-5xl mb-lg">🎯</div>
+                    <h3 class="text-xl font-bold mb-md">Decision Support</h3>
+                    <p class="text-secondary">Priority phone support during your decision-making window</p>
+                    <div class="mt-md">
+                        <span class="freshness-indicator verified">0121 234 5678</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="monitoring-status">
-                <span class="text-base sm:text-lg">🔔 Active Monitoring Status: </span>
-                <span class="font-bold">ENABLED - 7 days remaining</span>
+            <!-- What We Monitor -->
+            <div class="ranking-card p-xl mb-lg">
+                <h3 class="text-2xl font-bold mb-lg">What We're Monitoring for Your Shortlisted Homes</h3>
+                
+                <div class="grid grid-2 gap-lg">
+                    <div>
+                        <h4 class="font-bold text-success mb-md">High Priority Alerts</h4>
+                        <ul class="space-y-sm">
+                            <li class="flex items-start gap-sm">
+                                <span class="text-success">✓</span>
+                                <span><strong>Bed availability changes</strong> - immediate notification</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-success">✓</span>
+                                <span><strong>Price adjustments</strong> - any fee increases</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-success">✓</span>
+                                <span><strong>Incident reports</strong> - CQC or local authority notices</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-success">✓</span>
+                                <span><strong>Staff changes</strong> - management or nursing departures</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-info mb-md">Daily Monitoring</h4>
+                        <ul class="space-y-sm">
+                            <li class="flex items-start gap-sm">
+                                <span class="text-info">•</span>
+                                <span><strong>Review updates</strong> - new family feedback</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-info">•</span>
+                                <span><strong>Job postings</strong> - recruitment patterns</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-info">•</span>
+                                <span><strong>Social media mentions</strong> - reputation signals</span>
+                            </li>
+                            <li class="flex items-start gap-sm">
+                                <span class="text-info">•</span>
+                                <span><strong>Regulatory updates</strong> - inspection schedules</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Status -->
+            <div class="card premium-summary p-xl">
+                <div class="flex justify-between items-center mb-md">
+                    <h3 class="text-2xl font-bold">Current Monitoring Status</h3>
+                    <div class="flex items-center gap-sm">
+                        <div class="signal-dot positive"></div>
+                        <span class="font-semibold text-success">ALL SYSTEMS ACTIVE</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-4 gap-lg">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-success">3</div>
+                        <div class="text-sm text-secondary">Homes Tracked</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-info">24</div>
+                        <div class="text-sm text-secondary">Data Sources</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-primary">5</div>
+                        <div class="text-sm text-secondary">Days Remaining</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-accent">2 hrs</div>
+                        <div class="text-sm text-secondary">Last Check</div>
+                    </div>
+                </div>
+                
+                <p class="mt-lg text-center text-secondary">
+                    Monitoring expires: 30 September 2025 • Contact us to extend if needed
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- 9. TECHNICAL APPENDIX -->
+    <section class="section">
+        <div class="section-container">
+            <details class="card">
+                <summary class="cursor-pointer text-xl font-bold flex items-center justify-between p-lg">
+                    <span>Technical Appendix: Our Analysis Methodology</span>
+                    <span class="text-tertiary text-lg">Click to expand ▼</span>
+                </summary>
+                
+                <div class="mt-lg pt-lg">
+                    <div class="grid grid-3 gap-lg mb-xl">
+                        <div class="card-subtle p-lg">
+                            <div class="flex items-center mb-md">
+                                <span class="text-4xl mr-sm">🏛️</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Official Regulatory Data</h4>
+                                    <span class="data-quality verified">95% Reliable</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-md">
+                                <div>
+                                    <strong>Sources:</strong>
+                                    <ul class="list-disc list-inside mt-sm text-sm">
+                                        <li>CQC ratings and inspection reports</li>
+                                        <li>NHS Directory comprehensive listings</li>
+                                        <li>Local Authority care home registers</li>
+                                        <li>Licensed care capabilities database</li>
+                                    </ul>
+                                </div>
+                                <div><strong>Update Frequency:</strong> Monthly from official sources</div>
+                                <div><strong>Last Sync:</strong> 1 September 2025</div>
+                                <div class="text-success font-semibold">✅ Fully Verified and Cross-Referenced</div>
+                            </div>
+                        </div>
+
+                        <div class="card-subtle p-lg">
+                            <div class="flex items-center mb-md">
+                                <span class="text-4xl mr-sm">🌐</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Market Intelligence</h4>
+                                    <span class="data-quality medium">70% Reliable</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-md">
+                                <div>
+                                    <strong>Sources:</strong>
+                                    <ul class="list-disc list-inside mt-sm text-sm">
+                                        <li>Provider websites and pricing pages</li>
+                                        <li>Job board monitoring (Indeed, NHS Jobs)</li>
+                                        <li>Social media and review platforms</li>
+                                        <li>Industry databases and directories</li>
+                                    </ul>
+                                </div>
+                                <div><strong>Collection Method:</strong> Automated web scraping + manual verification</div>
+                                <div><strong>Update Frequency:</strong> Daily for availability, weekly for pricing</div>
+                                <div class="text-warning font-semibold">⚠️ Requires Confirmation - Always verify with care homes</div>
+                            </div>
+                        </div>
+
+                        <div class="card-subtle p-lg">
+                            <div class="flex items-center mb-md">
+                                <span class="text-4xl mr-sm">📊</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Financial Analysis</h4>
+                                    <span class="data-quality high">90% Reliable</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-md">
+                                <div>
+                                    <strong>Sources:</strong>
+                                    <ul class="list-disc list-inside mt-sm text-sm">
+                                        <li>Companies House filings and records</li>
+                                        <li>Financial stability assessments</li>
+                                        <li>Corporate structure analysis</li>
+                                        <li>Profitability and solvency indicators</li>
+                                    </ul>
+                                </div>
+                                <div><strong>Analysis Depth:</strong> 3 years historical + current status</div>
+                                <div><strong>Risk Assessment:</strong> Automated scoring + manual review</div>
+                                <div class="text-success font-semibold">✅ Official Government Records</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Process -->
+                    <div class="ranking-card p-xl mb-xl">
+                        <h3 class="text-2xl font-bold mb-lg">Our Analysis Process</h3>
+                        
+                        <div class="space-y-lg">
+                            <div>
+                                <h4 class="font-bold text-lg text-primary">Stage 1: Data Collection (48 hours)</h4>
+                                <p class="text-secondary mb-md">Comprehensive gathering from 48 different data sources</p>
+                                <ul class="grid grid-2 gap-sm text-sm">
+                                    <li>277 care homes initially scanned</li>
+                                    <li>12 official regulatory sources</li>
+                                    <li>18 market intelligence sources</li>
+                                    <li>8 financial data sources</li>
+                                    <li>6 social signal sources</li>
+                                    <li>4 risk monitoring sources</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-lg text-success">Stage 2: Filtering & Matching (12 hours)</h4>
+                                <p class="text-secondary mb-md">Multi-stage filtering based on Margaret's requirements</p>
+                                <div class="space-y-sm text-sm">
+                                    <div class="flex justify-between">
+                                        <span>Geographic filter (15-mile radius):</span>
+                                        <span>277 → 89 homes</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Medical capability filter (diabetes + mobility):</span>
+                                        <span>89 → 34 homes</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Quality threshold (CQC Good+):</span>
+                                        <span>34 → 18 homes</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Availability filter (current/recent):</span>
+                                        <span>18 → 12 homes</span>
+                                    </div>
+                                    <div class="flex justify-between font-semibold">
+                                        <span>Final detailed analysis pool:</span>
+                                        <span>12 → 5 recommendations</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-lg text-info">Stage 3: Detailed Scoring (24 hours)</h4>
+                                <p class="text-secondary mb-md">Weighted scoring across multiple criteria</p>
+                                <div class="grid grid-2 gap-lg">
+                                    <div>
+                                        <strong>Scoring Weights:</strong>
+                                        <ul class="text-sm space-y-xs">
+                                            <li>Medical Capability: 40%</li>
+                                            <li>Cultural Fit: 35%</li>
+                                            <li>Location & Access: 25%</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong>Sub-criteria (12 factors):</strong>
+                                        <ul class="text-sm space-y-xs">
+                                            <li>Diabetes protocols</li>
+                                            <li>Physiotherapy services</li>
+                                            <li>Cognitive support</li>
+                                            <li>Language capabilities</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-lg text-accent">Stage 4: Risk Assessment & Verification</h4>
+                                <p class="text-secondary mb-md">Manual review and risk identification</p>
+                                <ul class="text-sm space-y-sm">
+                                    <li>Cross-reference official sources with market intelligence</li>
+                                    <li>Identify potential red flags and verification requirements</li>
+                                    <li>Generate personalized risk mitigation strategies</li>
+                                    <li>Create verification checklist based on data gaps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Limitations -->
+                    <div class="alert alert-warning">
+                        <h3 class="text-xl font-bold mb-md">Important Data Limitations</h3>
+                        <div class="grid grid-2 gap-lg">
+                            <div>
+                                <h4 class="font-bold mb-sm">Always Verify During Visit:</h4>
+                                <ul class="space-y-sm text-sm">
+                                    <li>Current bed availability (changes daily)</li>
+                                    <li>Specific care protocols and procedures</li>
+                                    <li>Staff qualifications and language capabilities</li>
+                                    <li>Actual facility conditions and atmosphere</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-sm">Data Freshness Varies:</h4>
+                                <ul class="space-y-sm text-sm">
+                                    <li>CQC reports: 6-18 months old</li>
+                                    <li>Financial data: Annual filings (up to 12 months)</li>
+                                    <li>Pricing: Provider websites (may be outdated)</li>
+                                    <li>Availability: Best effort real-time checking</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-lg p-lg bg-white rounded-lg">
+                            <p class="font-semibold text-lg">
+                                Bottom Line: This analysis provides comprehensive direction based on the best available data as of 23 September 2025. 
+                                Always confirm critical details directly with care homes before making final decisions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-premium-navy text-white py-8 sm:py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-3 gap-6 sm:gap-10 mb-6 sm:mb-8">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-premium-gold">RightCareHome Birmingham</h3>
-                    <p class="text-gray-200 text-sm sm:text-base">Premium care home intelligence with real-time monitoring</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-3 sm:mb-4 text-premium-gold">Premium Features</h4>
-                    <ul class="space-y-2 text-gray-200 text-sm">
-                        <li>• Real-time monitoring</li>
-                        <li>• Evidence-based scoring</li>
-                        <li>• Interactive analysis</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-3 sm:mb-4 text-premium-gold">Support</h4>
-                    <p class="text-gray-200 text-sm">premium@rightcarehome.co.uk</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">RightCareHome Birmingham</h3>
+                    <p class="footer-description mb-md">Premium care home analysis • Report generated 23 Sep 2025</p>
+                    <div class="badge badge-secondary">
+                        <span class="font-semibold">277 homes analyzed • 48 data sources • 7-day monitoring</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center text-gray-300 text-xs sm:text-sm">
-                <p>&copy; 2025 RightCareHome Birmingham Premium. Report: 23 September 2025</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RightCareHome Birmingham. Premium Intelligence Report completed 23 September 2025.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Disclaimer Footer -->
-    <div class="bg-gray-100 text-gray-600 py-3 sm:py-4 text-center px-4">
-        <p class="text-xs sm:text-sm">Premium report with real-time intelligence. Market data refreshed every 24 hours. Always contact care homes directly to confirm current availability.</p>
+    <!-- Sticky CTA Banner -->
+    <div class="sticky-cta-banner">
+        <div class="sticky-cta-content">
+            <div class="text-inverse">Next: Contact Manor House (0121 456 7890)</div>
+            <div class="sticky-cta-buttons">
+                <a href="tel:+441214567890" class="btn btn-primary">Contact Now</a>
+                <button class="btn btn-secondary" onclick="downloadHTML()">Download</button>
+            </div>
+        </div>
     </div>
 
-    <!-- FIXED: Correct JavaScript path -->
-    <script src="../assets/js/premium_report_script.js"></script>
-    <!-- Sticky CTA Banner -->
-<div class="sticky-cta-banner" id="stickyCTA">
-    <div class="sticky-cta-content">
-        <div class="sticky-cta-text">
-            🎯 Ready to take action? Book your visit or download this report
-        </div>
-        <div class="sticky-cta-buttons">
-            <button class="cta-btn cta-btn-primary" onclick="window.location.href='tel:+441234567890'">
-                📞 Book Visit Now
-            </button>
-            <button class="cta-btn cta-btn-secondary" onclick="downloadHTML()">
-                📥 Download PDF
-            </button>
-        </div>
-    </div>
-</div>
+    <!-- JavaScript for Copy to Clipboard -->
+    <script>
+    function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.innerText;
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '✓ Copied!';
+            button.classList.add('btn-primary');
+            button.classList.remove('btn-secondary');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-secondary');
+            }, 2000);
+        }).catch(err => {
+            alert('Failed to copy. Please select and copy manually.');
+        });
+    }
+    </script>
 </body>
 </html>

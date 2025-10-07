@@ -1,6 +1,6 @@
 /**
- * Enhanced Care Home Questionnaire [2025 UPDATE v2.0] 
- * Integrated with updated design system + Production enhancements
+ * Enhanced Care Home Questionnaire [2025 UPDATE] 
+ * Integrated with updated design system
  */
 
 // Read colors from CSS variables
@@ -21,8 +21,7 @@ class CareHomeQuestionnaire {
         this.formData = {};
         this.startTime = Date.now();
         this.storageKey = 'careHomeQuestionnaire';
-        this.version = '2025.2';
-        this.lastSaveTime = null;
+        this.version = '2025.1';
         this.init();
     }
 
@@ -32,9 +31,7 @@ class CareHomeQuestionnaire {
         this.loadSavedData();
         this.setupConditionalLogic();
         this.showSection(1);
-        this.setupPeriodicBackup();
-        this.createSaveIndicator();
-        console.log('Questionnaire initialized v' + this.version);
+        console.log('Questionnaire initialized');
     }
 
     bindEvents() {
@@ -48,28 +45,10 @@ class CareHomeQuestionnaire {
 
         this.setupRadioButtons();
         this.setupCheckboxes();
-        this.setupKeyboardNavigation();
 
         const debouncedSave = this.debounce(() => this.saveFormData(), 500);
         document.addEventListener('input', debouncedSave);
         document.addEventListener('change', debouncedSave);
-    }
-
-    setupKeyboardNavigation() {
-        document.addEventListener('keydown', (e) => {
-            // Don't interfere with typing
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            if (e.key === 'ArrowRight' && this.currentSection < this.totalSections) {
-                e.preventDefault();
-                this.nextSection();
-            } else if (e.key === 'ArrowLeft' && this.currentSection > 1) {
-                e.preventDefault();
-                this.prevSection();
-            } else if (e.key === 'Enter' && e.target.classList.contains('modal-close')) {
-                e.target.click();
-            }
-        });
     }
 
     setupRadioButtons() {
@@ -233,7 +212,7 @@ class CareHomeQuestionnaire {
                 if (!field.value.trim()) {
                     this.showError(field.closest('.form-group'), 'This field is required');
                     isValid = false;
-                } else if (!this.validateEmail(field.value)) {
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
                     this.showError(field.closest('.form-group'), 'Please enter a valid email');
                     isValid = false;
                 }
@@ -246,28 +225,11 @@ class CareHomeQuestionnaire {
         return isValid;
     }
 
-    validateEmail(email) {
-        // Enhanced email validation
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        
-        if (!emailRegex.test(email)) return false;
-        
-        // Additional checks
-        const parts = email.split('@');
-        if (parts[0].length > 64) return false; // Local part max 64 chars
-        if (parts[1].length > 255) return false; // Domain max 255 chars
-        
-        return true;
-    }
-
     showError(element, message) {
         if (!element) return;
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.textContent = message;
-        errorDiv.style.color = QUESTIONNAIRE_COLORS.error;
-        errorDiv.style.fontSize = '14px';
-        errorDiv.style.marginTop = '5px';
         element.appendChild(errorDiv);
     }
 
@@ -332,173 +294,7 @@ class CareHomeQuestionnaire {
     }
 
     showMilestone() {
-        const modal = this.createMilestoneModal();
-        document.body.appendChild(modal);
-        
-        setTimeout(() => {
-            modal.classList.add('show');
-            modal.style.opacity = '1';
-        }, 100);
-    }
-
-    createMilestoneModal() {
-        const modal = document.createElement('div');
-        modal.className = 'milestone-modal';
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-labelledby', 'milestone-title');
-        modal.setAttribute('aria-modal', 'true');
-        
-        modal.innerHTML = `
-            <div class="modal-overlay"></div>
-            <div class="modal-content">
-                <div class="modal-icon">🎉</div>
-                <h3 id="milestone-title">Halfway There!</h3>
-                <p>Your detailed profile is taking shape. Great progress!</p>
-                <button class="modal-close" aria-label="Close dialog">Continue</button>
-            </div>
-        `;
-        
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        `;
-
-        const overlay = modal.querySelector('.modal-overlay');
-        overlay.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-        `;
-
-        const content = modal.querySelector('.modal-content');
-        content.style.cssText = `
-            position: relative;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        `;
-
-        const icon = modal.querySelector('.modal-icon');
-        icon.style.cssText = `
-            font-size: 48px;
-            margin-bottom: 20px;
-        `;
-
-        const title = modal.querySelector('h3');
-        title.style.cssText = `
-            color: ${QUESTIONNAIRE_COLORS.primary};
-            margin-bottom: 10px;
-            font-size: 24px;
-        `;
-
-        const text = modal.querySelector('p');
-        text.style.cssText = `
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        `;
-
-        const closeBtn = modal.querySelector('.modal-close');
-        closeBtn.style.cssText = `
-            background: ${QUESTIONNAIRE_COLORS.accent};
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        `;
-
-        closeBtn.addEventListener('mouseenter', () => {
-            closeBtn.style.background = QUESTIONNAIRE_COLORS.accentHover;
-        });
-
-        closeBtn.addEventListener('mouseleave', () => {
-            closeBtn.style.background = QUESTIONNAIRE_COLORS.accent;
-        });
-
-        const closeModal = () => {
-            modal.style.opacity = '0';
-            setTimeout(() => modal.remove(), 300);
-        };
-
-        closeBtn.addEventListener('click', closeModal);
-        overlay.addEventListener('click', closeModal);
-
-        return modal;
-    }
-
-    setupPeriodicBackup() {
-        // Additional backup every 30 seconds
-        setInterval(() => {
-            const form = document.getElementById('questionnaire-form');
-            if (form && this.hasChanges()) {
-                this.saveFormData();
-                this.showSaveIndicator();
-                console.log('🔄 Periodic backup saved');
-            }
-        }, 30000);
-    }
-
-    hasChanges() {
-        const currentTime = Date.now();
-        // If more than 10 seconds since last save
-        return !this.lastSaveTime || (currentTime - this.lastSaveTime) > 10000;
-    }
-
-    createSaveIndicator() {
-        const indicator = document.createElement('div');
-        indicator.id = 'save-indicator';
-        indicator.setAttribute('role', 'status');
-        indicator.setAttribute('aria-live', 'polite');
-        indicator.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${QUESTIONNAIRE_COLORS.success};
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1000;
-            font-size: 14px;
-            pointer-events: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        `;
-        document.body.appendChild(indicator);
-        return indicator;
-    }
-
-    showSaveIndicator() {
-        const indicator = document.getElementById('save-indicator');
-        if (!indicator) return;
-        
-        indicator.textContent = '✓ Saved';
-        indicator.style.opacity = '1';
-        
-        setTimeout(() => {
-            indicator.style.opacity = '0';
-        }, 2000);
-        
-        this.lastSaveTime = Date.now();
+        alert('🎉 Halfway there! Your detailed profile is taking shape.');
     }
 
     saveFormData() {
@@ -506,8 +302,6 @@ class CareHomeQuestionnaire {
         const data = Object.fromEntries(formData);
         data.currentSection = this.currentSection;
         data.version = this.version;
-        data.lastSaved = new Date().toISOString();
-        
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(data));
         } catch (error) {
@@ -524,7 +318,6 @@ class CareHomeQuestionnaire {
                     this.currentSection = data.currentSection || 1;
                     this.showSection(this.currentSection);
                     this.updateProgress();
-                    console.log('Restored saved data from:', data.lastSaved);
                 }
             }
         } catch (error) {
@@ -532,158 +325,17 @@ class CareHomeQuestionnaire {
         }
     }
 
-    /**
-     * Email notification system (placeholder for future backend integration)
-     * TODO: Connect to backend API when ready
-     */
-    async sendEmailNotification(formData) {
-        console.log('📧 Email function called (placeholder mode)');
-        console.log('Would send to:', formData.contact_002); // email field
-        
-        // Prepare email data structure
-        const emailPayload = {
-            to: formData.contact_002,
-            subject: 'Care Home Questionnaire Received',
-            template: 'questionnaire-confirmation',
-            data: {
-                name: formData.contact_001,
-                submissionId: this.generateSubmissionId(),
-                timestamp: new Date().toISOString()
-            }
-        };
-        
-        // TODO: Uncomment when backend is ready
-        /*
-        try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': this.getCsrfToken()
-                },
-                body: JSON.stringify(emailPayload)
-            });
-            
-            if (!response.ok) throw new Error('Email send failed');
-            return await response.json();
-        } catch (error) {
-            console.error('Email error:', error);
-            // Don't block form submission if email fails
-            return { status: 'deferred', error: error.message };
-        }
-        */
-        
-        // Placeholder response
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve({ 
-                    status: 'simulated', 
-                    message: 'Email would be sent in production',
-                    payload: emailPayload 
-                });
-            }, 500);
-        });
-    }
-
-    generateSubmissionId() {
-        return `CARE-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
-    }
-
-    getCsrfToken() {
-        // TODO: Implement proper CSRF token retrieval when backend is ready
-        return document.querySelector('meta[name="csrf-token"]')?.content || '';
-    }
-
     async submitForm(e) {
         e.preventDefault();
         if (!this.validateCurrentSection()) return;
 
         const submitBtn = document.getElementById('submit-btn');
-        const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Processing...';
 
-        try {
-            // Collect form data
-            const formData = new FormData(document.getElementById('questionnaire-form'));
-            const data = Object.fromEntries(formData);
-            const submissionId = this.generateSubmissionId();
-            
-            // Additional metadata
-            const payload = {
-                ...data,
-                submissionId,
-                version: this.version,
-                completionTime: Math.round((Date.now() - this.startTime) / 1000), // seconds
-                timestamp: new Date().toISOString()
-            };
-
-            // Email notification (placeholder)
-            const emailResult = await this.sendEmailNotification(data);
-            console.log('Email result:', emailResult);
-
-            // TODO: Backend submission (uncomment when ready)
-            /*
-            const response = await fetch('/api/submit-questionnaire', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': this.getCsrfToken()
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) throw new Error('Submission failed');
-            const result = await response.json();
-            submissionId = result.submissionId || submissionId;
-            */
-
-            // Temporary: save to localStorage as backup
-            localStorage.setItem('lastSubmission', JSON.stringify(payload));
-            console.log('✅ Submission saved locally:', submissionId);
-            
-            // Clear form draft
-            localStorage.removeItem(this.storageKey);
-            
-            // Redirect with ID
-            window.location.href = `thank-you.html?id=${submissionId}`;
-            
-        } catch (error) {
-            console.error('Submission error:', error);
-            this.showSubmitError('Unable to submit your questionnaire. Your data is saved locally. Please try again or contact support.');
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        }
-    }
-
-    showSubmitError(message) {
-        // Remove any existing error messages
-        document.querySelectorAll('.submit-error').forEach(el => el.remove());
-        
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'submit-error';
-        errorDiv.setAttribute('role', 'alert');
-        errorDiv.style.cssText = `
-            background: ${QUESTIONNAIRE_COLORS.error};
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            animation: slideDown 0.3s ease;
-        `;
-        errorDiv.textContent = message;
-        
-        const form = document.getElementById('questionnaire-form');
-        form.insertBefore(errorDiv, form.firstChild);
-        
-        setTimeout(() => {
-            errorDiv.style.opacity = '0';
-            setTimeout(() => errorDiv.remove(), 300);
-        }, 8000);
-        
-        this.scrollToTop();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        localStorage.removeItem(this.storageKey);
+        window.location.href = 'thank-you.html';
     }
 
     scrollToTop() {
@@ -699,10 +351,8 @@ class CareHomeQuestionnaire {
     }
 }
 
-// Initialize questionnaire
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('questionnaire-form')) {
         window.careHomeQuestionnaire = new CareHomeQuestionnaire();
-        console.log('✅ Care Home Questionnaire v2025.2 ready');
     }
 });

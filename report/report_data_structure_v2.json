@@ -1,0 +1,286 @@
+{
+  "questionnaire_structure": {
+    "version": "2.0",
+    "total_questions": 18,
+    "sections": 5,
+    "estimated_time": "8-12 minutes",
+    "questions": {
+      "contact_001": {
+        "section": 1,
+        "section_name": "Contact & Emergency Information",
+        "question": "Your full name",
+        "type": "text",
+        "required": true,
+        "validation": "min_length:2"
+      },
+      "contact_002": {
+        "section": 1,
+        "section_name": "Contact & Emergency Information",
+        "question": "Email address",
+        "type": "email",
+        "required": true,
+        "validation": "email_format"
+      },
+      "contact_003": {
+        "section": 1,
+        "section_name": "Contact & Emergency Information",
+        "question": "Phone number",
+        "type": "tel",
+        "required": true,
+        "validation": "uk_phone"
+      },
+      "contact_004": {
+        "section": 1,
+        "section_name": "Contact & Emergency Information",
+        "question": "Your relationship to patient",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Son/Daughter",
+          "Spouse/Partner",
+          "Relative",
+          "Friend/Other"
+        ]
+      },
+      "contact_005": {
+        "section": 1,
+        "section_name": "Contact & Emergency Information",
+        "question": "Patient's full name",
+        "type": "text",
+        "required": true,
+        "validation": "min_length:2"
+      },
+      "location_001": {
+        "section": 2,
+        "section_name": "Location & Budget",
+        "question": "Preferred city/area",
+        "type": "text",
+        "required": true,
+        "validation": "uk_location"
+      },
+      "location_002": {
+        "section": 2,
+        "section_name": "Location & Budget",
+        "question": "Search radius preference",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Within 5 miles",
+          "Within 10 miles",
+          "Within 20 miles",
+          "No preference"
+        ]
+      },
+      "budget_001": {
+        "section": 2,
+        "section_name": "Location & Budget",
+        "question": "Weekly budget range",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "£600-800",
+          "£800-1000",
+          "£1000-1200",
+          "£1200-1500",
+          "£1500+"
+        ]
+      },
+      "care_001": {
+        "section": 3,
+        "section_name": "Medical Needs",
+        "question": "Required care level",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+          "Residential care",
+          "Nursing care",
+          "Dementia specialist",
+          "End of life care"
+        ]
+      },
+      "care_002": {
+        "section": 3,
+        "section_name": "Medical Needs",
+        "question": "Specific medical conditions",
+        "type": "checkbox",
+        "required": false,
+        "options": [
+          "Diabetes",
+          "Heart conditions",
+          "Respiratory issues",
+          "Mental health",
+          "Other chronic conditions"
+        ]
+      },
+      "mobility": {
+        "section": 3,
+        "section_name": "Medical Needs",
+        "question": "Mobility level",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Fully mobile",
+          "Uses walking aid",
+          "Wheelchair user",
+          "Bed-bound"
+        ]
+      },
+      "medications": {
+        "section": 3,
+        "section_name": "Medical Needs",
+        "question": "Medication management needs",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Independent",
+          "Reminders needed",
+          "Full assistance",
+          "Complex administration"
+        ]
+      },
+      "safety_falls": {
+        "section": 4,
+        "section_name": "Safety & Special Needs",
+        "question": "Fall risk assessment",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Low risk",
+          "Moderate risk",
+          "High risk",
+          "Unknown"
+        ],
+        "critical": true
+      },
+      "allergies": {
+        "section": 4,
+        "section_name": "Safety & Special Needs",
+        "question": "Known allergies",
+        "type": "checkbox",
+        "required": false,
+        "options": [
+          "Food allergies",
+          "Drug allergies",
+          "Environmental",
+          "None known"
+        ],
+        "critical": true
+      },
+      "dietary": {
+        "section": 4,
+        "section_name": "Safety & Special Needs",
+        "question": "Dietary requirements",
+        "type": "checkbox",
+        "required": false,
+        "options": [
+          "Vegetarian/Vegan",
+          "Religious requirements",
+          "Texture modified",
+          "No restrictions"
+        ],
+        "critical": true
+      },
+      "social_personality": {
+        "section": 4,
+        "section_name": "Safety & Special Needs",
+        "question": "Social preference",
+        "type": "radio",
+        "required": false,
+        "options": [
+          "Very social",
+          "Moderately social",
+          "Prefers quiet environment"
+        ]
+      },
+      "timeline": {
+        "section": 5,
+        "section_name": "Timeline & Additional Details",
+        "question": "When is placement needed?",
+        "type": "radio",
+        "required": true,
+        "options": [
+          "Urgently (within 2 weeks)",
+          "Soon (2-6 weeks)",
+          "Planning ahead (2-6 months)",
+          "Future planning (6+ months)"
+        ]
+      },
+      "additional_info": {
+        "section": 5,
+        "section_name": "Timeline & Additional Details",
+        "question": "Additional information",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Any special needs, preferences, or questions..."
+      }
+    }
+  },
+  "report_structure": {
+    "version": "2.0",
+    "simplified_sections": [
+      "report_meta",
+      "client_summary",
+      "search_criteria",
+      "top_recommendations",
+      "quick_comparison",
+      "next_actions"
+    ],
+    "data_mapping": {
+      "client_summary": {
+        "source_questions": [
+          "contact_001",
+          "contact_002",
+          "contact_003",
+          "contact_004",
+          "contact_005"
+        ],
+        "includes": [
+          "contact_details",
+          "patient_info",
+          "relationship"
+        ]
+      },
+      "search_criteria": {
+        "source_questions": [
+          "location_001",
+          "location_002",
+          "budget_001",
+          "care_001",
+          "care_002"
+        ],
+        "includes": [
+          "location_preferences",
+          "budget_range",
+          "care_requirements"
+        ]
+      },
+      "medical_profile": {
+        "source_questions": [
+          "mobility",
+          "medications",
+          "safety_falls",
+          "allergies",
+          "dietary"
+        ],
+        "includes": [
+          "mobility_status",
+          "medication_needs",
+          "safety_requirements",
+          "health_conditions"
+        ]
+      },
+      "placement_timeline": {
+        "source_questions": [
+          "timeline",
+          "social_personality",
+          "additional_info"
+        ],
+        "includes": [
+          "urgency",
+          "social_needs",
+          "special_requirements"
+        ]
+      }
+    }
+  }
+}
