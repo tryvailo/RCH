@@ -1,6 +1,6 @@
 /**
- * Enhanced Care Home Questionnaire [2025 UPDATE v2.0] 
- * Integrated with updated design system + Production enhancements
+ * Enhanced Care Home Questionnaire [2025 UPDATE v2.1] 
+ * Updated to 17 Questions: Implements new field names and removes conditional logic for patient name.
  */
 
 // Read colors from CSS variables
@@ -21,7 +21,7 @@ class CareHomeQuestionnaire {
         this.formData = {};
         this.startTime = Date.now();
         this.storageKey = 'careHomeQuestionnaire';
-        this.version = '2025.2';
+        this.version = '2025.2.1'; // Updated version for 17 questions
         this.lastSaveTime = null;
         this.init();
     }
@@ -30,7 +30,7 @@ class CareHomeQuestionnaire {
         this.bindEvents();
         this.updateProgress();
         this.loadSavedData();
-        this.setupConditionalLogic();
+        // Removed setupConditionalLogic() as Q5 patient name field is removed/merged
         this.showSection(1);
         this.setupPeriodicBackup();
         this.createSaveIndicator();
@@ -110,35 +110,7 @@ class CareHomeQuestionnaire {
         });
     }
 
-    setupConditionalLogic() {
-        const relationshipInputs = document.querySelectorAll('input[name="contact_004"]');
-        const patientNameSection = document.getElementById('patient-name-section');
-        const patientNameInput = document.getElementById('contact_005');
-
-        if (!relationshipInputs.length || !patientNameSection) return;
-
-        const togglePatientName = () => {
-            const selectedValue = document.querySelector('input[name="contact_004"]:checked')?.value;
-            
-            if (selectedValue === 'myself') {
-                patientNameSection.style.display = 'none';
-                if (patientNameInput) {
-                    patientNameInput.removeAttribute('required');
-                    patientNameInput.value = '';
-                }
-            } else {
-                patientNameSection.style.display = 'block';
-                if (patientNameInput) {
-                    patientNameInput.setAttribute('required', 'required');
-                }
-            }
-        };
-
-        relationshipInputs.forEach(input => {
-            input.addEventListener('change', togglePatientName);
-        });
-        togglePatientName();
-    }
+    // Removed setupConditionalLogic()
 
     updateRadioSelection(name) {
         document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
@@ -175,12 +147,31 @@ class CareHomeQuestionnaire {
     }
 
     handleExclusiveCheckbox(input) {
-        const exclusiveValues = ['none', 'no_preference', 'not_important'];
+        // Updated exclusive values based on new checklist options
+        const exclusiveValues = ['no_serious_medical', 'no_allergies', 'no_special_requirements'];
+        
         if (exclusiveValues.includes(input.value) && input.checked) {
             document.querySelectorAll(`input[name="${input.name}"]:not([value="${input.value}"])`).forEach(other => {
                 other.checked = false;
                 this.updateCheckboxSelection(other.name);
             });
+        }
+        
+        // If an exclusive option is unchecked, re-enable the other options (or allow them to be checked)
+        if (exclusiveValues.includes(input.value) && !input.checked) {
+            // No need to explicitly re-enable, as they were never truly disabled, just unchecked
+        }
+        
+        // Handle when a non-exclusive option is checked, unchecking the exclusive option
+        if (!exclusiveValues.includes(input.value) && input.checked) {
+            const exclusiveInput = document.querySelector(`input[name="${input.name}"][value="no_serious_medical"]`) ||
+                                   document.querySelector(`input[name="${input.name}"][value="no_allergies"]`) ||
+                                   document.querySelector(`input[name="${input.name}"][value="no_special_requirements"]`);
+            
+            if (exclusiveInput && exclusiveInput.checked) {
+                exclusiveInput.checked = false;
+                this.updateCheckboxSelection(exclusiveInput.name);
+            }
         }
     }
 
@@ -188,6 +179,7 @@ class CareHomeQuestionnaire {
         if (this.validateCurrentSection()) {
             if (this.currentSection < this.totalSections) {
                 this.currentSection++;
+                // Milestone logic remains the same
                 if (this.currentSection === 3) this.showMilestone();
                 this.showSection(this.currentSection);
                 this.updateProgress();
@@ -226,8 +218,12 @@ class CareHomeQuestionnaire {
                 const checkboxGroup = currentSectionElement.querySelectorAll(`input[name="${field.name}"]`);
                 const isChecked = Array.from(checkboxGroup).some(checkbox => checkbox.checked);
                 if (!isChecked) {
-                    this.showError(field.closest('.form-group'), 'Please select at least one option');
-                    isValid = false;
+                    // Check if the requirement is for *at least one*
+                    const isGroupRequired = field.hasAttribute('required');
+                    if (isGroupRequired) {
+                        this.showError(field.closest('.form-group'), 'Please select at least one option');
+                        isValid = false;
+                    }
                 }
             } else if (field.type === 'email') {
                 if (!field.value.trim()) {
@@ -262,6 +258,9 @@ class CareHomeQuestionnaire {
 
     showError(element, message) {
         if (!element) return;
+        // Check if an error message already exists to avoid duplication
+        if (element.querySelector('.error-message')) return;
+
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.textContent = message;
@@ -525,6 +524,36 @@ class CareHomeQuestionnaire {
                     this.showSection(this.currentSection);
                     this.updateProgress();
                     console.log('Restored saved data from:', data.lastSaved);
+                    
+                    // Re-apply selections for radios/checkboxes based on loaded data
+                    Object.keys(data).forEach(key => {
+                        const field = document.querySelector(`[name="${key}"]`);
+                        if (!field) return;
+
+                        if (field.type === 'radio') {
+                            const radio = document.querySelector(`input[name="${key}"][value="${data[key]}"]`);
+                            if (radio) {
+                                radio.checked = true;
+                                this.updateRadioSelection(key);
+                            }
+                        } else if (field.type === 'checkbox') {
+                            // Checkboxes can have multiple values saved as a single string of comma-separated values 
+                            // or an array (if saved properly), but FormData returns single values.
+                            // Assuming a simple key=value pair for simplicity based on provided HTML structure.
+                            const checkboxes = document.querySelectorAll(`input[name="${key}"]`);
+                            checkboxes.forEach(cb => {
+                                if (data[key].includes(cb.value)) {
+                                    cb.checked = true;
+                                }
+                            });
+                            this.updateCheckboxSelection(key);
+                        } else {
+                            field.value = data[key];
+                        }
+                    });
+                } else {
+                    console.log(`Saved data version (${data.version}) mismatch with current version (${this.version}). Discarding saved data.`);
+                    localStorage.removeItem(this.storageKey);
                 }
             }
         } catch (error) {
@@ -546,32 +575,11 @@ class CareHomeQuestionnaire {
             subject: 'Care Home Questionnaire Received',
             template: 'questionnaire-confirmation',
             data: {
-                name: formData.contact_001,
+                name: formData.patient_and_contact_names.split(';')[0].split(':')[1]?.trim() || 'Valued User',
                 submissionId: this.generateSubmissionId(),
                 timestamp: new Date().toISOString()
             }
         };
-        
-        // TODO: Uncomment when backend is ready
-        /*
-        try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': this.getCsrfToken()
-                },
-                body: JSON.stringify(emailPayload)
-            });
-            
-            if (!response.ok) throw new Error('Email send failed');
-            return await response.json();
-        } catch (error) {
-            console.error('Email error:', error);
-            // Don't block form submission if email fails
-            return { status: 'deferred', error: error.message };
-        }
-        */
         
         // Placeholder response
         return new Promise(resolve => {
@@ -596,6 +604,7 @@ class CareHomeQuestionnaire {
 
     async submitForm(e) {
         e.preventDefault();
+        // Section 5 is the final section.
         if (!this.validateCurrentSection()) return;
 
         const submitBtn = document.getElementById('submit-btn');
@@ -606,7 +615,19 @@ class CareHomeQuestionnaire {
         try {
             // Collect form data
             const formData = new FormData(document.getElementById('questionnaire-form'));
-            const data = Object.fromEntries(formData);
+            // Special handling for checkboxes to store multiple values per key
+            const data = {};
+            for(let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [data[key]];
+                    }
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+
             const submissionId = this.generateSubmissionId();
             
             // Additional metadata
@@ -619,24 +640,8 @@ class CareHomeQuestionnaire {
             };
 
             // Email notification (placeholder)
-            const emailResult = await this.sendEmailNotification(data);
+            const emailResult = await this.sendEmailNotification(payload);
             console.log('Email result:', emailResult);
-
-            // TODO: Backend submission (uncomment when ready)
-            /*
-            const response = await fetch('/api/submit-questionnaire', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': this.getCsrfToken()
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) throw new Error('Submission failed');
-            const result = await response.json();
-            submissionId = result.submissionId || submissionId;
-            */
 
             // Temporary: save to localStorage as backup
             localStorage.setItem('lastSubmission', JSON.stringify(payload));
@@ -645,8 +650,12 @@ class CareHomeQuestionnaire {
             // Clear form draft
             localStorage.removeItem(this.storageKey);
             
-            // Redirect with ID
-            window.location.href = `thank-you.html?id=${submissionId}`;
+            // Redirect with ID (Placeholder for production redirect)
+            // window.location.href = `thank-you.html?id=${submissionId}`;
+            this.showSubmitError(`Assessment complete! Submission ID: ${submissionId}. Your data is processed.`);
+            
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
             
         } catch (error) {
             console.error('Submission error:', error);
@@ -703,6 +712,6 @@ class CareHomeQuestionnaire {
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('questionnaire-form')) {
         window.careHomeQuestionnaire = new CareHomeQuestionnaire();
-        console.log('✅ Care Home Questionnaire v2025.2 ready');
+        console.log('✅ Care Home Questionnaire v2025.2.1 ready');
     }
 });

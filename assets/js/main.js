@@ -21,6 +21,104 @@ const COLORS = {
     warning: '#F59E0B'
 };
 
+// ===== UNIVERSAL FORM VALIDATION SYSTEM =====
+const FormValidation = {
+    // Universal form message display function
+    showFormMessage(message, type = 'error', elementId = null, duration = 5000) {
+        // Remove existing messages
+        this.clearFormMessages();
+        
+        // Create message element
+        const messageEl = document.createElement('div');
+        messageEl.className = `form-message ${type}`;
+        messageEl.textContent = message;
+        messageEl.setAttribute('role', 'alert');
+        messageEl.setAttribute('aria-live', 'polite');
+        
+        // Find target container
+        let targetContainer;
+        if (elementId) {
+            targetContainer = document.getElementById(elementId);
+        } else {
+            // Try to find a form message container
+            targetContainer = document.querySelector('.form-message-container') || 
+                            document.querySelector('form') || 
+                            document.body;
+        }
+        
+        if (targetContainer) {
+            targetContainer.appendChild(messageEl);
+            
+            // Auto-remove after duration (except for errors)
+            if (type !== 'error' && duration > 0) {
+                setTimeout(() => {
+                    if (messageEl.parentNode) {
+                        messageEl.style.opacity = '0';
+                        messageEl.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            if (messageEl.parentNode) {
+                                messageEl.remove();
+                            }
+                        }, 300);
+                    }
+                }, duration);
+            }
+        }
+        
+        return messageEl;
+    },
+    
+    // Clear all form messages
+    clearFormMessages() {
+        document.querySelectorAll('.form-message').forEach(msg => msg.remove());
+        document.querySelectorAll('.form-error').forEach(error => {
+            error.textContent = '';
+            error.style.display = 'none';
+        });
+    },
+    
+    // Validate email
+    validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    },
+    
+    // Validate UK postcode
+    validatePostcode(postcode) {
+        const postcodeRegex = /^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}$/i;
+        return postcodeRegex.test(postcode.trim());
+    },
+    
+    // Show field error
+    showFieldError(field, message) {
+        field.classList.add('error');
+        field.classList.remove('success');
+        
+        let errorEl = field.parentElement.querySelector('.form-error');
+        if (!errorEl) {
+            errorEl = document.createElement('span');
+            errorEl.className = 'form-error';
+            errorEl.setAttribute('role', 'alert');
+            field.parentElement.appendChild(errorEl);
+        }
+        
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+    },
+    
+    // Clear field error
+    clearFieldError(field) {
+        field.classList.remove('error');
+        field.classList.add('success');
+        
+        const errorEl = field.parentElement.querySelector('.form-error');
+        if (errorEl) {
+            errorEl.textContent = '';
+            errorEl.style.display = 'none';
+        }
+    }
+};
+
 // ===== ENHANCED UTILITY FUNCTIONS =====
 const Utils = {
     // Enhanced fade in animation with performance improvements

@@ -67,6 +67,16 @@
         </div>
     </header>
 
+    <!-- Breadcrumbs Navigation -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../questionnaire/index.html">Assessment</a></li>
+            <li><a href="../report/free_report.html">Free Report</a></li>
+            <li><span class="current">Standard Report</span></li>
+        </ol>
+    </nav>
+
     <!-- Executive Summary - SIMPLIFIED -->
     <section class="section">
         <div class="section-container">
@@ -99,7 +109,7 @@
             </div>
             
             <div class="summary-box mb-xl">
-                <h2 class="text-3xl font-bold mb-lg">🎯 Our Primary Recommendation</h2>
+                <h3 class="text-3xl font-bold mb-lg">🎯 Our Primary Recommendation</h3>
                 <p class="text-xl">
                     <strong>Manor House Care Home</strong> emerges as our primary recommendation through algorithmic analysis 
                     of regulatory data and medical capabilities. CQC-confirmed nursing care capabilities align with diabetes management 
@@ -377,21 +387,21 @@
                     <div>
                         <h4 class="font-bold text-success mb-sm text-lg">Medical Capability (40%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill" style="width: 95%"></div>
+                            <div class="progress-fill" style="width: 95%" data-percentage="95%"></div>
                         </div>
                         <p class="text-secondary">High compliance <span class="data-quality verified">CQC Verified</span></p>
                     </div>
                     <div>
                         <h4 class="font-bold text-success mb-sm text-lg">Cultural Fit (35%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill" style="width: 78%"></div>
+                            <div class="progress-fill" style="width: 78%" data-percentage="78%"></div>
                         </div>
                         <p class="text-secondary">Good alignment <span class="data-quality medium">Requires Verification</span></p>
                     </div>
                     <div>
                         <h4 class="font-bold text-success mb-sm text-lg">Location (25%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill" style="width: 90%"></div>
+                            <div class="progress-fill" style="width: 90%" data-percentage="90%"></div>
                         </div>
                         <p class="text-secondary">Excellent accessibility <span class="data-quality verified">Confirmed</span></p>
                     </div>
@@ -575,7 +585,8 @@
             </div>
             
             <div class="card">
-                <table class="comparison-table">
+                <div class="table-responsive">
+                    <table class="comparison-table">
                     <thead>
                         <tr>
                             <th class="text-left text-lg" style="width: 45%;">Care Home</th>
@@ -660,7 +671,8 @@
                             <td class="text-center font-bold text-lg">2.8 mi</td>
                         </tr>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -914,7 +926,8 @@
                 <div class="calc-card">
                     <h3 class="text-2xl font-bold mb-lg">Complete Cost Comparison</h3>
                     <div class="card">
-                        <table class="comparison-table">
+                        <div class="table-responsive">
+                            <table class="comparison-table">
                             <thead>
                                 <tr>
                                     <th class="text-left font-bold text-xl">Care Home</th>
@@ -927,7 +940,8 @@
                             <tbody id="comparison-tbody">
                                 <!-- Populated by JavaScript -->
                             </tbody>
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1188,6 +1202,125 @@ Kind regards,
                             <strong>💡 Tip:</strong> Send emails early in the week (Mon–Wed) before 2pm for fastest response rates. 
                             Care home managers typically have more availability in mornings.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Our Analysis Works -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">How Our Professional Analysis Works</h2>
+                <p class="section-subtitle">
+                    Our expert algorithm matches your specific needs with the most suitable care homes using proven assessment criteria
+                </p>
+            </div>
+            
+            <div class="analysis-methodology">
+                <div class="methodology-grid">
+                    <div class="methodology-card">
+                        <h3 class="text-xl font-bold mb-md">7 Key Assessment Criteria</h3>
+                        <div class="criteria-visualization">
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🏥</span>
+                                    <span class="criterion-name">Medical Match</span>
+                                </div>
+                                <div class="criterion-weight">35%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill medical" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🛡️</span>
+                                    <span class="criterion-name">Safety Score</span>
+                                </div>
+                                <div class="criterion-weight">25%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill safety" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">💰</span>
+                                    <span class="criterion-name">Budget Fit</span>
+                                </div>
+                                <div class="criterion-weight">15%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill budget" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">📍</span>
+                                    <span class="criterion-name">Location Score</span>
+                                </div>
+                                <div class="criterion-weight">13%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill location" style="width: 13%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">⭐</span>
+                                    <span class="criterion-name">Quality Rating</span>
+                                </div>
+                                <div class="criterion-weight">7%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill quality" style="width: 7%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🌍</span>
+                                    <span class="criterion-name">Cultural Match</span>
+                                </div>
+                                <div class="criterion-weight">5%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill cultural" style="width: 5%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">✅</span>
+                                    <span class="criterion-name">Availability</span>
+                                </div>
+                                <div class="criterion-weight">5%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill availability" style="width: 5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="methodology-card">
+                        <h3 class="text-xl font-bold mb-md">Analysis Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Data Collection</h4>
+                                    <p class="step-desc">Gathering information from CQC, local authorities, and care home databases</p>
+                                </div>
+                            </div>
+                            <div class="process-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Smart Matching</h4>
+                                    <p class="step-desc">Professional algorithm analyzes your needs against 277 care homes</p>
+                                </div>
+                            </div>
+                            <div class="process-step active">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Report Generation</h4>
+                                    <p class="step-desc">Creating personalized recommendations with detailed analysis</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

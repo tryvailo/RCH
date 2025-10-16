@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Overflow Test - RightCareHome</title>
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .test-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* Test 1: Basic overflow-x */
+        .overflow-test-1 {
+            overflow-x: auto;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .overflow-test-1 table {
+            min-width: 800px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .overflow-test-1 th,
+        .overflow-test-1 td {
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        
+        .overflow-test-1 th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Test 2: With touch scrolling */
+        .overflow-test-2 {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .overflow-test-2 table {
+            min-width: 900px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .overflow-test-2 th,
+        .overflow-test-2 td {
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        
+        .overflow-test-2 th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Test 3: With visual scroll indicators */
+        .overflow-test-3 {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            position: relative;
+        }
+        
+        .overflow-test-3::before {
+            content: "← Scroll horizontally →";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007bff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .overflow-test-3 table {
+            min-width: 1000px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .overflow-test-3 th,
+        .overflow-test-3 td {
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        
+        .overflow-test-3 th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .test-container {
+                padding: 10px;
+            }
+            
+            .test-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .test-title {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .test-section {
+                padding: 10px;
+            }
+            
+            .test-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; margin-bottom: 40px; color: #1a1a1a;">Mobile Overflow-X Testing</h1>
+        
+        <!-- Test 1: Basic overflow-x -->
+        <div class="test-section">
+            <h2 class="test-title">Test 1: Basic Overflow-X</h2>
+            <p class="test-description">Standard overflow-x: auto without touch scrolling</p>
+            <div class="overflow-test-1">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Care Home Name</th>
+                            <th>Location</th>
+                            <th>Rating</th>
+                            <th>Price Range</th>
+                            <th>Special Care</th>
+                            <th>Availability</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sunrise Care Home</td>
+                            <td>Birmingham City Centre</td>
+                            <td>4.8/5</td>
+                            <td>£800-1200/week</td>
+                            <td>Dementia Care</td>
+                            <td>2 spaces</td>
+                            <td>0121 123 4567</td>
+                        </tr>
+                        <tr>
+                            <td>Greenfield Manor</td>
+                            <td>Edgbaston</td>
+                            <td>4.6/5</td>
+                            <td>£900-1300/week</td>
+                            <td>Nursing Care</td>
+                            <td>1 space</td>
+                            <td>0121 234 5678</td>
+                        </tr>
+                        <tr>
+                            <td>Oak Tree Lodge</td>
+                            <td>Moseley</td>
+                            <td>4.9/5</td>
+                            <td>£750-1100/week</td>
+                            <td>Residential Care</td>
+                            <td>3 spaces</td>
+                            <td>0121 345 6789</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Test 2: With touch scrolling -->
+        <div class="test-section">
+            <h2 class="test-title">Test 2: Touch Scrolling</h2>
+            <p class="test-description">Overflow-x with -webkit-overflow-scrolling: touch for smooth mobile scrolling</p>
+            <div class="overflow-test-2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Care Home Name</th>
+                            <th>Location</th>
+                            <th>Rating</th>
+                            <th>Price Range</th>
+                            <th>Special Care</th>
+                            <th>Availability</th>
+                            <th>Contact</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sunrise Care Home</td>
+                            <td>Birmingham City Centre</td>
+                            <td>4.8/5</td>
+                            <td>£800-1200/week</td>
+                            <td>Dementia Care</td>
+                            <td>2 spaces</td>
+                            <td>0121 123 4567</td>
+                            <td>Today</td>
+                        </tr>
+                        <tr>
+                            <td>Greenfield Manor</td>
+                            <td>Edgbaston</td>
+                            <td>4.6/5</td>
+                            <td>£900-1300/week</td>
+                            <td>Nursing Care</td>
+                            <td>1 space</td>
+                            <td>0121 234 5678</td>
+                            <td>Yesterday</td>
+                        </tr>
+                        <tr>
+                            <td>Oak Tree Lodge</td>
+                            <td>Moseley</td>
+                            <td>4.9/5</td>
+                            <td>£750-1100/week</td>
+                            <td>Residential Care</td>
+                            <td>3 spaces</td>
+                            <td>0121 345 6789</td>
+                            <td>Today</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Test 3: With visual indicators -->
+        <div class="test-section">
+            <h2 class="test-title">Test 3: Visual Scroll Indicators</h2>
+            <p class="test-description">Overflow-x with visual indicators and touch scrolling</p>
+            <div class="overflow-test-3">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Care Home Name</th>
+                            <th>Location</th>
+                            <th>Rating</th>
+                            <th>Price Range</th>
+                            <th>Special Care</th>
+                            <th>Availability</th>
+                            <th>Contact</th>
+                            <th>Last Updated</th>
+                            <th>Next Inspection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sunrise Care Home</td>
+                            <td>Birmingham City Centre</td>
+                            <td>4.8/5</td>
+                            <td>£800-1200/week</td>
+                            <td>Dementia Care</td>
+                            <td>2 spaces</td>
+                            <td>0121 123 4567</td>
+                            <td>Today</td>
+                            <td>March 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Greenfield Manor</td>
+                            <td>Edgbaston</td>
+                            <td>4.6/5</td>
+                            <td>£900-1300/week</td>
+                            <td>Nursing Care</td>
+                            <td>1 space</td>
+                            <td>0121 234 5678</td>
+                            <td>Yesterday</td>
+                            <td>April 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Oak Tree Lodge</td>
+                            <td>Moseley</td>
+                            <td>4.9/5</td>
+                            <td>£750-1100/week</td>
+                            <td>Residential Care</td>
+                            <td>3 spaces</td>
+                            <td>0121 345 6789</td>
+                            <td>Today</td>
+                            <td>May 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Test Results -->
+        <div class="test-section">
+            <h2 class="test-title">Testing Instructions</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #007bff;">
+                <h3 style="margin-top: 0; color: #007bff;">How to Test:</h3>
+                <ol>
+                    <li><strong>Desktop:</strong> Resize browser window to simulate mobile widths (320px, 375px, 414px)</li>
+                    <li><strong>Mobile Device:</strong> Open this page on actual mobile device</li>
+                    <li><strong>Touch Scrolling:</strong> Try horizontal swipe gestures on mobile</li>
+                    <li><strong>Visual Indicators:</strong> Check if scroll indicators are visible</li>
+                </ol>
+                
+                <h3 style="color: #28a745;">Expected Results:</h3>
+                <ul>
+                    <li>✅ Tables should scroll horizontally on narrow screens</li>
+                    <li>✅ Touch scrolling should be smooth on mobile</li>
+                    <li>✅ Visual indicators should guide users</li>
+                    <li>✅ No horizontal page overflow</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

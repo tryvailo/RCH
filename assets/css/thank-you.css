@@ -3,8 +3,8 @@
 /* Base Styles for Thank You Page */
 .thank-you-page body {
     font-family: 'Inter', sans-serif;
-    background-color: #fefce8;
-    color: #1f2937;
+    background-color: var(--yellow-50);
+    color: var(--gray-800);
     line-height: 1.6;
 }
 
@@ -13,7 +13,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #059669, #047857);
+    background: linear-gradient(135deg, var(--green-600), var(--green-700));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +36,7 @@
 /* Timeline Styles for Thank You Page */
 .thank-you-page .timeline-step {
     background: white;
-    border-left: 4px solid #f59e0b;
+    border-left: 4px solid var(--orange-500);
     padding: 1.5rem;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -50,7 +50,7 @@
 }
 
 .thank-you-page .step-number {
-    background: #f59e0b;
+    background: var(--orange-500);
     color: white;
     width: 30px;
     height: 30px;
@@ -66,8 +66,8 @@
 
 /* Contact Card for Thank You Page */
 .thank-you-page .contact-card {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border: 2px solid #0284c7;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    border: 2px solid var(--primary);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
@@ -81,7 +81,7 @@
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--gray-200);
 }
 
 .thank-you-page .feature-card:hover {
@@ -97,7 +97,7 @@
 /* Reference Number Display */
 .reference-number-display {
     background: white;
-    border: 2px solid #059669;
+    border: 2px solid var(--green-600);
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
@@ -107,7 +107,7 @@
 
 .reference-number-display .reference-label {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--gray-500);
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
@@ -115,13 +115,13 @@
 .reference-number-display .reference-value {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #059669;
+    color: var(--green-600);
     letter-spacing: 0.5px;
 }
 
 .reference-number-display .reference-note {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: var(--gray-400);
     margin-top: 0.5rem;
 }
 
@@ -130,7 +130,7 @@
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--gray-200);
     transition: all 0.3s ease;
 }
 
@@ -141,27 +141,27 @@
 
 .resource-card h4 {
     font-weight: 600;
-    color: #1f2937;
+    color: var(--gray-800);
     margin-bottom: 0.75rem;
     font-size: 1.1rem;
 }
 
 .resource-card p {
-    color: #6b7280;
+    color: var(--gray-500);
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 .resource-card a {
-    color: #2563eb;
+    color: var(--primary);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .resource-card a:hover {
-    color: #1d4ed8;
+    color: var(--primary-dark);
     text-decoration: underline;
 }
 
@@ -236,7 +236,7 @@
 
 /* Special styling for guarantee badge on thank you page */
 .thank-you-page .guarantee-badge {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    background: linear-gradient(135deg, var(--green-600) 0%, var(--green-700) 100%);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 25px;
@@ -251,7 +251,7 @@
 .thank-you-page h1 {
     font-size: 3rem;
     font-weight: 800;
-    color: #1f2937;
+    color: var(--gray-800);
     text-align: center;
     margin-bottom: 1.5rem;
 }

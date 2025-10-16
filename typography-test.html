@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Typography System - RightCareHome</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/base-55plus.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        .typography-test {
+            padding: var(--space-xl);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--background);
+        }
+        
+        .test-section.soft {
+            background: var(--background-soft);
+        }
+        
+        .size-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .before-after {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+        }
+        
+        .before {
+            background: #f8f9fa;
+            border-left: 4px solid var(--error);
+        }
+        
+        .after {
+            background: #f0f8f0;
+            border-left: 4px solid var(--success);
+        }
+        
+        .font-specs {
+            font-size: var(--font-sm);
+            color: var(--text-tertiary);
+            margin-top: var(--space-xs);
+        }
+    </style>
+</head>
+<body>
+    <div class="typography-test">
+        <h1 class="heading-hero">Unified Typography System</h1>
+        <p class="body-large">Testing consistent typography across all elements for 55+ audience</p>
+        
+        <!-- Hero Headings Test -->
+        <div class="test-section">
+            <h2 class="heading-section">Hero Headings Consistency</h2>
+            <p class="body-base">All hero headings now use the same size and weight</p>
+            
+            <div class="size-comparison">
+                <div class="before-after before">
+                    <h3 class="text-3xl">BEFORE: text-3xl (30px)</h3>
+                    <p class="body-small">Inconsistent hero heading sizes</p>
+                    <div class="font-specs">Size: 30px | Weight: varies</div>
+                </div>
+                
+                <div class="before-after after">
+                    <h3 class="heading-hero">AFTER: heading-hero (36px)</h3>
+                    <p class="body-small">Unified hero heading system</p>
+                    <div class="font-specs">Size: 36px | Weight: Bold | Line-height: 1.2</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Headings Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Section Headings Consistency</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">All section headings now use unified styling</p>
+            
+            <div class="size-comparison">
+                <div class="before-after before">
+                    <h3 class="text-xl">BEFORE: text-xl (20px)</h3>
+                    <p class="body-small">Mixed section heading sizes</p>
+                    <div class="font-specs">Size: 20px | Weight: varies</div>
+                </div>
+                
+                <div class="before-after after">
+                    <h3 class="heading-section">AFTER: heading-section (28px)</h3>
+                    <p class="body-small">Consistent section headings</p>
+                    <div class="font-specs">Size: 28px | Weight: Semibold | Line-height: 1.35</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Button Typography Test -->
+        <div class="test-section">
+            <h2 class="heading-section">Button Typography Consistency</h2>
+            <p class="body-base">All buttons now use consistent text sizing</p>
+            
+            <div class="size-comparison">
+                <div class="before-after before">
+                    <button class="btn btn-primary" style="font-size: 16px;">BEFORE: text-base (16px)</button>
+                    <p class="body-small">Inconsistent button text sizes</p>
+                    <div class="font-specs">Size: 16px | Weight: varies</div>
+                </div>
+                
+                <div class="before-after after">
+                    <button class="btn btn-primary">AFTER: Unified (18px)</button>
+                    <p class="body-small">Consistent button typography</p>
+                    <div class="font-specs">Size: 18px | Weight: Medium | Line-height: 1.2</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Typography Scale Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Complete Typography Scale</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">Unified progression from smallest to largest</p>
+            
+            <div style="margin-top: var(--space-lg);">
+                <div class="mb-md">
+                    <span class="text-xs">text-xs (14px) - Small captions and fine print</span>
+                    <div class="font-specs">Line-height: 1.35</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-sm">text-sm (16px) - Small body text and labels</span>
+                    <div class="font-specs">Line-height: 1.6</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-base">text-base (18px) - Main body text optimized for 55+</span>
+                    <div class="font-specs">Line-height: 1.6</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-lg">text-lg (20px) - Large body text and emphasis</span>
+                    <div class="font-specs">Line-height: 1.6</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-xl">text-xl (24px) - Small headings and subheadings</span>
+                    <div class="font-specs">Line-height: 1.35 | Weight: Semibold</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-2xl">text-2xl (28px) - Section headings</span>
+                    <div class="font-specs">Line-height: 1.35 | Weight: Semibold</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-3xl">text-3xl (32px) - Large headings</span>
+                    <div class="font-specs">Line-height: 1.2 | Weight: Bold</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-4xl">text-4xl (36px) - Hero headings</span>
+                    <div class="font-specs">Line-height: 1.2 | Weight: Bold</div>
+                </div>
+                
+                <div class="mb-md">
+                    <span class="text-5xl">text-5xl (42px) - Display headings</span>
+                    <div class="font-specs">Line-height: 1.2 | Weight: Bold</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Semantic Classes Test -->
+        <div class="test-section">
+            <h2 class="heading-section">Semantic Typography Classes</h2>
+            <p class="body-base">Use semantic classes for better maintainability</p>
+            
+            <div style="margin-top: var(--space-lg);">
+                <h1 class="heading-hero">Hero Heading (heading-hero)</h1>
+                <h2 class="heading-section">Section Heading (heading-section)</h2>
+                <h3 class="heading-subsection">Subsection Heading (heading-subsection)</h3>
+                <h4 class="heading-card">Card Heading (heading-card)</h4>
+                <p class="body-large">Large body text (body-large)</p>
+                <p class="body-base">Base body text (body-base)</p>
+                <p class="body-small">Small body text (body-small)</p>
+            </div>
+        </div>
+        
+        <!-- 55+ Accessibility Benefits -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">55+ Accessibility Benefits</h2>
+            <ul class="body-base" style="color: var(--text-secondary-on-soft);">
+                <li><strong>Larger base font size (18px)</strong> - Easier reading for aging eyes</li>
+                <li><strong>Consistent line heights (1.6)</strong> - Better text flow and scanning</li>
+                <li><strong>Semantic class names</strong> - Clearer code maintenance</li>
+                <li><strong>Unified weight progression</strong> - Better visual hierarchy</li>
+                <li><strong>WCAG AA compliance</strong> - Meets accessibility standards</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

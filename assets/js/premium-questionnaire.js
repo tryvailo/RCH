@@ -1,23 +1,28 @@
 /**
- * Premium Care Home Questionnaire - Enhanced Edition [FIXED]
+ * Premium Care Home Questionnaire - Enhanced Edition [FIXED v2.2]
  * Optimised for 55+ audience with British English
  * 
  * CHANGELOG:
+ * v2.2 - October 2025 [MAJOR FIXES]
+ * - Fixed event delegation logic (proper closest() usage)
+ * - Added form submit handler to prevent double submission
+ * - Implemented exclusive checkbox logic
+ * - Fixed UK phone validation (proper formats)
+ * - Added debounce for auto-save
+ * - Fixed submitForm event parameter
+ * - Improved data restoration logic
+ * - Added Q38 max 3 selections validation
+ * - Unified with standard questionnaire logic
+ * - Enhanced validation configuration
+ * - Improved accessibility (ARIA attributes)
+ * - Added unit test utilities
+ * 
  * v2.1 - October 2025 [FIXES]
  * - Fixed duplicate ID issue (next-btn/prev-btn)
  * - Fixed last section navigation logic
  * - Fixed progress bar initial state
  * - Improved event delegation
  * - Better error handling for section transitions
- * 
- * v2.0 - October 2025
- * - Email notification system
- * - Periodic backup
- * - Visual save indicator
- * - Enhanced error handling
- * - Submission ID tracking
- * - Milestone modal
- * - Keyboard navigation
  */
 
 // ===== CONFIGURATION =====
@@ -43,7 +48,23 @@ const CONFIG = {
         error: '#C47A7A',
         accent: '#C09B6A',
         accentHover: '#A68550'
-    }
+    },
+    // NEW: Validation configuration
+    validation: {
+        exclusiveCheckboxValues: ['none', 'no_preference', 'not_important'],
+        maxSelections: {
+            q38: 3 // Premium analysis priorities
+        },
+        emailMaxLength: {
+            localPart: 64,
+            domain: 255
+        },
+        phoneFormats: {
+            ukMobile: /^(07\d{9}|(\+44|0044)7\d{9})$/,
+            ukLandline: /^(0[1-9]\d{8,9}|(\+44|0044)[1-9]\d{8,9})$/
+        }
+    },
+    debounceDelay: 500 // ms for auto-save
 };
 
 // ===== MAIN QUESTIONNAIRE CLASS =====
@@ -51,7 +72,7 @@ class CareHomeQuestionnaire {
     constructor() {
         this.currentSection = 1;
         this.formData = {};
-        this.version = '2.1';
+        this.version = '2.2';
         this.lastSaveTime = null;
         this.startTime = Date.now();
         this.init();
@@ -65,18 +86,65 @@ class CareHomeQuestionnaire {
         this.updateProgress();
         this.setupPeriodicBackup();
         this.createSaveIndicator();
+        this.initializeAccessibility();
         console.log(`Premium Care Home Questionnaire v${this.version} initialised - 38 Questions`);
+    }
+
+    // ===== ACCESSIBILITY INITIALIZATION =====
+    initializeAccessibility() {
+        // Set initial ARIA states
+        document.querySelectorAll('.question-section').forEach((section, index) => {
+            const sectionNum = index + 1;
+            section.setAttribute('role', 'region');
+            section.setAttribute('aria-labelledby', `section-${sectionNum}-title`);
+            section.setAttribute('aria-hidden', sectionNum !== this.currentSection ? 'true' : 'false');
+            
+            // Add ID to section title for aria-labelledby
+            const title = section.querySelector('.section-title');
+            if (title && !title.id) {
+                title.id = `section-${sectionNum}-title`;
+            }
+        });
+
+        // Add live region for progress updates
+        const progressBar = document.querySelector('.progress-bar');
+        if (progressBar) {
+            progressBar.setAttribute('role', 'progressbar');
+            progressBar.setAttribute('aria-valuemin', '0');
+            progressBar.setAttribute('aria-valuemax', CONFIG.totalSections);
+            progressBar.setAttribute('aria-valuenow', this.currentSection);
+        }
+
+        // Add form landmarks
+        const form = document.getElementById('questionnaire-form');
+        if (form) {
+            form.setAttribute('aria-label', 'Premium care home assessment form');
+        }
     }
 
     // ===== EVENT BINDING (FIXED) =====
     bindEvents() {
-        // FIXED: Use class-based selectors instead of IDs to avoid conflicts
+        const form = document.getElementById('questionnaire-form');
+        
+        // FIXED: Direct form submit handler to prevent double submission
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitForm(e);
+            });
+        }
+
+        // FIXED: Proper event delegation for navigation buttons
         document.addEventListener('click', (e) => {
             const target = e.target;
             
-            // Check if clicked element or parent is a button in navigation-buttons
-            const nextBtn = target.closest('.navigation-buttons .primary-btn');
-            const prevBtn = target.closest('.navigation-buttons .secondary-btn');
+            // Check if click is within navigation-buttons container
+            const navContainer = target.closest('.navigation-buttons');
+            if (!navContainer) return;
+            
+            // Now check for specific buttons
+            const nextBtn = target.closest('.primary-btn');
+            const prevBtn = target.closest('.secondary-btn');
             
             if (nextBtn) {
                 e.preventDefault();
@@ -84,7 +152,7 @@ class CareHomeQuestionnaire {
                 
                 // Check if we're on the last section
                 if (this.currentSection === CONFIG.totalSections) {
-                    this.submitForm();
+                    this.submitForm(e);
                 } else {
                     this.nextSection();
                 }
@@ -97,20 +165,35 @@ class CareHomeQuestionnaire {
             }
         });
 
-        // Input validation and auto-save
+        // FIXED: Add debounce for auto-save on input
+        const debouncedSave = this.debounce(() => {
+            this.saveFormData();
+            this.showSaveIndicator();
+        }, CONFIG.debounceDelay);
+
+        // Auto-save on input with debounce
         document.querySelectorAll('.form-input').forEach(input => {
             input.addEventListener('input', () => {
                 this.clearError(input);
-                this.saveFormData();
+                debouncedSave();
             });
         });
 
         // Auto-save on radio/checkbox change
         document.addEventListener('change', (e) => {
             if (e.target.type === 'radio' || e.target.type === 'checkbox') {
-                this.saveFormData();
+                debouncedSave();
             }
         });
+    }
+
+    // NEW: Debounce utility
+    debounce(func, wait) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), wait);
+        };
     }
 
     // ===== KEYBOARD NAVIGATION =====
@@ -134,11 +217,13 @@ class CareHomeQuestionnaire {
                     modal.style.opacity = '0';
                     setTimeout(() => modal.remove(), 300);
                 }
+            } else if (e.key === 'Enter' && e.target.classList.contains('modal-close')) {
+                e.target.click();
             }
         });
     }
 
-    // ===== RADIO & CHECKBOX HANDLERS =====
+    // ===== RADIO & CHECKBOX HANDLERS (ENHANCED) =====
     setupRadioCheckboxHandlers() {
         // Radio button options
         document.querySelectorAll('.radio-option').forEach(option => {
@@ -146,7 +231,7 @@ class CareHomeQuestionnaire {
                 if (e.target.tagName === 'INPUT') return;
                 
                 const radio = this.querySelector('input[type="radio"]');
-                if (!radio) return;
+                if (!radio || radio.disabled) return;
                 
                 const name = radio.name;
                 
@@ -182,7 +267,7 @@ class CareHomeQuestionnaire {
                 if (e.target.tagName === 'INPUT') return;
                 
                 const checkbox = this.querySelector('input[type="checkbox"]');
-                if (!checkbox) return;
+                if (!checkbox || checkbox.disabled) return;
                 
                 checkbox.checked = !checkbox.checked;
                 this.classList.toggle('selected', checkbox.checked);
@@ -191,17 +276,96 @@ class CareHomeQuestionnaire {
 
             const checkbox = option.querySelector('input[type="checkbox"]');
             if (checkbox) {
+                const questionnaire = this;
                 checkbox.addEventListener('change', function() {
                     const parent = this.closest('.checkbox-option');
                     if (parent) {
                         parent.classList.toggle('selected', this.checked);
                     }
-                });
+                    
+                    // FIXED: Handle exclusive checkboxes
+                    questionnaire.handleExclusiveCheckbox(this);
+                    
+                    // NEW: Handle max selections (Q38)
+                    questionnaire.handleMaxSelections(this);
+                }.bind(this));
             }
         });
     }
 
-    // ===== VALIDATION =====
+    // NEW: Handle exclusive checkbox logic
+    handleExclusiveCheckbox(input) {
+        const exclusiveValues = CONFIG.validation.exclusiveCheckboxValues;
+        
+        if (exclusiveValues.includes(input.value) && input.checked) {
+            // If "none" is selected, uncheck all others
+            document.querySelectorAll(`input[name="${input.name}"]:not([value="${input.value}"])`).forEach(other => {
+                other.checked = false;
+                const parent = other.closest('.checkbox-option');
+                if (parent) parent.classList.remove('selected');
+            });
+        } else if (input.checked) {
+            // If any other option is selected, uncheck "none"
+            document.querySelectorAll(`input[name="${input.name}"]`).forEach(cb => {
+                if (exclusiveValues.includes(cb.value) && cb.checked) {
+                    cb.checked = false;
+                    const parent = cb.closest('.checkbox-option');
+                    if (parent) parent.classList.remove('selected');
+                }
+            });
+        }
+    }
+
+    // NEW: Handle max selections validation
+    handleMaxSelections(input) {
+        const maxConfig = CONFIG.validation.maxSelections;
+        const fieldName = input.name;
+        
+        if (maxConfig[fieldName]) {
+            const maxAllowed = maxConfig[fieldName];
+            const checked = document.querySelectorAll(`input[name="${fieldName}"]:checked`);
+            
+            if (checked.length > maxAllowed) {
+                input.checked = false;
+                const parent = input.closest('.checkbox-option');
+                if (parent) parent.classList.remove('selected');
+                
+                this.showTemporaryMessage(
+                    input.closest('.form-group'),
+                    `Please select maximum ${maxAllowed} option${maxAllowed > 1 ? 's' : ''}`,
+                    'warning'
+                );
+            }
+        }
+    }
+
+    // NEW: Show temporary message
+    showTemporaryMessage(element, message, type = 'info') {
+        const existingMsg = element.querySelector('.temp-message');
+        if (existingMsg) existingMsg.remove();
+        
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'temp-message';
+        msgDiv.textContent = message;
+        msgDiv.setAttribute('role', 'alert');
+        msgDiv.style.cssText = `
+            color: ${type === 'warning' ? CONFIG.colors.error : CONFIG.colors.accent};
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: 600;
+            animation: fadeIn 0.3s ease;
+        `;
+        
+        element.appendChild(msgDiv);
+        
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+            msgDiv.style.transition = 'opacity 0.3s';
+            setTimeout(() => msgDiv.remove(), 300);
+        }, 3000);
+    }
+
+    // ===== VALIDATION (ENHANCED) =====
     validateCurrentSection() {
         const section = document.querySelector(`[data-section="${this.currentSection}"]`);
         if (!section) return true;
@@ -250,11 +414,36 @@ class CareHomeQuestionnaire {
             }
         });
 
-        // Scroll to first error
+        // Validate checkbox groups (at least one required if any checkbox has required)
+        const checkboxNames = new Set();
+        section.querySelectorAll('input[type="checkbox"][required]').forEach(checkbox => {
+            checkboxNames.add(checkbox.name);
+        });
+
+        checkboxNames.forEach(name => {
+            const checkboxes = section.querySelectorAll(`input[name="${name}"]`);
+            const isChecked = Array.from(checkboxes).some(cb => cb.checked);
+            
+            if (!isChecked) {
+                const firstCheckbox = checkboxes[0];
+                if (firstCheckbox) {
+                    this.showError(firstCheckbox, 'Please select at least one option');
+                    isValid = false;
+                    errors.push(name);
+                }
+            }
+        });
+
+        // Scroll to first error with accessibility announcement
         if (!isValid && errors.length > 0) {
             const firstErrorField = section.querySelector(`[name="${errors[0]}"]`);
             if (firstErrorField) {
                 firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Focus for screen readers
+                setTimeout(() => {
+                    const errorMsg = firstErrorField.closest('.form-group')?.querySelector('.error-message');
+                    if (errorMsg) errorMsg.focus();
+                }, 500);
             }
         }
 
@@ -265,6 +454,7 @@ class CareHomeQuestionnaire {
         this.clearError(input);
 
         input.classList.add('error');
+        input.setAttribute('aria-invalid', 'true');
 
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
@@ -274,15 +464,24 @@ class CareHomeQuestionnaire {
         errorDiv.style.marginTop = '8px';
         errorDiv.style.fontWeight = '600';
         errorDiv.setAttribute('role', 'alert');
+        errorDiv.setAttribute('aria-live', 'assertive');
+        errorDiv.setAttribute('tabindex', '-1'); // Make focusable for screen readers
 
         const parent = input.closest('.radio-option, .checkbox-option, .form-group') || input.parentElement;
         if (parent) {
             parent.appendChild(errorDiv);
+            
+            // Link error to input for accessibility
+            const errorId = `error-${input.name}-${Date.now()}`;
+            errorDiv.id = errorId;
+            input.setAttribute('aria-describedby', errorId);
         }
     }
 
     clearError(input) {
         input.classList.remove('error');
+        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-describedby');
         
         const parent = input.closest('.radio-option, .checkbox-option, .form-group') || input.parentElement;
         if (parent) {
@@ -299,19 +498,22 @@ class CareHomeQuestionnaire {
         if (!emailRegex.test(email)) return false;
         
         const parts = email.split('@');
-        if (parts[0].length > 64) return false;
-        if (parts[1].length > 255) return false;
+        if (parts[0].length > CONFIG.validation.emailMaxLength.localPart) return false;
+        if (parts[1].length > CONFIG.validation.emailMaxLength.domain) return false;
         
         return true;
     }
 
+    // FIXED: Proper UK phone validation
     isValidPhone(phone) {
-        // UK phone validation
-        const cleaned = phone.replace(/\s+/g, '');
-        return /^(\+44|0)[1-9]\d{8,9}$/.test(cleaned);
+        // Remove common separators
+        const cleaned = phone.replace(/[\s\-()]/g, '');
+        
+        const formats = CONFIG.validation.phoneFormats;
+        return formats.ukMobile.test(cleaned) || formats.ukLandline.test(cleaned);
     }
 
-    // ===== NAVIGATION (FIXED) =====
+    // ===== NAVIGATION (UNIFIED WITH STANDARD QUESTIONNAIRE) =====
     nextSection() {
         if (!this.validateCurrentSection()) {
             return;
@@ -328,6 +530,7 @@ class CareHomeQuestionnaire {
             this.showSection(this.currentSection);
             this.updateProgress();
             this.saveFormData();
+            this.scrollToTop();
         }
     }
 
@@ -336,6 +539,7 @@ class CareHomeQuestionnaire {
             this.currentSection--;
             this.showSection(this.currentSection);
             this.updateProgress();
+            this.scrollToTop();
         }
     }
 
@@ -343,26 +547,28 @@ class CareHomeQuestionnaire {
         // Hide all sections
         document.querySelectorAll('.question-section').forEach(section => {
             section.classList.remove('active');
+            section.style.display = 'none';
+            section.setAttribute('aria-hidden', 'true');
         });
 
         // Show current section
         const currentSection = document.querySelector(`[data-section="${sectionNum}"]`);
         if (currentSection) {
+            currentSection.style.display = 'block';
             currentSection.classList.add('active');
-            
-            // Set ARIA attributes for accessibility
             currentSection.setAttribute('aria-hidden', 'false');
         }
 
         // Update navigation buttons
         this.updateNavigationButtons();
+    }
 
-        // Scroll to top
+    scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     updateNavigationButtons() {
-        // FIXED: Update all navigation button sets
+        // Update all navigation button sets
         const currentActiveSection = document.querySelector(`[data-section="${this.currentSection}"]`);
         if (!currentActiveSection) return;
 
@@ -375,6 +581,7 @@ class CareHomeQuestionnaire {
         // Update previous button visibility
         if (prevBtn) {
             prevBtn.style.visibility = this.currentSection === 1 ? 'hidden' : 'visible';
+            prevBtn.setAttribute('aria-label', `Go back to section ${this.currentSection - 1}`);
         }
 
         // Update next/submit button
@@ -382,21 +589,31 @@ class CareHomeQuestionnaire {
             if (this.currentSection === CONFIG.totalSections) {
                 nextBtn.textContent = 'Submit Assessment ✓';
                 nextBtn.setAttribute('aria-label', 'Submit premium assessment');
+                nextBtn.type = 'submit'; // Ensure it's submit type
             } else {
                 nextBtn.textContent = 'Next Section →';
                 nextBtn.setAttribute('aria-label', `Continue to section ${this.currentSection + 1}`);
+                nextBtn.type = 'button'; // Ensure it's button type
             }
         }
     }
 
     updateProgress() {
         const progressFill = document.getElementById('progress-fill');
+        const progressBar = document.querySelector('.progress-bar');
         const currentSectionDisplay = document.getElementById('current-section');
         const currentQuestionDisplay = document.getElementById('current-question');
 
         if (progressFill) {
             const percentage = (this.currentSection / CONFIG.totalSections) * 100;
             progressFill.style.width = `${percentage}%`;
+        }
+
+        // Update ARIA progressbar
+        if (progressBar) {
+            progressBar.setAttribute('aria-valuenow', this.currentSection);
+            progressBar.setAttribute('aria-valuetext', 
+                `Section ${this.currentSection} of ${CONFIG.totalSections}`);
         }
 
         if (currentSectionDisplay) {
@@ -413,8 +630,28 @@ class CareHomeQuestionnaire {
         const modal = this.createMilestoneModal();
         document.body.appendChild(modal);
         
+        // Trap focus in modal
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        const trapFocus = (e) => {
+            if (e.key === 'Tab') {
+                if (e.shiftKey && document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                } else if (!e.shiftKey && document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        };
+        
+        modal.addEventListener('keydown', trapFocus);
+        
         setTimeout(() => {
             modal.style.opacity = '1';
+            if (firstElement) firstElement.focus();
         }, 100);
     }
 
@@ -424,14 +661,15 @@ class CareHomeQuestionnaire {
         modal.setAttribute('role', 'dialog');
         modal.setAttribute('aria-labelledby', 'milestone-title');
         modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-describedby', 'milestone-description');
         
         modal.innerHTML = `
             <div class="modal-overlay"></div>
             <div class="modal-content">
-                <div class="modal-icon">🎯</div>
+                <div class="modal-icon" aria-hidden="true">🎯</div>
                 <h3 id="milestone-title">Excellent Progress!</h3>
-                <p>You're halfway through your premium care assessment.<br>Your detailed profile is helping us find the perfect match.</p>
-                <button class="modal-close" aria-label="Continue assessment">Continue</button>
+                <p id="milestone-description">You're halfway through your premium care assessment.<br>Your detailed profile is helping us find the perfect match.</p>
+                <button class="modal-close" aria-label="Continue with assessment">Continue</button>
             </div>
         `;
         
@@ -542,6 +780,7 @@ class CareHomeQuestionnaire {
         indicator.id = 'save-indicator';
         indicator.setAttribute('role', 'status');
         indicator.setAttribute('aria-live', 'polite');
+        indicator.setAttribute('aria-atomic', 'true');
         indicator.style.cssText = `
             position: fixed;
             top: 80px;
@@ -628,6 +867,7 @@ class CareHomeQuestionnaire {
         }
     }
 
+    // FIXED: Improved data restoration logic
     loadSavedData() {
         try {
             const saved = localStorage.getItem(CONFIG.storageKey);
@@ -640,6 +880,11 @@ class CareHomeQuestionnaire {
             if (now - storageData.savedAt > CONFIG.storageExpiry) {
                 localStorage.removeItem(CONFIG.storageKey);
                 return;
+            }
+
+            // Check version compatibility
+            if (storageData.version !== this.version) {
+                console.warn('Version mismatch - saved data may be incompatible');
             }
 
             const data = storageData.data;
@@ -678,18 +923,31 @@ class CareHomeQuestionnaire {
                 }
             });
 
-            // Restore section
+            // FIXED: Improved section restoration with proper user choice handling
             if (storageData.currentSection && storageData.currentSection > 1) {
-                const shouldRestore = confirm('Would you like to continue from where you left off?');
+                const lastSavedDate = new Date(storageData.savedAt).toLocaleString('en-GB');
+                const shouldRestore = confirm(
+                    `Would you like to continue from where you left off?\n\n` +
+                    `Last saved: ${lastSavedDate}\n` +
+                    `Section: ${storageData.currentSection} of ${CONFIG.totalSections}`
+                );
+                
                 if (shouldRestore) {
                     this.currentSection = storageData.currentSection;
                     this.showSection(this.currentSection);
                     this.updateProgress();
+                    console.log('✓ Restored session from section', this.currentSection);
+                } else {
+                    // User declined - clear saved data and start fresh
+                    localStorage.removeItem(CONFIG.storageKey);
+                    console.log('Starting fresh assessment');
                 }
             }
 
         } catch (e) {
             console.warn('Failed to load saved data:', e);
+            // Clear corrupted data
+            localStorage.removeItem(CONFIG.storageKey);
         }
     }
 
@@ -730,8 +988,11 @@ class CareHomeQuestionnaire {
         return document.querySelector('meta[name="csrf-token"]')?.content || '';
     }
 
-    // ===== FORM SUBMISSION =====
-    async submitForm() {
+    // ===== FORM SUBMISSION (FIXED) =====
+    async submitForm(e) {
+        // FIXED: Handle event parameter
+        if (e) e.preventDefault();
+        
         // Validate final section
         if (!this.validateCurrentSection()) {
             return;
@@ -755,6 +1016,7 @@ class CareHomeQuestionnaire {
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Submitting...';
+                submitBtn.setAttribute('aria-busy', 'true');
             }
 
             // Email notification
@@ -781,6 +1043,7 @@ class CareHomeQuestionnaire {
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Assessment ✓';
+                submitBtn.removeAttribute('aria-busy');
             }
         }
     }
@@ -812,11 +1075,14 @@ class CareHomeQuestionnaire {
             currentSection.insertBefore(successDiv, currentSection.firstChild);
         }
         
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.scrollToTop();
+        
+        // Focus for screen readers
+        successDiv.focus();
         
         // Redirect after 3 seconds
         setTimeout(() => {
-            window.location.href = `/thank-you.html?id=${submissionId}&type=premium`;
+            window.location.href = `thank-you.html?id=${submissionId}&type=premium`;
         }, 3000);
     }
 
@@ -850,17 +1116,102 @@ class CareHomeQuestionnaire {
             setTimeout(() => errorDiv.remove(), 300);
         }, 8000);
         
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.scrollToTop();
+        errorDiv.focus();
     }
 }
 
+// ===== UNIT TEST UTILITIES =====
+// Export testing utilities for validation methods
+const TestUtils = {
+    /**
+     * Test email validation
+     * @param {string} email - Email to test
+     * @returns {boolean}
+     */
+    testEmail: (email) => {
+        const instance = new CareHomeQuestionnaire();
+        return instance.isValidEmail(email);
+    },
+    
+    /**
+     * Test phone validation
+     * @param {string} phone - Phone number to test
+     * @returns {boolean}
+     */
+    testPhone: (phone) => {
+        const instance = new CareHomeQuestionnaire();
+        return instance.isValidPhone(phone);
+    },
+    
+    /**
+     * Test form data collection
+     * @returns {object}
+     */
+    testCollectFormData: () => {
+        const instance = new CareHomeQuestionnaire();
+        return instance.collectFormData();
+    },
+    
+    /**
+     * Run all validation tests
+     * @returns {object} Test results
+     */
+    runValidationTests: () => {
+        const results = {
+            email: {
+                valid: [
+                    'test@example.com',
+                    'user.name@example.co.uk',
+                    'test+tag@domain.com'
+                ].map(e => ({ email: e, valid: TestUtils.testEmail(e) })),
+                invalid: [
+                    'invalid.email',
+                    '@example.com',
+                    'test@',
+                    'test @example.com'
+                ].map(e => ({ email: e, valid: TestUtils.testEmail(e) }))
+            },
+            phone: {
+                valid: [
+                    '07123456789',
+                    '+447123456789',
+                    '01234567890',
+                    '020 1234 5678'
+                ].map(p => ({ phone: p, valid: TestUtils.testPhone(p) })),
+                invalid: [
+                    '1234567',
+                    '07',
+                    '+44 07123456789', // Invalid: +44 followed by 0
+                    'not-a-phone'
+                ].map(p => ({ phone: p, valid: TestUtils.testPhone(p) }))
+            }
+        };
+        
+        console.group('🧪 Validation Test Results');
+        console.log('Email Tests:', results.email);
+        console.log('Phone Tests:', results.phone);
+        console.groupEnd();
+        
+        return results;
+    }
+};
+
 // ===== INITIALISATION =====
 document.addEventListener('DOMContentLoaded', () => {
-    new CareHomeQuestionnaire();
-    console.log('✅ Premium Care Home Questionnaire v2.1 ready - FIXED version');
+    const questionnaire = new CareHomeQuestionnaire();
+    
+    // Expose for debugging and testing
+    if (typeof window !== 'undefined') {
+        window.premiumQuestionnaire = questionnaire;
+        window.QuestionnaireTestUtils = TestUtils;
+    }
+    
+    console.log('✅ Premium Care Home Questionnaire v2.2 ready - FIXED & ENHANCED version');
+    console.log('🧪 Run QuestionnaireTestUtils.runValidationTests() to test validation');
 });
 
 // ===== EXPORT FOR TESTING =====
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = CareHomeQuestionnaire;
+    module.exports = { CareHomeQuestionnaire, TestUtils };
 }

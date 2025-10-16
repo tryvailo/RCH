@@ -74,6 +74,17 @@
         </div>
     </header>
 
+    <!-- Breadcrumbs Navigation -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../questionnaire/index.html">Assessment</a></li>
+            <li><a href="../report/free_report.html">Free Report</a></li>
+            <li><a href="../report/basic_report.html">Standard Report</a></li>
+            <li><span class="current">Premium Report</span></li>
+        </ol>
+    </nav>
+
     <!-- 1. EXECUTIVE SUMMARY -->
     <section class="section">
         <div class="section-container">
@@ -150,21 +161,21 @@
                     <div>
                         <h4 class="font-bold text-success mb-sm">Medical (40%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill" style="width: 95%"></div>
+                            <div class="progress-fill" style="width: 95%" data-percentage="95%"></div>
                         </div>
                         <p class="text-sm text-secondary">Licensed nursing with diabetes expertise</p>
                     </div>
                     <div>
                         <h4 class="font-bold text-success mb-sm">Cultural (35%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill bg-warning" style="width: 78%"></div>
+                            <div class="progress-fill bg-warning" style="width: 78%" data-percentage="78%"></div>
                         </div>
                         <p class="text-sm text-secondary">Verify Russian-speaking staff</p>
                     </div>
                     <div>
                         <h4 class="font-bold text-success mb-sm">Location (25%)</h4>
                         <div class="progress-bar mb-sm">
-                            <div class="progress-fill" style="width: 90%"></div>
+                            <div class="progress-fill" style="width: 90%" data-percentage="90%"></div>
                         </div>
                         <p class="text-sm text-secondary">20 minutes, regular buses</p>
                     </div>
@@ -1376,24 +1387,222 @@ Kind regards,
         </div>
     </section>
 
+    <!-- How Our Analysis Works -->
+    <section class="section bg-soft">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">How Our Professional Analysis Works</h2>
+                <p class="section-subtitle">
+                    Our advanced algorithm uses 156 detailed criteria to match your specific needs with the most suitable care homes
+                </p>
+            </div>
+            
+            <div class="analysis-methodology">
+                <div class="methodology-grid">
+                    <div class="methodology-card">
+                        <h3 class="text-xl font-bold mb-md">7 Core Assessment Criteria</h3>
+                        <div class="criteria-visualization">
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🏥</span>
+                                    <span class="criterion-name">Medical Match</span>
+                                </div>
+                                <div class="criterion-weight">35%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill medical" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🛡️</span>
+                                    <span class="criterion-name">Safety Score</span>
+                                </div>
+                                <div class="criterion-weight">25%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill safety" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">💰</span>
+                                    <span class="criterion-name">Budget Fit</span>
+                                </div>
+                                <div class="criterion-weight">15%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill budget" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">📍</span>
+                                    <span class="criterion-name">Location Score</span>
+                                </div>
+                                <div class="criterion-weight">13%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill location" style="width: 13%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">⭐</span>
+                                    <span class="criterion-name">Quality Rating</span>
+                                </div>
+                                <div class="criterion-weight">7%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill quality" style="width: 7%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">🌍</span>
+                                    <span class="criterion-name">Cultural Match</span>
+                                </div>
+                                <div class="criterion-weight">5%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill cultural" style="width: 5%"></div>
+                                </div>
+                            </div>
+                            <div class="criterion-row">
+                                <div class="criterion-info">
+                                    <span class="criterion-icon">✅</span>
+                                    <span class="criterion-name">Availability</span>
+                                </div>
+                                <div class="criterion-weight">5%</div>
+                                <div class="criterion-bar">
+                                    <div class="criterion-fill availability" style="width: 5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="methodology-card">
+                        <h3 class="text-xl font-bold mb-md">Premium Analysis Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Data Collection</h4>
+                                    <p class="step-desc">Gathering information from 6 sources: CQC, local authorities, care home databases, family reviews, financial records, and staff stability data</p>
+                                </div>
+                            </div>
+                            <div class="process-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Advanced Matching</h4>
+                                    <p class="step-desc">Professional algorithm analyzes your needs against 277 care homes using 156 detailed criteria</p>
+                                </div>
+                            </div>
+                            <div class="process-step active">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Report Generation</h4>
+                                    <p class="step-desc">Creating comprehensive recommendations with real-time monitoring and 7-day follow-up</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Features Comparison -->
+                <div class="premium-comparison mt-xl">
+                    <h3 class="text-xl font-bold mb-lg text-center">Standard vs Premium Analysis</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card standard">
+                            <h4 class="comparison-title">Standard Analysis</h4>
+                            <div class="comparison-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">📊</span>
+                                    <span class="feature-text">7 core criteria</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📅</span>
+                                    <span class="feature-text">Weekly data updates</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📧</span>
+                                    <span class="feature-text">Email support</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📋</span>
+                                    <span class="feature-text">Basic checklist</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card premium">
+                            <h4 class="comparison-title">Premium Analysis</h4>
+                            <div class="comparison-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔍</span>
+                                    <span class="feature-text">156 detailed criteria</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">⚡</span>
+                                    <span class="feature-text">Daily data updates</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">👥</span>
+                                    <span class="feature-text">Staff stability monitoring</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">💰</span>
+                                    <span class="feature-text">Financial analysis</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📱</span>
+                                    <span class="feature-text">7-day active monitoring</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3 class="footer-logo">RightCareHome Birmingham</h3>
-                    <p class="footer-description mb-md">Premium care home analysis • Report generated 23 Sep 2025</p>
+                    <p class="footer-description mb-md">Independent care home selection service with algorithmic analysis. 
+                    Completely independent advice with no care home commissions.</p>
                     <div class="badge badge-secondary">
-                        <span class="font-semibold">277 homes analyzed • 48 data sources • 7-day monitoring</span>
+                        <span class="font-semibold">Independent Analysis Service</span>
                     </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="font-bold mb-md text-accent text-lg">Our Methodology</h4>
+                    <ul class="footer-links">
+                        <li>277 homes analysed</li>
+                        <li>Multi-source data verification</li>
+                        <li>Algorithmic safety assessment</li>
+                        <li>Independent financial analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="font-bold mb-md text-accent text-lg">Contact for Enquiries</h4>
+                    <ul class="footer-links">
+                        <li>📧 <strong>birmingham@rightcarehome.co.uk</strong></li>
+                        <li>📞 <span class="text-tertiary">Available during business hours</span></li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 RightCareHome Birmingham. Premium Intelligence Report completed 23 September 2025.</p>
+                <p>&copy; 2025 RightCareHome Birmingham. Report prepared 23 September 2025. Confidential document.</p>
+                <p class="mt-sm">Independent Analysis Service • No Care Home Commissions • Algorithm-Driven Recommendations</p>
             </div>
         </div>
     </footer>
+
+    <!-- Disclaimer Footer -->
+    <div class="p-md text-center">
+        <p class="text-secondary">Information shown is not verified in real time. Always contact care homes directly to confirm availability and suitability.</p>
+    </div>
 
     <!-- Sticky CTA Banner -->
     <div class="sticky-cta-banner">

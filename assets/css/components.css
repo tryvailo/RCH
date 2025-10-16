@@ -4,14 +4,41 @@
    ============================================ */
 
 /* ============================================
-   ENHANCED BUTTONS - MODERN & ACCESSIBLE
+   ENHANCED TYPOGRAPHY - HEADER HIERARCHY
+   ============================================ */
+
+/* Page Title Section */
+.page-title-section {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl) 0;
+}
+
+.page-title {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-tight);
+}
+
+.page-description {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-height-base);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   UNIFIED BUTTON SYSTEM - CONSISTENT & ACCESSIBLE
    ============================================ */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-size: var(--font-base);
   font-weight: var(--font-weight-medium);
   line-height: 1.2;
@@ -20,16 +47,21 @@
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  min-height: var(--touch-comfortable);
+  min-height: 56px;  /* Increased for better touch targets */
   position: relative;
   overflow: hidden;
   font-family: var(--font-family);
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
   letter-spacing: 0;
+  text-align: center;
 }
 
-/* Primary CTA - Modern and subtle */
+/* ============================================
+   UNIFIED BUTTON VARIANTS - SEMANTIC & CONSISTENT
+   ============================================ */
+
+/* Primary CTA - Main actions */
 .btn-primary,
 .primary-cta {
   background: var(--primary);
@@ -50,7 +82,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Secondary button */
+/* Secondary CTA - Alternative actions */
 .btn-secondary {
   background: var(--background-white);
   color: var(--primary);
@@ -65,31 +97,59 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Accent button */
-.btn-accent {
+/* Accent CTA - Special actions (replaces btn-accent and btn-premium) */
+.btn-accent,
+.btn-premium {
   background: var(--accent);
   color: var(--text-inverse);
   box-shadow: 0 2px 8px rgba(192, 139, 122, 0.15);
 }
 
-.btn-accent:hover {
+.btn-accent:hover,
+.btn-premium:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(192, 139, 122, 0.2);
 }
 
-/* Large button variant */
+/* Ghost CTA - Subtle actions */
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background: var(--primary);
+  color: var(--text-inverse);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   UNIFIED BUTTON SIZES - CONSISTENT & ACCESSIBLE
+   ============================================ */
+
+/* Standard button (default) */
+.btn {
+  min-height: 56px;  /* Touch-friendly for 55+ */
+  padding: 16px 32px;
+  font-size: var(--font-base);
+}
+
+/* Large button - Hero CTAs */
 .btn-large {
-  min-height: 56px;
-  padding: 18px 36px;
+  min-height: 64px;
+  padding: 20px 40px;
   font-size: var(--font-lg);
   border-radius: var(--radius-xl);
 }
 
-/* Small button variant */
+/* Small button - Secondary actions */
 .btn-small {
-  min-height: 40px;
-  padding: 10px 20px;
+  min-height: 48px;
+  padding: 12px 24px;
   font-size: var(--font-sm);
   border-radius: var(--radius-md);
 }
@@ -97,6 +157,104 @@
 /* Full width button */
 .btn-block {
   width: 100%;
+  display: flex;
+}
+
+/* Compact button - Inline actions */
+.btn-compact {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: var(--font-sm);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   SEMANTIC BUTTON CLASSES - MEANINGFUL & MAINTAINABLE
+   ============================================ */
+
+/* Main CTA - Primary conversion actions */
+.btn-cta-primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+  min-height: 64px;
+  padding: 20px 40px;
+  font-size: var(--font-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 8px rgba(107, 124, 110, 0.15);
+}
+
+.btn-cta-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 124, 110, 0.2);
+}
+
+/* Secondary CTA - Alternative actions */
+.btn-cta-secondary {
+  background: var(--background-white);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  min-height: 64px;
+  padding: 20px 40px;
+  font-size: var(--font-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-cta-secondary:hover {
+  background: var(--background-soft);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form submission buttons */
+.btn-submit {
+  background: var(--accent);
+  color: var(--text-inverse);
+  width: 100%;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(192, 139, 122, 0.15);
+}
+
+.btn-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(192, 139, 122, 0.2);
+}
+
+/* Navigation buttons */
+.btn-nav {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  min-height: 48px;
+  padding: 12px 24px;
+  font-size: var(--font-sm);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+.btn-nav:hover {
+  background: var(--primary);
+  color: var(--text-inverse);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Action buttons in cards */
+.btn-card {
+  background: var(--primary);
+  color: var(--text-inverse);
+  width: 100%;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(107, 124, 110, 0.15);
+}
+
+.btn-card:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 124, 110, 0.2);
 }
 
 /* Button in cards */
@@ -261,6 +419,9 @@
   border-radius: var(--radius-md);
   transition: var(--transition);
   min-height: var(--touch-comfortable);
+  text-align: left;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .form-input:focus,
@@ -273,6 +434,18 @@
 
 .form-input::placeholder {
   color: var(--text-muted);
+  text-align: left;
+}
+
+/* Email input specific styling */
+.form-input[type="email"] {
+  text-align: left;
+  direction: ltr;
+}
+
+.form-input[type="email"]::placeholder {
+  text-align: left;
+  direction: ltr;
 }
 
 /* Textarea specific */
@@ -321,6 +494,69 @@
   font-weight: var(--font-weight-medium);
 }
 
+/* Universal form message system */
+.form-message {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-sm);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.form-message.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.form-message.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.form-message.info {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-message.success {
+    background: #15803d;
+    color: white;
+    border: 2px solid #15803d;
+  }
+  
+  .form-message.error {
+    background: #dc2626;
+    color: white;
+    border: 2px solid #dc2626;
+  }
+  
+  .form-message.warning {
+    background: #d97706;
+    color: white;
+    border: 2px solid #d97706;
+  }
+  
+  .form-message.info {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+  }
+}
+
 /* Help text */
 .form-help {
   display: block;
@@ -346,6 +582,205 @@
   height: 20px;
   accent-color: var(--primary);
   cursor: pointer;
+}
+
+/* ============================================
+   EMAIL COMPONENTS - SPECIALIZED & VALIDATED
+   ============================================ */
+
+/* Email input with validation */
+.email-input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: var(--font-base);
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: var(--background-white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  min-height: var(--touch-comfortable);
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(107, 124, 110, 0.15);
+}
+
+.email-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Email validation states */
+.email-input.email-valid {
+  border-color: var(--success);
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.667 5L7.5 14.167 3.333 10' stroke='%237A9471' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+}
+
+.email-input.email-valid:focus {
+  box-shadow: 0 0 0 4px rgba(122, 148, 113, 0.15);
+}
+
+.email-input.email-invalid {
+  border-color: var(--error);
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5L5 15M5 5l10 10' stroke='%23C47A7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+}
+
+.email-input.email-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(196, 122, 122, 0.15);
+}
+
+/* Email button */
+.email-button {
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 16px 32px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-base);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: var(--touch-comfortable);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.email-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 124, 110, 0.2);
+}
+
+.email-button:active {
+  transform: translateY(0);
+}
+
+.email-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.email-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Email form group */
+.email-form-group {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.email-form-group .email-input {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .email-form-group {
+    flex-direction: column;
+  }
+  
+  .email-form-group .email-input,
+  .email-form-group .email-button {
+    width: 100%;
+  }
+}
+
+/* Email validation message */
+.email-validation-message {
+  display: block;
+  font-size: var(--font-sm);
+  margin-top: var(--space-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.email-validation-message.success {
+  color: var(--success);
+}
+
+.email-validation-message.error {
+  color: var(--error);
+}
+
+/* Inline email signup */
+.email-signup-inline {
+  background: var(--background-soft);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin: var(--space-xl) 0;
+}
+
+.email-signup-inline h3 {
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.email-signup-inline p {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Email success state */
+.email-success-message {
+  background: rgba(122, 148, 113, 0.08);
+  border: 2px solid var(--success);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.email-success-message svg {
+  width: 24px;
+  height: 24px;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.email-success-message p {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Email loading state */
+.email-button.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.email-button.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 /* ============================================
@@ -465,13 +900,15 @@
 }
 
 .badge-success {
-  background: rgba(122, 148, 113, 0.1);
-  color: var(--success);
+  background: var(--success);
+  color: var(--text-inverse);
+  border: 1px solid var(--success-hover);
 }
 
 .badge-warning {
-  background: rgba(212, 163, 85, 0.1);
-  color: var(--warning);
+  background: var(--accent);
+  color: var(--text-inverse);
+  border: 1px solid var(--accent-hover);
 }
 
 .badge-error {
@@ -479,9 +916,39 @@
   color: var(--error);
 }
 
+/* Special badge styles for pricing cards */
+.badge-recommended {
+  background: var(--success) !important;
+  color: var(--text-inverse) !important;
+  border: 1px solid var(--success-hover) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;  /* Increased from 14px for better readability */
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.badge-premium {
+  background: var(--accent) !important;
+  color: var(--text-inverse) !important;
+  border: 1px solid var(--accent-hover) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;  /* Increased from 14px for better readability */
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
 .badge-secondary {
-  background: var(--background-soft);
-  color: var(--text-secondary);
+  background: var(--primary-dark);
+  color: var(--text-inverse);
+  border: 2px solid var(--primary);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
 /* ============================================
@@ -838,6 +1305,10 @@ details[open] .faq-icon {
     margin: var(--space-md);
     max-height: calc(100vh - 2rem);
   }
+  
+  .email-button {
+    padding: 14px 24px;
+  }
 }
 
 /* ============================================
@@ -846,20 +1317,25 @@ details[open] .faq-icon {
 
 @media (prefers-contrast: high) {
   .btn-primary,
-  .primary-cta {
-    background: #000000;
-    color: #FFFFFF;
-    border: 2px solid #000000;
+  .primary-cta,
+  .email-button {
+    background: var(--black);
+    color: var(--white);
+    border: 2px solid var(--black);
   }
 
   .btn-secondary {
-    background: #FFFFFF;
-    color: #000000;
-    border: 2px solid #000000;
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
   }
 
   .card {
-    border: 2px solid #666666;
+    border: 2px solid var(--gray-500);
+  }
+  
+  .email-input {
+    border: 2px solid var(--gray-500);
   }
 }
 
@@ -868,11 +1344,370 @@ details[open] .faq-icon {
     transform: none;
   }
 
-  .btn:hover {
+  .btn:hover,
+  .email-button:hover {
     transform: none;
   }
 
   .loading {
     animation: none;
   }
+  
+  .email-button.loading::after {
+    animation: none;
+  }
+}
+
+/* ============================================
+   SAMPLE CONTENT STYLES FOR PREMIUM PREVIEW
+   ============================================ */
+
+.sample-content {
+    background: var(--bg-subtle);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border-light);
+}
+
+.sample-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.safety-analysis, .success-factors, .financial-stability {
+    margin-bottom: 16px;
+}
+
+.safety-factor, .stability-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.safety-factor:last-child, .stability-item:last-child {
+    border-bottom: none;
+}
+
+.safety-label, .stability-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.safety-score, .stability-value {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.safety-score.excellent, .stability-value.excellent {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+}
+
+.safety-score.good {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.stability-value.positive {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+}
+
+.stability-value.low {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+}
+
+.factor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.factor-item {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid;
+}
+
+.factor-item.success {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: var(--success);
+}
+
+.factor-item.warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--warning);
+}
+
+.factor-item.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--error);
+}
+
+.factor-number {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.factor-label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.stability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stability-item {
+    text-align: center;
+    padding: 16px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+.stability-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.calculator-preview {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.calc-header {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.cost-chart-preview {
+    margin-bottom: 16px;
+}
+
+.chart-placeholder {
+    background: var(--bg-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.chart-bars {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.chart-bar {
+    width: 20px;
+    border-radius: 4px 4px 0 0;
+    margin: 0 4px;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-subtle);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.total-label {
+    color: var(--text-secondary);
+}
+
+.total-value {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+/* ============================================
+   ENHANCED ACCESSIBILITY FOR 55+ USERS
+   ============================================ */
+
+/* Enhanced badge-secondary for better visibility */
+.badge-secondary:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Enhanced link visibility */
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    background: rgba(212, 163, 85, 0.1);
+}
+
+/* Improved text-secondary contrast */
+.text-secondary {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Enhanced button focus states */
+.btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Better contrast for form elements */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.2);
+}
+
+/* Enhanced card visibility */
+.card {
+    border: 2px solid var(--border-light);
+}
+
+.card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(107, 124, 110, 0.15);
+}
+
+/* Birmingham page specific styles - replacing inline styles */
+.cookie-consent-hidden {
+    display: none;
+}
+
+.form-error-hidden {
+    display: none;
+}
+
+.section-subtitle-centered {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.badge-recommended {
+    background: rgba(107, 124, 110, 0.1);
+    color: var(--primary);
+}
+
+.badge-placeholder {
+    top: -12px;
+    right: 20px;
+    background: transparent;
+    color: transparent;
+    pointer-events: none;
+    border: none;
+}
+
+.premium-icon {
+    color: var(--accent);
+}
+
+.price-display-primary {
+    color: var(--text-primary);
+}
+
+.btn-premium {
+    background: var(--accent);
+    color: var(--text-inverse);
+}
+
+.table-responsive-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+/* Visual scroll indicator */
+.table-responsive-container::before {
+    content: "← Scroll to see more →";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--text-inverse);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 10;
+    opacity: 0.9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Hide indicator on larger screens */
+@media (min-width: 768px) {
+    .table-responsive-container::before {
+        display: none;
+    }
+}
+
+.comparison-table-styled {
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px;
+}
+
+.table-header-row {
+    border-bottom: 2px solid var(--border-strong);
+}
+
+.table-header-cell {
+    padding: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    width: 25%;
+}
+
+.table-header-standard {
+    color: var(--primary);
+}
+
+.table-header-premium {
+    color: var(--accent);
+}
+
+.table-row {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.table-row-last {
+    border-bottom: none;
+}
+
+.table-cell {
+    padding: 16px;
+}
+
+.table-cell-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.table-cell-secondary {
+    color: var(--text-secondary);
+}
+
+.list-none {
+    list-style: none;
 }

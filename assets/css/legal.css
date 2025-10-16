@@ -34,7 +34,7 @@
 .legal-page h3 {
   font-size: 26px;
   font-weight: 600;
-  color: #2a2a2a;
+  color: var(--gray-800);
   margin-top: 36px;
   margin-bottom: var(--space-md);
   line-height: 1.35;
@@ -43,7 +43,7 @@
 .legal-page h4 {
   font-size: 22px;
   font-weight: 600;
-  color: #3a3a3a;
+  color: var(--gray-700);
   margin-top: 28px;
   margin-bottom: var(--space-sm);
   line-height: 1.4;
@@ -53,7 +53,7 @@
   margin-bottom: 20px;
   font-size: 19px;
   line-height: 1.7;
-  color: #3a3a3a;
+  color: var(--gray-700);
 }
 
 .legal-page strong,
@@ -63,7 +63,7 @@
 }
 
 .legal-page a {
-  color: #5a6b5d;
+  color: var(--primary);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   font-weight: 500;
@@ -71,7 +71,7 @@
 }
 
 .legal-page a:hover {
-  color: #3a4b3d;
+  color: var(--primary-dark);
 }
 
 .legal-page ul,
@@ -84,7 +84,7 @@
 .legal-page li {
   margin-bottom: 12px;
   font-size: 19px;
-  color: #3a3a3a;
+  color: var(--gray-700);
 }
 
 .legal-page ul ul,

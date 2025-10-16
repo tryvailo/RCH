@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Button System - RightCareHome</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/base-55plus.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        .button-test {
+            padding: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--background);
+        }
+        
+        .test-section.soft {
+            background: var(--background-soft);
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .button-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .before-after {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+        }
+        
+        .before {
+            background: #f8f9fa;
+            border-left: 4px solid var(--error);
+        }
+        
+        .after {
+            background: #f0f8f0;
+            border-left: 4px solid var(--success);
+        }
+        
+        .button-specs {
+            font-size: var(--font-sm);
+            color: var(--text-tertiary);
+            margin-top: var(--space-xs);
+        }
+        
+        .usage-examples {
+            background: var(--background-soft);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+    <div class="button-test">
+        <h1 class="heading-hero">Unified Button System</h1>
+        <p class="body-large">Testing consistent button styles across all actions for 55+ audience</p>
+        
+        <!-- Button Variants Test -->
+        <div class="test-section">
+            <h2 class="heading-section">Button Variants - Semantic & Consistent</h2>
+            <p class="body-base">All button types now follow a unified design system</p>
+            
+            <div class="button-grid">
+                <div>
+                    <h3 class="heading-card">Primary CTA</h3>
+                    <button class="btn btn-primary">Primary Action</button>
+                    <div class="button-specs">Main conversion actions</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">Secondary CTA</h3>
+                    <button class="btn btn-secondary">Secondary Action</button>
+                    <div class="button-specs">Alternative actions</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">Accent CTA</h3>
+                    <button class="btn btn-accent">Special Action</button>
+                    <div class="button-specs">Special/premium actions</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">Ghost CTA</h3>
+                    <button class="btn btn-ghost">Subtle Action</button>
+                    <div class="button-specs">Subtle/navigation actions</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Button Sizes Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Button Sizes - Touch-Friendly</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">All sizes optimized for 55+ touch targets</p>
+            
+            <div class="button-grid">
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Large (Hero CTAs)</h3>
+                    <button class="btn btn-primary btn-large">Large Button</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">64px height, 20px font</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Standard (Default)</h3>
+                    <button class="btn btn-primary">Standard Button</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">56px height, 18px font</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Small (Secondary)</h3>
+                    <button class="btn btn-secondary btn-small">Small Button</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">48px height, 16px font</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Compact (Inline)</h3>
+                    <button class="btn btn-ghost btn-compact">Compact</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">44px height, 16px font</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Before/After Comparison -->
+        <div class="test-section">
+            <h2 class="heading-section">Before vs After Comparison</h2>
+            <p class="body-base">Unified system eliminates inconsistencies</p>
+            
+            <div class="button-comparison">
+                <div class="before-after before">
+                    <h3 class="heading-card">BEFORE: Inconsistent</h3>
+                    <button class="btn btn-primary" style="min-height: 48px; padding: 12px 24px; font-size: 16px;">Primary (48px)</button>
+                    <button class="btn btn-accent" style="min-height: 56px; padding: 18px 36px; font-size: 18px;">Accent (56px)</button>
+                    <button class="btn btn-premium" style="min-height: 52px; padding: 14px 28px; font-size: 17px;">Premium (52px)</button>
+                    <div class="button-specs">❌ Different sizes, inconsistent styling</div>
+                </div>
+                
+                <div class="before-after after">
+                    <h3 class="heading-card">AFTER: Unified</h3>
+                    <button class="btn btn-primary">Primary (56px)</button>
+                    <button class="btn btn-accent">Accent (56px)</button>
+                    <button class="btn btn-accent">Premium (56px)</button>
+                    <div class="button-specs">✅ Consistent 56px height, unified styling</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Semantic Classes Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Semantic Button Classes</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">Meaningful class names for better maintainability</p>
+            
+            <div class="button-grid">
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Main CTA</h3>
+                    <button class="btn-cta-primary">Get Your Assessment</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">Primary + Large</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Secondary CTA</h3>
+                    <button class="btn-cta-secondary">Get Free Shortlist</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">Secondary + Large</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Form Submit</h3>
+                    <button class="btn-submit">Submit Form</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">Accent + Block</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Navigation</h3>
+                    <button class="btn-nav">Learn More</button>
+                    <div class="button-specs" style="color: var(--text-tertiary-on-soft);">Ghost + Small</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Examples -->
+        <div class="test-section">
+            <h2 class="heading-section">Usage Examples</h2>
+            <p class="body-base">Real-world examples of button usage</p>
+            
+            <div class="usage-examples">
+                <h3 class="heading-card">Hero Section</h3>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <button class="btn-cta-primary">Choose Your Assessment</button>
+                    <button class="btn-cta-secondary">Get Free Shortlist</button>
+                </div>
+                
+                <h3 class="heading-card" style="margin-top: var(--space-lg);">Pricing Cards</h3>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <button class="btn-card">Get Standard Assessment</button>
+                    <button class="btn-card">Get Premium Intelligence</button>
+                </div>
+                
+                <h3 class="heading-card" style="margin-top: var(--space-lg);">Forms</h3>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <button class="btn-submit">Submit Assessment</button>
+                    <button class="btn-nav">Cancel</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 55+ Accessibility Benefits -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">55+ Accessibility Benefits</h2>
+            <ul class="body-base" style="color: var(--text-secondary-on-soft);">
+                <li><strong>Larger touch targets (56px+)</strong> - Easier clicking for aging hands</li>
+                <li><strong>Consistent sizing</strong> - Predictable button behavior</li>
+                <li><strong>Clear visual hierarchy</strong> - Obvious primary vs secondary actions</li>
+                <li><strong>High contrast colors</strong> - Better visibility for aging eyes</li>
+                <li><strong>Semantic class names</strong> - Easier maintenance and updates</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

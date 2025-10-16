@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Spacing System - RightCareHome</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/base-55plus.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        .spacing-test {
+            padding: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--background);
+        }
+        
+        .test-section.soft {
+            background: var(--background-soft);
+        }
+        
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .spacing-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .before-after {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+        }
+        
+        .before {
+            background: #f8f9fa;
+            border-left: 4px solid var(--error);
+        }
+        
+        .after {
+            background: #f0f8f0;
+            border-left: 4px solid var(--success);
+        }
+        
+        .spacing-specs {
+            font-size: var(--font-sm);
+            color: var(--text-tertiary);
+            margin-top: var(--space-xs);
+        }
+        
+        .demo-box {
+            background: var(--primary);
+            color: var(--text-inverse);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: var(--font-weight-semibold);
+        }
+    </style>
+</head>
+<body>
+    <div class="spacing-test">
+        <h1 class="heading-hero">Unified Spacing System</h1>
+        <p class="body-large">Testing consistent spacing across all elements for 55+ audience</p>
+        
+        <!-- Spacing Scale Test -->
+        <div class="test-section">
+            <h2 class="heading-section">Spacing Scale - Unified Progression</h2>
+            <p class="body-base">All spacing now follows a consistent mathematical progression</p>
+            
+            <div class="spacing-grid">
+                <div>
+                    <h3 class="heading-card">XS (6px)</h3>
+                    <div class="demo-box" style="padding: var(--space-xs);">Micro spacing</div>
+                    <div class="spacing-specs">For fine details and micro interactions</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">SM (12px)</h3>
+                    <div class="demo-box" style="padding: var(--space-sm);">Small spacing</div>
+                    <div class="spacing-specs">For small elements and compact layouts</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">MD (18px)</h3>
+                    <div class="demo-box" style="padding: var(--space-md);">Medium spacing</div>
+                    <div class="spacing-specs">For standard content spacing</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">LG (24px)</h3>
+                    <div class="demo-box" style="padding: var(--space-lg);">Large spacing</div>
+                    <div class="spacing-specs">For card padding and content blocks</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">XL (32px)</h3>
+                    <div class="demo-box" style="padding: var(--space-xl);">Extra large spacing</div>
+                    <div class="spacing-specs">For section spacing and large cards</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card">2XL (48px)</h3>
+                    <div class="demo-box" style="padding: var(--space-2xl);">Section spacing</div>
+                    <div class="spacing-specs">For main section padding</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Semantic Spacing Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Semantic Spacing Classes</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">Meaningful class names for different content types</p>
+            
+            <div class="spacing-grid">
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Section Spacing</h3>
+                    <div class="demo-box section-spacing" style="color: var(--text-inverse);">Section Content</div>
+                    <div class="spacing-specs" style="color: var(--text-tertiary-on-soft);">48px top/bottom - Standard sections</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Card Spacing</h3>
+                    <div class="demo-box card-spacing" style="color: var(--text-inverse);">Card Content</div>
+                    <div class="spacing-specs" style="color: var(--text-tertiary-on-soft);">24px all around - Card padding</div>
+                </div>
+                
+                <div>
+                    <h3 class="heading-card" style="color: var(--text-on-soft);">Hero Spacing</h3>
+                    <div class="demo-box hero-spacing" style="color: var(--text-inverse);">Hero Content</div>
+                    <div class="spacing-specs" style="color: var(--text-tertiary-on-soft);">80px top/bottom - Hero sections</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Before/After Comparison -->
+        <div class="test-section">
+            <h2 class="heading-section">Before vs After Comparison</h2>
+            <p class="body-base">Unified system eliminates spacing inconsistencies</p>
+            
+            <div class="spacing-comparison">
+                <div class="before-after before">
+                    <h3 class="heading-card">BEFORE: Inconsistent</h3>
+                    <div style="background: #e5e7eb; padding: 16px; margin: 8px 0;">Section 1 (16px)</div>
+                    <div style="background: #e5e7eb; padding: 24px; margin: 12px 0;">Section 2 (24px)</div>
+                    <div style="background: #e5e7eb; padding: 32px; margin: 16px 0;">Section 3 (32px)</div>
+                    <div class="spacing-specs">❌ Random spacing values, no system</div>
+                </div>
+                
+                <div class="before-after after">
+                    <h3 class="heading-card">AFTER: Unified</h3>
+                    <div class="demo-box section-spacing" style="color: var(--text-inverse); margin: var(--space-sm) 0;">Section 1 (48px)</div>
+                    <div class="demo-box section-spacing" style="color: var(--text-inverse); margin: var(--space-sm) 0;">Section 2 (48px)</div>
+                    <div class="demo-box section-spacing" style="color: var(--text-inverse); margin: var(--space-sm) 0;">Section 3 (48px)</div>
+                    <div class="spacing-specs">✅ Consistent 48px spacing, unified system</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Container System Test -->
+        <div class="test-section soft">
+            <h2 class="heading-section" style="color: var(--text-on-soft);">Container System</h2>
+            <p class="body-base" style="color: var(--text-secondary-on-soft);">Unified container widths and padding</p>
+            
+            <div style="margin-top: var(--space-lg);">
+                <div style="background: var(--background-white); border: 2px solid var(--primary); padding: var(--space-lg); margin: var(--space-md) 0;">
+                    <h3 class="heading-card">Standard Container (1200px)</h3>
+                    <p class="body-base">Max-width: 1200px, Padding: 24px</p>
+                </div>
+                
+                <div style="background: var(--background-white); border: 2px solid var(--accent); padding: var(--space-lg); margin: var(--space-md) 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <h3 class="heading-card">Narrow Container (800px)</h3>
+                    <p class="body-base">Max-width: 800px, Padding: 24px</p>
+                </div>
+                
+                <div style="background: var(--background-white); border: 2px solid var(--success); padding: var(--space-lg); margin: var(--space-md) 0; max-width: 1400px; margin-left: auto; margin-right: auto;">
+                    <h3 class="heading-card">Wide Container (1400px)</h3>
+                    <p class="body-base">Max-width: 1400px, Padding: 24px</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 55+ Accessibility Benefits -->
+        <div class="test-section">
+            <h2 class="heading-section">55+ Accessibility Benefits</h2>
+            <ul class="body-base">
+                <li><strong>Larger spacing (18px base)</strong> - Better visual separation for aging eyes</li>
+                <li><strong>Consistent rhythm</strong> - Predictable spacing patterns</li>
+                <li><strong>Semantic classes</strong> - Clearer code maintenance</li>
+                <li><strong>Mathematical progression</strong> - Harmonious visual relationships</li>
+                <li><strong>Touch-friendly spacing</strong> - Adequate space between interactive elements</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
