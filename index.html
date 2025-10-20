@@ -64,7 +64,7 @@
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- Header with Navigation -->
-    <header class="header">
+    <header class="header" role="banner">
   <div class="header-container">
     <a href="/" class="logo">
       <div class="logo-icon">R</div>
@@ -73,7 +73,7 @@
       </div>
     </a>
     
-    <nav class="nav-primary">
+    <nav class="nav-primary" role="navigation" aria-label="Main navigation">
       <a href="#services" class="nav-link">Services</a>
       <a href="#pricing-plans" class="nav-link">Pricing</a>
       <a href="#areas" class="nav-link">Areas</a>
@@ -82,8 +82,8 @@
     
     <div class="header-actions">
       <a href="#pricing-plans" class="btn btn-primary header-cta">
-        Get Your Assessment
-      </a>
+      Get Your Assessment
+    </a>
       
       <!-- Mobile Menu Button -->
       <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -96,7 +96,7 @@
 </header>
 
     <!-- Mobile Navigation -->
-    <nav class="nav-mobile" aria-hidden="true">
+    <nav class="nav-mobile" aria-hidden="true" aria-label="Mobile menu">
         <a href="#services" class="nav-link">Services</a>
         <a href="#pricing-plans" class="nav-link">Pricing</a>
         <a href="#areas" class="nav-link">Areas</a>
@@ -107,44 +107,29 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
+            <!-- Фоновое изображение -->
+            <div class="hero-background"></div>
+            
             <div class="hero-container">
-                <!-- Left Column -->
+                <!-- Left Column - Content -->
                 <div class="hero-content">
-                    <h1 class="hero-headline">
-                        The Right Care Home, Matched in Hours — Not Weeks
+                    <h1 class="hero-headline" id="hero-title">
+                        Stop Drowning in 16,500+ Care Home Options<br>
+                        <span class="text-accent">Get Your Perfect Match in 48 Hours</span>
                     </h1>
                     
                     <p class="hero-subtext">
                         Receive expert, independent care home recommendations in just 48 hours. Our specialists provide unbiased advice, as we are paid by families, not providers.
                     </p>
                     
-                    <!-- Trust badges -->
-                    <div class="hero-badges">
-                        <span class="badge badge-primary">
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                                <circle cx="10" cy="10" r="8"/>
-                            </svg>
-                            Independent Specialists
-                        </span>
-                        <span class="badge badge-primary">
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                                <circle cx="10" cy="10" r="8"/>
-                            </svg>
-                            689+ Families Helped
-                        </span>
-                        <span class="badge badge-primary">
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                                <circle cx="10" cy="10" r="8"/>
-                            </svg>
-                            No Commission Bias
-                        </span>
+                    <div class="hero-social-proof mt-lg">
+                        <p>⭐⭐⭐⭐⭐ <strong>4.9/5</strong> from 689 families · <strong>"Saved us £3,000 by avoiding the wrong home"</strong></p>
                     </div>
-                    
                 </div>
                 
-                <!-- Right Column - Free Guide Form -->
-                <div class="hero-form">
+                <!-- Right Column - Form -->
+                <aside class="hero-form" aria-label="Free care home shortlist form">
                     <h2 class="hero-form-title">Your Free Care Home Shortlist</h2>
                     
                     <ul class="hero-form-benefits">
@@ -185,17 +170,9 @@
                             <input 
                                 type="text" 
                                 id="guide-postcode"
-                                name="postcode"
-                                class="form-input"
                                 placeholder="Enter your postcode (e.g., B1 1AA)"
-                                required 
-                                aria-required="true"
-                                pattern="^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$"
-                                maxlength="8"
-                                autocomplete="postal-code"
-                                aria-describedby="postcode-help">
-                            <span id="postcode-help" class="form-help">Enter your UK postcode</span>
-                            <span class="form-error" role="alert"></span>
+                                class="form-input">
+                            <span id="postcode-error" class="form-error form-error-hidden">Please enter a valid postcode (e.g., B1 1AA)</span>
                         </div>
 
                         <div class="form-group">
@@ -205,15 +182,9 @@
                             <input 
                                 type="email" 
                                 id="guide-email"
-                                name="email"
-                                class="form-input"
                                 placeholder="your.email@example.com"
-                                required 
-                                aria-required="true"
-                                autocomplete="email"
-                                aria-describedby="email-help">
-                            <span id="email-help" class="form-help">Your email is never shared with care homes</span>
-                            <span class="form-error" role="alert"></span>
+                                class="form-input">
+                            <span id="email-error" class="form-error form-error-hidden">Please enter a valid email address</span>
                         </div>
 
                         <button type="submit" class="btn btn-accent btn-block">
@@ -222,25 +193,80 @@
                     </form>
                     
                     <p class="text-small text-center mt-md">
-                        🔒 Your email is never shared with care homes
+                        Your email is never shared with care homes
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Why Start with Free Shortlist Section -->
+        <section class="section bg-light" aria-labelledby="why-start-title">
+            <div class="section-container text-center">
+                <h2 class="section-title" id="why-start-title">Why Start with Our Free Shortlist?</h2>
+                
+                <div class="grid grid-3">
+                    <div class="feature-card">
+                        <div class="feature-image-container">
+                            <img src="assets/images/nurse-elderly.jpg" 
+                                 alt="Professional care staff with elderly resident" 
+                                 class="feature-image"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; width:120px; height:120px; background:var(--primary-light); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:var(--font-2xl);">👩‍⚕️</div>
+                        </div>
+                        <p><strong>Verified & Current</strong><br>
+                        Real addresses, not outdated listings</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-image-container">
+                            <img src="assets/images/family-hands.jpg" 
+                                 alt="Family hands together showing support" 
+                                 class="feature-image"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; width:120px; height:120px; background:var(--primary-light); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:var(--font-2xl);">🤝</div>
+                        </div>
+                        <p><strong>Instant Delivery</strong><br>
+                        In your inbox within 5 minutes</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-image-container">
+                            <img src="assets/images/family-living-room.jpg" 
+                                 alt="Family in comfortable living room" 
+                                 class="feature-image"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; width:120px; height:120px; background:var(--primary-light); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:var(--font-2xl);">🏠</div>
+                        </div>
+                        <p><strong>Zero Spam</strong><br>
+                        Your email never shared with care homes</p>
+                    </div>
+                </div>
+                
+                <div class="mt-lg">
+                    <a href="#guide-form" class="btn btn-accent btn-large">
+                        Get My Free Shortlist Now ↑
+                    </a>
+                    <p class="text-small text-secondary mt-sm">
+                        No payment needed · 689 families already got theirs today
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- How It Works Section -->
-        <section class="section" id="how-it-works">
+        <section class="section" id="how-it-works" aria-labelledby="how-it-works-title">
             <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">How Our Service Works</h2>
+                <header class="section-header">
+                    <h2 class="section-title" id="how-it-works-title">How Our Service Works</h2>
                     <p class="section-subtitle">From assessment to personalised care home report</p>
-                </div>
+                </header>
                 
                 <div class="grid grid-3">
                     <div class="card">
                         <h3 class="card-title">1. Complete Assessment</h3>
                         <!-- UPDATED: Text to reflect new pricing names -->
-                        <p>Choose between our Standard Assessment (£99) or Premium Intelligence (£249) based on your needs.</p>
+                        <p>Choose between our Professional Assessment (£119) or Premium Intelligence (£299) based on your needs.</p>
                     </div>
                     
                     <div class="card">
@@ -257,37 +283,57 @@
         </section>
 
         <!-- Pricing Plans Section -->
-        <section class="section" id="pricing-plans">
+        <section class="section" id="pricing-plans" aria-labelledby="pricing-title">
             <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Choose the Right Assessment for Your Needs</h2>
-                    <p class="section-subtitle">
-                        From a quick, safety-focused assessment to a comprehensive professional analysis, we have an option for every situation.
-                    </p>
-                    <div class="alert alert-info text-center mb-lg">
-                        <p class="text-lg">
-                            <strong>Both assessments come with our 100% satisfaction guarantee</strong>
-                        </p>
-                        <p class="text-base text-secondary">
-                            "The Standard Assessment gave us everything we needed - saved £3,000 by avoiding the wrong home"
-                        </p>
-                    </div>
-                </div>
+                <header class="section-header">
+                    <h2 class="section-title" id="pricing-title">Choose Your Assessment Level</h2>
+                    <p class="section-subtitle">Professional care home analysis delivered in 48 hours</p>
+                </header>
                 
                 <div class="grid grid-2">
-                    <!-- Premium Intelligence - Anchor Effect (Left Position) -->
+                    <!-- Professional Assessment -->
                     <div class="card card-elevated">
-                        <!-- Added Premium badge -->
+                        <span class="badge badge-recommended">RECOMMENDED FOR MOST FAMILIES</span>
+                        <div class="text-center">
+                            <h3 class="card-title">Professional Assessment</h3>
+                            <p class="text-large mb-md">Everything you need for a confident decision</p>
+                            <div class="price-display mb-lg">£119</div>
+                            
+                            <ul class="mb-xl text-left pl-0 list-none">
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>5 personally matched care homes</span>
+                                </li>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Complete safety & quality analysis</span>
+                                </li>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Transparent cost breakdown (1-5 years)</span>
+                                </li>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Professional enquiry templates</span>
+                                </li>
+                                <li class="flex items-start gap-sm mb-sm">
+                                    <span class="text-success">✓</span>
+                                    <span>Delivered within 48 hours</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="/questionnaire/" class="btn btn-primary btn-large">Get Professional Assessment</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Premium Intelligence -->
+                    <div class="card card-elevated">
                         <span class="badge badge-premium">FOR COMPLEX SITUATIONS</span>
                         <div class="text-center">
-                            <div class="text-4xl mb-md premium-icon">💎</div>
                             <h3 class="card-title">Premium Intelligence</h3>
-                            <!-- New Tagline -->
-                            <p class="text-large mb-md">In-Depth Analysis & Active Monitoring</p>
-                            <!-- Price updated to 249 -->
-                            <div class="price-display mb-lg price-display-primary">£249</div>
+                            <p class="text-large mb-md">Maximum depth with active monitoring</p>
+                            <div class="price-display mb-lg">£299</div>
                             
-                            <!-- Updated Features List (Removed Markdown, removed Priority telephone support) -->
                             <ul class="mb-xl text-left pl-0 list-none">
                                 <li class="flex items-start gap-sm mb-sm">
                                     <span class="text-success">✓</span>
@@ -295,79 +341,15 @@
                                 </li>
                                 <li class="flex items-start gap-sm mb-sm">
                                     <span class="text-success">✓</span>
-                                    <span>Checks everything that matters</span>
+                                    <span>Daily monitoring for 7 days</span>
                                 </li>
                                 <li class="flex items-start gap-sm mb-sm">
                                     <span class="text-success">✓</span>
-                                    <span>Daily data updates from 6 sources</span>
+                                    <span>Staff stability & financial checks</span>
                                 </li>
                                 <li class="flex items-start gap-sm mb-sm">
                                     <span class="text-success">✓</span>
-                                    <span>Staff stability monitoring</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Financial security analysis</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>7-day active monitoring after report</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Structured decision timeline</span>
-                                </li>
-                            </ul>
-                            
-                            <!-- Updated CTA and added message below -->
-                            <p class="text-small text-secondary mb-lg">Maximum depth for critical decisions</p>
-                            <a href="/premium-questionnaire/" class="btn btn-primary btn-large btn-block">
-                                Get Premium Intelligence
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Standard Assessment - Recommended Choice (Right Position) -->
-                    <div class="card card-elevated">
-                        <!-- New RECOMMENDED badge, using success class for a distinct blue/green badge (as we can't add custom styles) -->
-                        <span class="badge badge-recommended">RECOMMENDED FOR MOST FAMILIES</span>
-                        <div class="text-center">
-                            <div class="text-4xl mb-md">✨</div>
-                            <h3 class="card-title">Standard Assessment</h3>
-                            <!-- New Tagline -->
-                            <p class="text-large mb-md">Complete & Professional Analysis</p>
-                            <!-- Price updated to 99 -->
-                            <div class="price-display mb-lg">£99</div>
-                            
-                            <!-- Updated Features List (Removed Markdown) -->
-                            <ul class="mb-xl text-left pl-0 list-none">
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>5 carefully matched care homes</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Complete CQC ratings analysis</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Local area pricing calculator</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Comprehensive safety assessment</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Direct contact details & directions</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Ready-to-use enquiry checklist</span>
-                                </li>
-                                <li class="flex items-start gap-sm mb-sm">
-                                    <span class="text-success">✓</span>
-                                    <span>Detailed PDF report</span>
+                                    <span>Priority 24-hour delivery</span>
                                 </li>
                                 <li class="flex items-start gap-sm mb-sm">
                                     <span class="text-success">✓</span>
@@ -375,104 +357,117 @@
                                 </li>
                             </ul>
                             
-                            <!-- Updated CTA -->
-                            <p class="text-small text-secondary mb-lg">Everything you need for a confident decision</p>
-                            <a href="/questionnaire/" class="btn btn-primary btn-block btn-large">
-                                Get Standard Assessment
-                            </a>
+                            <a href="/premium-questionnaire/" class="btn btn-accent btn-large">Get Premium Intelligence</a>
                         </div>
                     </div>
                 </div>
                 
-            </div>
-        </section>
-        
-        <!-- Premium Comparison Section -->
-        <section class="section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Why Choose Premium for Complex Situations?</h2>
-                    <p class="section-subtitle">
-                        Not every family needs the deepest level of analysis. Premium Intelligence suits those who require truly personalised, up-to-the-minute insights for complex medical needs and continuous monitoring.
-                    </p>
-                </div>
-                
-                <div class="card card-subtle p-xl table-responsive-container">
-                    <table class="comparison-table w-full comparison-table-styled">
+                <!-- Detailed Comparison Table -->
+                <div class="text-center mt-xl">
+                    <div class="card card-elevated p-xl comparison-card">
+                        <h3 class="text-xl font-semibold mb-lg comparison-title">Need help choosing?</h3>
+                        <p class="text-base text-secondary mb-lg">Compare what's included in each assessment</p>
+                        
+                        <details class="comparison-details">
+                            <summary class="btn btn-secondary btn-large cursor-pointer">
+                                <span class="flex items-center justify-center gap-sm">
+                                    <span>What's the difference between Professional and Premium?</span>
+                                    <span class="text-lg">▼</span>
+                                </span>
+                            </summary>
+                            
+                            <div class="mt-lg">
+                                <div class="table-responsive">
+                                    <table class="comparison-simple w-full">
                         <thead>
-                            <tr class="table-header-row">
-                                <th class="table-header-cell">Aspect</th>
-                                <th class="table-header-cell table-header-standard">Standard</th>
-                                <th class="table-header-cell table-header-premium">Premium</th>
-                                <th class="table-header-cell">Benefit</th>
+                                            <tr class="bg-primary-light">
+                                                <th class="table-header-cell text-left p-md">What you get</th>
+                                                <th class="table-header-cell text-center p-md">Professional (£119)</th>
+                                                <th class="table-header-cell text-center p-md">Premium (£299)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-row">
-                                <td class="table-cell table-cell-semibold">Safety Records</td>
-                                <td class="table-cell">Checks safety records</td>
-                                <td class="table-cell">Investigates incident patterns over 2 years</td>
-                                <td class="table-cell table-cell-secondary">Peace of mind</td>
+                                            <!-- ПЕРСОНАЛИЗАЦИЯ -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Personalisation depth</td>
+                                                <td class="table-cell text-center p-md">17 questions about needs</td>
+                                                <td class="table-cell text-center p-md">38 detailed questions</td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-cell table-cell-semibold">Information Updates</td>
-                                <td class="table-cell">Most current information</td>
-                                <td class="table-cell">Information refreshed every morning</td>
-                                <td class="table-cell table-cell-secondary">Never miss an opportunity</td>
+                                            
+                                            <!-- КОЛИЧЕСТВО РЕКОМЕНДАЦИЙ -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Care homes analysed</td>
+                                                <td class="table-cell text-center p-md">5 matched homes</td>
+                                                <td class="table-cell text-center p-md">8 matched homes</td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-cell table-cell-semibold">Staff Quality</td>
-                                <td class="table-cell">Current staff levels</td>
-                                <td class="table-cell">Checks whether carers stay long-term</td>
-                                <td class="table-cell table-cell-secondary">No constant new faces</td>
+                                            
+                                            <!-- КРИТЕРИИ ОЦЕНКИ -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Assessment criteria</td>
+                                                <td class="table-cell text-center p-md">40+ quality factors</td>
+                                                <td class="table-cell text-center p-md">156 detailed criteria</td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-cell table-cell-semibold">Analysis Depth</td>
-                                <td class="table-cell">40+ key factors</td>
-                                <td class="table-cell">156 detailed criteria including medical protocols</td>
-                                <td class="table-cell table-cell-secondary">Comprehensive medical matching</td>
-                            </tr>
-                            <tr class="table-row-last">
-                                <td class="table-cell table-cell-semibold">Who this suits best</td>
-                                <td class="table-cell">Most families</td>
-                                <td class="table-cell">Complex medical needs or urgent placement</td>
-                                <td class="table-cell table-cell-secondary">Right choice for your situation</td>
+                                            
+                                            <!-- ИСТОЧНИКИ ДАННЫХ -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Information sources</td>
+                                                <td class="table-cell text-center p-md">CQC + NHS Directory</td>
+                                                <td class="table-cell text-center p-md">6 sources including Companies House</td>
+                                            </tr>
+                                            
+                                            <!-- АКТУАЛЬНОСТЬ -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Data freshness</td>
+                                                <td class="table-cell text-center p-md">Weekly updates</td>
+                                                <td class="table-cell text-center p-md">Daily updates + live monitoring</td>
+                                            </tr>
+                                            
+                                            <!-- ПРОВЕРКА ПЕРСОНАЛА -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Staff checks</td>
+                                                <td class="table-cell text-center p-md">Current staffing levels</td>
+                                                <td class="table-cell text-center p-md">Staff turnover tracking</td>
+                                            </tr>
+                                            
+                                            <!-- ФИНАНСОВАЯ ПРОВЕРКА -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Financial stability</td>
+                                                <td class="table-cell text-center p-md">Basic verification</td>
+                                                <td class="table-cell text-center p-md">3-year financial analysis</td>
+                                            </tr>
+                                            
+                                            <!-- ДОСТАВКА -->
+                                            <tr>
+                                                <td class="table-cell table-cell-semibold p-md">Delivery time</td>
+                                                <td class="table-cell text-center p-md">Within 48 hours</td>
+                                                <td class="table-cell text-center p-md">Within 24 hours</td>
+                                            </tr>
+                                            
+                                            <!-- КОМУ ПОДХОДИТ -->
+                                            <tr class="bg-success-light">
+                                                <td class="table-cell table-cell-semibold p-md"><strong>Best for</strong></td>
+                                                <td class="table-cell text-center p-md"><strong>Planning 2-3 months ahead</strong></td>
+                                                <td class="table-cell text-center p-md"><strong>Urgent or complex situations</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                
-                <!-- Decision Helper -->
-                <div class="card card-subtle p-lg mt-xl">
-                    <h3 class="text-xl font-semibold text-primary mb-md text-center">Not sure which to choose? Answer 2 questions:</h3>
-                    <div class="grid grid-1 md:grid-2 gap-lg">
-                        <div class="decision-helper">
-                            <h4 class="text-lg font-semibold mb-sm">Do you need placement within 2 weeks?</h4>
-                            <p class="text-secondary mb-md">If yes → Premium Intelligence</p>
-                        </div>
-                        <div class="decision-helper">
-                            <h4 class="text-lg font-semibold mb-sm">Does your loved one have complex medical needs?</h4>
-                            <p class="text-secondary mb-md">If yes → Premium Intelligence</p>
-                        </div>
-                    </div>
-                    <div class="text-center mt-lg">
-                        <p class="text-lg font-semibold text-primary">
-                            If you answered no to both → Standard Assessment is perfect for you
-                        </p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Choose Your Area Section -->
-        <section class="section" id="areas">
+        <section class="section" id="areas" aria-labelledby="areas-title">
             <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Choose Your Area</h2>
+                <header class="section-header">
+                    <h2 class="section-title" id="areas-title">Choose Your Area</h2>
                     <p class="section-subtitle">
                         Get local expertise for your region. Our reports include local market insights, regional care standards, and area-specific recommendations.
                     </p>
-                </div>
+                </header>
                 
                 <div class="grid grid-3">
                     <!-- Birmingham - Available -->
@@ -515,14 +510,14 @@
         </section>
 
         <!-- Why Choose Us Section -->
-        <section class="section">
+        <section class="section" aria-labelledby="why-choose-title">
             <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Why Families Choose RightCareHome</h2>
+                <header class="section-header">
+                    <h2 class="section-title" id="why-choose-title">Why Families Choose RightCareHome</h2>
                     <p class="section-subtitle">
                         Professional assessment with expert human oversight for personalised recommendations.
                     </p>
-                </div>
+                </header>
                 
                 <div class="grid grid-2">
                     <div class="card">
@@ -539,19 +534,19 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="section testimonials">
+        <section class="section testimonials" aria-labelledby="testimonials-title">
             <div class="testimonials-container">
-                <div class="section-header">
-                    <h2 class="section-title">What Families Say About Our Service</h2>
+                <header class="section-header">
+                    <h2 class="section-title" id="testimonials-title">What Families Say About Our Service</h2>
                     <p class="section-subtitle">
                         Real experiences from families who used our care home assessment service.
                     </p>
-                </div>
+                </header>
                 
                 <div class="grid grid-3">
                     <div class="testimonial-card">
                         <div class="testimonial-quote">
-                            The Standard Assessment saved us weeks of stressful searching. Within 48 hours we had 5 excellent options with transparent pricing. My mother is now happily settled in one of their recommendations.
+                            The Professional Assessment saved us weeks of stressful searching. Within 48 hours we had 5 excellent options with transparent pricing. My mother is now happily settled in one of their recommendations.
                         </div>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">S</div>
@@ -592,14 +587,14 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="section">
+        <section class="section" aria-labelledby="faq-title">
             <div class="faq-container">
-                <div class="section-header">
-                    <h2 class="section-title">Frequently Asked Questions</h2>
+                <header class="section-header">
+                    <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
                     <p class="section-subtitle">
                         Common questions about our care home selection service
                     </p>
-                </div>
+                </header>
                 
                 <details class="card">
                     <summary>
@@ -616,14 +611,37 @@
                 <details class="card">
                     <summary>
                         <span class="faq-button">
-                            <span>What is the difference between Standard and Premium?</span>
+                            <span>What is the difference between Professional and Premium?</span>
                             <span class="faq-icon">+</span>
                         </span>
                     </summary>
                     <!-- UPDATED: Content to reflect the new tariffs' differences (Removed Markdown) -->
                     <div class="faq-content">
-                        <p>The Standard Assessment (£99) is a complete, professional solution recommended for most families. It provides 5 matched homes, CQC analysis, and transparent pricing in 48 hours.</p>
-                        <p>The Premium Intelligence (£249) is for complex or urgent situations. It includes 8 matched homes, uses comprehensive analysis (Standard uses essential factors), features daily data updates, and provides 7 days of active monitoring and priority telephone support for maximum confidence.</p>
+                        <p><strong>Professional Assessment (£119)</strong> provides complete professional analysis for most families:</p>
+                        <ul class="mb-md">
+                            <li>17-question personalised matching</li>
+                            <li>5 carefully matched homes</li>
+                            <li>40+ evaluation criteria</li>
+                            <li>Complete CQC safety analysis</li>
+                            <li>Cost calculator (1-5 years)</li>
+                            <li>48-hour delivery</li>
+                            <li>Email support</li>
+                        </ul>
+                        
+                        <p><strong>Premium Intelligence (£299)</strong> adds deep-dive analysis for complex situations:</p>
+                        <ul>
+                            <li>38-question deep-dive (2.2x deeper personalization)</li>
+                            <li>8 matched homes (60% more choice)</li>
+                            <li>156 detailed criteria (3.9x more comprehensive)</li>
+                            <li>Daily data updates from 6 sources</li>
+                            <li>Staff stability monitoring (LinkedIn + job boards)</li>
+                            <li>Financial security analysis (Companies House)</li>
+                            <li>7-day active monitoring with real-time alerts</li>
+                            <li>24-hour delivery (2x faster)</li>
+                            <li>Priority email support (24h response)</li>
+                        </ul>
+                        
+                        <p class="mt-md"><strong>Choose Premium if:</strong> Urgent placement (< 2 weeks), complex medical needs, or want maximum confidence before major investment.</p>
                     </div>
                 </details>
 
@@ -642,7 +660,7 @@
                 <details class="card">
                     <summary>
                         <span class="faq-button">
-                            <span>What's included in the Standard Assessment report?</span>
+                            <span>What's included in the Professional Assessment report?</span>
                             <span class="faq-icon">+</span>
                         </span>
                     </summary>
@@ -688,7 +706,7 @@
                         </span>
                     </summary>
                     <div class="faq-content">
-                        <p>Yes. When you request a Standard or Premium report, you can prioritise factors most important to you (e.g., dementia care expertise, language support, or budget constraints). Our Smart Algorithms adapt to those preferences.</p>
+                        <p>Yes. When you request a Professional or Premium report, you can prioritise factors most important to you (e.g., dementia care expertise, language support, or budget constraints). Our Smart Algorithms adapt to those preferences.</p>
                     </div>
                 </details>
 
@@ -745,7 +763,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -756,34 +774,34 @@
                     <p class="footer-description">UK's leading care home selection service trusted by NHS teams and families across England.</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Services</h4>
+                <section class="footer-section" aria-labelledby="footer-services">
+                    <h4 id="footer-services">Services</h4>
                     <ul class="footer-links">
                         <li><a href="#pricing-plans">Expert Reports</a></li>
                         <!-- UPDATED: Service names in footer -->
-                        <li><a href="/questionnaire/">Standard Assessment (£99)</a></li>
-                        <li><a href="/premium-questionnaire/">Premium Intelligence (£249)</a></li>
+                        <li><a href="/questionnaire/">Professional Assessment (£119)</a></li>
+                        <li><a href="/premium-questionnaire/">Premium Intelligence (£299)</a></li>
                         <li><a href="#guide-form">Free Care Home Guide</a></li>
                     </ul>
-                </div>
+                </section>
                 
-                <div class="footer-section">
-                    <h4>Available Areas</h4>
+                <section class="footer-section" aria-labelledby="footer-areas">
+                    <h4 id="footer-areas">Available Areas</h4>
                     <ul class="footer-links">
                         <li><a href="/regions/birmingham/">Birmingham Care Homes</a></li>
                         <li class="text-tertiary">Manchester (Coming Soon)</li>
                         <li class="text-tertiary">London (Coming Soon)</li>
                         <li class="text-tertiary">More cities launching soon</li>
                     </ul>
-                </div>
+                </section>
                 
-                <div class="footer-section" id="contact">
-                    <h4>Contact</h4>
+                <section class="footer-section" id="contact" aria-labelledby="footer-contact">
+                    <h4 id="footer-contact">Contact</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:hello@rightcarehome.co.uk">hello@rightcarehome.co.uk</a></li>
                         <li>Independent care home service</li>
                     </ul>
-                </div>
+                </section>
             </div>
             
             <div class="footer-bottom">
