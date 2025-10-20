@@ -21,13 +21,9 @@
 </head>
 
 <body>
-    <!-- PDF Download Button -->
-    <button onclick="downloadPDF()" class="pdf-download-btn no-print">
-        <span>Download PDF Report</span>
-    </button>
 
     <!-- Header - SIMPLIFIED -->
-    <header class="report-header text-inverse p-xl">
+    <header class="report-header text-inverse p-xl" role="banner">
         <div class="section-container">
             <div class="flex justify-between items-start mb-lg">
                 <div>
@@ -46,9 +42,21 @@
             
             <div class="card p-xl mt-lg">
                 <h2 class="text-3xl font-bold mb-md">Personal Care Home Placement Report for the Thompson Family</h2>
-                <p class="text-lg">Expert recommendations for Margaret Thompson (78 years) requiring Type 2 diabetes management, 
+                <p class="text-lg">Professional matching analysis for Margaret Thompson (78 years) requiring Type 2 diabetes management, 
                 mobility assistance and mild cognitive impairment support in Edgbaston area</p>
                 
+                <!-- Value Proposition Enhancement -->
+                <div class="alert alert-info mt-lg">
+                    <h3 class="text-xl font-semibold mb-sm">What This Report Provides</h3>
+                    <p class="text-base mb-sm">This professional assessment goes beyond basic proximity matching to deliver:</p>
+                    <ul class="text-base">
+                        <li><strong>Deep suitability analysis:</strong> Medical capability matching, safety protocols, and care quality assessment</li>
+                        <li><strong>Transparent cost breakdown:</strong> Complete financial picture with all known costs and additional services</li>
+                        <li><strong>Personalized recommendations:</strong> Based on your specific requirements, not generic listings</li>
+                    </ul>
+                </div>
+                
+                <!-- Compact statistics -->
                 <div class="grid grid-3 gap-md mt-xl">
                     <div class="text-center">
                         <div class="text-3xl font-bold">277</div>
@@ -67,49 +75,58 @@
         </div>
     </header>
 
-    <!-- Breadcrumbs Navigation -->
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Breadcrumbs Navigation -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
         <ol>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../questionnaire/index.html">Assessment</a></li>
             <li><a href="../report/free_report.html">Free Report</a></li>
-            <li><span class="current">Standard Report</span></li>
+            <li><span class="current">Professional Report</span></li>
         </ol>
     </nav>
 
     <!-- Executive Summary - SIMPLIFIED -->
-    <section class="section">
+    <section class="section" aria-labelledby="executive-summary-title">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Executive Summary</h2>
+            <header class="section-header">
+                <h2 class="section-title" id="executive-summary-title">Executive Summary</h2>
                 <p class="section-subtitle">
                     Finding the right care home among hundreds of options is overwhelming. 
                     This report provides verified matches based on Margaret's specific needs.
                 </p>
             </div>
             
-            <div class="grid grid-3 gap-lg mb-xl">
-                <div class="standard-card text-center">
-                    <div class="text-5xl mb-lg">⚡</div>
-                    <h3 class="text-3xl font-bold text-primary mb-sm">48 Hours</h3>
-                    <p class="text-secondary text-xl">From enquiry to comprehensive analysis</p>
-                </div>
+            <!-- Personalization Depth Section -->
+            <div class="card card-elevated p-xl mb-lg">
+                <h3 class="text-2xl font-bold mb-md text-center">Personalized Matching Analysis</h3>
+                <p class="text-lg text-center text-secondary mb-lg">
+                    This isn't a generic listing - it's a professional assessment tailored specifically to Margaret's requirements
+                </p>
                 
-                <div class="standard-card text-center">
-                    <div class="text-5xl mb-lg">🎯</div>
-                    <h3 class="text-3xl font-bold text-success mb-sm">5 Precise</h3>
-                    <p class="text-secondary text-xl">Recommendations instead of hundreds</p>
-                </div>
-                
-                <div class="standard-card text-center">
-                    <div class="text-5xl mb-lg">✓</div>
-                    <h3 class="text-3xl font-bold text-accent mb-sm">100% Independent</h3>
-                    <p class="text-secondary text-xl">No care home commissions or partnerships</p>
+                <!-- Compact analysis features -->
+                <div class="grid grid-3 gap-lg">
+                    <div class="text-center">
+                        <div class="feature-icon mb-sm"></div>
+                        <h4 class="font-bold text-lg mb-sm">Precision Matching</h4>
+                        <p class="text-sm text-secondary">Each recommendation is scored against Margaret's specific medical needs, mobility requirements, and location preferences</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="feature-icon mb-sm"></div>
+                        <h4 class="font-bold text-lg mb-sm">Deep Analysis</h4>
+                        <p class="text-sm text-secondary">Beyond basic proximity - we analyze care quality, safety records, staff stability, and financial health</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="feature-icon mb-sm"></div>
+                        <h4 class="font-bold text-lg mb-sm">Expert Insights</h4>
+                        <p class="text-sm text-secondary">Professional assessment that reveals what generic listings miss - care quality gaps, suitability factors, and time-saving insights</p>
+                    </div>
                 </div>
             </div>
             
             <div class="summary-box mb-xl">
-                <h3 class="text-3xl font-bold mb-lg">🎯 Our Primary Recommendation</h3>
+                <h3 class="text-3xl font-bold mb-lg">Our Primary Recommendation</h3>
                 <p class="text-xl">
                     <strong>Manor House Care Home</strong> emerges as our primary recommendation through algorithmic analysis 
                     of regulatory data and medical capabilities. CQC-confirmed nursing care capabilities align with diabetes management 
@@ -119,14 +136,128 @@
         </div>
     </section>
 
+    <!-- Decision Dashboard -->
+    <section class="section bg-primary-soft" aria-labelledby="decision-dashboard-title">
+        <div class="section-container">
+            <header class="section-header">
+                <h2 class="section-title" id="decision-dashboard-title">Your Decision in 3 Minutes</h2>
+                <p class="section-subtitle">Everything you need to make a confident choice — read this first, explore details later</p>
+            </div>
+            
+            <div class="card card-elevated p-2xl mb-xl">
+                <h3 class="text-3xl font-bold mb-lg text-center">If You Read Nothing Else, Read This:</h3>
+                
+                <!-- Quick Recommendation - Simplified for 55+ -->
+                <div class="alert alert-success p-xl">
+                    <h4 class="text-2xl font-bold mb-md">Our #1 Recommendation: Manor House</h4>
+                    <p class="text-xl mb-md"><strong>Why:</strong> Only home that combines diabetes nursing expertise + on-site physiotherapy + Russian-speaking staff possibility</p>
+                    
+                    <div class="simple-recommendation">
+                        <div class="simple-recommendation-item perfect-fit">
+                            <p class="font-bold">✅ Perfect Fit:</p>
+                            <ul class="text-base">
+                                <li>CQC-confirmed diabetes protocols</li>
+                                <li>Daily physiotherapy available</li>
+                                <li>20min from your home</li>
+                            </ul>
+                        </div>
+                        <div class="simple-recommendation-item must-verify">
+                            <p class="font-bold text-warning">Must Verify:</p>
+                            <ul class="text-base">
+                                <li>Russian speaker on day shifts</li>
+                                <li>Current bed availability</li>
+                                <li>Glucose monitoring 4x/day</li>
+                            </ul>
+                        </div>
+                    </div>
+                                
+                                <div class="flex gap-md">
+                                    <a href="tel:+441214567890" class="btn btn-accent btn-large">
+                                        📞 Call Manor House Now
+                                    </a>
+                                    <a href="#manor-house-detail" class="btn btn-secondary btn-large">
+                                        Read Full Analysis
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Why Not #2 and #3 -->
+                    <div class="grid grid-2 gap-lg">
+                        <div class="card p-lg border-2 border-warning">
+                            <h4 class="text-xl font-bold mb-sm">Why Not #2 (Digby Manor)?</h4>
+                            <p class="text-base mb-md">£150/week cheaper BUT:</p>
+                            <ul class="text-sm">
+                                <li>No on-site physiotherapy</li>
+                                <li>Recent staff turnover (3 nurses left)</li>
+                                <li>6km further = harder family visits</li>
+                            </ul>
+                            <p class="text-sm text-success mt-md"><strong>Consider if:</strong> Budget is primary concern + willing to arrange external physio</p>
+                        </div>
+                        
+                        <div class="card p-lg border-2 border-secondary">
+                            <h4 class="text-xl font-bold mb-sm">Why Not #3 (Bishops Manor)?</h4>
+                            <p class="text-base mb-md">Closer to home BUT:</p>
+                            <ul class="text-sm">
+                                <li>Generic diabetes care (not specialist)</li>
+                                <li>Physiotherapy 1x/week only</li>
+                                <li>No Russian speakers confirmed</li>
+                            </ul>
+                            <p class="text-sm text-success mt-md"><strong>Consider if:</strong> Daily family visits are essential + diabetes is well-controlled</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Steps Timeline -->
+                    <div class="alert alert-info">
+                        <h4 class="text-xl font-bold mb-md">Your 48-Hour Action Plan:</h4>
+                        <div class="grid grid-3 gap-lg">
+                            <div>
+                                <p class="font-bold text-primary">TODAY:</p>
+                                <ul class="text-sm">
+                                    <li>☐ Call Manor House (0121 456 7890)</li>
+                                    <li>☐ Ask 5 critical questions (see page 12)</li>
+                                    <li>☐ Book visit for this week</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-bold text-success">THIS WEEK:</p>
+                                <ul class="text-sm">
+                                    <li>☐ Visit Manor House (2-3 hours)</li>
+                                    <li>☐ Visit Digby Manor (backup option)</li>
+                                    <li>☐ Use our checklist (page 15)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-bold text-accent">NEXT WEEK:</p>
+                                <ul class="text-sm">
+                                    <li>☐ Compare visit notes</li>
+                                    <li>☐ Make decision</li>
+                                    <li>☐ Reserve bed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-lg text-secondary mb-md">
+                    Scroll down for complete analysis, safety checks, cost breakdowns, and verification checklists
+                </p>
+                <a href="#top-5-recommendations" class="btn btn-secondary btn-large">
+                    View All 5 Homes Comparison
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Data Sources (Collapsible) - MOVED TO END -->
     <section class="section bg-soft">
         <div class="section-container">
-            <details class="card">
-                <summary class="cursor-pointer text-xl font-bold flex items-center justify-between p-lg">
-                    <span>📋 About Our Data Sources (Optional Reading)</span>
-                    <span class="text-tertiary text-lg">Click to expand ▼</span>
-                </summary>
+            <!-- Simplified data sources section for 55+ -->
+            <div class="card">
+                <h3 class="text-xl font-bold p-lg">📋 About Our Data Sources</h3>
                 
                 <div class="mt-lg pt-lg">
                     <div class="grid grid-3 gap-lg mb-lg">
@@ -152,7 +283,7 @@
                         
                         <div class="card-subtle p-md">
                             <div class="flex items-center mb-sm">
-                                <span class="text-3xl mr-sm">📊</span>
+                                <span class="feature-icon mr-sm"></span>
                                 <h4 class="font-bold text-lg">Financial Analysis</h4>
                             </div>
                             <p class="mb-sm">Companies House records, financial stability</p>
@@ -169,15 +300,15 @@
                         </p>
                     </div>
                 </div>
-            </details>
+            </div>
         </div>
     </section>
 
     <!-- Expert Analysis -->
-    <section class="section">
+    <section class="section" aria-labelledby="expert-analysis-title">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">📊 Expert Data Analysis</h2>
+            <header class="section-header">
+                <h2 class="section-title" id="expert-analysis-title">Expert Data Analysis</h2>
                 <p class="section-subtitle">Professional assessment beyond basic care home listings</p>
             </div>
             
@@ -272,7 +403,7 @@
             <!-- Placement Success Prediction -->
             <div class="ranking-card p-xl mb-lg">
                 <h3 class="text-2xl font-bold mb-lg flex items-center">
-                    <span class="mr-sm text-3xl">📈</span>
+                    <span class="mr-sm feature-icon"></span>
                     <span>Placement Success Prediction: 84%</span>
                 </h3>
                 
@@ -350,10 +481,10 @@
     </section>
 
     <!-- Top 5 Recommendations -->
-    <section class="section bg-soft">
+    <section class="section bg-soft" aria-labelledby="recommendations-title">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Top 5 Care Home Recommendations</h2>
+            <header class="section-header">
+                <h2 class="section-title" id="recommendations-title">Top 5 Care Home Recommendations</h2>
                 <p class="section-subtitle">Five care homes algorithmically matched to Margaret's needs</p>
             </div>
             
@@ -382,7 +513,7 @@
                     </div>
                 </div>
                 
-                <!-- Standard Scores -->
+                <!-- Professional Scores -->
                 <div class="grid grid-3 gap-lg mb-lg">
                     <div>
                         <h4 class="font-bold text-success mb-sm text-lg">Medical Capability (40%)</h4>
@@ -409,7 +540,7 @@
                 
                 <!-- Key Strengths -->
                 <div class="alert alert-info mb-lg">
-                    <h4 class="font-bold mb-md text-xl">🎯 Why Manor House Aligns with Margaret's Needs:</h4>
+                    <h4 class="font-bold mb-md text-xl">Why Manor House Aligns with Margaret's Needs:</h4>
                     <ul class="space-y-md">
                         <li class="flex items-start gap-sm">
                             <span class="text-success text-2xl">✓</span>
@@ -459,7 +590,7 @@
                 
                 <!-- Questions for Visit -->
                 <div class="alert alert-warning">
-                    <h4 class="font-bold mb-md text-xl">🔍 Essential Questions for Your Visit</h4>
+                    <h4 class="font-bold mb-md text-xl">Essential Questions for Your Visit</h4>
                     <div class="grid grid-2 gap-lg">
                         <ul class="space-y-sm">
                             <li>'What are your specific diabetes monitoring protocols?'</li>
@@ -471,6 +602,26 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <!-- DECISION CLARITY BLOCK: Explains trade-offs between #1 and #2 -->
+            <div class="alert alert-info mt-xl p-xl" id="decision-clarity-block">
+                <h4 class="text-xl font-bold mb-md">🤔 "Should I consider Digby Manor (#2) to save £150/week?"</h4>
+                
+                <p class="text-lg mb-sm">
+                    <strong>Short answer: Only if budget is critical.</strong>
+                </p>
+                
+                <p class="text-base mb-md">
+                    Digby Manor saves £7,800/year but has no on-site physiotherapy (you'd need to arrange external sessions at ~£80/week) 
+                    and our monitoring detected recent staff turnover (3 nurses left in 14 days). 
+                    For Margaret's mobility needs, Manor House's daily physio justifies the extra cost.
+                </p>
+                
+                <p class="text-base">
+                    <strong>When to choose Digby instead:</strong> If you can commit to arranging private physio 2x/week 
+                    and verify staff stability during your visit.
+                </p>
             </div>
 
             <!-- Other recommendations -->
@@ -892,15 +1043,15 @@
                             <h3 class="text-2xl font-bold mb-lg">Cost Scenarios</h3>
                             <div class="space-y-md mb-lg">
                                 <button class="scenario-btn" data-scenario="optimistic">
-                                    📈 Conservative<br>
+                                    Conservative<br>
                                     <span class="text-tertiary">3% annual inflation</span>
                                 </button>
                                 <button class="scenario-btn active" data-scenario="realistic">
-                                    📊 Realistic<br>
+                                    Realistic<br>
                                     <span class="text-tertiary">5% annual inflation</span>
                                 </button>
                                 <button class="scenario-btn" data-scenario="pessimistic">
-                                    📉 Cautious<br>
+                                    Cautious<br>
                                     <span class="text-tertiary">7% annual inflation</span>
                                 </button>
                             </div>
@@ -1088,10 +1239,10 @@
                         <div>
                             <h4 class="font-bold mb-md text-lg">Visit Structure (2–3 hours each):</h4>
                             <ul class="space-y-sm">
-                                <li class="action-item">🥼 Meet with nursing team</li>
-                                <li class="action-item">🏠 Tour facilities and rooms</li>
-                                <li class="action-item">🍽 Observe meal time</li>
-                                <li class="action-item">📋 Review care plans</li>
+                                <li class="action-item">Meet with nursing team</li>
+                                <li class="action-item">Tour facilities and rooms</li>
+                                <li class="action-item">Observe meal time</li>
+                                <li class="action-item">Review care plans</li>
                             </ul>
                         </div>
                         <div>
@@ -1199,9 +1350,121 @@ Kind regards,
                     
                     <div class="mt-lg alert alert-info">
                         <p>
-                            <strong>💡 Tip:</strong> Send emails early in the week (Mon–Wed) before 2pm for fastest response rates. 
+                            <strong>Tip:</strong> Send emails early in the week (Mon–Wed) before 2pm for fastest response rates. 
                             Care home managers typically have more availability in mornings.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Upsell Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="card card-elevated p-xl">
+                <h2 class="text-3xl font-bold mb-lg text-center">
+                    Would Premium Intelligence Add Value for Your Situation?
+                </h2>
+                
+                <div class="alert alert-info mb-xl">
+                    <p class="text-center text-lg">
+                        Your Professional Assessment analysed 5 homes across 40 criteria.<br>
+                        Most families (85%) find this sufficient for confident decision-making.
+                    </p>
+                </div>
+                
+                <h3 class="text-2xl font-semibold mb-lg">Consider Premium if:</h3>
+                
+                <div class="grid grid-2 gap-lg mb-xl">
+                    <div class="card p-lg border-2 border-warning">
+                        <h4 class="text-xl font-semibold mb-md flex items-center">
+                            <span class="text-3xl mr-sm">🔍</span>
+                            Discovered Complexities After Visits
+                        </h4>
+                        <p class="text-sm text-secondary mb-sm">You visited recommended homes and found:</p>
+                        <ul class="space-y-xs text-sm list-none">
+                            <li>Uncertainty about specific medical protocols</li>
+                            <li>Concerns about staff stability</li>
+                            <li>Multiple homes seem suitable, difficult to choose</li>
+                        </ul>
+                        <div class="mt-md p-sm bg-accent-soft rounded">
+                            <p class="text-sm"><strong>Premium provides:</strong> 156 criteria deep-dive + staff stability monitoring + 7-day additional monitoring period for final decision confidence</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-lg border-2 border-info">
+                        <h4 class="text-xl font-semibold mb-md flex items-center">
+                            <span class="text-3xl mr-sm">🎯</span>
+                            Very Specific Requirements
+                        </h4>
+                        <p class="text-sm text-secondary mb-sm">Professional showed matches, but you need greater confidence:</p>
+                        <ul class="space-y-xs text-sm list-none">
+                            <li>Complex condition combinations (dementia + diabetes + mobility)</li>
+                            <li>Cultural requirements (specific language + dietary + religious)</li>
+                            <li>Previous negative experience (know red flags, need deep verification)</li>
+                        </ul>
+                        <div class="mt-md p-sm bg-accent-soft rounded">
+                            <p class="text-sm"><strong>Premium provides:</strong> 8 homes (vs 5) + 156 detailed criteria (vs 40) + 38 personalisation questions (vs 12)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-lg border-2 border-error">
+                        <h4 class="text-xl font-semibold mb-md flex items-center">
+                            <span class="text-3xl mr-sm">⚡</span>
+                            Timeline Pressure Increased
+                        </h4>
+                        <p class="text-sm text-secondary mb-sm">Situation changed and placement now more urgent:</p>
+                        <ul class="space-y-xs text-sm list-none">
+                            <li>Hospital discharge accelerated</li>
+                            <li>Current care situation became unsustainable</li>
+                            <li>Found good home but beds fill quickly</li>
+                        </ul>
+                        <div class="mt-md p-sm bg-accent-soft rounded">
+                            <p class="text-sm"><strong>Premium provides:</strong> 7-day real-time monitoring + alerts on availability changes + priority email support (24h)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-lg border-2 border-success">
+                        <h4 class="text-xl font-semibold mb-md flex items-center">
+                            <span class="text-3xl mr-sm">💰</span>
+                            High Investment Protection
+                        </h4>
+                        <p class="text-sm text-secondary mb-sm">Considering the financial commitment:</p>
+                        <ul class="space-y-xs text-sm list-none">
+                            <li>Budget £5,000+/month (£156,000+ over 2.5 years)</li>
+                            <li>Self-funding care (not council-supported)</li>
+                            <li>Want maximum assurance before commitment</li>
+                        </ul>
+                        <div class="mt-md p-sm bg-accent-soft rounded">
+                            <p class="text-sm"><strong>Premium cost:</strong> £249 = 0.16% of £156,000 investment. Peace of mind through deepest available analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-success mb-lg">
+                    <h3 class="font-semibold mb-md text-lg">💡 Honest Recommendation:</h3>
+                    <p class="mb-sm">Professional Assessment is sufficient for 85% of situations.</p>
+                    <p>Premium Intelligence is valuable only if you genuinely need:</p>
+                    <ul class="list-disc list-inside space-y-xs text-sm mt-sm">
+                        <li>Protocol-level medical analysis (not just "diabetes care available")</li>
+                        <li>Real-time monitoring for urgent placement (less than 2 weeks)</li>
+                        <li>Maximum depth analysis for complex multi-factor matching</li>
+                    </ul>
+                </div>
+                
+                <div class="text-center">
+                    <div class="mb-md">
+                        <span class="text-3xl font-bold text-accent">Premium Upgrade: £150</span>
+                        <p class="text-sm text-secondary">(£249 full price - £99 already paid)</p>
+                    </div>
+                    <div class="flex gap-md justify-center">
+                        <a href="/premium-questionnaire/" class="btn btn-accent btn-large">
+                            Learn More About Premium
+                        </a>
+                        <button class="btn btn-secondary btn-large" onclick="this.closest('section').style.display='none'">
+                            Continue with Professional
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1212,21 +1475,21 @@ Kind regards,
     <section class="section bg-soft">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">How Our Professional Analysis Works</h2>
+                <h2 class="section-title">How Our Professional Matching Works</h2>
                 <p class="section-subtitle">
-                    Our expert algorithm matches your specific needs with the most suitable care homes using proven assessment criteria
+                    Our algorithm uses 40+ criteria to match your specific needs with the most suitable care homes
                 </p>
             </div>
             
             <div class="analysis-methodology">
                 <div class="methodology-grid">
                     <div class="methodology-card">
-                        <h3 class="text-xl font-bold mb-md">7 Key Assessment Criteria</h3>
+                        <h3 class="text-xl font-bold mb-md">Matching Criteria Breakdown</h3>
                         <div class="criteria-visualization">
                             <div class="criterion-row">
                                 <div class="criterion-info">
                                     <span class="criterion-icon">🏥</span>
-                                    <span class="criterion-name">Medical Match</span>
+                                    <span class="criterion-name">Medical Capability Match</span>
                                 </div>
                                 <div class="criterion-weight">35%</div>
                                 <div class="criterion-bar">
@@ -1236,7 +1499,7 @@ Kind regards,
                             <div class="criterion-row">
                                 <div class="criterion-info">
                                     <span class="criterion-icon">🛡️</span>
-                                    <span class="criterion-name">Safety Score</span>
+                                    <span class="criterion-name">CQC Safety Score</span>
                                 </div>
                                 <div class="criterion-weight">25%</div>
                                 <div class="criterion-bar">
@@ -1245,84 +1508,118 @@ Kind regards,
                             </div>
                             <div class="criterion-row">
                                 <div class="criterion-info">
-                                    <span class="criterion-icon">💰</span>
-                                    <span class="criterion-name">Budget Fit</span>
-                                </div>
-                                <div class="criterion-weight">15%</div>
-                                <div class="criterion-bar">
-                                    <div class="criterion-fill budget" style="width: 15%"></div>
-                                </div>
-                            </div>
-                            <div class="criterion-row">
-                                <div class="criterion-info">
                                     <span class="criterion-icon">📍</span>
-                                    <span class="criterion-name">Location Score</span>
+                                    <span class="criterion-name">Location & Accessibility</span>
                                 </div>
-                                <div class="criterion-weight">13%</div>
+                                <div class="criterion-weight">20%</div>
                                 <div class="criterion-bar">
-                                    <div class="criterion-fill location" style="width: 13%"></div>
+                                    <div class="criterion-fill location" style="width: 20%"></div>
                                 </div>
                             </div>
                             <div class="criterion-row">
                                 <div class="criterion-info">
                                     <span class="criterion-icon">⭐</span>
-                                    <span class="criterion-name">Quality Rating</span>
+                                    <span class="criterion-name">Quality & Reputation</span>
                                 </div>
-                                <div class="criterion-weight">7%</div>
+                                <div class="criterion-weight">8%</div>
                                 <div class="criterion-bar">
-                                    <div class="criterion-fill quality" style="width: 7%"></div>
+                                    <div class="criterion-fill quality" style="width: 8%"></div>
                                 </div>
                             </div>
                             <div class="criterion-row">
                                 <div class="criterion-info">
                                     <span class="criterion-icon">🌍</span>
-                                    <span class="criterion-name">Cultural Match</span>
+                                    <span class="criterion-name">Cultural & Personal Fit</span>
                                 </div>
-                                <div class="criterion-weight">5%</div>
+                                <div class="criterion-weight">12%</div>
                                 <div class="criterion-bar">
-                                    <div class="criterion-fill cultural" style="width: 5%"></div>
-                                </div>
-                            </div>
-                            <div class="criterion-row">
-                                <div class="criterion-info">
-                                    <span class="criterion-icon">✅</span>
-                                    <span class="criterion-name">Availability</span>
-                                </div>
-                                <div class="criterion-weight">5%</div>
-                                <div class="criterion-bar">
-                                    <div class="criterion-fill availability" style="width: 5%"></div>
+                                    <div class="criterion-fill cultural" style="width: 12%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="methodology-card">
-                        <h3 class="text-xl font-bold mb-md">Analysis Process</h3>
-                        <div class="process-steps">
-                            <div class="process-step completed">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4 class="step-title">Data Collection</h4>
-                                    <p class="step-desc">Gathering information from CQC, local authorities, and care home databases</p>
-                                </div>
+                        <h3 class="text-xl font-bold mb-md">Professional vs Premium Analysis</h3>
+                        <div class="space-y-md">
+                            <div class="p-md bg-primary-soft rounded">
+                                <h4 class="font-semibold mb-sm text-primary">Professional Assessment (40+ criteria):</h4>
+                                <ul class="space-y-xs text-sm">
+                                    <li>✓ Essential medical capability matching</li>
+                                    <li>✓ Complete CQC safety analysis</li>
+                                    <li>✓ Location and accessibility scoring</li>
+                                    <li>✓ Basic cultural preference matching</li>
+                                    <li>✓ 12 personalisation questions</li>
+                                </ul>
                             </div>
-                            <div class="process-step completed">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4 class="step-title">Smart Matching</h4>
-                                    <p class="step-desc">Professional algorithm analyzes your needs against 277 care homes</p>
-                                </div>
-                            </div>
-                            <div class="process-step active">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4 class="step-title">Report Generation</h4>
-                                    <p class="step-desc">Creating personalized recommendations with detailed analysis</p>
-                                </div>
+                            
+                            <div class="p-md bg-accent-soft rounded">
+                                <h4 class="font-semibold mb-sm text-accent">Premium Intelligence (156 criteria):</h4>
+                                <ul class="space-y-xs text-sm">
+                                    <li>✓ Protocol-level medical verification</li>
+                                    <li>✓ CQC history + incident pattern analysis</li>
+                                    <li>✓ Staff stability tracking</li>
+                                    <li>✓ Financial security assessment</li>
+                                    <li>✓ Deep cultural & lifestyle matching</li>
+                                    <li>✓ 38 deep-dive personalisation questions</li>
+                                    <li>✓ 7-day ongoing monitoring</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="alert alert-info mt-xl">
+                <h3 class="font-semibold mb-md">Why Professional Matching Matters:</h3>
+                <p class="mb-sm">Proximity-based selection (like free reports) finds homes near you.</p>
+                <p class="mb-sm">Professional matching finds homes that actually suit your loved one's needs, personality, and medical requirements.</p>
+                <p><strong>Result:</strong> Higher likelihood of successful, long-term placement without need for relocation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honest Value Communication -->
+    <section class="section bg-subtle">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title text-center">What This Report Actually Delivers</h2>
+                <p class="section-subtitle text-center">
+                    Honest communication about our professional matching capabilities
+                </p>
+            </div>
+            
+            <div class="grid grid-2 gap-xl">
+                <div class="card p-xl">
+                    <h3 class="text-xl font-bold mb-md text-primary">✅ What We Do Well</h3>
+                    <ul class="text-base">
+                        <li class="mb-sm"><strong>Professional matching:</strong> Algorithm-driven analysis of 40+ suitability factors</li>
+                        <li class="mb-sm"><strong>Safety assessment:</strong> CQC analysis, incident history, and care quality evaluation</li>
+                        <li class="mb-sm"><strong>Financial transparency:</strong> Complete cost breakdown with all known charges</li>
+                        <li class="mb-sm"><strong>Personalized recommendations:</strong> Based on specific medical and care requirements</li>
+                        <li class="mb-sm"><strong>Independent analysis:</strong> No care home commissions or hidden agendas</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-xl">
+                    <h3 class="text-xl font-bold mb-md text-secondary">⚠️ What We Don't Promise</h3>
+                    <ul class="text-base">
+                        <li class="mb-sm"><strong>Perfect cost prediction:</strong> We provide known costs, but can't predict every future charge</li>
+                        <li class="mb-sm"><strong>Guaranteed availability:</strong> We provide current data, but spaces change daily</li>
+                        <li class="mb-sm"><strong>Perfect matches:</strong> We find the best available options, not perfect solutions</li>
+                        <li class="mb-sm"><strong>Real-time updates:</strong> Our data is current as of report date, not live</li>
+                        <li class="mb-sm"><strong>Care home relationships:</strong> We're independent - no special access or insider deals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-xl">
+                <h4 class="text-lg font-bold mb-sm">Our Value Proposition</h4>
+                <p class="text-base">
+                    <strong>We provide professional matching depth and personalization that generic listings cannot offer.</strong> 
+                    Our value lies in algorithmic analysis, safety assessment, and time-saving professional matching - 
+                    not in predicting every future cost or guaranteeing perfect outcomes.
+                </p>
             </div>
         </div>
     </section>
@@ -1410,7 +1707,22 @@ Kind regards,
             results.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
+
+    // Scroll to section function for Decision Dashboard
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            // If section doesn't exist, scroll to top of recommendations
+            const recommendations = document.querySelector('[id*="recommendation"], [id*="home"], .ranking-card');
+            if (recommendations) {
+                recommendations.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
     </script>
     <script src="../assets/js/basic-report.js"></script>
+    </main>
 </body>
 </html>

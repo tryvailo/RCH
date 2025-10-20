@@ -15,7 +15,7 @@
 
 <body class="bg-warm">
     <!-- Header - OPTIMIZED -->
-    <header class="report-header-free text-inverse py-lg">
+    <header class="report-header-free text-inverse py-lg" role="banner">
         <div class="container">
             <div class="flex justify-between items-center mb-md">
                 <div>
@@ -29,22 +29,15 @@
         </div>
     </header>
 
-    <!-- Value Proposition -->
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Value Proposition -->
     <section class="section bg-subtle border-top-primary">
         <div class="container-narrow text-center">
-            <p class="text-lg text-primary mb-md">
-                This free shortlist identifies the 3 care homes closest to postcode <strong>B15 2TT</strong>, 
-                showing current CQC ratings and inspection highlights.
-            </p>
             <p class="text-base text-secondary mb-lg">
-                Your free report shows location - our assessments add the safety and suitability analysis you need for confident decision-making.
+                3 care homes near <strong>B15 2TT</strong> with current CQC ratings. 
+                <strong>Availability changes weekly</strong> - these had spaces as of today.
             </p>
-            <div class="alert alert-info mb-lg">
-                <p class="text-base">
-                    <strong>Care home availability in Birmingham changes weekly.</strong> These 3 homes had spaces as of today. 
-                    Assessment reports include current availability status verified within 48 hours.
-                </p>
-            </div>
             <a href="/questionnaire/" class="btn btn-primary btn-large">
                 View Comprehensive Assessment
             </a>
@@ -129,9 +122,9 @@
     </section>
 
     <!-- Top 3 Care Homes -->
-    <section class="section">
+    <section class="section" aria-labelledby="care-homes-title">
         <div class="container">
-            <h2 class="section-title text-center mb-xl">Your 3 Closest Care Homes</h2>
+            <h2 class="section-title text-center mb-xl" id="care-homes-title">Your 3 Closest Care Homes</h2>
             
             <!-- Care Home 1 - OPTIMIZED CQC -->
             <div class="ranking-card top-recommendation mb-lg fade-in">
@@ -323,18 +316,18 @@
     </section>
 
     <!-- Honest Comparison Table -->
-    <section class="section bg-subtle">
-        <div class="container">
-            <h2 class="section-title text-center mb-xl">Free vs Standard vs Premium: Honest Comparison</h2>
+    <section class="section bg-subtle" aria-labelledby="comparison-title">
+        <div class="section-container">
+            <h2 class="section-title text-center mb-md" id="comparison-title">Free vs Professional vs Premium: Complete Comparison</h2>
             <p class="text-center text-secondary mb-xl">Understanding what each service actually provides</p>
             
             <div class="table-responsive">
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>Criteria</th>
+                            <th>What You Get</th>
                             <th>Free Shortlist</th>
-                            <th>Standard £99</th>
+                            <th>Professional £99</th>
                             <th>Premium £249</th>
                         </tr>
                     </thead>
@@ -346,34 +339,70 @@
                             <td>8 (deep analysis)</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold">Analysis Criteria</td>
-                            <td>12 basic factors</td>
-                            <td>40+ key factors</td>
+                            <td class="font-semibold">Selection Method</td>
+                            <td>Distance from postcode</td>
+                            <td>Professional matching algorithm</td>
+                            <td>Deep personalised matching</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Matching Criteria Used</td>
+                            <td>3 basic (distance, type, CQC)</td>
+                            <td>40+ professional factors</td>
                             <td>156 detailed criteria</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Personalisation Questions</td>
+                            <td>0 questions</td>
+                            <td>12 essential questions</td>
+                            <td>38 deep-dive questions</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Medical Capability Check</td>
+                            <td>Basic (licence type)</td>
+                            <td>Professional (care type matching)</td>
+                            <td>Detailed (protocol verification)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">CQC Analysis</td>
+                            <td>Rating only</td>
+                            <td>Full report analysis</td>
+                            <td>Full report + history patterns</td>
                         </tr>
                         <tr>
                             <td class="font-semibold">Availability Check</td>
                             <td>Static data</td>
-                            <td>48 hours ago</td>
-                            <td>Real-time</td>
+                            <td>Verified 48 hours ago</td>
+                            <td>Real-time + 7-day monitoring</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold">Safety Assessment</td>
-                            <td>CQC ratings only</td>
-                            <td>Comprehensive safety review</td>
-                            <td>Detailed incident history</td>
+                            <td class="font-semibold">Staff Stability Analysis</td>
+                            <td>Not included</td>
+                            <td>Not included</td>
+                            <td>Turnover pattern tracking</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold">Cost Analysis</td>
-                            <td>Listed fees only</td>
-                            <td>Hidden costs revealed</td>
-                            <td>Full financial breakdown</td>
+                            <td class="font-semibold">Financial Security Check</td>
+                            <td>Not included</td>
+                            <td>Not included</td>
+                            <td>Companies House analysis</td>
                         </tr>
                         <tr>
-                            <td class="font-semibold">Medical Suitability</td>
-                            <td>Not assessed</td>
-                            <td>Basic medical matching</td>
-                            <td>Complex medical analysis</td>
+                            <td class="font-semibold">Data Sources</td>
+                            <td>1 (CQC registry)</td>
+                            <td>3 (CQC, NHS, Local Authority)</td>
+                            <td>6 (+ Companies House, hiring data, reviews)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Visit Preparation Guide</td>
+                            <td>Basic checklist (8 questions)</td>
+                            <td>Professional checklist (15 questions)</td>
+                            <td>Comprehensive guide (20+ questions with red flags)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">Post-Report Support</td>
+                            <td>None</td>
+                            <td>Email support</td>
+                            <td>Priority email (24h) + 7-day monitoring</td>
                         </tr>
                         <tr>
                             <td class="font-semibold">Delivery Time</td>
@@ -381,50 +410,108 @@
                             <td>48 hours</td>
                             <td>48 hours</td>
                         </tr>
+                        <tr class="font-semibold bg-soft">
+                            <td>Best For</td>
+                            <td>Initial orientation</td>
+                            <td>85% of families</td>
+                            <td>Complex needs or urgent placement</td>
+                        </tr>
                     </tbody>
                 </table>
+            </div>
+            
+            <div class="text-center mt-xl">
+                <p class="text-xl font-semibold mb-md">
+                    Ready for professional matching?
+                </p>
+                <div class="flex gap-md justify-center">
+                    <a href="/questionnaire/" class="btn btn-primary btn-large">
+                        Professional Assessment (£99)
+                    </a>
+                    <a href="/premium-questionnaire/" class="btn btn-accent btn-large">
+                        Premium Intelligence (£249)
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section - SHORTENED BY 20% -->
-    <section class="section">
+    <!-- Mistakes to Avoid Section -->
+    <section class="section bg-error-soft" aria-labelledby="mistakes-title">
         <div class="container">
-            <h2 class="section-title mb-md text-center">Learning from Others: Why Comprehensive Assessment Matters</h2>
-            <p class="text-lg text-secondary mb-xl text-center container-narrow mx-auto">
-                Distance-based selection sometimes overlooks important considerations. Here are real scenarios from Birmingham families:
+            <h2 class="section-title text-center mb-md" id="mistakes-title">3 Expensive Mistakes to Avoid</h2>
+            <p class="text-lg text-center text-secondary mb-xl container-narrow mx-auto">
+                These mistakes cost Birmingham families £3,000-£10,000 per year. Here's how to avoid them with your free shortlist:
             </p>
             
-            <div class="grid grid-3 gap-lg mb-lg">
-                <div class="card p-md">
-                    <h3 class="text-lg font-semibold mb-sm text-primary">The Johnson Family Story</h3>
-                    <p class="text-secondary mb-sm">
-                        The Johnson family initially chose based on location and CQC ratings. Three weeks later, they discovered additional fees of £180 per week for specialist dementia care that weren't mentioned in the initial pricing. Their comprehensive assessment would have revealed these hidden costs upfront.
-                    </p>
-                    <p class="text-xs text-muted">
-                        Our assessments include complete financial transparency
-                    </p>
+            <div class="grid grid-1 gap-lg">
+                <!-- Mistake #1 -->
+                <div class="card card-elevated p-lg">
+                    <div class="flex gap-lg">
+                        <div class="text-6xl">❌</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-error mb-sm">Mistake #1: Missing Hidden Fees</h3>
+                            <p class="text-lg mb-md">
+                                <strong>Real cost:</strong> £180/week in "extras" not mentioned in advertised price = £9,360/year
+                            </p>
+                            
+                            <div class="alert alert-success">
+                                <p class="font-bold mb-sm">✅ How to avoid with free shortlist:</p>
+                                <p class="mb-sm">During your phone call, ask: <strong>"What's included in the weekly fee?"</strong></p>
+                                <p class="text-sm">Expected answer: "All meals, activities, laundry, and basic care"</p>
+                                <p class="text-sm text-error mt-sm">🚩 Red flag: "Activities and laundry are extra"</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="card p-md">
-                    <h3 class="text-lg font-semibold mb-sm text-primary">The Mitchell Family Experience</h3>
-                    <p class="text-secondary mb-sm">
-                        The Mitchell family chose a home with 'Good' CQC ratings, but later discovered their father's fall prevention needs weren't adequately addressed. A comprehensive assessment would have identified this safety gap before placement.
-                    </p>
-                    <p class="text-xs text-muted">
-                        Our reports analyze complete CQC inspection history and safety protocols
-                    </p>
+                <!-- Mistake #2 -->
+                <div class="card card-elevated p-lg">
+                    <div class="flex gap-lg">
+                        <div class="text-6xl">❌</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-error mb-sm">Mistake #2: Choosing Based Only on CQC Rating</h3>
+                            <p class="text-lg mb-md">
+                                <strong>Real impact:</strong> "Good" rating doesn't mean good fit for YOUR needs
+                            </p>
+                            
+                            <div class="alert alert-success">
+                                <p class="font-bold mb-sm">✅ How to avoid with free shortlist:</p>
+                                <p class="mb-sm">During your visit, observe: <strong>"Do staff interact kindly with residents?"</strong></p>
+                                <p class="text-sm">Good sign: Staff know residents by name, make eye contact, chat naturally</p>
+                                <p class="text-sm text-error mt-sm">🚩 Red flag: Staff rushing through tasks, no conversation, residents ignored</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="card p-md">
-                    <h3 class="text-lg font-semibold mb-sm text-primary">The Thompson Family Journey</h3>
-                    <p class="text-secondary mb-sm">
-                        The Thompson family from Hall Green found their weekly costs increased by nearly 30% due to necessary additional services not included in the advertised rate. A comprehensive assessment would have revealed all potential costs upfront.
-                    </p>
-                    <p class="text-xs text-muted">
-                        Our assessments provide complete cost breakdowns and financial planning
-                    </p>
+                <!-- Mistake #3 -->
+                <div class="card card-elevated p-lg">
+                    <div class="flex gap-lg">
+                        <div class="text-6xl">❌</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-error mb-sm">Mistake #3: Not Checking Specialist Care Capability</h3>
+                            <p class="text-lg mb-md">
+                                <strong>Real cost:</strong> Moving homes after 3 months = £500 admin fees + emotional trauma
+                            </p>
+                            
+                            <div class="alert alert-success">
+                                <p class="font-bold mb-sm">✅ How to avoid with free shortlist:</p>
+                                <p class="mb-sm">During phone call, ask: <strong>"How do you manage [specific condition - diabetes/dementia]?"</strong></p>
+                                <p class="text-sm">Good answer: Specific protocols, trained staff, equipment on-site</p>
+                                <p class="text-sm text-error mt-sm">🚩 Red flag: "We can arrange that if needed" = they don't do it regularly</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-xl">
+                <p class="text-xl font-bold mb-md">Want us to check all of this FOR you?</p>
+                <p class="text-lg text-secondary mb-lg">
+                    Our £99 Professional Assessment includes safety checks + hidden cost analysis + medical capability verification
+                </p>
+                <a href="/questionnaire/" class="btn btn-primary btn-large">Get Professional Assessment (£99)</a>
             </div>
         </div>
     </section>
@@ -485,7 +572,7 @@
                 
                 <!-- PDF Download Info -->
                 <div class="alert alert-info text-center">
-                    <h4 class="font-bold mb-sm">Printable PDF Checklist</h4>
+                    <h4 class="font-bold mb-sm">Printable Checklist</h4>
                     <p class="text-base mb-md">
                         This telephone enquiry checklist has been included in your email, 
                         along with the free shortlist and space to record answers from each care home
@@ -494,9 +581,6 @@
                         <button onclick="window.print()" class="btn btn-primary">
                             Print This Page
                         </button>
-                        <a href="telephone-enquiry-checklist.pdf" download class="btn btn-secondary">
-                            Download PDF
-                        </a>
                     </div>
                 </div>
             </div>
@@ -522,17 +606,17 @@
                     Professional analysis from trusted local data - delivered within 48 hours
                 </p>
                 <div class="badge badge-primary mt-md">
-                    <span class="font-semibold">Standard Assessment recommended for most families</span>
+                    <span class="font-semibold">Professional Assessment recommended for most families</span>
                 </div>
             </div>
 
             <!-- Pricing Cards -->
             <div class="grid grid-1 md:grid-2 gap-xl mb-xl">
-                <!-- Standard Assessment - RECOMMENDED -->
+                <!-- Professional Assessment - RECOMMENDED -->
                 <div class="pricing-card recommended">
                     <div class="pricing-header">
                         <div class="recommended-badge">RECOMMENDED FOR MOST FAMILIES</div>
-                        <h3 class="pricing-title">Standard Assessment</h3>
+                        <h3 class="pricing-title">Professional Assessment</h3>
                         <p class="pricing-tagline">Complete & Professional Analysis</p>
                         <div class="pricing-price">£99</div>
                         <p class="pricing-delivery">48 hours delivery</p>
@@ -554,7 +638,7 @@
                     </div>
                     
                     <div class="pricing-cta">
-                        <a href="/questionnaire/" class="btn btn-primary btn-large">Get Standard Assessment</a>
+                        <a href="/questionnaire/" class="btn btn-primary btn-large">Get Professional Assessment</a>
                     </div>
                 </div>
 
@@ -599,19 +683,19 @@
                 <div class="grid grid-1 md:grid-3 gap-lg">
                     <div class="testimonial">
                         <p class="text-base text-secondary mb-sm">
-                            "The Standard assessment revealed hidden fees of £200 per week that we hadn't noticed. Annual savings: £10,400. Worth every penny of the £99 fee."
+                            "The Professional assessment revealed hidden fees of £200 per week that we hadn't noticed. Annual savings: £10,400. Worth every penny of the £99 fee."
                         </p>
                         <p class="text-sm text-muted">— Margaret Thompson, Solihull (14th September 2025)</p>
                     </div>
                     <div class="testimonial">
                         <p class="text-base text-secondary mb-sm">
-                            "Started with the free list, but the Standard assessment found us a home that perfectly matched Dad's dementia needs. The free list missed this crucial factor entirely."
+                            "Started with the free list, but the Professional assessment found us a home that perfectly matched Dad's dementia needs. The free list missed this crucial factor entirely."
                         </p>
                         <p class="text-sm text-muted">— James Patterson, Edgbaston (8th September 2025)</p>
                     </div>
                     <div class="testimonial">
                         <p class="text-base text-secondary mb-sm">
-                            "The free shortlist showed us 3 nearby homes, but the Standard assessment identified safety concerns at 2 of them that weren't obvious from CQC ratings alone."
+                            "The free shortlist showed us 3 nearby homes, but the Professional assessment identified safety concerns at 2 of them that weren't obvious from CQC ratings alone."
                         </p>
                         <p class="text-sm text-muted">— Sarah Mitchell, Harborne (22nd August 2025)</p>
                     </div>
@@ -845,5 +929,6 @@
             }
         }
     </script>
+    </main>
 </body>
 </html>

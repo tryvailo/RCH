@@ -18,7 +18,7 @@
 </head>
 <body class="questionnaire-page">
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header-container">
             <div class="flex items-center">
                 <a href="../index.html" class="logo">
@@ -30,7 +30,7 @@
         </div>
     </header>
 <!-- Main Content -->
-<main class="questionnaire-main">
+<main class="questionnaire-main" role="main">
     <div class="container-narrow">
         
         <!-- Progress -->
@@ -45,7 +45,7 @@
         <div id="progress-motivation" class="progress-motivation"></div>
 
         <!-- Form -->
-        <form id="questionnaire-form" novalidate>
+        <form id="questionnaire-form" novalidate role="form" aria-label="Professional care home assessment questionnaire">
             
             <!-- Page Title -->
             <div class="page-title-section">
@@ -54,8 +54,8 @@
             </div>
             
             <!-- ========== SECTION 1: Contact & Emergency Information (Q1-Q4) ========== -->
-            <div class="question-section active" data-section="1">
-                <h2 class="section-title">Contact & Emergency Information</h2>
+            <section class="question-section active" data-section="1" aria-labelledby="section-1-title">
+                <h2 class="section-title" id="section-1-title">Contact & Emergency Information</h2>
                 <p class="section-description">Essential details for communication and safety</p>
                 
                 <div class="space-y-8">
@@ -102,11 +102,11 @@
                         <p class="help-text">Critical for care home records</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- ========== SECTION 2: Location & Budget (Q5-Q7) ========== -->
-            <div class="question-section" data-section="2">
-                <h2 class="section-title">Location & Budget</h2>
+            <section class="question-section" data-section="2" aria-labelledby="section-2-title">
+                <h2 class="section-title" id="section-2-title">Location & Budget</h2>
                 <p class="section-description">Geographic and financial preferences</p>
                 
                 <div class="space-y-8">
@@ -190,11 +190,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- ========== SECTION 3: Medical Needs (Q8-Q12) ========== -->
-            <div class="question-section" data-section="3">
-                <h2 class="section-title">Medical Needs</h2>
+            <section class="question-section" data-section="3" aria-labelledby="section-3-title">
+                <h2 class="section-title" id="section-3-title">Medical Needs</h2>
                 <p class="section-description">Required level of care and medical support</p>
                 
                 <div class="space-y-8">
@@ -332,11 +332,11 @@
                         <p class="help-text">Helps tailor care recommendations</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- ========== SECTION 4: Safety & Special Needs (Q13-Q16) ========== -->
-            <div class="question-section safety-section" data-section="4">
-                <h2 class="section-title">
+            <section class="question-section safety-section" data-section="4" aria-labelledby="section-4-title">
+                <h2 class="section-title" id="section-4-title">
                     <span class="safety-icon">🛡️</span>Safety & Special Needs
                     <span class="priority-indicator priority-critical">SAFETY CRITICAL</span>
                 </h2>
@@ -446,11 +446,11 @@
                         <p class="help-text">Helps match social environment</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- ========== SECTION 5: Timeline (Q17) ========== -->
-            <div class="question-section" data-section="5">
-                <h2 class="section-title">Timeline</h2>
+            <section class="question-section" data-section="5" aria-labelledby="section-5-title">
+                <h2 class="section-title" id="section-5-title">Timeline</h2>
                 <p class="section-description">When placement is needed</p>
                 
                 <div class="space-y-8">
@@ -480,7 +480,7 @@
                         <p class="help-text">This helps us prioritise recommendations</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Navigation -->
             <div class="navigation-buttons">
