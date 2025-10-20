@@ -4,6 +4,63 @@
    ============================================ */
 
 /* ============================================
+   COMPARISON TABLE STYLES
+   ============================================ */
+
+.comparison-card {
+  background: var(--background);
+  border: 2px solid var(--primary-light);
+}
+
+.comparison-title {
+  color: var(--primary);
+}
+
+.comparison-simple {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.comparison-simple th,
+.comparison-simple td {
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-simple th {
+  background: var(--primary-light);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.comparison-simple tr:nth-child(even) {
+  background: var(--background-soft);
+}
+
+.comparison-simple tr:hover {
+  background: var(--background-subtle);
+}
+
+.comparison-details {
+  margin-top: var(--space-lg);
+}
+
+.comparison-details summary {
+  list-style: none;
+  outline: none;
+}
+
+.comparison-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
    ENHANCED TYPOGRAPHY - HEADER HIERARCHY
    ============================================ */
 
@@ -405,55 +462,7 @@
   color: var(--error);
 }
 
-/* Input fields */
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  padding: 16px 20px;
-  font-size: var(--font-base);
-  font-family: var(--font-family);
-  color: var(--text-primary);
-  background: var(--background-white);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
-  min-height: var(--touch-comfortable);
-  text-align: left;
-  vertical-align: middle;
-  box-sizing: border-box;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(107, 124, 110, 0.15);
-}
-
-.form-input::placeholder {
-  color: var(--text-muted);
-  text-align: left;
-}
-
-/* Email input specific styling */
-.form-input[type="email"] {
-  text-align: left;
-  direction: ltr;
-}
-
-.form-input[type="email"]::placeholder {
-  text-align: left;
-  direction: ltr;
-}
-
-/* Textarea specific */
-.form-textarea {
-  resize: vertical;
-  min-height: 120px;
-  line-height: var(--line-height-base);
-}
+/* Form styles moved to base-55plus.css for unified approach */
 
 /* Select specific */
 .form-select {
@@ -465,25 +474,7 @@
   padding-right: var(--space-2xl);
 }
 
-/* Error state */
-.form-input.error,
-.form-select.error,
-.form-textarea.error {
-  border-color: var(--error);
-}
-
-.form-input.error:focus,
-.form-select.error:focus,
-.form-textarea.error:focus {
-  box-shadow: 0 0 0 4px rgba(196, 122, 122, 0.15);
-}
-
-/* Success state */
-.form-input.success,
-.form-select.success,
-.form-textarea.success {
-  border-color: var(--success);
-}
+/* Error and Success states moved to base-55plus.css for unified approach */
 
 /* Error message */
 .form-error {
@@ -596,7 +587,7 @@
   font-family: var(--font-family);
   color: var(--text-primary);
   background: var(--background-white);
-  border: 2px solid var(--border);
+  border: 2px solid var(--border-light);
   border-radius: var(--radius-md);
   transition: var(--transition);
   min-height: var(--touch-comfortable);
@@ -1567,6 +1558,73 @@ a:focus-visible {
     font-weight: 500;
 }
 
+/* Text accent color */
+.text-accent {
+    color: var(--accent);
+}
+
+/* Gradient background for free report preview */
+.bg-gradient-soft {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+/* Success story utility classes */
+.bg-success-soft { 
+    background-color: #f0fdf4; 
+}
+.text-success-text { 
+    color: #166534; 
+}
+
+/* Hero social proof styling */
+.hero-social-proof {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.hero-social-proof strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Light background for free shortlist section */
+.bg-light {
+    background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Professional feature icons */
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 16px;
+    color: white;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+}
+
+.feature-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
 /* Enhanced button focus states */
 .btn:focus-visible {
     outline: 3px solid var(--accent);
@@ -1710,4 +1768,90 @@ a:focus-visible {
 
 .list-none {
     list-style: none;
+}
+
+/* ============================================
+   UTILITY CLASSES FOR "WHAT YOU CAN DO RIGHT NOW"
+   ============================================ */
+
+/* Accent soft background */
+.bg-accent-soft {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Primary border left */
+.border-left-primary {
+  border-left: 4px solid var(--primary);
+  position: relative;
+}
+
+.border-left-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+/* ============================================
+   FEATURE CARDS WITH IMAGES
+   ============================================ */
+
+.feature-card {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.feature-image-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-md);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 4px 12px rgba(107, 124, 110, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.feature-image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(107, 124, 110, 0.25);
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .feature-image-container {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Улучшенная доступность */
+@media (prefers-reduced-motion: reduce) {
+    .feature-image-container {
+        transition: none;
+    }
+    
+    .feature-image-container:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .feature-image-container {
+        border-width: 4px;
+        border-color: var(--text-primary);
+    }
 }

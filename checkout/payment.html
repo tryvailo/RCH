@@ -259,7 +259,7 @@
                 <div class="order-summary-box">
                     <h3 class="text-xl font-bold text-text-dark mb-4">Order Summary</h3>
                     <div class="summary-item">
-                        <span id="packageName">Standard Assessment</span>
+                        <span id="packageName">Professional Assessment</span>
                         <span id="packagePrice">£99.00</span>
                     </div>
                     <div class="summary-item">
@@ -420,7 +420,7 @@
             const currentBilling = JSON.parse(sessionStorage.getItem('billingDetails'));
 
             // Update order summary
-            const packageName = currentPackage === 'premium' ? 'Premium Assessment' : 'Standard Assessment';
+            const packageName = currentPackage === 'premium' ? 'Premium Assessment' : 'Professional Assessment';
             document.getElementById('packageName').textContent = packageName;
             document.getElementById('packagePrice').textContent = `£${currentPrice}.00`;
             document.getElementById('totalPrice').textContent = `£${currentPrice}.00`;

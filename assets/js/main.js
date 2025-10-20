@@ -892,19 +892,10 @@ if (guideForm) {
             // TODO: Replace with actual API call
             await new Promise(resolve => setTimeout(resolve, 1200));
             
-            // Success state
-            button.innerHTML = '✓ Sent! Check your email';
-            button.style.background = '#059669';
+            // Success state - show nurture preview
+            showSuccessMessage(email);
             
             console.log('Form submitted:', { postcode, email });
-            
-            // Reset form after 3 seconds
-            setTimeout(() => {
-                this.reset();
-                button.innerHTML = originalText;
-                button.disabled = false;
-                button.style.background = '';
-            }, 3000);
             
         } catch (error) {
             button.innerHTML = originalText;
@@ -1134,3 +1125,383 @@ document.addEventListener('DOMContentLoaded', () => {
 
 console.log('%cRightCareHome Enhanced JavaScript [2024] initialized successfully', 
            'color: #4A90E2; font-weight: bold; font-size: 14px;');
+
+// ===== ENHANCED SUCCESS MESSAGE WITH NURTURE PREVIEW =====
+function showSuccessMessage(email) {
+    const form = document.getElementById('guide-form');
+    const formContainer = form.parentElement;
+    
+    formContainer.innerHTML = `
+        <div class="text-center py-xl">
+            <div class="text-6xl mb-md">📧</div>
+            <h3 class="text-2xl font-bold mb-md text-success">
+                Check Your Inbox!
+            </h3>
+            <p class="text-lg mb-md">
+                Your free shortlist is on its way to <strong>${email}</strong>
+            </p>
+            
+            <div class="card card-subtle p-lg mt-lg text-left max-w-md mx-auto">
+                <p class="font-semibold mb-sm">📬 What to expect in next 7 days:</p>
+                <ul class="space-y-sm text-sm">
+                    <li>
+                        <strong>Today:</strong> Free shortlist (3 homes near you)
+                    </li>
+                    <li>
+                        <strong>Tomorrow:</strong> "How to evaluate care homes" guide
+                    </li>
+                    <li>
+                        <strong>Day 3:</strong> Red flags to watch for during visits
+                    </li>
+                    <li>
+                        <strong>Day 5:</strong> Hidden cost calculator
+                    </li>
+                    <li>
+                        <strong>Day 7:</strong> 40% discount on Professional Assessment (£99 → £59)
+                    </li>
+                </ul>
+                
+                <div class="alert alert-info mt-md p-sm">
+                    <p class="text-xs">
+                        💡 <strong>Pro tip:</strong> 73% of families who start with free 
+                        upgrade to paid within 7 days for deeper analysis.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-xl">
+                <p class="text-sm text-secondary mb-md">
+                    Can't wait? Get professional assessment now:
+                </p>
+                <div class="flex gap-sm justify-center flex-wrap">
+                    <a href="/questionnaire/" class="btn btn-primary">
+                        Standard £99
+                    </a>
+                    <a href="/premium-questionnaire/" class="btn btn-accent">
+                        Premium £249
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// ===== ANALYTICS TRACKING FOR CONVERSION MEASUREMENT =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Track form field interactions
+    const guideForm = document.getElementById('guide-form');
+    if (guideForm) {
+        guideForm.addEventListener('focus', function(e) {
+            if (e.target.tagName === 'INPUT') {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_field_focus', {
+                        field: e.target.name,
+                        form_type: 'free_shortlist'
+                    });
+                }
+                console.log('Form field focused:', e.target.name);
+            }
+        }, true);
+
+        // Track form submission
+        guideForm.addEventListener('submit', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    form_type: 'free_shortlist',
+                    value: 0
+                });
+            }
+            console.log('Free shortlist form submitted');
+        });
+    }
+
+    // Track CTA clicks for paid assessments
+    document.querySelectorAll('a[href*="questionnaire"]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const section = this.closest('section');
+            const ctaLocation = section?.id || 'unknown';
+            const ctaText = this.textContent.trim();
+            const assessmentType = this.href.includes('premium') ? 'premium' : 'standard';
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'paid_assessment_click', {
+                    cta_location: ctaLocation,
+                    cta_text: ctaText,
+                    assessment_type: assessmentType
+                });
+            }
+            console.log('Paid assessment CTA clicked:', {
+                location: ctaLocation,
+                text: ctaText,
+                type: assessmentType
+            });
+        });
+    });
+
+    // Track scroll to pricing section
+    let pricingViewed = false;
+    let pricingViewTime = null;
+    
+    function checkPricingView() {
+        if (pricingViewed) return;
+        
+        const pricingSection = document.getElementById('pricing-plans');
+        if (pricingSection) {
+            const rect = pricingSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                pricingViewed = true;
+                pricingViewTime = Math.round(performance.now() / 1000);
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'pricing_section_viewed', {
+                        time_on_page: pricingViewTime
+                    });
+                }
+                console.log('Pricing section viewed at:', pricingViewTime, 'seconds');
+            }
+        }
+    }
+
+    // Throttled scroll listener for pricing view tracking
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(checkPricingView, 100);
+    }, { passive: true });
+
+    // Track success story section view
+    let successStoryViewed = false;
+    function checkSuccessStoryView() {
+        if (successStoryViewed) return;
+        
+        const successSection = document.querySelector('[class*="success-story"], .bg-soft');
+        if (successSection) {
+            const rect = successSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                successStoryViewed = true;
+                const viewTime = Math.round(performance.now() / 1000);
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'success_story_viewed', {
+                        time_on_page: viewTime
+                    });
+                }
+                console.log('Success story viewed at:', viewTime, 'seconds');
+            }
+        }
+    }
+
+    // Track FAQ interactions
+    document.querySelectorAll('.faq-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const question = this.textContent.trim();
+            const isNewBridgeFAQ = question.includes('start with free') || question.includes('difference between free');
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'faq_opened', {
+                    question: question.substring(0, 50),
+                    is_bridge_faq: isNewBridgeFAQ
+                });
+            }
+            console.log('FAQ opened:', question.substring(0, 50));
+        });
+    });
+
+    // Track "Skip to paid" link clicks
+    document.querySelectorAll('a[href="/questionnaire/"]').forEach(link => {
+        if (link.textContent.includes('Skip to paid') || link.textContent.includes('Skip to paid assessment')) {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'skip_to_paid_click', {
+                        cta_location: 'hero_form',
+                        cta_text: this.textContent.trim()
+                    });
+                }
+                console.log('Skip to paid clicked');
+            });
+        }
+    });
+
+    // Track quick CTA button clicks in hero
+    document.querySelectorAll('.card-subtle .btn').forEach(btn => {
+        if (btn.closest('.card-subtle')) {
+            btn.addEventListener('click', function() {
+                const assessmentType = this.textContent.includes('Premium') ? 'premium' : 'standard';
+                const price = this.textContent.includes('£249') ? '249' : '99';
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'hero_quick_cta_click', {
+                        assessment_type: assessmentType,
+                        price: price,
+                        cta_location: 'hero_quick_card'
+                    });
+                }
+                console.log('Hero quick CTA clicked:', assessmentType, price);
+            });
+        }
+    });
+
+    // Track free form success message views
+    const originalShowSuccessMessage = window.showSuccessMessage;
+    if (originalShowSuccessMessage) {
+        window.showSuccessMessage = function(email) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'success_message_viewed', {
+                    email_domain: email.split('@')[1] || 'unknown'
+                });
+            }
+            console.log('Success message viewed for:', email);
+            return originalShowSuccessMessage(email);
+        };
+    }
+
+    // Track page engagement metrics
+    let maxScrollDepth = 0;
+    let engagementStartTime = Date.now();
+    
+    function trackScrollDepth() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+        
+        if (scrollPercent > maxScrollDepth) {
+            maxScrollDepth = scrollPercent;
+            
+            // Track milestone scroll depths
+            if (scrollPercent >= 25 && scrollPercent < 50) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth_25', {
+                        time_on_page: Math.round((Date.now() - engagementStartTime) / 1000)
+                    });
+                }
+            } else if (scrollPercent >= 50 && scrollPercent < 75) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth_50', {
+                        time_on_page: Math.round((Date.now() - engagementStartTime) / 1000)
+                    });
+                }
+            } else if (scrollPercent >= 75) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth_75', {
+                        time_on_page: Math.round((Date.now() - engagementStartTime) / 1000)
+                    });
+                }
+            }
+        }
+    }
+
+    // Throttled scroll depth tracking
+    let scrollDepthTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollDepthTimeout) {
+            clearTimeout(scrollDepthTimeout);
+        }
+        scrollDepthTimeout = setTimeout(trackScrollDepth, 250);
+    }, { passive: true });
+
+    console.log('Analytics tracking initialized for conversion measurement');
+});
+
+// ===== COMPARISON TEMPLATE DOWNLOAD FUNCTION =====
+function downloadComparisonTemplate() {
+    // Create comparison template content
+    const templateContent = `
+CARE HOME COMPARISON TEMPLATE
+============================
+
+Home 1: _________________________
+Address: ________________________
+Phone: _________________________
+
+VISIT DATE: ____________________
+VISIT TIME: ____________________
+
+BASIC INFO:
+- Weekly Fee: £_____________
+- Availability: _____________
+- Care Types: ______________
+- CQC Rating: ______________
+
+FIRST IMPRESSIONS:
+- Cleanliness: ⭐⭐⭐⭐⭐
+- Staff Friendliness: ⭐⭐⭐⭐⭐
+- Atmosphere: ⭐⭐⭐⭐⭐
+
+MEALTIME OBSERVATION:
+- Food Quality: ⭐⭐⭐⭐⭐
+- Staff Help: ⭐⭐⭐⭐⭐
+- Resident Engagement: ⭐⭐⭐⭐⭐
+
+SAFETY CHECK:
+- Emergency Procedures: ⭐⭐⭐⭐⭐
+- Security: ⭐⭐⭐⭐⭐
+- Accessibility: ⭐⭐⭐⭐⭐
+
+QUESTIONS TO ASK:
+□ What's included in the weekly fee?
+□ What additional costs might there be?
+□ What's the staff-to-resident ratio?
+□ How do you handle medical emergencies?
+□ What activities are available?
+□ Can family visit anytime?
+□ What's your policy on complaints?
+
+NOTES:
+_________________________________
+_________________________________
+_________________________________
+
+OVERALL RATING: ⭐⭐⭐⭐⭐
+WOULD RECOMMEND: YES/NO
+REASON: _________________________
+
+====================================
+
+Home 2: _________________________
+[Repeat template above]
+
+====================================
+
+Home 3: _________________________
+[Repeat template above]
+
+====================================
+
+FINAL DECISION:
+Top Choice: _____________________
+Reason: ________________________
+Backup Choice: _________________
+Reason: ________________________
+
+Next Steps:
+□ Book second visit to top choice
+□ Ask for contract details
+□ Discuss with family
+□ Set move-in date
+
+====================================
+Generated by RightCareHome.co.uk
+    `.trim();
+
+    // Create and download file
+    const blob = new Blob([templateContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'care-home-comparison-template.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+
+    // Track download event
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'comparison_template_downloaded', {
+            page_location: window.location.href
+        });
+    }
+    
+    console.log('Comparison template downloaded');
+}

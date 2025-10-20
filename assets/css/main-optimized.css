@@ -177,7 +177,8 @@ a:hover {
     padding: 0 var(--space-md);
 }
 
-.section {
+.section,
+section.section {
     padding: var(--space-2xl) 0;
 }
 
@@ -348,39 +349,7 @@ a:hover {
     margin-bottom: var(--space-sm);
 }
 
-.form-input,
-.form-select,
-.form-textarea {
-    width: 100%;
-    padding: 12px 16px;
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    border: 2px solid var(--border-light);
-    border-radius: var(--radius-md);
-    background: var(--background-white);
-    color: var(--text-primary);
-    transition: all var(--transition-fast);
-    min-height: 48px;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
-}
-
-.form-input:invalid,
-.form-select:invalid,
-.form-textarea:invalid {
-    border-color: var(--error);
-}
-
-.form-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+/* Form styles moved to base-55plus.css for unified approach */
 
 .form-message {
     display: block;
@@ -624,7 +593,8 @@ a:hover {
         padding: var(--space-md);
     }
     
-    .section {
+    .section,
+    section.section {
         padding: var(--space-xl) 0;
     }
 }

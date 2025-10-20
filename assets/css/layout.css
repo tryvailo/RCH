@@ -189,184 +189,73 @@
    MODERN HERO SECTION - OPTIMIZED FOR 55+
    ============================================ */
 
-.hero {
-  background: linear-gradient(135deg, var(--background) 0%, var(--background-soft) 100%);
-  padding-top: 1rem;  /* Further reduced for single screen fit */
-  padding-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
+/* Старые стили hero удалены - используются новые стили ниже */
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grain' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23000' opacity='0.02'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grain)'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
+/* Старые медиа-запросы удалены */
 
-.hero-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-  display: grid;
-  grid-template-columns: 1fr 500px;
-  gap: 4rem;
-  align-items: start;
-  position: relative;
-  z-index: 1;
-}
+/* Старые стили hero-content удалены */
 
-@media (max-width: 1200px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    max-width: 800px;
-    gap: var(--space-2xl);
-  }
-}
+/* Старые стили hero-headline удалены */
 
-@media (max-width: 768px) {
-  .hero-container {
-    text-align: center;
-  }
-}
+/* Старые медиа-запросы удалены */
 
-.hero-content {
-  max-width: 600px;
-}
+/* Все старые стили hero удалены - используются новые стили ниже */
 
-.hero-headline {
-  font-size: 3.5rem;
-  font-weight: var(--font-weight-bold);
-  line-height: 1.15;
-  color: var(--text-primary);
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Старые стили hero-badges удалены */
 
-@media (max-width: 768px) {
-  .hero-headline {
-    font-size: 2.5rem;
-  }
-}
+/* Все старые стили hero удалены - используются новые стили ниже */
 
-.hero-subtext {
-  font-size: 1.375rem;
-  line-height: var(--line-height-relaxed);
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  text-align: center;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Старые стили hero-badges удалены */
 
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-}
+/* Старые стили hero-badges удалены */
 
-/* Hero badges - softer styling */
-.hero-badges .badge-primary {
-  background: rgba(29, 78, 216, 0.1);
-  color: var(--primary);
-  border: 1px solid rgba(29, 78, 216, 0.2);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-}
+/* Старые медиа-запросы удалены */
 
-.hero-badges .badge-primary:hover {
-  background: rgba(29, 78, 216, 0.15);
-  border-color: rgba(29, 78, 216, 0.3);
-  transform: translateY(-1px);
-}
+/* Старые стили hero-badge удалены */
 
-.hero-badges .badge-primary svg {
-  color: var(--primary);
-  opacity: 0.8;
-}
+/* Старые стили hero-badge удалены */
 
-@media (max-width: 768px) {
-  .hero-badges {
-    justify-content: center;
-  }
-  
-  .hero-badges .badge-primary {
-    font-size: var(--font-size-xs);
-    padding: 4px 8px;
-  }
-}
+/* Старые стили hero-cta удалены */
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
-  background: rgba(107, 124, 110, 0.1);
-  color: var(--primary);
-  border: 1px solid rgba(107, 124, 110, 0.2);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-medium);
-}
-
-.hero-badge svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.hero-cta {
-  display: flex;
-  gap: var(--space-md);
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .hero-cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
+/* Старые медиа-запросы удалены */
 
 /* Hero form card - optimized width */
-.hero-form {
-  background: var(--background-white);
+.hero-form,
+aside.hero-form {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-xl);
   padding: var(--space-md);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-light);
   min-width: 450px;
   width: 100%;
+  margin-left: 4rem; /* Смещаем форму вправо для лучшей видимости фонового фото */
+  position: relative;
+  z-index: 3;
 }
 
 @media (max-width: 1200px) {
-  .hero-form {
+  .hero-form,
+  aside.hero-form {
     min-width: unset;
     max-width: 600px;
     margin: 0 auto;
+    margin-left: 0; /* Убираем смещение на планшетах */
     padding: var(--space-md);
   }
 }
 
 @media (max-width: 768px) {
-  .hero-form {
+  .hero-form,
+  aside.hero-form {
     padding: var(--space-sm);
     margin: var(--space-md) 0;
+    margin-left: 0; /* Убираем смещение на мобильных */
+    min-width: unset;
+    max-width: 100%;
   }
   
   .hero-form-title {
@@ -413,11 +302,31 @@
 }
 
 /* ============================================
+   HERO CONTENT BACKGROUND STYLES
+   ============================================ */
+
+/* Убираем изображение на мобильных для лучшей читаемости */
+@media (max-width: 1200px) {
+    .hero-content {
+        background: var(--background) !important;
+    }
+}
+
+/* Добавляем легкую тень для улучшения читаемости текста */
+.hero-headline,
+.hero-subtext {
+    text-shadow: none;
+}
+
+/* ============================================
    MAIN CONTENT SECTIONS
    ============================================ */
 
-.section {
+.section,
+section.section {
   padding: var(--space-3xl) 0;
+  width: 100%;
+  display: block;
 }
 
 .section-container {
@@ -426,7 +335,8 @@
   padding: 0 var(--space-lg);
 }
 
-.section-header {
+.section-header,
+header.section-header {
   text-align: center;
   margin-bottom: var(--space-3xl);
   max-width: 900px;
@@ -450,7 +360,8 @@
 }
 
 /* Alternating section backgrounds with enhanced contrast */
-.section:nth-child(even) {
+.section:nth-child(even),
+section.section:nth-child(even) {
   background: var(--background-soft);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -458,28 +369,34 @@
 }
 
 /* Enhanced text contrast on soft backgrounds */
-.section:nth-child(even) .section-title {
+.section:nth-child(even) .section-title,
+section.section:nth-child(even) .section-title {
   color: var(--text-on-soft);
 }
 
-.section:nth-child(even) .section-subtitle {
+.section:nth-child(even) .section-subtitle,
+section.section:nth-child(even) .section-subtitle {
   color: var(--text-secondary-on-soft);
 }
 
-.section:nth-child(even) .text-secondary {
+.section:nth-child(even) .text-secondary,
+section.section:nth-child(even) .text-secondary {
   color: var(--text-secondary-on-soft);
 }
 
-.section:nth-child(even) .text-tertiary {
+.section:nth-child(even) .text-tertiary,
+section.section:nth-child(even) .text-tertiary {
   color: var(--text-tertiary-on-soft);
 }
 
-.section:nth-child(even) .text-muted {
+.section:nth-child(even) .text-muted,
+section.section:nth-child(even) .text-muted {
   color: var(--text-tertiary-on-soft);
 }
 
 /* Add subtle shadow for better depth perception */
-.section:nth-child(even)::before {
+.section:nth-child(even)::before,
+section.section:nth-child(even)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -489,7 +406,8 @@
   background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
 }
 
-.section:nth-child(even)::after {
+.section:nth-child(even)::after,
+section.section:nth-child(even)::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -792,7 +710,8 @@
 
 /* Responsive spacing */
 @media (max-width: 768px) {
-  .section {
+  .section,
+  section.section {
     padding: var(--space-2xl) 0;
   }
 
@@ -862,7 +781,8 @@
     background: #FFFFFF;
   }
 
-  .section:nth-child(even) {
+  .section:nth-child(even),
+  section.section:nth-child(even) {
     background: #F5F5F5;
   }
 
@@ -923,21 +843,7 @@
   border: 1px solid rgba(107, 124, 110, 0.1);
 }
 
-.form-input {
-  border: 2px solid #e2e8f0;
-  padding: 14px 18px;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-  background: white;
-  color: var(--text-primary);
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.1);
-}
+/* Form styles moved to base-55plus.css for unified approach */
 
 .form-cta {
   background: linear-gradient(135deg, var(--accent), #a67a6b);
@@ -1039,15 +945,7 @@
   box-shadow: none;
 }
 
-/* Вернуть оригинальные поля */
-.form-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 15px;
-  background: white;
-}
+/* Form styles moved to base-55plus.css for unified approach */
 
 /* Placeholder текст */
 .form-input::placeholder {
@@ -1055,11 +953,7 @@
   font-size: 14px;
 }
 
-/* Убрать лишние отступы */
-.hero {
-  padding: 40px 0;
-  background: linear-gradient(to bottom, #ffffff, #f9fafb);
-}
+/* Конфликтующие стили hero удалены - используются новые стили ниже */
 
 /* Контейнер с правильной сеткой */
 .hero-container {
@@ -1072,9 +966,6 @@
 }
 
 /* Убрать вертикальное выравнивание по центру */
-.hero-content {
-  padding-top: 20px;
-}
 
 /* Удалить helper text под полем */
 .form-helper-text {
@@ -1162,20 +1053,9 @@
   display: none;
 }
 
-/* 5. СТАРАЯ версия - сетка страницы */
-.hero-container {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 24px;
-}
+/* Старые стили hero-container удалены */
 
-.hero-content {
-  padding-top: 20px;
-  max-width: 600px;
-}
+/* Removed duplicate .hero-content definition */
 
 /* Removed duplicate .hero definition - using the one above with proper gradient */
 
@@ -1213,7 +1093,8 @@
 }
 
 /* 8. Специальные стили для аудитории 55+ в hero-form */
-.hero-form-title {
+.hero-form-title,
+aside.hero-form .hero-form-title {
   font-size: 1.5rem !important;  /* 24px для лучшей читаемости */
   font-weight: 700 !important;
   color: var(--text-primary) !important;
@@ -1222,58 +1103,206 @@
   line-height: 1.3 !important;
 }
 
-.hero-form-benefits li {
+.hero-form-benefits li,
+aside.hero-form .hero-form-benefits li {
   font-size: 1.125rem !important;  /* 18px для лучшей читаемости */
   line-height: 1.6 !important;
   margin-bottom: 0.75rem !important;
 }
 
-.hero-form-benefits .font-semibold {
+.hero-form-benefits .font-semibold,
+aside.hero-form .hero-form-benefits .font-semibold {
   font-size: 1.125rem !important;  /* 18px */
   font-weight: 600 !important;
   color: var(--text-primary) !important;
 }
 
-.hero-form-benefits .text-secondary {
+.hero-form-benefits .text-secondary,
+aside.hero-form .hero-form-benefits .text-secondary {
   font-size: 1rem !important;  /* 16px */
   color: var(--text-secondary) !important;
   line-height: 1.5 !important;
 }
 
-.hero-form .form-label {
+.hero-form .form-label,
+aside.hero-form .form-label {
   font-size: 1.125rem !important;  /* 18px для лучшей читаемости */
   font-weight: 600 !important;
   color: var(--text-primary) !important;
   margin-bottom: 0.75rem !important;
 }
 
-.hero-form .form-input {
-  font-size: 1.125rem !important;  /* 18px для лучшей читаемости */
-  padding: 16px 20px !important;
-  min-height: 56px !important;  /* Увеличенная высота для удобства */
-  border: 2px solid var(--border-light) !important;
-  border-radius: 8px !important;
+/* Hero form uses unified base styles from base-55plus.css */
+
+/* ============================================
+   NEW HERO SECTION WITH BACKGROUND IMAGE
+   ============================================ */
+
+/* Hero Section with Background Photo */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
 }
 
-.hero-form .form-input:focus {
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.15) !important;
-  outline: none !important;
+/* Фоновое изображение на весь экран */
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
-.hero-form .form-input::placeholder {
-  font-size: 1rem !important;  /* 16px */
-  color: var(--text-muted) !important;
+.hero-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/family-consultation.webp') center center/cover;
+    background-image: url('../images/family-consultation.webp'), url('../images/family-consultation.jpg');
+    z-index: 1;
 }
 
-.hero-form .btn {
+/* БЕЗОПАСНЫЙ градиент - текст читается, фото видно справа */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(250, 247, 243, 0.98) 0%,      /* Непрозрачный слева - защита текста */
+        rgba(250, 247, 243, 0.95) 40%,     /* Плавный переход */
+        rgba(250, 247, 243, 0.70) 70%,     /* Фото начинает проявляться */
+        rgba(250, 247, 243, 0.25) 100%     /* Фото хорошо видно справа */
+    );
+    z-index: 2;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    text-shadow: none;
+}
+
+.text-accent {
+    background: linear-gradient(135deg, var(--accent) 0%, #a67a6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtext {
+    font-size: 1.375rem;
+    color: var(--text-secondary);
+    line-height: var(--line-height-base);
+    margin-bottom: 2rem;
+    text-shadow: none;
+}
+
+.hero-social-proof {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(107, 124, 110, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-social-proof p {
+    margin: 0;
+    font-size: var(--font-lg);
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.hero-social-proof strong {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-background::after {
+        background: rgba(250, 247, 243, 0.95);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        background: var(--background);
+    }
+
+    .hero-background {
+        display: none;
+    }
+
+    .hero-headline {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtext {
+        font-size: 1.125rem;
+    }
+
+    .hero-form,
+    aside.hero-form {
+        background: var(--background);
+        backdrop-filter: none;
+        box-shadow: var(--shadow-lg);
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 2rem;
+    }
+
+    .hero-subtext {
+        font-size: 1rem;
+    }
+}
+
+.hero-form .btn,
+aside.hero-form .btn {
   font-size: 1.125rem !important;  /* 18px */
   padding: 16px 24px !important;
   min-height: 56px !important;
   font-weight: 600 !important;
 }
 
-.hero-form .text-small {
+.hero-form .text-small,
+aside.hero-form .text-small {
   font-size: 1rem !important;  /* 16px */
   line-height: 1.5 !important;
 }
@@ -1436,22 +1465,7 @@
   margin-bottom: 8px;
 }
 
-.form-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 16px;
-  background: white;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.1);
-}
+/* Form styles moved to base-55plus.css for unified approach */
 
 .form-required {
   color: #ef4444;
@@ -1459,19 +1473,9 @@
 }
 
 /* 3. Основная сетка hero-секции */
-.hero-container {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 80px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
-  align-items: start;
-}
+/* Старые стили hero-container удалены */
 
-.hero-content {
-  padding-top: 10px; /* Выравнивание с формой */
-}
+/* Removed duplicate .hero-content definition */
 
 /* 4. Заголовок и описание */
 .hero-title {

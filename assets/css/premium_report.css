@@ -488,3 +488,134 @@
         print-color-adjust: exact !important;
     }
 }
+
+/* ===== CRISIS DECISION PROTOCOL STYLES ===== */
+.bg-error-soft {
+    background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.bg-warning-soft {
+    background: rgba(245, 158, 11, 0.08) !important;
+}
+
+.btn-xlarge {
+    padding: 1.5rem 2rem !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    border-radius: 0.75rem !important;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* ===== REAL-TIME RISK DASHBOARD STYLES ===== */
+.bg-gradient-premium {
+    background: linear-gradient(135deg, rgba(107, 124, 110, 0.05), rgba(107, 124, 110, 0.1)) !important;
+}
+
+.premium-dashboard-card {
+    background: var(--background-white) !important;
+    border: 3px solid var(--primary) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--success);
+    border-radius: 2rem;
+    color: var(--text-inverse);
+    font-weight: 700;
+}
+
+.live-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--text-inverse);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.risk-level-indicator {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    min-width: 120px;
+}
+
+.risk-level-indicator.critical {
+    background: var(--error-soft);
+    border: 2px solid var(--error);
+}
+
+.risk-level-indicator.medium {
+    background: var(--warning-soft);
+    border: 2px solid var(--warning);
+}
+
+.risk-level-badge {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.risk-level-time {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.monitoring-status-card {
+    background: var(--background-white);
+    border: 2px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.monitoring-status-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.status-indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-indicator.status-green {
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(122, 148, 113, 0.2);
+}
+
+.status-indicator.status-amber {
+    background: var(--warning);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.status-indicator.status-red {
+    background: var(--error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}

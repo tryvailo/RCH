@@ -5,6 +5,58 @@
    Исправлены мобильная верстка и недочеты разметки
    ============================================ */
 
+/* ===== УПРОЩЕННЫЕ СТРУКТУРЫ ДЛЯ 55+ ===== */
+.simple-decision-cards {
+    display: block;
+    margin: var(--space-lg) 0;
+}
+
+.simple-card {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-xl);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--background-white);
+}
+
+.primary-card {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.primary-card h3,
+.primary-card p,
+.primary-card .decision-highlight,
+.primary-card li {
+    color: var(--text-primary) !important;
+}
+
+.risk-card {
+    border-color: var(--warning);
+    background: var(--warning-light);
+}
+
+.risk-card h3,
+.risk-card p,
+.risk-card .decision-highlight,
+.risk-card li {
+    color: var(--text-primary) !important;
+}
+
+.action-card {
+    border-color: var(--success);
+    background: var(--success-light);
+}
+
+.action-card h3,
+.action-card p,
+.action-card .decision-highlight,
+.action-card li {
+    color: var(--text-primary) !important;
+}
+
+/* Compact premium statistics restored */
+
 /* ===== ПРЕМИАЛЬНЫЕ РАСШИРЕНИЯ ЦВЕТОВОЙ СХЕМЫ ===== */
 :root {
     /* Дополнительные премиальные цвета */
@@ -13,16 +65,16 @@
     --premium-accent-light: #F4E4BC;
     --premium-dark: #0A1628;
     
-    /* Расширения градиентов */
-    --premium-gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    --premium-gold-gradient: linear-gradient(135deg, var(--premium-accent), var(--premium-accent-light));
+    /* Упрощенные цвета для 55+ */
+    --premium-gradient: var(--primary);
+    --premium-gold-gradient: var(--premium-accent);
     
-    /* Тени для премиальных элементов */
-    --premium-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --premium-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+    /* Упрощенные тени для 55+ */
+    --premium-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --premium-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
     
-    /* Анимации */
-    --premium-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Упрощенные переходы для 55+ */
+    --premium-transition: none;
     
     /* Размеры для мобильных устройств */
     --touch-target-min: 44px;
@@ -111,7 +163,7 @@
     background: var(--premium-gradient);
     position: relative;
     overflow: hidden;
-    animation: shimmer 8s ease-in-out infinite alternate;
+    animation: none;
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -124,14 +176,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background: rgba(255, 255, 255, 0.1);
     pointer-events: none;
 }
 
-@keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
+/* Animation removed for 55+ accessibility */
 
 .premium-badge {
     background: var(--premium-gold-gradient);
@@ -150,7 +199,7 @@
 .decision-card {
     position: relative;
     border-left: 4px solid var(--border);
-    transition: var(--premium-transition);
+    transition: none;
     background: var(--background-white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -347,7 +396,7 @@
 
 .scenario-btn {
     cursor: pointer;
-    transition: var(--premium-transition);
+    transition: none;
     text-align: center;
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-lg);
@@ -485,7 +534,7 @@
     box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
     z-index: 999;
     transform: translateY(100%);
-    transition: var(--premium-transition);
+    transition: none;
 }
 
 .sticky-cta-banner.visible {
@@ -1031,7 +1080,7 @@
     .table-container th,
     .table-container td {
         padding: var(--space-md) var(--space-sm) !important;
-        font-size: 16px !important;
+        font-size: var(--font-xs) !important;
     }
 }
 
@@ -1043,6 +1092,66 @@
     .table-container th,
     .table-container td {
         padding: var(--space-sm) 6px !important;
-        font-size: 14px !important;
+        font-size: var(--font-xs) !important;
     }
+}
+
+/* ===== FEATURE ICONS ===== */
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.feature-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.feature-icon-large {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.feature-icon-large::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* List styling for premium report */
+.premium-report ul li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.premium-report ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
 }

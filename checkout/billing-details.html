@@ -241,7 +241,7 @@
                 <div class="order-summary" id="orderSummary">
                     <h3 class="text-xl font-bold text-text-dark mb-4">Order Summary</h3>
                     <div class="summary-row">
-                        <span id="packageName">Standard Assessment</span>
+                        <span id="packageName">Professional Assessment</span>
                         <span id="packagePrice">£99.00</span>
                     </div>
                     <div class="summary-total">
@@ -415,7 +415,7 @@
                 sessionStorage.setItem('selectedPackage', 'standard');
                 sessionStorage.setItem('selectedPrice', '99');
                 
-                document.getElementById('packageName').textContent = 'Standard Assessment';
+                document.getElementById('packageName').textContent = 'Professional Assessment';
                 document.getElementById('packagePrice').textContent = '£99.00';
                 document.getElementById('totalPrice').textContent = '£99.00';
                 
@@ -424,7 +424,7 @@
             }
 
             // Update order summary
-            const packageName = packageType === 'premium' ? 'Premium Assessment' : 'Standard Assessment';
+            const packageName = packageType === 'premium' ? 'Premium Assessment' : 'Professional Assessment';
             document.getElementById('packageName').textContent = packageName;
             document.getElementById('packagePrice').textContent = `£${packagePrice}.00`;
             document.getElementById('totalPrice').textContent = `£${packagePrice}.00`;

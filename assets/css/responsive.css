@@ -222,7 +222,8 @@
    SMALL MOBILE DEVICES
    ============================================ */
 @media (max-width: 480px) {
-  .section {
+  .section,
+  section.section {
     padding: var(--space-2xl, 48px) 0;
   }
   
@@ -298,7 +299,8 @@
    LANDSCAPE MOBILE ORIENTATION
    ============================================ */
 @media (max-width: 896px) and (orientation: landscape) {
-  .section {
+  .section,
+  section.section {
     padding: var(--space-xl, 32px) 0;
   }
   
@@ -368,7 +370,8 @@
     display: none !important;
   }
   
-  .section {
+  .section,
+  section.section {
     page-break-inside: avoid;
   }
   
@@ -483,5 +486,33 @@
   
   .email-form-group {
     max-width: 700px !important;
+  }
+}
+
+/* ============================================
+   ENHANCED HERO LAYOUT
+   ============================================ */
+@media (min-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .hero-content {
+    padding-right: 2rem;
+  }
+  
+  .hero-form {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-left: 4px solid var(--color-primary);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+}
+
+/* ============================================
+   HERO CONTENT MOBILE ADAPTATION
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-content {
+    background: var(--background) !important;
   }
 }

@@ -6,34 +6,34 @@
 
 /* ===== ENHANCED TYPOGRAPHY FOR 55+ AUDIENCE ===== */
 body {
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   line-height: 1.75 !important;
 }
 
 p, li, td {
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   line-height: 1.75 !important;
 }
 
 .text-base {
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
 }
 
 .text-sm {
-  font-size: 16px !important;
+  font-size: var(--font-xs) !important;
 }
 
 .text-xs {
-  font-size: 15px !important;
+  font-size: var(--font-xs) !important;
 }
 
 .text-lg {
-  font-size: 20px !important;
+  font-size: var(--font-lg) !important;
 }
 
 .card p,
 .card li {
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   line-height: 1.7 !important;
 }
 
@@ -1816,4 +1816,18 @@ strong, .font-semibold, .font-bold {
   .footer-email-button:hover {
     transform: none;
   }
+}
+
+/* ===== MISTAKES TO AVOID SECTION ===== */
+
+/* Error soft background */
+.bg-error-soft {
+  background: linear-gradient(135deg, rgba(196, 122, 122, 0.1) 0%, rgba(196, 122, 122, 0.05) 100%);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Text error color */
+.text-error {
+  color: var(--error);
 }

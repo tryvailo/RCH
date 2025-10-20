@@ -1,410 +1,143 @@
 /* ============================================
-   REGIONAL.CSS - BIRMINGHAM SPECIFIC STYLES
+   REGIONAL.CSS - BIRMINGHAM REGIONAL STYLES
+   Специальные стили для региональной страницы
    ============================================ */
 
-/* ============================================
-   BIRMINGHAM BRAND ELEMENTS
-   ============================================ */
-
-:root {
-  --birmingham-gold: #d4af37;
-  --birmingham-primary: var(--primary);
-}
-
-/* Location Badge */
-.birmingham-badge {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--birmingham-gold) 100%);
-  color: white;
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-semibold);
-  display: inline-block;
-}
-
-/* ============================================
-   LOCAL EXPERTISE SECTION
-   ============================================ */
-
-.local-expertise-section {
-  background: var(--background-soft);
-}
-
-.expertise-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
-  margin-top: var(--space-2xl);
-}
-
-.expertise-steps {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
-
-.expertise-step {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-lg);
-}
-
-.step-number {
-  width: 48px;
-  height: 48px;
-  background: var(--primary);
-  color: white;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-lg);
-  flex-shrink: 0;
-}
-
-.step-content h4 {
-  font-size: var(--font-lg);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-sm);
-  color: var(--text-primary);
-}
-
-.step-content p {
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-/* Partnership Benefits Card */
-.partnership-card {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
-  box-shadow: var(--shadow-md);
-}
-
-.partnership-card h3 {
-  font-size: var(--font-2xl);
-  margin-bottom: var(--space-xl);
-  color: var(--text-primary);
-}
-
-.partnership-list {
-  list-style: none;
-  padding: 0;
-}
-
-.partnership-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-lg);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.partnership-list li:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.partnership-icon {
-  color: var(--success);
-  font-size: var(--font-xl);
-  flex-shrink: 0;
-}
-
-.partnership-text {
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-/* ============================================
-   STATISTICS SECTION
-   ============================================ */
-
-.stats-section {
-  background: white;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-xl);
-  margin-top: var(--space-2xl);
-}
-
-.stat-item {
-  text-align: center;
-  padding: var(--space-lg);
-}
-
-.stat-number {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary);
-  line-height: 1;
-  margin-bottom: var(--space-sm);
-}
-
-.stat-label {
-  font-size: var(--font-base);
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-/* ============================================
-   GUARANTEES SECTION
-   ============================================ */
-
-.guarantees-section {
-  background: var(--background-soft);
-}
-
-.guarantees-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-xl);
-  margin-top: var(--space-2xl);
-}
-
-.guarantee-card {
-  background: white;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  text-align: center;
-  transition: var(--transition);
-}
-
-.guarantee-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.guarantee-icon {
-  font-size: 3rem;
-  margin-bottom: var(--space-md);
-}
-
-.guarantee-title {
-  font-size: var(--font-xl);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-md);
-  color: var(--text-primary);
-}
-
-.guarantee-description {
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-/* ============================================
-   COVERAGE MAP SECTION
-   ============================================ */
-
-.coverage-section {
-  background: white;
-}
-
-.coverage-card {
-  background: var(--background-soft);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
-  margin-top: var(--space-2xl);
-}
-
-.coverage-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
-}
-
-.coverage-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background: white;
-  border-radius: var(--radius-md);
-}
-
-.coverage-icon {
-  color: var(--primary);
-  font-size: var(--font-xl);
-}
-
-.coverage-text {
-  font-size: var(--font-sm);
-  color: var(--text-secondary);
-}
-
-/* ============================================
-   DELIVERY INDICATOR
-   ============================================ */
-
-.delivery-indicator {
-  background: linear-gradient(135deg, var(--success) 0%, #047857 100%);
-  color: white;
-  padding: var(--space-lg) var(--space-xl);
-  border-radius: var(--radius-md);
-  text-align: center;
-  margin-top: var(--space-xl);
-  font-weight: var(--font-weight-semibold);
-}
-
-/* ============================================
-   LOCAL TESTIMONIALS
-   ============================================ */
-
-.local-testimonials-section {
-  background: var(--background-soft);
-}
-
-.testimonial-birmingham {
-  background: white;
-  border-left: 3px solid var(--primary);
-}
-
-.testimonial-location {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: 4px 12px;
-  background: var(--background-soft);
-  border-radius: var(--radius-full);
-  font-size: var(--font-sm);
-  color: var(--text-secondary);
-  margin-top: var(--space-xs);
-}
-
-/* ============================================
-   COMPARISON TABLE - BIRMINGHAM SPECIFIC
-   ============================================ */
-
-.comparison-table-birmingham {
-  margin-top: var(--space-2xl);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-lg);
+/* ===== HERO СЕКЦИЯ С ФОНОВЫМ ИЗОБРАЖЕНИЕМ НА ВСЮ СЕКЦИЮ ===== */
+.hero-section {
+  min-height: 600px;
+  position: relative;
   overflow: hidden;
-  background: white;
 }
 
-.comparison-table-birmingham .highlight-column {
-  background: rgba(0, 94, 184, 0.03);
+/* Фоновое изображение на всю hero-секцию */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.comparison-table-birmingham .best-value {
-  color: var(--success);
-  font-weight: var(--font-weight-semibold);
+.hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/images/family-consultation.webp') center center/cover;
+  background-image: url('../../assets/images/family-consultation.webp'), url('../../assets/images/family-consultation.jpg');
+  z-index: 1;
 }
 
-/* ============================================
-   EMERGENCY NOTICE
-   ============================================ */
-
-.emergency-notice {
-  background: rgba(251, 113, 133, 0.1);
-  border: 1px solid rgba(251, 113, 133, 0.3);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  margin: var(--space-xl) 0;
+/* БЕЗОПАСНЫЙ градиент - текст читается, фото видно справа */
+.hero-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(250, 247, 243, 0.98) 0%,      /* Непрозрачный слева - защита текста */
+    rgba(250, 247, 243, 0.95) 40%,     /* Плавный переход */
+    rgba(250, 247, 243, 0.70) 70%,     /* Фото начинает проявляться */
+    rgba(250, 247, 243, 0.25) 100%     /* Фото хорошо видно справа */
+  );
+  z-index: 2;
 }
 
-.emergency-notice-title {
-  font-size: var(--font-lg);
-  font-weight: var(--font-weight-semibold);
-  color: #dc2626;
-  margin-bottom: var(--space-sm);
+/* Контейнер поверх фонового изображения */
+.hero-container {
+  position: relative;
+  z-index: 3; /* ВАЖНО: поверх фонового изображения */
 }
 
-.emergency-notice-text {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-md);
+/* Убираем фоновое изображение из hero-content */
+.hero-content {
+  position: relative;
+  background: transparent;
+  padding: 40px 40px 40px 40px;
 }
 
-/* ============================================
-   REGIONAL FAQ
-   ============================================ */
-
-.regional-faq .faq-item {
-  border-left: 3px solid var(--primary);
+/* Форма должна быть ещё более контрастной */
+.hero-form,
+aside.hero-form {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 3;
+  margin-left: 4rem; /* Смещаем форму вправо на 10% больше для освобождения лица человека */
 }
 
-/* ============================================
-   MOBILE OPTIMIZATIONS
-   ============================================ */
-
-@media (max-width: 1024px) {
-  .expertise-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+/* Адаптивность */
+/* Убрать фото на планшетах */
+@media (max-width: 1200px) {
+  .hero-background::after {
+    background: rgba(250, 247, 243, 0.95);
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  .hero-content {
+    background: transparent;
+    padding: 2rem;
+  }
+  
+  .hero-form,
+  aside.hero-form {
+    margin-left: 0; /* Убираем смещение на планшетах */
   }
 }
 
+/* Полностью скрыть фото на мобильных */
 @media (max-width: 768px) {
-  .birmingham-badge {
-    font-size: 0.75rem;
-    padding: 4px 12px;
+  .hero-background {
+    display: none;
   }
   
-  .expertise-step {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-md);
+  .hero-section {
+    background: var(--background);
   }
   
-  .step-number {
-    margin: 0 auto;
+  .hero-content {
+    background: transparent;
+    padding: 2rem;
   }
   
-  .partnership-card {
-    padding: var(--space-lg);
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-  
-  .guarantees-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .coverage-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .delivery-indicator {
-    padding: var(--space-md) var(--space-lg);
-    font-size: var(--font-sm);
+  .hero-form,
+  aside.hero-form {
+    background: var(--background);
+    backdrop-filter: none;
+    box-shadow: var(--shadow-lg);
+    margin-left: 0; /* Убираем смещение на мобильных */
+    min-width: unset;
+    max-width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .guarantee-card {
-    padding: var(--space-lg);
-  }
-  
-  .coverage-card {
-    padding: var(--space-lg);
-  }
-  
-  .partnership-list li {
-    flex-direction: column;
-    text-align: center;
-  }
+/* Улучшаем читаемость текста */
+.hero-headline {
+  text-shadow: none;
+}
+
+.hero-subtext {
+  text-shadow: none;
+}
+
+/* Социальное доказательство с белым фоном */
+.hero-social-proof {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(107, 124, 110, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Прозрачный фон для текста */
+.transparent-text-bg {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
 }

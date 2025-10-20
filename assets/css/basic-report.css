@@ -5,35 +5,62 @@
    ============================================ */
 
 /* ============================================
+   SIMPLIFIED LAYOUTS FOR 55+ AUDIENCE
+   ============================================ */
+.simple-recommendation {
+  display: block;
+  margin: var(--space-lg) 0;
+}
+
+.simple-recommendation-item {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.perfect-fit {
+  background: var(--success-light);
+}
+
+.must-verify {
+  background: var(--warning-light);
+}
+
+/* Compact layouts restored */
+
+/* Original table comparison restored */
+
+/* ============================================
    CRITICAL TYPOGRAPHY ENFORCEMENT
    Forces readable sizes even if other CSS fails
    ============================================ */
 body {
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   line-height: 1.75 !important;
   color: var(--text-primary) !important;
 }
 
 p, li, td, span, div {
-  font-size: 18px !important;
-  line-height: 1.75 !important;
+  font-size: var(--font-sm) !important;
+  line-height: var(--line-height-relaxed) !important;
 }
 
-.text-base { font-size: 18px !important; }
-.text-sm { font-size: 16px !important; }
-.text-xs { font-size: 15px !important; }
-.text-lg { font-size: 20px !important; }
-.text-xl { font-size: 24px !important; }
-.text-2xl { font-size: 28px !important; }
-.text-3xl { font-size: 32px !important; }
-.text-4xl { font-size: 38px !important; }
-.text-5xl { font-size: 48px !important; }
+.text-base { font-size: var(--font-base) !important; }
+.text-sm { font-size: var(--font-sm) !important; }
+.text-xs { font-size: var(--font-xs) !important; }
+.text-lg { font-size: var(--font-lg) !important; }
+.text-xl { font-size: var(--font-xl) !important; }
+.text-2xl { font-size: var(--font-2xl) !important; }
+.text-3xl { font-size: var(--font-3xl) !important; }
+.text-4xl { font-size: var(--font-4xl) !important; }
+.text-5xl { font-size: var(--font-5xl) !important; }
 
 .card p,
 .card li,
 .card span {
-  font-size: 18px !important;
-  line-height: 1.7 !important;
+  font-size: var(--font-sm) !important;
+  line-height: var(--line-height-relaxed) !important;
 }
 
 strong, 
@@ -45,12 +72,10 @@ b {
 }
 
 /* ============================================
-   ENHANCED REPORT HEADER - FIXED
+   ENHANCED REPORT HEADER - SIMPLIFIED FOR 55+
    ============================================ */
 .report-header {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
-  position: relative;
-  overflow: hidden;
+  background: var(--primary) !important;
   color: var(--text-inverse) !important;
   padding: var(--space-3xl) 0;
 }
@@ -79,7 +104,7 @@ b {
 
 .report-header .card {
   background: var(--background-white) !important;
-  box-shadow: var(--shadow-lg) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Specific overrides for card content */
@@ -121,18 +146,18 @@ b {
   white-space: nowrap !important;
   text-transform: none !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   margin: 2px 4px !important;
   flex-shrink: 0 !important;
 }
 
 .badge:hover {
-  transform: translateY(-2px) !important;
+  transform: none !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
 }
 
 .badge-success {
-  background: linear-gradient(135deg, var(--success) 0%, #4ade80 100%) !important;
+  background: var(--success) !important;
   color: var(--text-inverse) !important;
   border: 2px solid var(--success-hover) !important;
   box-shadow: 0 4px 12px rgba(122, 148, 113, 0.3) !important;
@@ -141,7 +166,7 @@ b {
 }
 
 .badge-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  background: var(--primary) !important;
   color: var(--text-inverse) !important;
   border: 2px solid var(--primary-dark) !important;
   box-shadow: 0 4px 12px rgba(107, 124, 110, 0.3) !important;
@@ -150,7 +175,7 @@ b {
 }
 
 .badge-secondary {
-  background: linear-gradient(135deg, var(--text-secondary) 0%, #6b7280 100%) !important;
+  background: var(--text-secondary) !important;
   color: var(--text-inverse) !important;
   border: 2px solid var(--text-primary) !important;
   box-shadow: 0 4px 12px rgba(90, 91, 90, 0.3) !important;
@@ -159,7 +184,7 @@ b {
 }
 
 .badge-warning {
-  background: linear-gradient(135deg, var(--warning) 0%, #f59e0b 100%) !important;
+  background: var(--warning) !important;
   color: var(--text-inverse) !important;
   border: 2px solid var(--warning-hover) !important;
   box-shadow: 0 4px 12px rgba(212, 163, 85, 0.3) !important;
@@ -168,7 +193,7 @@ b {
 }
 
 .badge-error {
-  background: linear-gradient(135deg, var(--error) 0%, #ef4444 100%) !important;
+  background: var(--error) !important;
   color: var(--text-inverse) !important;
   border: 2px solid var(--error-hover) !important;
   box-shadow: 0 4px 12px rgba(196, 122, 122, 0.3) !important;
@@ -193,35 +218,35 @@ b {
   color: var(--text-inverse) !important;
   flex-shrink: 0 !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-  border: 3px solid var(--primary-dark) !important;
+  background: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
 }
 
 /* Override components.css testimonial-avatar */
 .testimonial-avatar {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-  border: 3px solid var(--primary-dark) !important;
+  background: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
 }
 
 .rank-1 {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-  border: 3px solid var(--primary-dark) !important;
+  background: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
 }
 
 .rank-2 {
-  background: linear-gradient(135deg, var(--success), var(--success-hover)) !important;
-  border: 3px solid var(--success-hover) !important;
+  background: var(--success) !important;
+  border: 2px solid var(--success) !important;
 }
 
 .rank-3 {
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover)) !important;
-  border: 3px solid var(--accent-hover) !important;
+  background: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
 }
 
 .rank-4,
 .rank-5 {
-  background: linear-gradient(135deg, var(--text-secondary), var(--text-primary)) !important;
-  border: 3px solid var(--text-primary) !important;
+  background: var(--text-secondary) !important;
+  border: 2px solid var(--text-secondary) !important;
 }
 
 /* ============================================
@@ -287,7 +312,7 @@ b {
 }
 
 .standard-card:hover {
-  transform: translateY(-3px) !important;
+  transform: none !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
   border-color: var(--primary) !important;
 }
@@ -302,7 +327,7 @@ b {
   border-radius: var(--radius-xl) !important;
   padding: var(--space-xl) !important;
   margin-bottom: var(--space-md) !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   position: relative !important;
   overflow: hidden !important;
 }
@@ -321,7 +346,7 @@ b {
   background: var(--background-soft) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
   border-color: var(--primary-light) !important;
-  transform: translateY(-2px) !important;
+  transform: none !important;
 }
 
 /* Enhanced statistics display */
@@ -370,25 +395,25 @@ b {
   font-size: 1rem !important;
   padding: 12px 24px !important;
   border-radius: var(--radius-lg) !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   text-transform: none !important;
   letter-spacing: 0.025em !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .btn:hover {
-  transform: translateY(-2px) !important;
+  transform: none !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  background: var(--primary) !important;
   border: 3px solid var(--primary-dark) !important;
   color: var(--text-inverse) !important;
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--text-secondary) 0%, #6b7280 100%) !important;
+  background: var(--text-secondary) !important;
   border: 3px solid var(--text-primary) !important;
   color: var(--text-inverse) !important;
 }
@@ -535,7 +560,7 @@ b {
 }
 
 .ranking-card:hover {
-  transform: translateY(-4px) !important;
+  transform: none !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
   border-color: var(--primary) !important;
 }
@@ -635,7 +660,7 @@ b {
   color: var(--text-inverse) !important;
   padding: var(--space-xl) var(--space-lg) !important;
   font-weight: 700 !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   text-align: center !important;
   border: none !important;
 }
@@ -646,7 +671,7 @@ b {
 
 .comparison-table td {
   padding: var(--space-lg) !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   transition: var(--transition) !important;
   border-bottom: 1px solid var(--border-light) !important;
   background: var(--background-white) !important;
@@ -800,7 +825,7 @@ b {
 }
 
 .ranking-badge-5 { 
-  background: var(--gray-500);
+  background: var(--text-secondary);
 }
 
 /* Colored Match % */
@@ -823,14 +848,14 @@ b {
 }
 
 .match-medium { 
-  color: var(--gray-500);
+  color: var(--text-secondary);
 }
 
 /* Bold price highlighting */
 .price-value {
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--gray-800);
+  color: var(--text-primary);
 }
 
 /* Enhanced table styling */
@@ -839,7 +864,7 @@ b {
 }
 
 .comparison-table tbody tr:hover {
-  background-color: var(--gray-50);
+  background-color: var(--background-soft);
 }
 
 /* Priority highlighting for top 3 */
@@ -885,7 +910,7 @@ b {
   padding: var(--space-xl) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
   margin-bottom: var(--space-xl) !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   position: relative !important;
   overflow: hidden !important;
 }
@@ -901,7 +926,7 @@ b {
 }
 
 .calc-card:hover {
-  transform: translateY(-2px) !important;
+  transform: none !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
   border-color: var(--primary) !important;
 }
@@ -1010,13 +1035,10 @@ b {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  animation: shimmer 2s infinite;
+  animation: none;
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
+/* Animation removed for 55+ accessibility */
 
 /* ============================================
    SUMMARY BOX
@@ -1046,19 +1068,16 @@ b {
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(122, 148, 113, 0.15) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
+  animation: none;
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* Animation removed for 55+ accessibility */
 
 /* ============================================
    PDF DOWNLOAD BUTTON
    ============================================ */
 .pdf-download-btn {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+  background: var(--accent) !important;
   color: var(--text-inverse) !important;
   border: 3px solid var(--accent-hover) !important;
   font-weight: 700 !important;
@@ -1075,12 +1094,12 @@ b {
   display: inline-flex !important;
   align-items: center !important;
   gap: var(--space-sm) !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   min-height: var(--touch-comfortable) !important;
 }
 
 .pdf-download-btn:hover {
-  transform: translateY(-2px) !important;
+  transform: none !important;
   box-shadow: 0 8px 20px rgba(192, 139, 122, 0.4) !important;
   background: var(--accent-hover) !important;
 }
@@ -1116,7 +1135,7 @@ b {
   background: var(--background-white) !important;
   width: 100% !important;
   text-align: center !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
   font-family: var(--font-family) !important;
   min-height: var(--touch-comfortable) !important;
   font-weight: 600 !important;
@@ -1155,7 +1174,7 @@ b {
 .price-display .text-secondary {
   color: var(--text-tertiary) !important;
   margin-top: var(--space-xs) !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
 }
 
 /* When price-display used as direct class */
@@ -1248,7 +1267,7 @@ b {
 .footer-description {
   color: rgba(255, 255, 255, 0.9) !important;
   line-height: var(--line-height-relaxed) !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
 }
 
 .footer-section h4 {
@@ -1267,7 +1286,7 @@ b {
   margin-bottom: var(--space-sm) !important;
   color: rgba(255, 255, 255, 0.9) !important;
   line-height: 1.6 !important;
-  font-size: 18px !important;
+  font-size: var(--font-sm) !important;
 }
 
 .footer-links a {
@@ -1325,7 +1344,7 @@ b {
   color: var(--text-primary) !important;
   font-size: var(--font-base) !important;
   font-family: var(--font-family) !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   min-width: 0 !important;
 }
 
@@ -1350,14 +1369,14 @@ b {
   font-weight: 700 !important;
   font-family: var(--font-family) !important;
   cursor: pointer !important;
-  transition: all 0.3s ease !important;
+  transition: none !important;
   white-space: nowrap !important;
   min-height: var(--touch-comfortable) !important;
 }
 
 .footer-email-button:hover {
   background: var(--accent-hover) !important;
-  transform: translateY(-2px) !important;
+  transform: none !important;
   box-shadow: 0 4px 12px rgba(192, 139, 122, 0.3) !important;
 }
 
@@ -1524,7 +1543,7 @@ b {
   .testimonial-avatar {
     width: 40px !important;
     height: 40px !important;
-    font-size: 18px !important;
+    font-size: var(--font-sm) !important;
   }
   
   .badge {
@@ -1567,7 +1586,8 @@ b {
     page-break-inside: avoid !important;
   }
   
-  .section {
+  .section,
+  section.section {
     page-break-inside: avoid !important;
   }
   
@@ -1797,6 +1817,59 @@ b {
     flex-shrink: 0;
 }
 
+/* ===== FEATURE ICONS ===== */
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.feature-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.feature-icon-large {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.feature-icon-large::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Care Dashboard specific icons */
+.feature-icon-large {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
 .step-content {
     flex: 1;
 }
@@ -1846,4 +1919,15 @@ b {
     .step-number {
         align-self: center;
     }
+}
+
+/* ============================================
+   DECISION DASHBOARD STYLES
+   ============================================ */
+
+/* Primary soft background */
+.bg-primary-soft {
+  background: linear-gradient(135deg, rgba(107, 124, 110, 0.1) 0%, rgba(107, 124, 110, 0.05) 100%);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
