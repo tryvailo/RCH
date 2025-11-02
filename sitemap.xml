@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- ========================================
+         MAIN PAGES - HIGH PRIORITY
+         ======================================== -->
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://rightcarehome.co.uk/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- ========================================
+         SERVICE PAGES - HIGH PRIORITY
+         ======================================== -->
+    
+    <!-- Professional Assessment -->
+    <url>
+        <loc>https://rightcarehome.co.uk/professional-assessment/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Premium Assessment -->
+    <url>
+        <loc>https://rightcarehome.co.uk/premium-assessment/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Assessment Checkout -->
+    <url>
+        <loc>https://rightcarehome.co.uk/assessment-checkout/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ========================================
+         REGIONAL/CITY PAGES - HIGH PRIORITY
+         ======================================== -->
+    
+    <!-- Birmingham Care Homes -->
+    <url>
+        <loc>https://rightcarehome.co.uk/cities/birmingham-care-homes/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- ========================================
+         REPORT PAGES - MEDIUM PRIORITY
+         ======================================== -->
+    
+    <!-- Free Care Home Report -->
+    <url>
+        <loc>https://rightcarehome.co.uk/report/free-care-home-report.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Professional Care Home Report -->
+    <url>
+        <loc>https://rightcarehome.co.uk/report/professional-care-home-report.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Premium Care Home Report -->
+    <url>
+        <loc>https://rightcarehome.co.uk/report/premium-care-home-report.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Care Dashboard -->
+    <url>
+        <loc>https://rightcarehome.co.uk/report/care-dashboard.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Telephone Checklist PDF -->
+    <url>
+        <loc>https://rightcarehome.co.uk/report/telephone-checklist-pdf.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ========================================
+         INFORMATION PAGES - MEDIUM PRIORITY
+         ======================================== -->
+    
+    <!-- Family Care Guide -->
+    <url>
+        <loc>https://rightcarehome.co.uk/family-care-guide/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ========================================
+         LEGAL PAGES - LOW PRIORITY
+         ======================================== -->
+    
+    <!-- Service Legal -->
+    <url>
+        <loc>https://rightcarehome.co.uk/service-legal/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://rightcarehome.co.uk/service-legal/privacy-policy.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://rightcarehome.co.uk/service-legal/terms-of-service.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Cookie Policy -->
+    <url>
+        <loc>https://rightcarehome.co.uk/service-legal/cookie-policy.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Refund Policy -->
+    <url>
+        <loc>https://rightcarehome.co.uk/service-legal/refund-policy-updated.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- ========================================
+         CHECKOUT PAGES - MEDIUM PRIORITY
+         ======================================== -->
+    
+    <!-- Billing Details -->
+    <url>
+        <loc>https://rightcarehome.co.uk/assessment-checkout/billing-details.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Payment -->
+    <url>
+        <loc>https://rightcarehome.co.uk/assessment-checkout/payment.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Payment Success -->
+    <url>
+        <loc>https://rightcarehome.co.uk/assessment-checkout/payment-success.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Payment Failed -->
+    <url>
+        <loc>https://rightcarehome.co.uk/assessment-checkout/payment-failed.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- ========================================
+         THANK YOU PAGES - LOW PRIORITY
+         ======================================== -->
+    
+    <!-- Professional Assessment Thank You -->
+    <url>
+        <loc>https://rightcarehome.co.uk/professional-assessment/thank-you.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- Premium Assessment Thank You -->
+    <url>
+        <loc>https://rightcarehome.co.uk/premium-assessment/thank-you.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- ========================================
+         ERROR PAGES - LOW PRIORITY
+         ======================================== -->
+    
+    <!-- 404 Error -->
+    <url>
+        <loc>https://rightcarehome.co.uk/error/404.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <!-- 500 Error -->
+    <url>
+        <loc>https://rightcarehome.co.uk/error/500.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <!-- Maintenance -->
+    <url>
+        <loc>https://rightcarehome.co.uk/error/maintenance.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>

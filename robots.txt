@@ -1,0 +1,41 @@
+# RightCareHome.co.uk - Robots.txt
+# Created: 2025-01-27
+# Purpose: Guide search engine crawlers
+
+User-agent: *
+
+# Allow all pages
+Allow: /
+
+# Disallow admin and private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /test/
+
+# Disallow specific file types
+Disallow: *.pdf$
+Disallow: *.doc$
+Disallow: *.docx$
+Disallow: *.xls$
+Disallow: *.xlsx$
+
+# Allow important PDFs
+Allow: /report/telephone-enquiry-checklist.pdf
+
+# Disallow email templates (not for public)
+Disallow: /email-templates/
+
+# Disallow old URLs (they will redirect anyway)
+Disallow: /questionnaire/
+Disallow: /premium_questionnaire/
+Disallow: /regions/
+Disallow: /checkout/
+Disallow: /legal/
+Disallow: /family/
+
+# Sitemap location
+Sitemap: https://rightcarehome.co.uk/sitemap.xml
+
+# Crawl delay (be nice to the server)
+Crawl-delay: 1

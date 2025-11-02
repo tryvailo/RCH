@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day FREE Trial | Stop Worrying About Your Mum's Care Home | RightCareHome</title>
+    <meta name="description" content="Monitor your loved one's care home 24/7 with RightCareHome Family Dashboard. Get instant alerts, monthly reports, and peace of mind. Start your FREE 7-day trial - no credit card required.">
+    <meta name="keywords" content="care home monitoring, family dashboard, elderly care monitoring, care home alerts, peace of mind, care home updates, family care support, care home tracking">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rightcarehome.co.uk/family-care-guide/">
+    
+    <!-- Favicon and PWA Meta -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#6B7C6E">
+    <meta name="msapplication-TileColor" content="#6B7C6E">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS Inline for Family Page -->
+    <style>
+        :root {
+            --primary: #6B7C6E; --primary-dark: #4A5C4D; --accent: #C08B7A; --success: #7A9471;
+            --text-primary: #1e293b; --text-secondary: #64748b; --background-white: #ffffff;
+            --background-soft: #f8fafc; --border-light: #e2e8f0; --radius-lg: 12px;
+            --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2rem;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-4xl: 2.25rem; --font-size-3xl: 1.875rem; --font-size-lg: 1.125rem;
+            --font-weight-bold: 700; --font-weight-semibold: 600;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-family); color: var(--text-primary); background: var(--background-white); }
+        .hero { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: var(--space-xl) 0; }
+        .hero-headline { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--text-primary); margin-bottom: var(--space-md); line-height: 1.1; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .hero-subtitle { font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--space-xl); text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-subtext { font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--space-xl); text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .btn { display: inline-block; padding: 12px 24px; font-family: var(--font-family); font-weight: var(--font-weight-semibold); text-decoration: none; border: 2px solid transparent; border-radius: var(--radius-lg); cursor: pointer; transition: all 0.3s ease; background: var(--primary); color: white; min-height: 48px; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(107, 124, 110, 0.3); }
+        .btn-large { padding: 16px 32px; font-size: var(--font-size-lg); min-height: 56px; }
+        .header { background: var(--background-white); border-bottom: 1px solid var(--border-light); padding: var(--space-md) 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+        .logo { font-size: 1.25rem; font-weight: var(--font-weight-bold); color: var(--primary); text-decoration: none; }
+        .nav-primary { display: flex; align-items: center; gap: var(--space-lg); list-style: none; margin: 0; padding: 0; }
+        .nav-link { color: var(--text-primary); text-decoration: none; font-weight: 500; padding: var(--space-sm) var(--space-md); border-radius: 8px; transition: all 0.3s ease; }
+        .nav-link:hover { color: var(--primary); background: rgba(29, 78, 216, 0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+        .card { background: var(--background-white); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); margin-bottom: var(--space-lg); }
+        .badge { display: inline-block; padding: 8px 16px; font-size: 0.875rem; font-weight: var(--font-weight-semibold); border-radius: 8px; text-align: center; border: 2px solid currentColor; margin: 2px 4px; flex-shrink: 0; }
+        .badge-primary { background: var(--primary); color: white; border-color: var(--primary); }
+        .badge-success { background: var(--success); color: white; border-color: var(--success); }
+        .form-input { width: 100%; padding: 12px 16px; font-family: var(--font-family); border: 2px solid var(--border-light); border-radius: 8px; background: var(--background-white); color: var(--text-primary); transition: border-color 0.3s ease; min-height: 48px; }
+        .form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1); }
+        @media (max-width: 768px) { .hero-headline { font-size: var(--font-size-3xl); } .nav-primary { display: none; } .btn { width: 100%; margin-bottom: 0.5rem; } }
+    </style>
+    
+    <!-- Load family.css asynchronously -->
+    <link rel="preload" href="family.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="family.css"></noscript>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">R</div>
+                <div class="logo-text">
+                    <span>RightCareHome</span><span class="domain">.co.uk</span>
+                    <span class="logo-subtitle"> Monitoring</span>
+                </div>
+            </a>
+            
+            <nav class="nav-primary">
+                <a href="../index.html#services" class="nav-link">Services</a>
+                <a href="../index.html#pricing-plans" class="nav-link">Pricing</a>
+                <a href="../index.html#areas" class="nav-link">Areas</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            
+            <a href="#pricing-plans" class="btn btn-primary header-cta">
+                Start Free Trial
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" aria-hidden="true" role="navigation" aria-label="Mobile navigation">
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#pricing-plans" class="nav-link">Pricing</a>
+        <a href="../index.html#areas" class="nav-link">Areas</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Left Column -->
+            <div class="hero-content">
+                <h1 class="hero-headline">Stop Worrying About Your Mum's Care Home Every Day</h1>
+                <p class="hero-subtext">Get instant alerts when it matters, plus regular peace-of-mind reports</p>
+                
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="checkmark">✓</span>
+                        <span style="font-size: var(--font-sm);">Our system monitors 100+ data sources every single day to catch issues early</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="checkmark">✓</span>
+                        <span style="font-size: var(--font-sm);">You get instant alerts for serious concerns and regular "all clear" updates</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="checkmark">✓</span>
+                        <span style="font-size: var(--font-sm);">Expert guidance on exactly what to do if any problems arise</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-image">
+                    <img src="../assets/images/hero_elderly.png" alt="Elderly woman with family members in a warm, caring environment, representing the peace of mind that RightCareHome monitoring provides" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="image-placeholder" style="display: none;">
+                        <div class="placeholder-icon">
+                            <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--space-md);">24/7 Protection</h3>
+                        <p>Your loved one's care home, continuously monitored</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--background-white); border-radius: var(--radius-xl); padding: var(--space-md) var(--space-lg); box-shadow: var(--shadow-md); border: 2px solid var(--border-light);">
+                    <div class="hero-cta" style="margin-bottom: var(--space-md);">
+                        <button class="btn btn-primary" style="font-size: var(--font-base); padding: 16px 28px; flex: 1;">Start 7-Day FREE Trial</button>
+                        <button class="btn btn-secondary" style="font-size: var(--font-base); padding: 16px 28px; flex: 1;">View Sample Report</button>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-md); font-size: var(--font-sm); color: var(--text-secondary);">
+                        <div style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--success); font-weight: var(--font-weight-bold); font-size: var(--font-lg);">✓</span>
+                            <span>No credit card required</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm);">
+                            <span style="color: var(--success); font-weight: var(--font-weight-bold); font-size: var(--font-lg);">✓</span>
+                            <span>30-day money-back guarantee</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding-top: var(--space-sm); border-top: 1px solid var(--border-light);">
+                        <p style="font-size: var(--font-sm); color: var(--text-tertiary); margin: 0;">
+                            After trial: Starting from <strong style="color: var(--primary);">£9/month</strong> • Cancel anytime
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-badges">
+        <div class="badges-grid">
+            <div class="badge-item">
+                <div class="badge-icon icon-container">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div class="badge-title">GDPR Compliant</div>
+                <div class="badge-subtitle">Your data protected</div>
+            </div>
+            
+            <div class="badge-item">
+                <div class="badge-icon icon-container warning">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </div>
+                <div class="badge-title">Bank-Level Encryption</div>
+                <div class="badge-subtitle">Military-grade security</div>
+            </div>
+            
+            <div class="badge-item">
+                <div class="badge-icon icon-container success">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div class="badge-title">CQC Data Partner</div>
+                <div class="badge-subtitle">Official data source</div>
+            </div>
+            
+            <div class="badge-item">
+                <div class="badge-icon icon-container">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                </div>
+                <div class="badge-title">30-Day Guarantee</div>
+                <div class="badge-subtitle">Risk-free trial</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-stats">
+        <div class="stats-container">
+            <div>
+                <div class="stat-number" style="color: var(--primary);">100+</div>
+                <div class="stat-label">Data Sources Monitored Daily</div>
+            </div>
+            <div>
+                <div class="stat-number" style="color: var(--success);">24/7</div>
+                <div class="stat-label">Continuous Protection</div>
+            </div>
+            <div>
+                <div class="stat-number" style="color: var(--accent);">&lt;2hrs</div>
+                <div class="stat-label">Average Alert Time</div>
+            </div>
+            <div>
+                <div class="stat-number" style="color: #7A94C4;">98%</div>
+                <div class="stat-label">Family Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">How Our Service Protects Your Family</h2>
+                <p class="section-subtitle">Simple, reliable protection that works around the clock</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">We Monitor Continuously</h3>
+                    <p style="text-align: center; font-size: var(--font-sm); margin-bottom: var(--space-md); color: var(--text-secondary);">Our system checks over 100 different sources every day—CQC reports, local news, complaint databases, and regulatory filings.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--success), #6B8362);">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">We Spot Patterns</h3>
+                    <p style="text-align: center; font-size: var(--font-sm); margin-bottom: var(--space-md); color: var(--text-secondary);">Our system identifies worrying trends like staff turnover spikes, complaint clusters, or regulatory concerns before they become serious.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">You Get Alerts</h3>
+                    <p style="text-align: center; font-size: var(--font-sm); margin-bottom: var(--space-md); color: var(--text-secondary);">Receive immediate notifications when we detect significant changes. Plus, regular "all is well" reports when everything is stable.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #7A94C4, #6A84B4);">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Expert Guidance</h3>
+                    <p style="text-align: center; font-size: var(--font-sm); margin-bottom: var(--space-md); color: var(--text-secondary);">Our care specialists review every alert and provide clear advice on what to do next—whether it's contacting the home or the CQC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">What You Get With Our Monitoring</h2>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #C47A7A, #B46A6A);">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Instant Alerts</h3>
+                    <ul class="card-list">
+                        <li>• CQC rating changes</li>
+                        <li>• New complaints filed</li>
+                        <li>• Management changes</li>
+                        <li>• Significant incidents</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Trend Analysis</h3>
+                    <ul class="card-list">
+                        <li>• Quality trend reports</li>
+                        <li>• Staff turnover tracking</li>
+                        <li>• Comparison with peers</li>
+                        <li>• Compliance status</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--success), #6B8362);">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Peace of Mind</h3>
+                    <ul class="card-list">
+                        <li>• Monthly "all clear" reports</li>
+                        <li>• Stability confirmations</li>
+                        <li>• Positive highlights</li>
+                        <li>• No surprises</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">
+                        <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Expert Support</h3>
+                    <ul class="card-list">
+                        <li>• Email support included</li>
+                        <li>• Red flag guidance</li>
+                        <li>• Action recommendations</li>
+                        <li>• Next steps advice</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lead-magnet">
+        <div class="section-container">
+            <h2 style="font-size: var(--font-3xl); margin-bottom: var(--space-md); color: var(--text-inverse);">FREE Care Quality Checklist</h2>
+            <p style="font-size: var(--font-xl); margin-bottom: var(--space-2xl); color: rgba(255,255,255,0.95);">5 Warning Signs Your Loved One's Care Home Isn't Safe</p>
+            
+            <div class="lead-form">
+                <div style="font-size: 3rem; margin-bottom: var(--space-md);">📋</div>
+                <h3 style="font-size: var(--font-xl); font-weight: var(--font-weight-bold); color: var(--text-primary); margin-bottom: var(--space-md);">Get Your Free Checklist</h3>
+                <p style="font-size: var(--font-sm); color: var(--text-secondary); margin-bottom: var(--space-lg);">Know what to look for during your next visit—instant PDF download</p>
+                
+                <input type="email" id="checklist-email" placeholder="your@email.com">
+                <!-- Message container added to replace alert() -->
+                <div id="checklist-form-message" style="display: none; padding: 10px; border-radius: var(--radius-md); margin-bottom: var(--space-md); font-weight: var(--font-weight-semibold); font-size: var(--font-sm); transition: all 0.3s ease; line-height: 1.5; opacity: 0;"></div>
+                
+                <button id="checklist-download" class="btn btn-accent" style="width: 100%;">Send Me The Checklist →</button>
+                
+                <p style="font-size: var(--font-xs); color: var(--text-tertiary); margin-top: var(--space-md);">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Real Families, Real Peace of Mind</h2>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SM</div>
+                        <div>
+                            <div style="font-weight: var(--font-weight-semibold);">Sarah Mitchell</div>
+                            <div style="font-size: var(--font-sm); color: var(--text-tertiary);">Birmingham</div>
+                        </div>
+                    </div>
+                    <div style="color: var(--accent); margin-bottom: var(--space-md);">★★★★★</div>
+                    <p class="testimonial-text">"We caught a staffing crisis before it affected mum. The alert came at 6am—we were able to speak to management that same day."</p>
+                    <div class="testimonial-result">✓ Prevented potential neglect</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div style="font-weight: var(--font-weight-semibold);">Michael Roberts</div>
+                            <div style="font-size: var(--font-sm); color: var(--text-tertiary);">Manchester</div>
+                        </div>
+                    </div>
+                    <div style="color: var(--accent); margin-bottom: var(--space-md);">★★★★★</div>
+                    <p class="testimonial-text">"8 months of 'All Clear' reports. I used to check CQC weekly myself—now I sleep better knowing experts are watching."</p>
+                    <div class="testimonial-result">✓ Confidence dad is well cared for</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JK</div>
+                        <div>
+                            <div style="font-weight: var(--font-weight-semibold);">Jennifer Kumar</div>
+                            <div style="font-size: var(--font-sm); color: var(--text-tertiary);">Leeds</div>
+                        </div>
+                    </div>
+                    <div style="color: var(--accent); font-weight: var(--font-weight-semibold); font-size: var(--font-sm); margin-bottom: var(--space-sm);">CASE STUDY</div>
+                    <p class="testimonial-text">Riverside Care's CQC rating changed from 'Good' to 'Requires Improvement'. We were notified 2 days before the family would have found out.</p>
+                    <div class="testimonial-result">✓ Family initiated move within 3 weeks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Peace of Mind</h2>
+                <p class="section-subtitle">All plans include: 7-day FREE trial • 30-day money-back guarantee • Cancel anytime</p>
+                
+                <div style="display: flex; justify-content: center; gap: var(--space-lg); margin-top: var(--space-xl); margin-bottom: var(--space-xl);">
+                    <button id="pricing-monthly" class="btn btn-primary" style="min-width: 160px;">Monthly</button>
+                    <button id="pricing-annual" class="btn btn-secondary" style="min-width: 160px; position: relative;">
+                        Annual
+                        <span style="position: absolute; top: -14px; right: -14px; background: var(--success); color: white; font-size: 13px; padding: 5px 10px; border-radius: 14px; font-weight: var(--font-weight-semibold);">Save 17%</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="pricing-card">
+                    <h3 style="font-size: var(--font-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-xs);">Peace of Mind</h3>
+                    <p style="font-size: var(--font-base); color: var(--text-secondary); font-style: italic; margin-bottom: var(--space-md);">"Sleep better knowing we're watching"</p>
+                    <div class="pricing-price monthly-price">£9<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/month</span></div>
+                    <div class="pricing-price annual-price" style="display: none;">£90<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/year</span></div>
+                    <p style="color: var(--text-secondary); font-size: var(--font-sm); margin-bottom: var(--space-sm); min-height: 65px;">
+                        <strong>Best for:</strong> Budget-conscious families
+                    </p>
+                    <p class="annual-price" style="display: none; color: var(--success); font-size: var(--font-base); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-lg);">Save £18/year (2 months free!)</p>
+                    
+                    <ul class="pricing-features">
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Monthly status reports</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>CQC rating alerts</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Critical safety incidents</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>1 resident profile</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Email support (48h)</span></li>
+                        <li><span style="color: var(--text-muted); font-size: var(--font-xl);">✗</span> <span style="color: var(--text-muted);">Weekly updates</span></li>
+                        <li><span style="color: var(--text-muted); font-size: var(--font-xl);">✗</span> <span style="color: var(--text-muted);">Detailed monitoring</span></li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" style="width: 100%; margin-top: auto;">Start FREE Trial</button>
+                    <p style="font-size: var(--font-sm); color: var(--text-tertiary); text-align: center; margin-top: var(--space-sm); margin-bottom: 0;">No credit card required</p>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">🔥 MOST POPULAR</div>
+                    <h3 style="font-size: var(--font-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-xs); margin-top: var(--space-lg);">Complete Care</h3>
+                    <p style="font-size: var(--font-base); color: var(--text-secondary); font-style: italic; margin-bottom: var(--space-md);">"Everything you need to care for mum properly"</p>
+                    <div class="pricing-price monthly-price">£19<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/month</span></div>
+                    <div class="pricing-price annual-price" style="display: none;">£190<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/year</span></div>
+                    <p style="color: var(--text-secondary); font-size: var(--font-sm); margin-bottom: var(--space-sm); min-height: 65px;">
+                        <strong>Best for:</strong> Active families living far away
+                    </p>
+                    <p class="annual-price" style="display: none; color: var(--success); font-size: var(--font-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-lg);">Save £38/year (2 months free!)</p>
+                    
+                    <ul class="pricing-features">
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span style="font-weight: var(--font-weight-semibold);">Everything in Peace of Mind, plus:</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>Weekly</strong> status updates</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>48 parameters</strong> monitored</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>7 data sources</strong> checked</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Historical trends (3 months)</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Personalized recommendations</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Quick Actions card</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>Priority</strong> support (24h)</span></li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" style="width: 100%; margin-top: auto;">Start FREE Trial →</button>
+                    <p style="font-size: var(--font-sm); color: var(--text-tertiary); text-align: center; margin-top: var(--space-sm); margin-bottom: 0;">No credit card required</p>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 style="font-size: var(--font-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-xs);">Premium</h3>
+                    <p style="font-size: var(--font-base); color: var(--text-secondary); font-style: italic; margin-bottom: var(--space-md);">"Instant peace of mind, maximum control"</p>
+                    <div class="pricing-price monthly-price">£39<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/month</span></div>
+                    <div class="pricing-price annual-price" style="display: none;">£390<span style="font-size: var(--font-xl); color: var(--text-tertiary);">/year</span></div>
+                    <p style="color: var(--text-secondary); font-size: var(--font-sm); margin-bottom: var(--space-sm); min-height: 65px;">
+                        <strong>Best for:</strong> Multiple residents or need instant alerts
+                    </p>
+                    <p class="annual-price" style="display: none; color: var(--success); font-size: var(--font-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-lg);">Save £78/year (2 months free!)</p>
+                    
+                    <ul class="pricing-features">
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span style="font-weight: var(--font-weight-semibold);">Everything in Complete Care, plus:</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>⚡ Instant WhatsApp</strong> alerts</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>SMS notifications</strong></span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>12+ review sources</strong></span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>AI sentiment analysis</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Unlimited history</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span><strong>Monthly expert call</strong></span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Up to 3 residents</span></li>
+                        <li><span style="color: var(--success); font-size: var(--font-xl);">✓</span> <span>Priority phone support</span></li>
+                    </ul>
+                    
+                    <button class="btn btn-accent" style="width: 100%; margin-top: auto;">Start FREE Trial</button>
+                    <p style="font-size: var(--font-sm); color: var(--text-tertiary); text-align: center; margin-top: var(--space-sm); margin-bottom: 0;">No credit card required</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--background-soft); border-radius: var(--radius-xl); max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h4 style="font-size: var(--font-xl); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-md);">🎯 Worth £800-1200/month if done by a care consultant</h4>
+                <p style="font-size: var(--font-base); color: var(--text-secondary);">Our Complete Care plan monitors 48 parameters × 52 weeks = <strong>2,496 checks per year</strong> and saves you <strong>8-10 hours per week</strong> of manual research.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Detailed Feature Comparison</h2>
+                <p class="section-subtitle">See exactly what's included in each plan</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="min-width: 280px;">Feature</th>
+                            <th style="text-align: center; min-width: 200px;">Peace of Mind<br><span style="font-size: var(--font-sm); font-weight: normal; opacity: 0.9;">£9/mo</span></th>
+                            <th style="text-align: center; min-width: 200px; background: rgba(255,255,255,0.15);">Complete Care ⭐<br><span style="font-size: var(--font-sm); font-weight: normal; opacity: 0.9;">£19/mo</span></th>
+                            <th style="text-align: center; min-width: 200px;">Premium<br><span style="font-size: var(--font-sm); font-weight: normal; opacity: 0.9;">£39/mo</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: var(--background-soft);">
+                            <td colspan="4" style="font-weight: var(--font-weight-semibold); color: var(--primary); font-size: var(--font-lg);">MONITORING</td>
+                        </tr>
+                        <tr>
+                            <td>Quality Score tracking</td>
+                            <td style="text-align: center; color: var(--text-secondary);">Monthly</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);" class="featured-col">Weekly</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">Real-time</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters monitored</td>
+                            <td style="text-align: center;">10 essential</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);" class="featured-col">48 comprehensive</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">48 + custom</td>
+                        </tr>
+                        <tr>
+                            <td>Data sources checked</td>
+                            <td style="text-align: center;">3 sources</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);" class="featured-col">7 official sources</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">7 + 12 review sites</td>
+                        </tr>
+                        <tr>
+                            <td>Historical trends</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center;" class="featured-col">3 months</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">Unlimited</td>
+                        </tr>
+                        
+                        <tr style="background: var(--background-soft);">
+                            <td colspan="4" style="font-weight: var(--font-weight-semibold); color: var(--primary); font-size: var(--font-lg);">ALERTS & NOTIFICATIONS</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency email alerts</td>
+                            <td style="text-align: center;">Critical only</td>
+                            <td style="text-align: center;" class="featured-col">All important</td>
+                            <td style="text-align: center;">Everything</td>
+                        </tr>
+                        <tr>
+                            <td>Weekly digest emails</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);" class="featured-col">✓ Included</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">✓ Included</td>
+                        </tr>
+                        <tr>
+                            <td>Real-time WhatsApp alerts</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center; color: var(--text-muted);" class="featured-col">—</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">✓ Instant</td>
+                        </tr>
+                        <tr>
+                            <td>SMS notifications</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center; color: var(--text-muted);" class="featured-col">—</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">✓ Critical</td>
+                        </tr>
+                        
+                        <tr style="background: var(--background-soft);">
+                            <td colspan="4" style="font-weight: var(--font-weight-semibold); color: var(--primary); font-size: var(--font-lg);">INSIGHTS & PERSONALIZATION</td>
+                        </tr>
+                        <tr>
+                            <td>Reviews monitoring</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center;" class="featured-col">1 source</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">12+ sources</td>
+                        </tr>
+                        <tr>
+                            <td>AI sentiment analysis</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center; color: var(--text-muted);" class="featured-col">—</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">✓ Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Resident profiles</td>
+                            <td style="text-align: center;">1 basic</td>
+                            <td style="text-align: center;" class="featured-col">1 detailed</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">Up to 3</td>
+                        </tr>
+                        <tr>
+                            <td>Personalized action plans</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);" class="featured-col">✓ Weekly</td>
+                            <td style="text-align: center; color: var(--success); font-weight: var(--font-weight-semibold);">✓ Real-time</td>
+                        </tr>
+                        
+                        <tr style="background: var(--background-soft);">
+                            <td colspan="4" style="font-weight: var(--font-weight-semibold); color: var(--primary); font-size: var(--font-lg);">SUPPORT</td>
+                        </tr>
+                        <tr>
+                            <td>Email support</td>
+                            <td style="text-align: center;">48h response</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);" class="featured-col">24h priority</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">Same-day</td>
+                        </tr>
+                        <tr>
+                            <td>Phone support</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center;" class="featured-col">Business hours</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">9am-9pm priority</td>
+                        </tr>
+                        <tr>
+                            <td>Expert consultation calls</td>
+                            <td style="text-align: center; color: var(--text-muted);">—</td>
+                            <td style="text-align: center;" class="featured-col">On-demand</td>
+                            <td style="text-align: center; font-weight: var(--font-weight-semibold);">15-min monthly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- ADD-ONS SECTION - Updated to show structure for Extra Residents and Expert Consultation -->
+            <div style="background: linear-gradient(135deg, rgba(107, 124, 110, 0.08), rgba(192, 139, 122, 0.08)); padding: var(--space-2xl); border-radius: var(--radius-xl);">
+                <h3 style="font-size: var(--font-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-lg); text-align: center; color: var(--primary-dark);">Optional Add-ons & Expert Services</h3>
+                
+                <div class="grid grid-2" style="gap: var(--space-lg);">
+                    <!-- Add-on 1: Extra Residents -->
+                    <div style="background: var(--background-white); padding: var(--space-lg); border-radius: var(--radius-lg); border: 2px solid var(--border-light); text-align: center; box-shadow: var(--shadow-sm);">
+                        <div style="font-size: var(--font-3xl); margin-bottom: var(--space-sm);">👨‍👩‍👧‍👦</div>
+                        <h4 style="font-size: var(--font-xl); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-xs);">Extra Residents</h4>
+                        <p style="font-size: var(--font-lg); color: var(--primary); font-weight: var(--font-weight-bold); margin: var(--space-sm) 0;">£5<span style="font-size: var(--font-base);">/month per person</span></p>
+                        <p style="font-size: var(--font-sm); color: var(--text-secondary); margin-bottom: 0;">Monitor multiple loved ones in the same or different homes. Available on Complete Care and Premium plans.</p>
+                    </div>
+
+                    <!-- Add-on 2: Expert Consultation -->
+                    <div style="background: var(--background-white); padding: var(--space-lg); border-radius: var(--radius-lg); border: 2px solid var(--border-light); text-align: center; box-shadow: var(--shadow-sm);">
+                        <div style="font-size: var(--font-3xl); margin-bottom: var(--space-sm);">📞</div>
+                        <h4 style="font-size: var(--font-xl); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-xs);">Expert Consultation</h4>
+                        <p style="font-size: var(--font-lg); color: var(--accent); font-weight: var(--font-weight-bold); margin: var(--space-sm) 0;">£49<span style="font-size: var(--font-base);"> one-time</span></p>
+                        <p style="font-size: var(--font-sm); color: var(--text-secondary); margin-bottom: 0;">A 45-minute deep-dive call with our specialist to discuss your reports or any specific concerns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            
+            <div style="max-width: 850px; margin: 0 auto;">
+                <details>
+                    <summary>What happens if you find a problem at the care home?</summary>
+                    <p>You'll receive an immediate alert explaining the issue and how serious it is. Our care experts will provide clear guidance on what to do next—whether that's contacting the home, speaking to the CQC, or considering other options. We'll help you every step of the way.</p>
+                </details>
+                
+                <details>
+                    <summary>How is my family's information protected?</summary>
+                    <p>We're fully GDPR compliant with bank-level encryption. Your loved one's information is never shared with anyone else. We only collect what's necessary to monitor their care home effectively. Your privacy and security are our top priorities.</p>
+                </details>
+                
+                <details>
+                    <summary>Can I cancel anytime?</summary>
+                    <p>Absolutely. You can cancel online anytime with one click—no phone calls, no questions asked. If you cancel within 30 days, you'll receive a full refund. No hassle, guaranteed.</p>
+                </details>
+                
+                <details>
+                    <summary>What if everything is fine at the care home?</summary>
+                    <p>That's wonderful news! You'll still receive regular "peace of mind" reports confirming that everything is stable. Many families tell us these confirmations are just as valuable as the alerts—it's reassuring to know everything is being monitored.</p>
+                </details>
+                
+                <details>
+                    <summary>Do you work with all care homes in the UK?</summary>
+                    <p>Yes—we monitor all CQC-registered care homes across England. We track official CQC data, complaints, staffing changes, and publicly available information for any care home you choose. If your loved one's home is registered with the CQC, we can monitor it.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="section-container">
+            <h2 class="cta-title">Start Your FREE 7-Day Trial Today</h2>
+            <p class="cta-text">Join families who stay informed without the daily worry • No credit card required</p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-accent" style="font-size: var(--font-lg); padding: 18px 36px;">Start Your FREE Trial Now</button>
+                <button class="btn btn-secondary" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">View Sample Report →</button>
+            </div>
+            
+            <p style="margin-top: var(--space-md); font-size: var(--font-sm); color: rgba(255,255,255,0.8);">After trial: From £9/month • Cancel anytime</p>
+            
+            <div style="margin-top: var(--space-xl); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-lg); font-size: var(--font-sm); color: rgba(255,255,255,0.8);">
+                <span>7-day FREE trial</span>
+                <span>No credit card required • 30-day money-back guarantee</span>
+                <span>Cancel anytime</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="font-size: var(--font-lg); font-weight: var(--font-weight-bold); color: white; margin-bottom: var(--space-md);">RightCareHome</h3>
+                    <p style="font-size: var(--font-sm); line-height: var(--line-height-relaxed); color: rgba(255,255,255,0.7);">Helping families make informed decisions about care since 2024.</p>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: var(--font-base); font-weight: var(--font-weight-semibold); color: white; margin-bottom: var(--space-md);">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Care Home Selection</a></li>
+                        <li><a href="#">Care Monitoring</a></li>
+                        <li><a href="#">Bundle Package</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: var(--font-base); font-weight: var(--font-weight-semibold); color: white; margin-bottom: var(--space-md);">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Care Quality Guide</a></li>
+                        <li><a href="#">CQC Ratings Explained</a></li>
+                        <li><a href="#">Family Rights</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: var(--font-base); font-weight: var(--font-weight-semibold); color: white; margin-bottom: var(--space-md);">Contact</h4>
+                    <p style="font-size: var(--font-sm); color: rgba(255,255,255,0.7); line-height: var(--line-height-relaxed);">📧 monitoring@rightcarehome.co.uk<br>📞 0800 123 4567<br>Mon-Fri: 9am-6pm</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 RightCareHome. All rights reserved. <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="exit-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: var(--space-md);">📋</div>
+                <h3 style="font-size: var(--font-2xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-md);">Wait! Before You Go...</h3>
+                <p style="font-size: var(--font-lg); margin-bottom: var(--space-lg); color: var(--text-secondary); line-height: var(--line-height-relaxed);">Get our <strong>free Care Quality Checklist</strong>—5 warning signs to watch for at your loved one's care home</p>
+                <input type="email" id="exit-email" placeholder="your@email.com" style="width: 100%; padding: 16px 20px; border: 2px solid var(--border); border-radius: var(--radius-md); margin-bottom: var(--space-md); font-family: var(--font-family); font-size: var(--font-base);">
+                <button id="exit-download" class="btn btn-primary" style="width: 100%;">Send Me The Free Checklist</button>
+                <p style="font-size: var(--font-xs); color: var(--text-muted); margin-top: var(--space-md); margin-bottom: 0;">Join families who stay informed</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let exitIntentShown = false;
+
+        // Note: showFormMessage function removed - now using universal FormValidation.showFormMessage()
+
+        // Updated function to handle lead capture without using alert()
+        function handleLeadCapture(email, source) {
+            // Determine which input field is being used
+            let emailInputId = (source === 'exit') ? 'exit-email' : 'checklist-email';
+            let emailInput = document.getElementById(emailInputId);
+            let emailValue = emailInput ? emailInput.value : email;
+
+            if (!emailValue || !FormValidation.validateEmail(emailValue)) {
+                // Show error message using universal function
+                FormValidation.showFormMessage('Please enter a valid email address.', 'error', 'checklist-form-message');
+                return;
+            }
+            
+            console.log('Lead captured:', { email: emailValue, source, timestamp: new Date().toISOString() });
+            
+            // Show success message using universal function
+            FormValidation.showFormMessage('Success! Check your email for the checklist.', 'success', 'checklist-form-message');
+            
+            if (source === 'exit') {
+                // Hide the modal on success
+                hideExitModal();
+            }
+        }
+
+        document.getElementById('checklist-download')?.addEventListener('click', () => {
+            handleLeadCapture(null, 'checklist');
+        });
+
+        document.getElementById('exit-download')?.addEventListener('click', () => {
+            handleLeadCapture(null, 'exit');
+        });
+
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                showExitModal();
+            }
+        });
+
+        function showExitModal() {
+            exitIntentShown = true;
+            document.getElementById('exit-modal').classList.add('show');
+        }
+
+        function hideExitModal() {
+            document.getElementById('exit-modal').classList.remove('show');
+        }
+
+        document.getElementById('close-modal')?.addEventListener('click', hideExitModal);
+        document.getElementById('exit-modal')?.addEventListener('click', (e) => {
+            if (e.target.id === 'exit-modal') hideExitModal();
+        });
+
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const btnId = input.id.includes('exit') ? 'exit-download' : 'checklist-download';
+                    document.getElementById(btnId)?.click();
+                }
+            });
+        });
+
+        setTimeout(() => {
+            if (!exitIntentShown) setTimeout(showExitModal, 30000);
+        }, 60000);
+
+        // Pricing toggle functionality
+        const monthlyBtn = document.getElementById('pricing-monthly');
+        const annualBtn = document.getElementById('pricing-annual');
+        const monthlyPrices = document.querySelectorAll('.monthly-price');
+        const annualPrices = document.querySelectorAll('.annual-price');
+
+        function showMonthly() {
+            monthlyBtn.classList.remove('btn-secondary');
+            monthlyBtn.classList.add('btn-primary');
+            annualBtn.classList.remove('btn-primary');
+            annualBtn.classList.add('btn-secondary');
+            
+            monthlyPrices.forEach(el => el.style.display = 'block');
+            annualPrices.forEach(el => el.style.display = 'none');
+        }
+
+        function showAnnual() {
+            annualBtn.classList.remove('btn-secondary');
+            annualBtn.classList.add('btn-primary');
+            monthlyBtn.classList.remove('btn-primary');
+            monthlyBtn.classList.add('btn-secondary');
+            
+            monthlyPrices.forEach(el => el.style.display = 'none');
+            annualPrices.forEach(el => el.style.display = 'block');
+        }
+
+        monthlyBtn?.addEventListener('click', showMonthly);
+        annualBtn?.addEventListener('click', showAnnual);
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.nav-mobile');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                
+                this.setAttribute('aria-expanded', isOpen);
+                mobileMenu.setAttribute('aria-hidden', !isOpen);
+                
+                const icon = this.querySelector('svg');
+                if (icon) {
+                    icon.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

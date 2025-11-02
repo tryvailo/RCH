@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment | RightCareHome</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <style>
+        .checkout-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .payment-container {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .order-summary-box {
+            background: var(--background-soft);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-light);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        #card-element {
+            padding: 1.25rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            background: var(--background-white);
+            transition: all 0.3s ease;
+        }
+        
+        #card-element.StripeElement--focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.1);
+        }
+        
+        #card-element.StripeElement--invalid {
+            border-color: var(--error);
+        }
+        
+        #card-errors {
+            color: var(--error);
+            font-size: 0.9375rem;
+            margin-top: 0.75rem;
+            min-height: 20px;
+        }
+        
+        .pay-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-inverse);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 56px;
+        }
+        
+        .pay-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 124, 110, 0.3);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .pay-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            flex-wrap: wrap;
+        }
+        
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .customer-details {
+            background: var(--background-soft);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .customer-details-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        .detail-label {
+            color: var(--text-secondary);
+        }
+        
+        .detail-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+            font-size: 1.125rem;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(122, 148, 113, 0.1) 0%, rgba(122, 148, 113, 0.05) 100%);
+            border: 2px solid var(--success);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            color: var(--success);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .guarantee-box p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .progress-step-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--text-inverse);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .progress-step.completed .progress-step-number {
+            background: var(--success);
+        }
+        
+        .progress-step-text {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .progress-step.completed .progress-step-text {
+            color: var(--primary);
+        }
+        
+        .progress-step.active .progress-step-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .progress-connector {
+            width: 4rem;
+            height: 2px;
+            background: var(--border-light);
+        }
+        
+        .progress-step.completed + .progress-connector {
+            background: var(--success);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 1rem;
+            }
+            
+            .payment-container {
+                padding: 1.5rem;
+            }
+            
+            .progress-indicator {
+                gap: 0.5rem;
+            }
+            
+            .progress-step-text {
+                display: none;
+            }
+            
+            .progress-connector {
+                width: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-container">
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-step completed">
+                <div class="progress-step-number">✓</div>
+                <span class="progress-step-text">Package</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step completed">
+                <div class="progress-step-number">✓</div>
+                <span class="progress-step-text">Details</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step active">
+                <div class="progress-step-number">3</div>
+                <span class="progress-step-text">Payment</span>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <a href="/assessment-checkout/billing-details.html" class="back-link">
+            ← Back to your details
+        </a>
+
+        <!-- Payment Container -->
+        <div class="payment-container">
+            
+            <!-- Order Summary -->
+            <div class="order-summary-box">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-item">
+                    <span id="packageName">Professional Assessment</span>
+                    <span id="packagePrice">£119.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Processing Fee</span>
+                    <span>£0.00</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total Due Today</span>
+                    <span id="totalPrice">£119.00</span>
+                </div>
+            </div>
+
+            <!-- Customer Details Review -->
+            <div class="customer-details">
+                <h4 class="customer-details-title">Billing Details</h4>
+                <div class="detail-row">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value" id="customerName">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="customerEmail">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Phone:</span>
+                    <span class="detail-value" id="customerPhone">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Location:</span>
+                    <span class="detail-value" id="customerLocation">-</span>
+                </div>
+            </div>
+
+            <!-- Guarantee Box -->
+            <div class="guarantee-box">
+                <h3>🛡️ 48-Hour Money-Back Guarantee</h3>
+                <p>If we don't deliver your personalised report within 48 hours, you get a full refund</p>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="payment-form">
+                
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Payment Information</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        Card Details
+                    </label>
+                    <div id="card-element"></div>
+                    <div id="card-errors" role="alert"></div>
+                </div>
+
+                <button type="submit" class="pay-btn" id="payBtn">
+                    <span id="buttonText">Complete Payment</span>
+                    <div id="spinner" class="spinner" style="display: none;"></div>
+                </button>
+
+                <p style="text-align: center; font-size: 0.9375rem; color: var(--text-secondary); margin-top: 1rem;">
+                    Your payment is processed securely via Stripe. We never store your card details.
+                </p>
+
+            </form>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="security-badge">
+                    <span>🔒</span>
+                    <span>256-bit SSL</span>
+                </div>
+                <div class="security-badge">
+                    <span>💳</span>
+                    <span>PCI Compliant</span>
+                </div>
+                <div class="security-badge">
+                    <span>✓</span>
+                    <span>Stripe Secured</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Stripe (REPLACE WITH YOUR ACTUAL PUBLIC KEY)
+        const stripe = Stripe('pk_test_YOUR_STRIPE_PUBLIC_KEY_HERE');
+        const elements = stripe.elements();
+
+        // Create card element with custom styling
+        const cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '18px',
+                    color: 'var(--text-primary)',
+                    fontFamily: "'Inter', sans-serif",
+                    '::placeholder': {
+                        color: 'var(--text-muted)',
+                    },
+                },
+                invalid: {
+                    color: 'var(--error)',
+                },
+            },
+        });
+
+        cardElement.mount('#card-element');
+
+        // Handle real-time validation errors
+        cardElement.on('change', (event) => {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Load and display order details
+        window.addEventListener('DOMContentLoaded', () => {
+            // Check if required data exists
+            const packageType = sessionStorage.getItem('selectedPackage');
+            const packagePrice = sessionStorage.getItem('selectedPrice');
+            const billingDetails = sessionStorage.getItem('billingDetails');
+
+            // Set defaults for testing if data missing
+            if (!packageType || !packagePrice) {
+                sessionStorage.setItem('selectedPackage', 'standard');
+                sessionStorage.setItem('selectedPrice', '119');
+                console.warn('No package data - using defaults');
+            }
+
+            if (!billingDetails) {
+                // Create dummy billing details for testing
+                const dummyBilling = {
+                    fullName: 'Test User',
+                    email: 'test@example.com',
+                    phone: '07700 900000',
+                    city: 'Birmingham',
+                    postcode: 'B1 1AA'
+                };
+                sessionStorage.setItem('billingDetails', JSON.stringify(dummyBilling));
+                console.warn('No billing details - using test data');
+            }
+
+            // Get current values (either real or defaults)
+            const currentPackage = sessionStorage.getItem('selectedPackage');
+            const currentPrice = sessionStorage.getItem('selectedPrice');
+            const currentBilling = JSON.parse(sessionStorage.getItem('billingDetails'));
+
+            // Update order summary
+            const packageName = currentPackage === 'premium' ? 'Premium Assessment' : 'Professional Assessment';
+            document.getElementById('packageName').textContent = packageName;
+            document.getElementById('packagePrice').textContent = `£${currentPrice}.00`;
+            document.getElementById('totalPrice').textContent = `£${currentPrice}.00`;
+
+            // Display customer details
+            document.getElementById('customerName').textContent = currentBilling.fullName;
+            document.getElementById('customerEmail').textContent = currentBilling.email;
+            document.getElementById('customerPhone').textContent = currentBilling.phone;
+            document.getElementById('customerLocation').textContent = `${currentBilling.city}, ${currentBilling.postcode}`;
+        });
+
+        // Handle form submission
+        const form = document.getElementById('payment-form');
+        const payBtn = document.getElementById('payBtn');
+        const buttonText = document.getElementById('buttonText');
+        const spinner = document.getElementById('spinner');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Disable button and show loading
+            payBtn.disabled = true;
+            buttonText.textContent = 'Processing...';
+            spinner.style.display = 'block';
+
+            // Get billing details
+            const billingDetails = JSON.parse(sessionStorage.getItem('billingDetails'));
+            const packagePrice = sessionStorage.getItem('selectedPrice');
+            const packageType = sessionStorage.getItem('selectedPackage');
+
+            try {
+                // Create payment intent on your backend
+                const response = await fetch('/api/create-payment-intent.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: parseInt(packagePrice) * 100, // Convert to pence
+                        packageType: packageType,
+                        customerEmail: billingDetails.email,
+                        customerName: billingDetails.fullName
+                    }),
+                });
+
+                const { clientSecret, error } = await response.json();
+
+                if (error) {
+                    throw new Error(error);
+                }
+
+                // Confirm payment with Stripe
+                const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
+                    clientSecret,
+                    {
+                        payment_method: {
+                            card: cardElement,
+                            billing_details: {
+                                name: billingDetails.fullName,
+                                email: billingDetails.email,
+                                phone: billingDetails.phone,
+                                address: {
+                                    city: billingDetails.city,
+                                    postal_code: billingDetails.postcode,
+                                    country: 'GB',
+                                },
+                            },
+                        },
+                    }
+                );
+
+                if (stripeError) {
+                    throw new Error(stripeError.message);
+                }
+
+                if (paymentIntent.status === 'succeeded') {
+                    // Save payment confirmation
+                    sessionStorage.setItem('paymentIntentId', paymentIntent.id);
+                    sessionStorage.setItem('paymentStatus', 'succeeded');
+
+                    // Redirect to success page
+                    window.location.href = '/assessment-checkout/payment-success.html?ref=' + paymentIntent.id.slice(-8);
+                }
+
+            } catch (error) {
+                // Show error
+                const errorElement = document.getElementById('card-errors');
+                errorElement.textContent = error.message;
+
+                // Re-enable button
+                payBtn.disabled = false;
+                buttonText.textContent = 'Complete Payment';
+                spinner.style.display = 'none';
+
+                // Log error for debugging
+                console.error('Payment error:', error);
+            }
+        });
+
+        // Prevent accidental navigation away
+        window.addEventListener('beforeunload', (e) => {
+            if (!sessionStorage.getItem('paymentStatus')) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>

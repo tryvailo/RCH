@@ -4,64 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | RightCareHome</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--background-soft);
+        }
+        
+        .error-content {
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .error-number {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+        
+        .error-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .error-action-card {
+            background: var(--background-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .error-action-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(107, 124, 110, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .error-action-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-action-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .error-action-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .error-number {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.875rem;
+            }
+            
+            .error-message {
+                font-size: 1.125rem;
+            }
+            
+            .error-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .error-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-2xl w-full text-center">
-            <div class="mb-8">
-                <h1 class="text-9xl font-bold text-blue-600 mb-4">404</h1>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h2>
-                <p class="text-xl text-gray-600 mb-8">
-                    Sorry, we couldn't find the page you're looking for. The link may be broken or the page may have been moved.
-                </p>
+<body class="bg-soft">
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="error-container">
+        <div class="error-content">
+            <div class="error-number">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Sorry, we couldn't find the page you're looking for. The link may be broken or the page may have been moved.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="error-action-card">
+                    <div class="error-action-icon">🏠</div>
+                    <div class="error-action-title">Homepage</div>
+                    <div class="error-action-description">Return to our homepage</div>
+                </a>
+                
+                <a href="/professional-assessment/" class="error-action-card">
+                    <div class="error-action-icon">📋</div>
+                    <div class="error-action-title">Assessment</div>
+                    <div class="error-action-description">Start your care assessment</div>
+                </a>
+                
+                <a href="/cities/birmingham-care-homes/" class="error-action-card">
+                    <div class="error-action-icon">📍</div>
+                    <div class="error-action-title">Birmingham Care Homes</div>
+                    <div class="error-action-description">Explore local options</div>
+                </a>
+                
+                <a href="mailto:support@rightcarehome.co.uk" class="error-action-card">
+                    <div class="error-action-icon">💬</div>
+                    <div class="error-action-title">Contact Us</div>
+                    <div class="error-action-description">Get help from our team</div>
+                </a>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h3 class="text-xl font-semibold mb-4">Looking for something?</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
-                        <div class="text-2xl mb-2">🏠</div>
-                        <div class="font-semibold text-gray-800">Homepage</div>
-                        <div class="text-sm text-gray-600">Return to homepage</div>
-                    </a>
-                    <a href="/questionnaire/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
-                        <div class="text-2xl mb-2">📋</div>
-                        <div class="font-semibold text-gray-800">Assessment</div>
-                        <div class="text-sm text-gray-600">Start care assessment</div>
-                    </a>
-                    <a href="/birmingham/" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
-                        <div class="text-2xl mb-2">📍</div>
-                        <div class="font-semibold text-gray-800">Birmingham</div>
-                        <div class="text-sm text-gray-600">Local care homes</div>
-                    </a>
-                    <a href="mailto:support@rightcarehome.co.uk" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition">
-                        <div class="text-2xl mb-2">💬</div>
-                        <div class="font-semibold text-gray-800">Contact Us</div>
-                        <div class="text-sm text-gray-600">Get help</div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="text-sm text-gray-500">
-                <p>If you believe this is an error, please <a href="mailto:support@rightcarehome.co.uk" class="text-blue-600 hover:underline">contact our support team</a></p>
+            <div class="error-buttons">
+                <a href="/" class="btn btn-primary">Go Home</a>
+                <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-        // Log 404 for analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_not_found', {
-                'page_location': window.location.href,
-                'page_referrer': document.referrer
-            });
-        }
-    </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>

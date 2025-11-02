@@ -3,87 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scheduled Maintenance | RightCareHome</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-blue-50 to-gray-50">
-    <div class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-2xl w-full text-center">
-            <div class="mb-8">
-                <div class="text-6xl mb-6">🔧</div>
-                <h1 class="text-4xl font-bold text-gray-800 mb-4">We'll Be Right Back</h1>
-                <p class="text-xl text-gray-600 mb-8">
-                    RightCareHome is currently undergoing scheduled maintenance to improve our service.
-                </p>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h3 class="text-xl font-semibold mb-6">Maintenance Information</h3>
-                
-                <div class="grid md:grid-cols-2 gap-6 text-left mb-6">
-                    <div>
-                        <div class="text-sm text-gray-500 mb-1">Start Time</div>
-                        <div class="font-semibold text-gray-800">Today, 02:00 GMT</div>
-                    </div>
-                    <div>
-                        <div class="text-sm text-gray-500 mb-1">Expected Duration</div>
-                        <div class="font-semibold text-gray-800">2 hours</div>
-                    </div>
-                </div>
-
-                <div id="countdown" class="text-3xl font-bold text-blue-600 mb-6">
-                    <!-- Countdown will be inserted here -->
-                </div>
-
-                <div class="bg-blue-50 rounded-lg p-4 text-sm text-gray-700">
-                    <p class="mb-2"><strong>What's being updated:</strong></p>
-                    <ul class="space-y-1">
-                        <li>• Improved questionnaire system</li>
-                        <li>• Enhanced report generation</li>
-                        <li>• Better performance and security</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-4">Need Urgent Assistance?</h3>
-                <p class="text-gray-600 mb-4">For urgent care home queries during maintenance:</p>
-                <a href="mailto:support@rightcarehome.co.uk" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Email Support Team
-                </a>
-                <p class="text-sm text-gray-500 mt-4">Response time: Within 2 hours</p>
-            </div>
-
-            <div class="text-sm text-gray-500">
-                <p>Thank you for your patience. We're making RightCareHome better for you.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Countdown timer (example - adjust end time as needed)
-        const endTime = new Date().getTime() + (2 * 60 * 60 * 1000); // 2 hours from now
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = endTime - now;
-            
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "Maintenance Complete - Refreshing...";
-                setTimeout(() => location.reload(), 3000);
-                return;
-            }
-            
-            const hours = Math.floor(distance / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('countdown').innerHTML = 
-                `${hours}h ${minutes}m ${seconds}s remaining`;
+    <title>Under Maintenance | RightCareHome</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .maintenance-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--background-soft);
         }
         
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        .maintenance-content {
+            max-width: 700px;
+            text-align: center;
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .maintenance-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .maintenance-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .maintenance-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .maintenance-info {
+            background: var(--background-soft);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .maintenance-info-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .maintenance-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .maintenance-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .maintenance-info-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .maintenance-contact {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-light);
+        }
+        
+        .maintenance-contact p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .maintenance-contact a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        
+        .maintenance-contact a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .maintenance-button {
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .maintenance-content {
+                padding: 2rem;
+            }
+            
+            .maintenance-title {
+                font-size: 2rem;
+            }
+            
+            .maintenance-message {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft">
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+        </div>
+    </header>
+
+    <main class="maintenance-container">
+        <div class="maintenance-content">
+            <div class="maintenance-icon">🔧</div>
+            <h1 class="maintenance-title">Under Maintenance</h1>
+            <p class="maintenance-message">
+                We're currently performing scheduled maintenance to improve your experience. We'll be back shortly.
+            </p>
+
+            <div class="maintenance-info">
+                <h2 class="maintenance-info-title">What We're Doing:</h2>
+                <ul class="maintenance-info-list">
+                    <li>Upgrading our systems for better performance</li>
+                    <li>Improving security and reliability</li>
+                    <li>Enhancing user experience</li>
+                    <li>Updating care home information</li>
+                </ul>
+            </div>
+
+            <div class="maintenance-contact">
+                <p>Need urgent assistance?</p>
+                <p>
+                    Contact us at <a href="mailto:support@rightcarehome.co.uk">support@rightcarehome.co.uk</a>
+                </p>
+                <p class="text-tertiary">We'll respond as soon as possible.</p>
+            </div>
+
+            <div class="maintenance-button">
+                <button onclick="location.reload()" class="btn btn-primary">Check Again</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-check every 5 minutes
+        setInterval(function() {
+            location.reload();
+        }, 300000);
     </script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>

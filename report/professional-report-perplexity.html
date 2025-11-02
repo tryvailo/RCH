@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Care Home Report - Margaret Thompson | Birmingham</title>
+    <style>
+        /* ============================================
+           RightCareHome Brand System - Professional Report
+           Based on Professional Brand Book v1.0
+           5 homes analysis | 40+ criteria matching
+           ============================================ */
+        
+        /* BASE BRAND SYSTEM - Import from brandbook */
+        :root {
+            /* Primary Colors */
+            --color-primary: #6B7C6E;
+            --color-primary-dark: #4A5C4D;
+            --color-primary-light: #8FA693;
+            
+            /* Secondary Colors */
+            --color-secondary: #9B7E6B;
+            --color-secondary-dark: #7A5E4B;
+            --color-secondary-light: #B89E8B;
+            
+            /* Accent Colors */
+            --color-accent: #C08B7A;
+            --color-accent-hover: #B07B6A;
+            --color-accent-light: #D4A08F;
+            
+            /* Supporting Colors */
+            --color-trust: #6B7C8E;
+            --color-success: #7A9471;
+            --color-success-dark: #5A7451;
+            --color-warning: #C9A66B;
+            --color-warning-dark: #A9864B;
+            --color-warning-light: #E9C68B;
+            --color-error: #C47A7A;
+            
+            /* Text Colors */
+            --text-primary: #1A1B1A;
+            --text-secondary: #3A3B3A;
+            --text-tertiary: #5A5B5A;
+            --text-inverse: #FFFFFF;
+            
+            /* Background Colors */
+            --background-primary: #FAF7F3;
+            --background-soft: #F0EDE8;
+            --background-subtle: #F5F2EE;
+            --background-white: #FFFFFF;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 14px;
+            --font-size-sm: 16px;
+            --font-size-base: 18px;
+            --font-size-lg: 20px;
+            --font-size-xl: 22px;
+            --font-size-2xl: 26px;
+            --font-size-3xl: 30px;
+            --font-size-4xl: 34px;
+            --font-size-5xl: 44px;
+            
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.4;
+            --line-height-relaxed: 1.6;
+            
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            
+            /* Spacing */
+            --space-xs: 6px;
+            --space-sm: 12px;
+            --space-md: 18px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 80px;
+            
+            /* Components */
+            --button-height-lg: 56px;
+            --button-gap: 24px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-relaxed);
+            color: var(--text-primary);
+            background: var(--background-primary);
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: var(--font-weight-bold);
+            line-height: var(--line-height-tight);
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        h1 { font-size: var(--font-size-5xl); }
+        h2 { font-size: var(--font-size-4xl); }
+        h3 { font-size: var(--font-size-3xl); }
+        h4 { font-size: var(--font-size-2xl); }
+        
+        p { margin-bottom: var(--space-lg); }
+        strong { font-weight: var(--font-weight-bold); }
+        
+        /* LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        section.bg-white { background: var(--background-white); }
+        section.bg-soft { background: var(--background-soft); }
+        
+        /* HEADER */
+        .report-header {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+            color: var(--text-inverse);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .report-header h1 {
+            color: var(--text-inverse);
+            margin-bottom: var(--space-md);
+        }
+        
+        .report-header .subtitle {
+            font-size: var(--font-size-xl);
+            opacity: 0.95;
+        }
+        
+        .report-type-badge {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: var(--space-md);
+        }
+        
+        /* EXECUTIVE SUMMARY */
+        .executive-summary {
+            background: var(--background-white);
+            border: 3px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            margin: calc(var(--space-3xl) * -0.5) auto var(--space-3xl);
+            max-width: 900px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .recommendation-number {
+            font-size: 64px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* SCORE CARDS */
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .score-card {
+            background: linear-gradient(135deg, var(--background-white) 0%, var(--background-subtle) 100%);
+            border: 2px solid var(--color-primary-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .score-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .score-value {
+            font-size: 48px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .score-label {
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        /* ALERT BOXES */
+        .alert {
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border-left: 4px solid;
+            margin: var(--space-lg) 0;
+        }
+        
+        .alert-critical {
+            background: rgba(196, 122, 122, 0.15);
+            border-left-color: var(--color-error);
+        }
+        
+        .alert-warning {
+            background: var(--color-warning-light);
+            border-left-color: var(--color-warning);
+        }
+        
+        .alert-success {
+            background: rgba(122, 148, 113, 0.15);
+            border-left-color: var(--color-success);
+        }
+        
+        .alert-info {
+            background: rgba(107, 124, 142, 0.15);
+            border-left-color: var(--color-trust);
+        }
+        
+        /* CARE HOME CARDS */
+        .care-home-card {
+            background: var(--background-white);
+            border: 2px solid var(--color-primary-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .care-home-card.primary-recommendation {
+            border-width: 3px;
+            border-color: var(--color-primary);
+            background: linear-gradient(to bottom, var(--background-white) 0%, var(--background-subtle) 100%);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        
+        .match-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--color-success);
+            color: var(--text-inverse);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .match-badge.high { background: var(--color-success); }
+        .match-badge.medium { background: var(--color-primary); }
+        .match-badge.low { background: var(--color-warning); }
+        
+        .price-tag {
+            text-align: right;
+        }
+        
+        .price-value {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        
+        .price-period {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        /* CRITERIA BREAKDOWN */
+        .criteria-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .criterion-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .criterion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .criterion-name {
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+        }
+        
+        .criterion-score {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--background-soft);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            transition: width 0.5s ease;
+        }
+        
+        /* ACTION PLAN */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .action-card {
+            background: var(--background-white);
+            border: 2px solid var(--color-primary-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+        
+        .action-number {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary);
+            color: var(--text-inverse);
+            border-radius: 50%;
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            background: var(--background-subtle);
+            border-radius: var(--radius-md);
+        }
+        
+        .checklist li::before {
+            content: "☐";
+            font-size: 28px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+        
+        /* VERIFICATION SECTION */
+        .verification-question {
+            padding: var(--space-lg);
+            background: var(--background-white);
+            border: 2px solid var(--color-primary-light);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .expected-answer {
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(122, 148, 113, 0.1);
+            border-left: 3px solid var(--color-success);
+            border-radius: var(--radius-sm);
+            margin: var(--space-sm) 0;
+            font-size: var(--font-size-base);
+        }
+        
+        .expected-answer::before {
+            content: "✓ Expected: ";
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success-dark);
+        }
+        
+        .red-flag {
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(196, 122, 122, 0.1);
+            border-left: 3px solid var(--color-error);
+            border-radius: var(--radius-sm);
+            margin: var(--space-sm) 0;
+            font-size: var(--font-size-base);
+        }
+        
+        .red-flag::before {
+            content: "✗ Red flag: ";
+            font-weight: var(--font-weight-bold);
+            color: var(--color-error);
+        }
+        
+        /* COMPARISON TABLE */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+            font-size: var(--font-size-base);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 2px solid var(--color-primary-light);
+            padding: var(--space-lg);
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background: var(--color-primary-light);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: var(--background-subtle);
+        }
+        
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0 var(--space-xl);
+            min-height: var(--button-height-lg);
+            line-height: var(--button-height-lg);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--text-inverse);
+            border-color: var(--color-primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 124, 110, 0.25);
+        }
+        
+        .btn-secondary {
+            background: var(--background-white);
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-secondary);
+            color: var(--text-inverse);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: var(--button-gap);
+            margin: var(--space-xl) 0;
+            flex-wrap: wrap;
+        }
+        
+        /* DATA SOURCE TAGS */
+        .data-source {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 4px 12px;
+            background: var(--background-soft);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            margin: var(--space-xs);
+        }
+        
+        .reliability-tag {
+            display: inline-flex;
+            padding: 4px 12px;
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .reliability-high {
+            background: rgba(122, 148, 113, 0.2);
+            color: var(--color-success-dark);
+        }
+        
+        .reliability-medium {
+            background: rgba(201, 166, 107, 0.2);
+            color: var(--color-warning-dark);
+        }
+        
+        /* FOOTER */
+        .report-footer {
+            background: var(--color-primary-dark);
+            color: var(--text-inverse);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            :root {
+                --font-size-5xl: 36px;
+                --font-size-4xl: 28px;
+                --font-size-3xl: 24px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+            }
+            
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .criteria-breakdown,
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="report-header">
+        <div class="container">
+            <div class="report-type-badge">Professional Assessment • £119</div>
+            <h1>Your Professional Care Home Analysis</h1>
+            <p class="subtitle">Margaret Thompson • Birmingham B15 2TT</p>
+        </div>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="container">
+        <div class="executive-summary">
+            <div class="recommendation-number">#1</div>
+            <h2>Primary Recommendation: Manor House Care Home</h2>
+            <p style="font-size: var(--font-size-lg);"><strong>87% match</strong> • £1,200/week • 8.2 miles from Edgbaston</p>
+            
+            <div class="alert alert-success">
+                <strong>✓ Why Manor House:</strong> Only home combining diabetes nursing expertise + on-site physiotherapy + potential Russian-speaking staff availability
+            </div>
+            
+            <div class="match-badge high">87% Match Score</div>
+            
+            <div class="btn-group" style="justify-content: center; margin-top: var(--space-xl);">
+                <a href="tel:01214567890" class="btn btn-primary">Call Manor House Now</a>
+                <a href="#full-analysis" class="btn btn-secondary">View Full Analysis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- KEY METRICS -->
+    <section class="bg-soft">
+        <div class="container">
+            <h2 style="text-align: center;">Analysis Overview</h2>
+            
+            <div class="score-grid">
+                <div class="score-card">
+                    <div class="score-value">5</div>
+                    <div class="score-label">Care Homes Analyzed</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-value">40+</div>
+                    <div class="score-label">Matching Criteria</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-value">91</div>
+                    <div class="score-label">Safety Score</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-value">84%</div>
+                    <div class="score-label">Success Prediction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIMARY RECOMMENDATION -->
+    <section id="full-analysis" class="bg-white">
+        <div class="container">
+            <h2>Detailed Analysis: Manor House Care Home</h2>
+            
+            <div class="care-home-card primary-recommendation">
+                <div class="card-header">
+                    <div>
+                        <div class="match-badge high">87% Match</div>
+                        <h3 style="margin-top: var(--space-md);">Manor House Care Home</h3>
+                        <p style="color: var(--text-secondary);">Acocks Green, Birmingham B27 8LE • 8.2 miles</p>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price-value">£1,200</div>
+                        <div class="price-period">per week</div>
+                    </div>
+                </div>
+                
+                <div class="criteria-breakdown">
+                    <div class="criterion-item">
+                        <div class="criterion-header">
+                            <span class="criterion-name">Medical Capability (40%)</span>
+                            <span class="criterion-score">92/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%;"></div>
+                        </div>
+                        <small style="color: var(--text-secondary);">CQC-verified nursing care</small>
+                    </div>
+                    
+                    <div class="criterion-item">
+                        <div class="criterion-header">
+                            <span class="criterion-name">Cultural Fit (35%)</span>
+                            <span class="criterion-score">85/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <small style="color: var(--text-secondary);">Requires verification</small>
+                    </div>
+                    
+                    <div class="criterion-item">
+                        <div class="criterion-header">
+                            <span class="criterion-name">Location (25%)</span>
+                            <span class="criterion-score">88/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                        <small style="color: var(--text-secondary);">20 min drive from Edgbaston</small>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <h4>Why This Match Works</h4>
+                    <ul style="margin: var(--space-md) 0 0 var(--space-lg);">
+                        <li><strong>Diabetes Management:</strong> CQC-confirmed nursing protocols for daily insulin monitoring</li>
+                        <li><strong>Physiotherapy:</strong> On-site daily sessions for mobility support with walking frame</li>
+                        <li><strong>Cognitive Support:</strong> Licensed dementia care with structured activities</li>
+                        <li><strong>Accessibility:</strong> Regular bus service from Edgbaston, free visitor parking</li>
+                    </ul>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h4>⚠️ Critical Items to Verify During Visit</h4>
+                    <ul style="margin: var(--space-md) 0 0 var(--space-lg);">
+                        <li>Russian-speaking staff availability (not confirmed in records)</li>
+                        <li>Specific glucose monitoring frequency (aim for 4x daily minimum)</li>
+                        <li>Current bed availability (spaces fill quickly)</li>
+                    </ul>
+                </div>
+                
+                <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-lg);">
+                    <span class="data-source">📊 CQC Verified</span>
+                    <span class="data-source">📍 8.2 miles</span>
+                    <span class="reliability-tag reliability-high">95% Data Reliability</span>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="tel:01214567890" class="btn btn-primary">Call Now: 0121 456 7890</a>
+                    <a href="mailto:info@manorhouse.co.uk" class="btn btn-secondary">Email Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTION PLAN -->
+    <section class="bg-soft">
+        <div class="container">
+            <h2>Your 48-Hour Action Plan</h2>
+            
+            <div class="action-grid">
+                <div class="action-card">
+                    <div class="action-number">1</div>
+                    <h4>Call Manor House TODAY</h4>
+                    <p>Bed availability confirmed 2 hours ago. Typical decision window: 24-48 hours.</p>
+                    <p><strong>Phone:</strong> 0121 456 7890</p>
+                    <p><strong>Ask about:</strong> Current availability, Russian-speaking staff, diabetes protocols</p>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-number">2</div>
+                    <h4>Book Visit This Week</h4>
+                    <p>Schedule 2-3 hour tour during mealtime to observe care quality and staff interaction.</p>
+                    <p><strong>Best time:</strong> Morning (9-11am) for nursing team availability</p>
+                </div>
+                
+                <div class="action-card">
+                    <div class="action-number">3</div>
+                    <h4>Use Verification Checklist</h4>
+                    <p>Bring our 20-point checklist to ensure you gather all critical information during your visit.</p>
+                    <a href="#verification" style="color: var(--color-primary); font-weight: var(--font-weight-semibold);">View Checklist Below ↓</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERIFICATION CHECKLIST -->
+    <section id="verification" class="bg-white">
+        <div class="container-narrow">
+            <h2>🔍 Essential Verification Checklist</h2>
+            <p style="font-size: var(--font-size-lg);">Critical questions generated from data analysis gaps</p>
+            
+            <h3 style="margin-top: var(--space-2xl);">Medical Care Verification</h3>
+            
+            <div class="verification-question">
+                <h4 style="color: var(--color-primary-dark);">Diabetes Management Protocol</h4>
+                <p style="margin-bottom: var(--space-md);"><strong>Why critical:</strong> CQC confirms nursing license but diabetes-specific protocols not detailed in public records.</p>
+                
+                <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-sm);">Question: "How frequently do you monitor blood glucose levels?"</p>
+                <div class="expected-answer">4 times daily minimum with documented results</div>
+                <div class="red-flag">"As needed" or "when required" responses</div>
+            </div>
+            
+            <div class="verification-question">
+                <h4 style="color: var(--color-primary-dark);">Physiotherapy Services</h4>
+                <p style="margin-bottom: var(--space-md);"><strong>Why important:</strong> CQC notes on-site physiotherapy but schedule not specified.</p>
+                
+                <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-sm);">Question: "What is the typical physiotherapy schedule?"</p>
+                <div class="expected-answer">Daily sessions available, walking frame assessments regular</div>
+                <div class="red-flag">Once or twice weekly only</div>
+            </div>
+            
+            <h3 style="margin-top: var(--space-2xl);">Cultural & Communication</h3>
+            
+            <div class="verification-question">
+                <h4 style="color: var(--color-primary-dark);">Language Support</h4>
+                <p style="margin-bottom: var(--space-md);"><strong>Why important:</strong> Staff listings suggest Eastern European personnel but Russian not specifically confirmed.</p>
+                
+                <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-sm);">Question: "Do you have Russian-speaking care staff?"</p>
+                <div class="expected-answer">Specific names and shift schedules provided</div>
+                <div class="red-flag">"We can arrange translators when needed"</div>
+            </div>
+            
+            <div class="alert alert-info" style="margin-top: var(--space-2xl);">
+                <h4>📋 Documents to Bring on Visit</h4>
+                <ul class="checklist">
+                    <li>Current diabetes medication list from GP</li>
+                    <li>Recent blood glucose monitoring records</li>
+                    <li>Mobility assessment (if available)</li>
+                    <li>List of Margaret's preferred activities</li>
+                    <li>This analysis report for reference</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="bg-soft">
+        <div class="container">
+            <h2>Quick Comparison: All 5 Recommendations</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Care Home</th>
+                        <th>Match Score</th>
+                        <th>Weekly Cost</th>
+                        <th>Distance</th>
+                        <th>Key Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(122, 148, 113, 0.1);">
+                        <td><strong>1. Manor House</strong></td>
+                        <td>87% match</td>
+                        <td>£1,200</td>
+                        <td>8.2 mi</td>
+                        <td>Complete diabetes + physio care</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Digby Manor</strong></td>
+                        <td>82% match</td>
+                        <td>£1,050</td>
+                        <td>6.5 mi</td>
+                        <td>Best value, family-run</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Bishops Manor</strong></td>
+                        <td>79% match</td>
+                        <td>£1,150</td>
+                        <td>4.1 mi</td>
+                        <td>Outstanding dementia expertise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Edgbaston Manor</strong></td>
+                        <td>76% match</td>
+                        <td>£1,299</td>
+                        <td>3.0 mi</td>
+                        <td>Closest to home</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Metchley Manor</strong></td>
+                        <td>74% match</td>
+                        <td>£1,099</td>
+                        <td>2.8 mi</td>
+                        <td>Budget-friendly, solid care</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="report-footer">
+        <div class="container">
+            <p><strong>Professional Assessment Report</strong></p>
+            <p>5 care homes analyzed across 40+ suitability criteria</p>
+            <p style="margin-top: var(--space-xl); opacity: 0.8;">⚠️ Always verify current information directly with care homes. Data current as of report date.</p>
+            <p style="margin-top: var(--space-lg); opacity: 0.7;">© 2025 RightCareHome | Independent Advisory Service</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Details | RightCareHome Checkout</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .checkout-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .form-container {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .required-mark {
+            color: var(--error);
+            margin-left: 0.25rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+            min-height: 56px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 124, 110, 0.1);
+        }
+        
+        .form-input.error {
+            border-color: var(--error);
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 0.9375rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.25rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: var(--primary);
+        }
+        
+        .checkbox-group label {
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        .checkbox-group a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .checkbox-group a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-inverse);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            min-height: 56px;
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 124, 110, 0.3);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .submit-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .order-summary {
+            background: var(--background-soft);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+            font-size: 1.125rem;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .info-box {
+            background: var(--background-soft);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+        
+        .info-box p {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .test-fill-box {
+            background: rgba(201, 166, 107, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .test-fill-btn {
+            background: var(--warning);
+            color: var(--text-inverse);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 0.5rem 1rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .test-fill-btn:hover {
+            background: var(--warning);
+            opacity: 0.9;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .progress-step-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--text-inverse);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .progress-step.completed .progress-step-number {
+            background: var(--success);
+        }
+        
+        .progress-step-text {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .progress-step.completed .progress-step-text {
+            color: var(--primary);
+        }
+        
+        .progress-step.active .progress-step-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .progress-connector {
+            width: 4rem;
+            height: 2px;
+            background: var(--border-light);
+        }
+        
+        .progress-step.completed + .progress-connector {
+            background: var(--success);
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 1rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .progress-indicator {
+                gap: 0.5rem;
+            }
+            
+            .progress-step-text {
+                display: none;
+            }
+            
+            .progress-connector {
+                width: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-container">
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-step completed">
+                <div class="progress-step-number">✓</div>
+                <span class="progress-step-text">Package</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step active">
+                <div class="progress-step-number">2</div>
+                <span class="progress-step-text">Your Details</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step">
+                <div class="progress-step-number">3</div>
+                <span class="progress-step-text">Payment</span>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <a href="/assessment-checkout/" class="back-link">
+            ← Back to package selection
+        </a>
+
+        <!-- DEV: Quick Test Fill Button -->
+        <div class="test-fill-box">
+            <button type="button" id="fillTestData" class="test-fill-btn">
+                🧪 Fill Test Data (DEV)
+            </button>
+            <span style="font-size: 0.875rem; color: var(--text-secondary); margin-left: 0.75rem;">Click to auto-fill form with test data</span>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            
+            <!-- Order Summary -->
+            <div class="order-summary" id="orderSummary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-row">
+                    <span id="packageName">Professional Assessment</span>
+                    <span id="packagePrice">£119.00</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="totalPrice">£119.00</span>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p>
+                    <strong>🔒 Secure Checkout:</strong> Your information is encrypted and never shared with third parties. You'll complete payment on the next page.
+                </p>
+            </div>
+
+            <!-- Billing Form -->
+            <form id="billingForm" novalidate>
+                
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Your Contact Details</h2>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">
+                        Full Name <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        class="form-input" 
+                        placeholder="John Smith"
+                        required
+                        autocomplete="name"
+                    >
+                    <div class="error-message" id="fullNameError">Please enter your full name</div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        Email Address <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="john.smith@example.com"
+                        required
+                        autocomplete="email"
+                    >
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone" class="form-label">
+                        Phone Number <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        class="form-input" 
+                        placeholder="07700 900000"
+                        required
+                        autocomplete="tel"
+                    >
+                    <div class="error-message" id="phoneError">Please enter a valid UK phone number</div>
+                </div>
+
+                <!-- Postcode -->
+                <div class="form-group">
+                    <label for="postcode" class="form-label">
+                        Postcode <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="postcode" 
+                        name="postcode" 
+                        class="form-input" 
+                        placeholder="B1 1AA"
+                        required
+                        autocomplete="postal-code"
+                    >
+                    <div class="error-message" id="postcodeError">Please enter a valid UK postcode</div>
+                </div>
+
+                <!-- City/Area -->
+                <div class="form-group">
+                    <label for="city" class="form-label">
+                        City/Area <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="city" 
+                        name="city" 
+                        class="form-input" 
+                        placeholder="Birmingham"
+                        required
+                        autocomplete="address-level2"
+                    >
+                    <div class="error-message" id="cityError">Please enter your city or area</div>
+                </div>
+
+                <!-- GDPR Consents -->
+                <div class="form-group" style="margin-top: 2.5rem;">
+                    
+                    <div class="checkbox-group">
+                        <input 
+                            type="checkbox" 
+                            id="termsConsent" 
+                            name="termsConsent" 
+                            required
+                        >
+                        <label for="termsConsent">
+                            I agree to the <a href="/service-legal/terms-of-service.html" target="_blank">Terms of Service</a> and <a href="/service-legal/privacy-policy.html" target="_blank">Privacy Policy</a> <span class="required-mark">*</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="termsError">You must agree to the terms to continue</div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input 
+                            type="checkbox" 
+                            id="marketingConsent" 
+                            name="marketingConsent"
+                        >
+                        <label for="marketingConsent">
+                            I would like to receive helpful care home advice and updates via email (you can unsubscribe anytime)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Continue to Payment →
+                </button>
+
+                <p style="text-align: center; font-size: 0.9375rem; color: var(--text-secondary); margin-top: 1rem;">
+                    🔒 SSL Secured • Your data is encrypted
+                </p>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load package details from sessionStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const packageType = sessionStorage.getItem('selectedPackage');
+            const packagePrice = sessionStorage.getItem('selectedPrice');
+
+            // If no package selected, set defaults for testing
+            if (!packageType || !packagePrice) {
+                sessionStorage.setItem('selectedPackage', 'standard');
+                sessionStorage.setItem('selectedPrice', '119');
+                
+                document.getElementById('packageName').textContent = 'Professional Assessment';
+                document.getElementById('packagePrice').textContent = '£119.00';
+                document.getElementById('totalPrice').textContent = '£119.00';
+                
+                console.warn('No package selected - using default values');
+                return;
+            }
+
+            // Update order summary
+            const packageName = packageType === 'premium' ? 'Premium Assessment' : 'Professional Assessment';
+            document.getElementById('packageName').textContent = packageName;
+            document.getElementById('packagePrice').textContent = `£${packagePrice}.00`;
+            document.getElementById('totalPrice').textContent = `£${packagePrice}.00`;
+        });
+
+        // DEV: Fill test data button
+        document.getElementById('fillTestData').addEventListener('click', function() {
+            document.getElementById('fullName').value = 'John Smith';
+            document.getElementById('email').value = 'john.smith@example.com';
+            document.getElementById('phone').value = '07700 900123';
+            document.getElementById('postcode').value = 'B1 1AA';
+            document.getElementById('city').value = 'Birmingham';
+            document.getElementById('termsConsent').checked = true;
+            
+            // Clear any errors
+            document.querySelectorAll('.form-input.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.error-message.show').forEach(el => el.classList.remove('show'));
+            
+            this.textContent = '✓ Test Data Filled';
+            setTimeout(() => {
+                this.textContent = '🧪 Fill Test Data (DEV)';
+            }, 2000);
+        });
+
+        // Form validation
+        const form = document.getElementById('billingForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Validation functions
+        const validators = {
+            fullName: (value) => value.trim().length >= 2 && /\s/.test(value.trim()),
+            email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+            phone: (value) => /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/.test(value.replace(/\s/g, '')),
+            postcode: (value) => /^[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i.test(value.trim()),
+            city: (value) => value.trim().length >= 2
+        };
+
+        // Real-time validation
+        ['fullName', 'email', 'phone', 'postcode', 'city'].forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(`${fieldId}Error`);
+
+            field.addEventListener('blur', () => {
+                if (!validators[fieldId](field.value)) {
+                    field.classList.add('error');
+                    errorDiv.classList.add('show');
+                } else {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+
+            field.addEventListener('input', () => {
+                if (field.classList.contains('error') && validators[fieldId](field.value)) {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Validate all fields
+            ['fullName', 'email', 'phone', 'postcode', 'city'].forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorDiv = document.getElementById(`${fieldId}Error`);
+
+                if (!validators[fieldId](field.value)) {
+                    field.classList.add('error');
+                    errorDiv.classList.add('show');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                }
+            });
+
+            // Check terms consent
+            const termsConsent = document.getElementById('termsConsent');
+            const termsError = document.getElementById('termsError');
+            
+            if (!termsConsent.checked) {
+                termsError.classList.add('show');
+                isValid = false;
+            } else {
+                termsError.classList.remove('show');
+            }
+
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.form-input.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
+
+            // Save form data to sessionStorage
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                postcode: document.getElementById('postcode').value,
+                city: document.getElementById('city').value,
+                marketingConsent: document.getElementById('marketingConsent').checked,
+                timestamp: new Date().toISOString()
+            };
+
+            sessionStorage.setItem('billingDetails', JSON.stringify(formData));
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            // Redirect to payment page
+            setTimeout(() => {
+                window.location.href = '/assessment-checkout/payment.html';
+            }, 500);
+        });
+
+        // Auto-save to prevent data loss
+        let autoSaveTimeout;
+        form.addEventListener('input', () => {
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(() => {
+                const draftData = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    postcode: document.getElementById('postcode').value,
+                    city: document.getElementById('city').value
+                };
+                sessionStorage.setItem('billingDraft', JSON.stringify(draftData));
+            }, 1000);
+        });
+
+        // Restore draft on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const draft = sessionStorage.getItem('billingDraft');
+            if (draft) {
+                const data = JSON.parse(draft);
+                Object.keys(data).forEach(key => {
+                    const field = document.getElementById(key);
+                    if (field && data[key]) {
+                        field.value = data[key];
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>

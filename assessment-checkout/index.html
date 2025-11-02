@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Assessment | RightCareHome Checkout</title>
+    <meta name="description" content="Select your care home assessment package - Professional £119 or Premium £299">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .package-card {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .package-card.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(107, 124, 110, 0.05) 0%, var(--background-white) 100%);
+        }
+        
+        .package-card.recommended {
+            border: 2px solid var(--accent);
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            color: var(--text-inverse);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(192, 139, 122, 0.3);
+        }
+        
+        .price-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 1rem 0;
+            line-height: 1;
+        }
+        
+        .continue-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-inverse);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            min-height: 56px;
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 124, 110, 0.3);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .continue-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            flex-grow: 1;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            flex-wrap: wrap;
+        }
+        
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+        
+        .guarantee-box {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            max-width: 900px;
+            margin: 3rem auto;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        
+        .guarantee-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-text {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+        
+        .guarantee-text-small {
+            font-size: 0.9375rem;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .progress-step-number {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--text-inverse);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        .progress-step.active .progress-step-number {
+            background: var(--success);
+        }
+        
+        .progress-step-text {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .progress-step.active .progress-step-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .progress-connector {
+            width: 4rem;
+            height: 2px;
+            background: var(--border-light);
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .page-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .package-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .package-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-description {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 1rem;
+            }
+            
+            .page-title h2 {
+                font-size: 2rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card {
+                padding: 1.5rem;
+            }
+            
+            .progress-step-text {
+                display: none;
+            }
+            
+            .progress-connector {
+                width: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-container">
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-step active">
+                <div class="progress-step-number">1</div>
+                <span class="progress-step-text">Choose Package</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step">
+                <div class="progress-step-number">2</div>
+                <span class="progress-step-text">Your Details</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step">
+                <div class="progress-step-number">3</div>
+                <span class="progress-step-text">Payment</span>
+            </div>
+        </div>
+
+        <!-- Page Title -->
+        <div class="page-title">
+            <h2>Choose Your Assessment Package</h2>
+            <p>
+                Select the assessment level that best matches your needs. Both include our 48-hour delivery guarantee.
+            </p>
+        </div>
+
+        <!-- Package Selection Grid -->
+        <div class="packages-grid">
+            
+            <!-- Professional Package -->
+            <div class="package-card" data-package="standard" data-price="119">
+                <div class="package-header">
+                    <div class="package-icon">✨</div>
+                    <h3 class="package-name">Professional Assessment</h3>
+                    <p class="package-description">Quick & safety-focused</p>
+                    <div class="price-display">£119</div>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">One-time payment</p>
+                </div>
+
+                <ul class="feature-list">
+                    <li>Ideal for most situations</li>
+                    <li>Expert matching on core needs</li>
+                    <li>5 personalised care home recommendations</li>
+                    <li>CQC ratings & quality analysis</li>
+                    <li>Essential safety questions checklist</li>
+                    <li>Hidden costs breakdown</li>
+                    <li>48-hour delivery guarantee</li>
+                </ul>
+
+                <button type="button" class="continue-btn" onclick="selectPackage('standard', 119)">
+                    Continue with Professional
+                </button>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="package-card recommended" data-package="premium" data-price="299">
+                <div class="recommended-badge">MOST POPULAR</div>
+                
+                <div class="package-header">
+                    <div class="package-icon">💎</div>
+                    <h3 class="package-name">Premium Assessment</h3>
+                    <p class="package-description">In-depth & comprehensive</p>
+                    <div class="price-display">£299</div>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">One-time payment</p>
+                </div>
+
+                <ul class="feature-list">
+                    <li>Recommended for complex cases</li>
+                    <li>Comprehensive analysis of ALL needs</li>
+                    <li>8 personalised care home recommendations</li>
+                    <li>Detailed cultural & social matching</li>
+                    <li>Advanced medical needs analysis</li>
+                    <li>Complete financial planning guide</li>
+                    <li>Priority 24-hour delivery</li>
+                    <li>Direct phone consultation available</li>
+                </ul>
+
+                <button type="button" class="continue-btn" onclick="selectPackage('premium', 299)">
+                    Continue with Premium
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Money-Back Guarantee -->
+        <div class="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <h3 class="guarantee-title">Our 48-Hour Guarantee</h3>
+            <p class="guarantee-text">
+                If we don't deliver your personalised care home report within 48 hours of completing your assessment, you receive a <strong>full refund</strong> – no questions asked.
+            </p>
+            <p class="guarantee-text-small">
+                Plus, we're entirely independent. We never receive commissions from care homes, ensuring our recommendations are genuinely in your best interest.
+            </p>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="security-badge">
+                <span>🔒</span>
+                <span>Secure Checkout</span>
+            </div>
+            <div class="security-badge">
+                <span>💳</span>
+                <span>Stripe Payment</span>
+            </div>
+            <div class="security-badge">
+                <span>✓</span>
+                <span>Trusted Service</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+                <p class="text-center text-secondary" style="margin-top: 0.5rem; font-size: 0.9375rem;">
+                    <a href="/service-legal/privacy-policy.html" style="color: var(--text-secondary); text-decoration: underline;">Privacy Policy</a> • 
+                    <a href="/service-legal/terms-of-service.html" style="color: var(--text-secondary); text-decoration: underline;">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectPackage(packageType, price) {
+            // Save selection to sessionStorage
+            sessionStorage.setItem('selectedPackage', packageType);
+            sessionStorage.setItem('selectedPrice', price);
+            
+            // Visual feedback
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            const selectedCard = document.querySelector(`[data-package="${packageType}"]`);
+            if (selectedCard) {
+                selectedCard.classList.add('selected');
+            }
+            
+            // Redirect to billing details after brief delay
+            setTimeout(() => {
+                window.location.href = '/assessment-checkout/billing-details.html';
+            }, 300);
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const focusedButton = document.activeElement;
+                if (focusedButton.classList.contains('continue-btn')) {
+                    focusedButton.click();
+                }
+            }
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>

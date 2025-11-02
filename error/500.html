@@ -4,56 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Error | RightCareHome</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--background-soft);
+        }
+        
+        .error-content {
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-number {
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--warning);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+        
+        .error-actions {
+            background: var(--background-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .error-actions-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-actions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .error-actions-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .error-actions-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-right: 0.5rem;
+        }
+        
+        .error-actions-list a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        
+        .error-actions-list a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .error-reference {
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .error-reference code {
+            background: var(--background-soft);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-family: monospace;
+        }
+        
+        @media (max-width: 768px) {
+            .error-number {
+                font-size: 4rem;
+            }
+            
+            .error-title {
+                font-size: 1.875rem;
+            }
+            
+            .error-message {
+                font-size: 1.125rem;
+            }
+            
+            .error-actions {
+                padding: 1.5rem;
+            }
+            
+            .error-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-2xl w-full text-center">
-            <div class="mb-8">
-                <div class="text-6xl mb-6">⚠️</div>
-                <h1 class="text-6xl font-bold text-red-600 mb-4">500</h1>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Server Error</h2>
-                <p class="text-xl text-gray-600 mb-8">
-                    Something went wrong on our end. We're working to fix it as quickly as possible.
-                </p>
-            </div>
+<body class="bg-soft">
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
 
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <h3 class="text-xl font-semibold mb-4">What you can do:</h3>
-                <ul class="text-left space-y-3 text-gray-700">
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-600">•</span>
-                        <span>Wait a few minutes and try refreshing the page</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-600">•</span>
-                        <span>Check our <a href="/" class="text-blue-600 hover:underline">homepage</a> to see if the service is available</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-600">•</span>
-                        <span>Contact us at <a href="mailto:support@rightcarehome.co.uk" class="text-blue-600 hover:underline">support@rightcarehome.co.uk</a> if the problem persists</span>
-                    </li>
+    <main class="error-container">
+        <div class="error-content">
+            <div class="error-icon">⚠️</div>
+            <div class="error-number">500</div>
+            <h1 class="error-title">Server Error</h1>
+            <p class="error-message">
+                Something went wrong on our end. We're working to fix it as quickly as possible.
+            </p>
+
+            <div class="error-actions">
+                <h2 class="error-actions-title">What you can do:</h2>
+                <ul class="error-actions-list">
+                    <li>Wait a few minutes and try refreshing the page</li>
+                    <li>Check our <a href="/">homepage</a> to see if the service is available</li>
+                    <li>Contact us at <a href="mailto:support@rightcarehome.co.uk">support@rightcarehome.co.uk</a> if the problem persists</li>
                 </ul>
             </div>
 
-            <div class="flex gap-4 justify-center">
-                <button onclick="location.reload()" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Try Again
-                </button>
-                <a href="/" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
-                    Go Home
-                </a>
+            <div class="error-buttons">
+                <button onclick="location.reload()" class="btn btn-primary">Try Again</button>
+                <a href="/" class="btn btn-secondary">Go Home</a>
             </div>
 
-            <div class="mt-8 text-sm text-gray-500">
-                <p>Error Reference: <code id="error-ref" class="bg-gray-100 px-2 py-1 rounded">ERR-500-<?php echo date('YmdHis'); ?></code></p>
+            <div class="error-reference">
+                <p>Error Reference: <code id="error-ref">ERR-500-<?php echo date('YmdHis'); ?></code></p>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-        // Generate error reference
-        document.getElementById('error-ref').textContent = 'ERR-500-' + Date.now();
-    </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>

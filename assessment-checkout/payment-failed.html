@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed | RightCareHome</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS Files - Brandbook Compliant -->
+    <link rel="stylesheet" href="../assets/css/base-55plus.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .failed-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .failed-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--warning) 0%, #b8860b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: shake 0.5s ease-out;
+            box-shadow: 0 20px 40px rgba(201, 166, 107, 0.3);
+        }
+        
+        .failed-icon svg {
+            width: 60px;
+            height: 60px;
+            stroke: white;
+            stroke-width: 4;
+            stroke-linecap: round;
+            fill: none;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .failed-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .failed-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-details {
+            background: rgba(201, 166, 107, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .error-details p {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .common-issues {
+            background: var(--background-soft);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+            border: 1px solid var(--border-light);
+        }
+        
+        .common-issues-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .issue-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .issue-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .issue-icon {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .issue-content strong {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .issue-content p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .retry-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-inverse);
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            min-height: 56px;
+        }
+        
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107, 124, 110, 0.3);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .action-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .action-links a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
+        .action-links a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .action-links span {
+            color: var(--text-muted);
+        }
+        
+        .contact-box {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .contact-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-box p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .contact-box a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .info-box {
+            background: var(--background-white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+            text-align: left;
+            border: 1px solid var(--border-light);
+        }
+        
+        .info-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .info-box li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .info-box li::before {
+            content: "•";
+            color: var(--primary);
+            margin-right: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .info-box a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .info-box a:hover {
+            color: var(--primary-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .failed-container {
+                padding: 1rem;
+            }
+            
+            .failed-title {
+                font-size: 2rem;
+            }
+            
+            .failed-message {
+                font-size: 1.125rem;
+            }
+            
+            .contact-box,
+            .info-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">RightCareHome</a>
+            <nav class="nav-primary">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/professional-assessment/" class="nav-link">Assessment</a>
+                <a href="/cities/birmingham-care-homes/" class="nav-link">Birmingham</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="failed-container">
+        
+        <!-- Failed Icon -->
+        <div class="failed-icon">
+            <svg viewBox="0 0 52 52">
+                <line x1="16" y1="16" x2="36" y2="36"/>
+                <line x1="36" y1="16" x2="16" y2="36"/>
+            </svg>
+        </div>
+
+        <!-- Failed Message -->
+        <h1 class="failed-title">Payment Not Completed</h1>
+        <p class="failed-message">
+            We couldn't process your payment. Don't worry, no charges were made to your account.
+        </p>
+
+        <!-- Error Details -->
+        <div class="error-details">
+            <p><strong>Error:</strong> <span id="errorMessage">Payment was declined or cancelled</span></p>
+        </div>
+
+        <!-- Common Issues -->
+        <div class="common-issues">
+            <h3 class="common-issues-title">Common Issues & Solutions</h3>
+            
+            <div class="issue-item">
+                <span class="issue-icon">💳</span>
+                <div class="issue-content">
+                    <strong>Insufficient Funds</strong>
+                    <p>Ensure your card has sufficient balance</p>
+                </div>
+            </div>
+
+            <div class="issue-item">
+                <span class="issue-icon">🔒</span>
+                <div class="issue-content">
+                    <strong>Card Declined</strong>
+                    <p>Contact your bank to authorize online payments</p>
+                </div>
+            </div>
+
+            <div class="issue-item">
+                <span class="issue-icon">📝</span>
+                <div class="issue-content">
+                    <strong>Incorrect Details</strong>
+                    <p>Double-check card number, expiry date, and CVV</p>
+                </div>
+            </div>
+
+            <div class="issue-item">
+                <span class="issue-icon">🌍</span>
+                <div class="issue-content">
+                    <strong>International Card</strong>
+                    <p>Ensure your card supports UK transactions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="margin-top: 2rem;">
+            <a href="/assessment-checkout/payment.html" class="retry-button">
+                Try Payment Again →
+            </a>
+            <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-top: 1rem;">
+                Your order details have been saved. You can retry immediately.
+            </p>
+        </div>
+
+        <div class="action-links">
+            <a href="/assessment-checkout/billing-details.html">← Update billing details</a>
+            <span>•</span>
+            <a href="/assessment-checkout/">Change package</a>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="contact-box">
+            <h4>Need Assistance?</h4>
+            <p>
+                If you continue experiencing issues, our team is here to help. We can process your payment manually or offer alternative payment methods.
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:hello@rightcarehome.co.uk">hello@rightcarehome.co.uk</a>
+            </p>
+            <p style="font-size: 0.9375rem; color: var(--text-muted); margin-top: 0.5rem;">
+                We typically respond within 2 hours during business hours (Mon-Fri, 9am-6pm)
+            </p>
+        </div>
+
+        <!-- Alternative Payment Info -->
+        <div class="info-box">
+            <h4>Alternative Payment Methods</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                If you prefer, you can also pay via:
+            </p>
+            <ul>
+                <li>Bank transfer (BACS)</li>
+                <li>PayPal (contact us for invoice)</li>
+                <li>Phone payment with our team</li>
+            </ul>
+            <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.9375rem;">
+                Contact us at <a href="mailto:hello@rightcarehome.co.uk">hello@rightcarehome.co.uk</a> to arrange alternative payment
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="text-center text-secondary">
+                    &copy; 2025 RightCareHome. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Display specific error message if available
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get('error');
+            
+            if (errorParam) {
+                const errorMessages = {
+                    'card_declined': 'Your card was declined. Please try a different payment method.',
+                    'insufficient_funds': 'Insufficient funds. Please use a different card.',
+                    'expired_card': 'Your card has expired. Please use a different card.',
+                    'incorrect_cvc': 'Incorrect security code (CVV). Please check and try again.',
+                    'processing_error': 'A processing error occurred. Please try again.',
+                    'cancelled': 'Payment was cancelled. Your order is still available.'
+                };
+                
+                const message = errorMessages[errorParam] || 'Payment could not be processed. Please try again.';
+                document.getElementById('errorMessage').textContent = message;
+            }
+
+            // Check if session data still exists
+            const packageType = sessionStorage.getItem('selectedPackage');
+            if (!packageType) {
+                // If session expired, show different message
+                document.querySelector('.failed-title').textContent = 'Session Expired';
+                document.querySelector('.failed-message').textContent = 
+                    'Your session has expired. Please start your order again.';
+                document.querySelector('.retry-button').textContent = 'Start New Order';
+                document.querySelector('.retry-button').href = '/assessment-checkout/';
+            }
+        });
+
+        // Track failed payment for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'payment_failed', {
+                'event_category': 'checkout',
+                'event_label': sessionStorage.getItem('selectedPackage')
+            });
+        }
+    </script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
