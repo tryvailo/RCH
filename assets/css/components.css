@@ -19,19 +19,24 @@
 .comparison-simple {
   border-collapse: collapse;
   width: 100%;
+  font-size: 1.125rem; /* Larger font for 55+ audience */
+  line-height: 1.6; /* Better line spacing */
 }
 
 .comparison-simple th,
 .comparison-simple td {
-  border: 1px solid var(--border);
+  border: 2px solid var(--border); /* Thicker borders for better visibility */
   text-align: left;
   vertical-align: top;
+  padding: 1.25rem 1rem; /* More generous padding */
 }
 
 .comparison-simple th {
   background: var(--primary-light);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold); /* Bolder text */
   color: var(--text-primary);
+  font-size: 1.25rem; /* Larger headers */
+  text-align: center; /* Center align headers */
 }
 
 .comparison-simple tr:nth-child(even) {
@@ -40,6 +45,106 @@
 
 .comparison-simple tr:hover {
   background: var(--background-subtle);
+}
+
+/* Enhanced readability for 55+ audience */
+.comparison-simple td:first-child {
+  font-weight: var(--font-weight-semibold);
+  background: rgba(var(--primary-rgb), 0.05);
+  color: var(--primary);
+}
+
+.comparison-simple td {
+  font-size: 1rem; /* Consistent readable size */
+}
+
+/* Strategy-specific styling */
+.comparison-simple th:nth-child(2) {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  color: white !important;
+}
+
+.comparison-simple th:nth-child(3) {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+  color: white !important;
+}
+
+.comparison-simple th:nth-child(4) {
+  background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%) !important;
+  color: white !important;
+}
+
+/* Override bg-primary-light for specific columns */
+.comparison-simple tr.bg-primary-light th:nth-child(2) {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  color: white !important;
+}
+
+.comparison-simple tr.bg-primary-light th:nth-child(3) {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+  color: white !important;
+}
+
+/* Mobile responsiveness for 55+ audience */
+@media (max-width: 768px) {
+  .comparison-simple {
+    font-size: 1rem; /* Slightly smaller on mobile but still readable */
+  }
+  
+  .comparison-simple th,
+  .comparison-simple td {
+    padding: 1rem 0.75rem; /* Adjusted padding for mobile */
+    font-size: 0.95rem; /* Maintain readability */
+  }
+  
+  .comparison-simple th {
+    font-size: 1.1rem; /* Keep headers prominent */
+  }
+  
+  /* Stack table on very small screens */
+  .comparison-simple,
+  .comparison-simple thead,
+  .comparison-simple tbody,
+  .comparison-simple th,
+  .comparison-simple td,
+  .comparison-simple tr {
+    display: block;
+  }
+  
+  .comparison-simple thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .comparison-simple tr {
+    border: 2px solid var(--border);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comparison-simple td {
+    border: none;
+    position: relative;
+    padding-left: 50% !important;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .comparison-simple td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary);
+  }
 }
 
 .comparison-details {
@@ -1119,6 +1224,101 @@ details[open] .faq-icon {
 }
 
 /* ============================================
+   NEW TESTIMONIAL FRAMEWORK STYLES
+   ============================================ */
+
+.testimonial-header {
+  margin-bottom: var(--space-lg);
+}
+
+.testimonial-header h4 {
+  font-size: var(--font-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  line-height: var(--line-height-tight);
+}
+
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.testimonial-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.testimonial-location {
+  color: var(--text-secondary);
+}
+
+.testimonial-date {
+  color: var(--text-tertiary);
+  font-size: var(--font-xs);
+}
+
+.testimonial-content {
+  flex: 1;
+  margin-bottom: var(--space-lg);
+}
+
+.testimonial-content p {
+  font-size: var(--font-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.testimonial-content p:last-child {
+  margin-bottom: 0;
+}
+
+.testimonial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+.testimonial-rating {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.testimonial-service {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+  background: var(--background-light);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive adjustments for new testimonial structure */
+@media (max-width: 768px) {
+  .testimonial-header h4 {
+    font-size: var(--font-base);
+  }
+  
+  .testimonial-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .testimonial-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
+/* ============================================
    LOADING STATES
    ============================================ */
 
@@ -1578,19 +1778,42 @@ a:focus-visible {
 
 /* Hero social proof styling */
 .hero-social-proof {
-    text-align: center;
-    margin-top: var(--space-lg);
-    padding: var(--space-md) var(--space-lg);
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-radius: 12px;
-    border: 1px solid var(--border-light);
-    font-size: var(--font-sm);
-    color: var(--text-secondary);
+    display: inline-flex !important;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 32px;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+    border: none;
 }
 
-.hero-social-proof strong {
-    color: var(--text-primary);
-    font-weight: 600;
+.hero-social-proof:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.hero-social-proof .stars {
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.hero-social-proof .rating {
+    line-height: 1.4;
+}
+
+.hero-social-proof strong,
+.hero-social-proof .rating strong {
+    color: white !important;
+    font-weight: 700;
+    font-size: 17px;
 }
 
 /* Light background for free shortlist section */
@@ -1854,4 +2077,797 @@ a:focus-visible {
         border-width: 4px;
         border-color: var(--text-primary);
     }
+}
+
+/* ========================================
+   ENHANCED HERO STYLES
+   ======================================== */
+
+/* Eyebrow text */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(107, 124, 110, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    border: 1px solid rgba(107, 124, 110, 0.2);
+}
+
+.eyebrow-icon {
+    font-size: 1.125rem;
+}
+
+/* Компактный список преимуществ */
+.hero-benefits-compact {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hero-benefits-compact li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.benefit-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Группа CTA кнопок */
+.hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.hero-cta-group .btn {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Компактное социальное доказательство */
+.hero-social-proof-compact {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(107, 124, 110, 0.1);
+}
+
+.proof-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.proof-stat strong {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.proof-stat span {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+}
+
+.proof-divider {
+    width: 1px;
+    height: 2rem;
+    background: var(--border-light);
+}
+
+/* ========================================
+   ENHANCED FORM STYLES
+   ======================================== */
+
+.hero-form-enhanced {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    min-width: 450px;
+}
+
+.form-badge-premium {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.badge-icon {
+    font-size: 1.5rem;
+}
+
+.badge-text {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-subtext {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.form-title-enhanced {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.form-subtitle-small {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Компактные стратегии в виде пилюль */
+.strategies-compact {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.strategy-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.875rem;
+    background: rgba(107, 124, 110, 0.08);
+    border: 1px solid rgba(107, 124, 110, 0.15);
+    border-radius: 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pill-icon {
+    font-size: 1rem;
+}
+
+/* Минимальные trust signals */
+.form-trust-minimal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.trust-icon {
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-form-enhanced {
+        min-width: unset;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-benefits-compact li {
+        font-size: 0.9375rem;
+    }
+    
+    .hero-social-proof-compact {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .proof-divider {
+        display: none;
+    }
+    
+    .strategies-compact {
+        flex-direction: column;
+    }
+    
+    .strategy-pill {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   HERO FORM UPDATES - Triangulation Strategy
+   Added: 2025-01-26
+   Purpose: Enhanced hero form with strategic messaging
+   ======================================== */
+
+/* Form header structure */
+.hero-form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.hero-form-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+    color: var(--text-inverse);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.hero-form-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+}
+
+.hero-form-subtitle strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Benefits list - optimized structure */
+.hero-form-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.hero-form-benefits li:last-child {
+    border-bottom: none;
+}
+
+.hero-form-benefits svg {
+    flex-shrink: 0;
+    color: var(--success);
+    margin-top: 0.125rem;
+}
+
+.benefit-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.benefit-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+/* Trust signals - consolidated styling */
+.form-trust-signals {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.trust-rating,
+.trust-value,
+.trust-privacy {
+    margin-bottom: 0.5rem;
+}
+
+.trust-rating {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.trust-value {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.trust-value strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.trust-privacy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-form-badge { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
+    .benefit-title { font-size: 0.9rem; }
+    .benefit-description { font-size: 0.8rem; }
+}
+
+/* ========================================
+   ENHANCED STRATEGIES SECTION
+   ======================================== */
+
+.section-strategies {
+    background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Enhanced section header */
+.section-header-enhanced {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.eyebrow-badge {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.section-subtitle-enhanced {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Enhanced strategies grid */
+.strategies-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Enhanced strategy cards */
+.strategy-card-enhanced {
+    background: white;
+    border: 2px solid var(--border-light);
+    border-radius: 1rem;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.strategy-card-enhanced:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+.strategy-header {
+    background: linear-gradient(135deg, rgba(107, 124, 110, 0.05) 0%, rgba(107, 124, 110, 0.02) 100%);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.strategy-icon-large {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.strategy-title-enhanced {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.strategy-body {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.strategy-priority-box {
+    background: rgba(107, 124, 110, 0.05);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.priority-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.priority-text {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.strategy-outcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.outcome-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.outcome-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.strategy-footer {
+    padding: 1rem 1.5rem;
+    background: rgba(107, 124, 110, 0.03);
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.strategy-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced value proposition */
+.value-prop-enhanced {
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(107, 124, 110, 0.12);
+}
+
+.value-prop-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.value-prop-icon {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.value-prop-title-enhanced {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.value-prop-text-enhanced {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.value-prop-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-pill strong {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.stat-pill span {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+}
+
+/* CTA with social proof */
+.strategies-cta {
+    text-align: center;
+}
+
+.cta-social-proof {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+}
+
+.proof-highlight {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .strategies-grid-enhanced {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .value-prop-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .strategy-header {
+        padding: 1.5rem;
+    }
+    
+    .strategy-icon-large {
+        font-size: 2.5rem;
+    }
+    
+    .strategy-title-enhanced {
+        font-size: 1.125rem;
+    }
+    
+    .value-prop-enhanced {
+        padding: 1.5rem;
+    }
+    
+    .value-prop-title-enhanced {
+        font-size: 1.25rem;
+    }
+    
+    .value-prop-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* ========================================
+   STRATEGY CARDS & VALUE PROPOSITION
+   Added: 2025-01-26
+   Purpose: Strategic approach section styling
+   ======================================== */
+
+/* Base card styles - shared properties */
+.strategy-card,
+.value-proposition-box {
+    background: var(--background-white);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.strategy-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.strategy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Typography hierarchy */
+.strategy-title,
+.value-prop-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.strategy-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.strategy-priority,
+.strategy-audience {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.strategy-priority {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.strategy-priority strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.strategy-audience {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.strategy-icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+/* Value proposition specific */
+.value-proposition-box {
+    padding: 2rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.value-prop-title {
+    font-size: 1.5rem;
+}
+
+.value-prop-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.value-prop-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Stats layout */
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 120px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+/* Responsive design - consolidated media queries */
+@media (max-width: 1024px) {
+    .strategy-card { padding: 1.5rem 1rem; }
+    .strategy-icon { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    .strategy-card { padding: 1.5rem 1rem; }
+    .strategy-title { font-size: 1.1rem; }
+    .strategy-priority { font-size: 0.9rem; }
+    .strategy-audience { font-size: 0.8rem; }
+    .value-proposition-box { padding: 1.5rem; margin-top: 2rem; }
+    .value-prop-title { font-size: 1.25rem; }
+    .value-prop-text { font-size: 0.95rem; }
+    .stats-row { gap: 1.5rem; }
+    .stat-number { font-size: 2rem; }
+    .stat-label { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+    .stats-row { flex-direction: column; gap: 1rem; }
+    .stat-item { min-width: auto; }
 }

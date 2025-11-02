@@ -235,6 +235,10 @@ aside.hero-form {
   margin-left: 4rem; /* Смещаем форму вправо для лучшей видимости фонового фото */
   position: relative;
   z-index: 3;
+  /* Flex для выравнивания кнопки снизу */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 @media (max-width: 1200px) {
@@ -846,7 +850,7 @@ section.section:nth-child(even)::after {
 /* Form styles moved to base-55plus.css for unified approach */
 
 .form-cta {
-  background: linear-gradient(135deg, var(--accent), #a67a6b);
+  background: linear-gradient(135deg, var(--accent), #B07B6A);
   color: white;
   font-weight: 600;
   padding: 16px 24px;
@@ -859,7 +863,7 @@ section.section:nth-child(even)::after {
 .form-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(192, 139, 122, 0.4);
-  background: linear-gradient(135deg, #a67a6b, #8f6b5c);
+  background: linear-gradient(135deg, #B07B6A, var(--primary-dark));
 }
 
 /* ===== VISUAL ACCENTS ===== */
@@ -889,7 +893,7 @@ section.section:nth-child(even)::after {
   line-height: 1.15;
   font-weight: 700;
   margin-bottom: 28px;
-  color: #1e293b;
+  color: #1A1B1A;
 }
 
 /* 2. СТАРАЯ версия - горизонтальное расположение badges */
@@ -939,7 +943,7 @@ section.section:nth-child(even)::after {
 
 /* 4. СТАРАЯ версия - серый фон формы */
 .form-container {
-  background: #f7f8f9;
+  background: #FAF7F3;
   border-radius: 12px;
   padding: 32px;
   box-shadow: none;
@@ -975,9 +979,9 @@ section.section:nth-child(even)::after {
 /* Цветовая схема возврата */
 :root {
   --primary-green: #6b8b7a;  /* Основной зеленый из старой версии */
-  --bg-gray: #f7f8f9;        /* Фон формы */
-  --text-primary: #1e293b;    /* Основной текст */
-  --text-secondary: #64748b;  /* Второстепенный текст */
+  --bg-gray: #FAF7F3;        /* Фон формы */
+  --text-primary: #1A1B1A;    /* Основной текст */
+  --text-secondary: #3A3B3A;  /* Второстепенный текст */
 }
 
 /* ===== BIRMINGHAM OLD VERSION RESTORATION ===== */
@@ -988,7 +992,7 @@ section.section:nth-child(even)::after {
   line-height: 1.1;
   font-weight: 700;
   margin-bottom: 24px;
-  color: #1e293b;
+  color: #1A1B1A;
   text-align: left;  /* Выравнивание по левому краю */
 }
 
@@ -996,7 +1000,7 @@ section.section:nth-child(even)::after {
 .hero-subtext {
   font-size: 1.375rem;  /* 22px */
   line-height: 1.5;
-  color: #64748b;
+  color: #3A3B3A;
   margin-bottom: 32px;
   text-align: left;  /* Выравнивание по левому краю */
 }
@@ -1021,7 +1025,7 @@ section.section:nth-child(even)::after {
 
 .stat-label {
   font-size: 14px;
-  color: #64748b;
+  color: #3A3B3A;
   line-height: 1.4;
 }
 
@@ -1042,7 +1046,7 @@ section.section:nth-child(even)::after {
 
 /* 4. СТАРАЯ версия - форма без кнопки */
 .form-container {
-  background: #f8f9fa;
+  background: #F0EDE8;
   padding: 32px;
   border-radius: 12px;
   box-shadow: none;
@@ -1062,9 +1066,9 @@ section.section:nth-child(even)::after {
 /* 6. Цветовая схема старой версии */
 :root {
   --primary-green: #6b8b7a;  /* Основной зеленый */
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --bg-light: #f8f9fa;
+  --text-primary: #1A1B1A;
+  --text-secondary: #3A3B3A;
+  --bg-light: #F0EDE8;
 }
 
 /* 7. Адаптивные стили для hero секций */
@@ -1147,6 +1151,84 @@ aside.hero-form .form-label {
     align-items: center;
 }
 
+/* New Hero Elements */
+.hero-pre-headline {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.hero-subheadline {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.methodology-box {
+    background: var(--background-white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-soft);
+    max-width: 600px;
+}
+
+.methodology-box h3 {
+    font-size: var(--font-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.methodology-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.methodology-box li {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: var(--font-base);
+    line-height: 1.6;
+}
+
+.methodology-box li:last-child {
+    border-bottom: none;
+}
+
+.methodology-box li strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.methodology-box .small-text {
+    font-size: var(--font-sm);
+    color: var(--text-tertiary);
+    margin: 0;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-light);
+}
+
+.methodology-box .small-text strong {
+    color: var(--text-secondary);
+}
+
+
 /* Фоновое изображение на весь экран */
 .hero-background {
     position: absolute;
@@ -1188,11 +1270,14 @@ aside.hero-form .form-label {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch; /* Растягиваем колонки на одинаковую высоту */
 }
 
 .hero-content {
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .hero-headline {
@@ -1206,7 +1291,7 @@ aside.hero-form .form-label {
 }
 
 .text-accent {
-    background: linear-gradient(135deg, var(--accent) 0%, #a67a6b 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #B07B6A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1220,27 +1305,92 @@ aside.hero-form .form-label {
     text-shadow: none;
 }
 
+/* Hero form использует flex для выравнивания кнопки снизу */
+/* Стили уже включены в базовое определение выше */
+
+/* Форма внутри hero-form использует flex для выравнивания кнопки */
+.hero-form form,
+aside.hero-form form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Кнопка формы выравнивается снизу */
+.hero-form form .btn,
+aside.hero-form form .btn {
+    margin-top: auto;
+}
+
 .hero-social-proof {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: var(--space-md) var(--space-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(107, 124, 110, 0.1);
-    position: relative;
-    z-index: 2;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: auto; /* Выравнивание снизу */
+    margin-bottom: 0;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+    border: none;
+    align-self: flex-start; /* Прижимаем к левому краю */
 }
 
-.hero-social-proof p {
-    margin: 0;
-    font-size: var(--font-lg);
-    line-height: 1.5;
-    color: var(--text-secondary);
+.hero-social-proof:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
-.hero-social-proof strong {
-    color: var(--text-primary);
-    font-weight: var(--font-weight-semibold);
+.hero-social-proof .stars {
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.hero-social-proof .rating {
+    line-height: 1.4;
+}
+
+.hero-social-proof .rating strong {
+    color: white !important;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .hero-content {
+        display: block;
+    }
+    
+    .hero-social-proof {
+        font-size: 14px;
+        padding: 10px 20px;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        margin-top: 32px; /* Возвращаем обычный отступ на мобильных */
+        margin-bottom: 0;
+        align-self: auto;
+    }
+    
+    .hero-social-proof .stars {
+        font-size: 14px;
+    }
+    
+    .hero-social-proof .rating strong {
+        font-size: 15px;
+    }
+    
+    .hero-form form .btn,
+    aside.hero-form form .btn {
+        margin-top: var(--space-md);
+    }
 }
 
 /* Responsive */
@@ -1248,6 +1398,7 @@ aside.hero-form .form-label {
     .hero-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        align-items: start; /* Отключаем stretch на планшетах */
     }
 
     .hero-background::after {
@@ -1265,6 +1416,12 @@ aside.hero-form .form-label {
     .hero-background {
         display: none;
     }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start; /* Отключаем stretch на мобильных */
+    }
 
     .hero-headline {
         font-size: 2.5rem;
@@ -1273,6 +1430,33 @@ aside.hero-form .form-label {
     .hero-subtext {
         font-size: 1.125rem;
     }
+    
+    /* New Hero Elements - Mobile */
+    .hero-pre-headline {
+        font-size: var(--font-base);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .hero-subheadline {
+        font-size: var(--font-base);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .methodology-box {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+    }
+    
+    .methodology-box h3 {
+        font-size: var(--font-base);
+    }
+    
+    .methodology-box li {
+        font-size: var(--font-sm);
+        padding: var(--spacing-xs) 0;
+    }
+    
+}
 
     .hero-form,
     aside.hero-form {
@@ -1378,7 +1562,7 @@ aside.hero-form .text-small {
 }
 
 .cta-buttons .btn-secondary:hover {
-  background: #f8f9fa;
+  background: #F0EDE8;
   border-color: #6B7C6E;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
@@ -1423,7 +1607,7 @@ aside.hero-form .text-small {
 .stat-block {
   text-align: center;
   padding: 24px;
-  background: #f8f9fa;
+  background: #F0EDE8;
   border-radius: 12px;
   border: 1px solid rgba(107, 124, 110, 0.1);
 }
@@ -1438,7 +1622,7 @@ aside.hero-form .text-small {
 
 .stat-label {
   font-size: 16px;
-  color: #64748b;
+  color: #3A3B3A;
   font-weight: 500;
 }
 
@@ -1482,7 +1666,7 @@ aside.hero-form .text-small {
   font-size: 48px;
   line-height: 1.1;
   font-weight: 700;
-  color: #1e293b;
+  color: #1A1B1A;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
@@ -1490,7 +1674,7 @@ aside.hero-form .text-small {
 .hero-description {
   font-size: 18px;
   line-height: 1.6;
-  color: #64748b;
+  color: #3A3B3A;
   margin-bottom: 40px;
   max-width: 540px;
 }
@@ -1518,19 +1702,19 @@ aside.hero-form .text-small {
 .benefit-text {
   font-size: 14px;
   line-height: 1.5;
-  color: #475569;
+  color: #5A5B5A;
 }
 
 .benefit-text strong {
   font-weight: 600;
-  color: #1e293b;
+  color: #1A1B1A;
 }
 
 /* 6. CTA кнопка */
 .hero-cta {
   display: inline-block;
   padding: 16px 48px;
-  background: #115e59;
+  background: var(--primary-dark);
   color: white;
   font-size: 18px;
   font-weight: 600;
@@ -1635,3 +1819,105 @@ body:has(.hero) .hero-content {
     gap: 16px;
   }
 }
+
+/* ============================================
+   HERO PROOF LIST STYLES
+   ============================================ */
+
+.hero-proof-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.hero-proof-list li {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    padding-left: 1.875rem;
+    position: relative;
+}
+
+.hero-proof-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0.125rem;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.375rem;
+}
+
+.hero-proof-list strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero-proof-list li {
+        font-size: 0.9375rem;
+        padding-left: 1.5rem;
+    }
+    
+    .hero-proof-list li::before {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   FORM TRUST SIGNALS STYLES
+   ============================================ */
+
+.form-trust-signals {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.form-trust-signals p {
+    margin: 0.5rem 0;
+}
+
+.form-trust-signals .text-small {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.form-trust-signals .text-secondary {
+    color: var(--text-tertiary);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   Added: 2025-01-26
+   Purpose: Common utility classes for spacing, layout, and typography
+   ======================================== */
+
+/* Spacing utilities - margin */
+.mt-sm { margin-top: 0.5rem; }
+.mt-md { margin-top: 1rem; }
+.mt-lg { margin-top: 1.5rem; }
+.mt-xl { margin-top: 3rem; }
+
+.mb-sm { margin-bottom: 0.5rem; }
+.mb-md { margin-bottom: 1rem; }
+.mb-lg { margin-bottom: 1.5rem; }
+.mb-xl { margin-bottom: 3rem; }
+
+/* Text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
+
+/* Gap utilities */
+.gap-sm { gap: 0.5rem; }
+.gap-md { gap: 1rem; }
+.gap-lg { gap: 1.5rem; }

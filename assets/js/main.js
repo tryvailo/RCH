@@ -948,7 +948,7 @@ Utils.initEnhancedCTAs = function() {
 
             const buttonText = this.textContent.trim();
 
-            if (buttonText.includes('Report') || buttonText.includes('£99')) {
+            if (buttonText.includes('Report') || buttonText.includes('£119')) {
                 Utils.showNotification('Redirecting to questionnaire...', 'info');
                 Utils.trackEvent('cta_click', { 
                     type: 'basic_report', 
@@ -1145,7 +1145,7 @@ function showSuccessMessage(email) {
                 <p class="font-semibold mb-sm">📬 What to expect in next 7 days:</p>
                 <ul class="space-y-sm text-sm">
                     <li>
-                        <strong>Today:</strong> Free shortlist (3 homes near you)
+                        <strong>Today:</strong> Free shortlist (3 strategic options)
                     </li>
                     <li>
                         <strong>Tomorrow:</strong> "How to evaluate care homes" guide
@@ -1157,7 +1157,7 @@ function showSuccessMessage(email) {
                         <strong>Day 5:</strong> Hidden cost calculator
                     </li>
                     <li>
-                        <strong>Day 7:</strong> 40% discount on Professional Assessment (£99 → £59)
+                        <strong>Day 7:</strong> 40% discount on Professional Assessment (£119 → £71)
                     </li>
                 </ul>
                 
@@ -1174,10 +1174,10 @@ function showSuccessMessage(email) {
                     Can't wait? Get professional assessment now:
                 </p>
                 <div class="flex gap-sm justify-center flex-wrap">
-                    <a href="/questionnaire/" class="btn btn-primary">
-                        Standard £99
+                    <a href="/professional-assessment/" class="btn btn-primary">
+                        Standard £119
                     </a>
-                    <a href="/premium-questionnaire/" class="btn btn-accent">
+                    <a href="/premium-assessment/" class="btn btn-accent">
                         Premium £249
                     </a>
                 </div>
@@ -1310,7 +1310,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Track "Skip to paid" link clicks
-    document.querySelectorAll('a[href="/questionnaire/"]').forEach(link => {
+    document.querySelectorAll('a[href="/professional-assessment/"]').forEach(link => {
         if (link.textContent.includes('Skip to paid') || link.textContent.includes('Skip to paid assessment')) {
             link.addEventListener('click', function() {
                 if (typeof gtag !== 'undefined') {

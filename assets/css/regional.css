@@ -45,6 +45,14 @@
 .hero-container {
   position: relative;
   z-index: 3; /* ВАЖНО: поверх фонового изображения */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: stretch; /* Растягиваем колонки на одинаковую высоту для выравнивания badge и кнопки */
 }
 
 /* Убираем фоновое изображение из hero-content */
@@ -52,6 +60,10 @@
   position: relative;
   background: transparent;
   padding: 40px 40px 40px 40px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Форма должна быть ещё более контрастной */
@@ -66,6 +78,10 @@ aside.hero-form {
   position: relative;
   z-index: 3;
   margin-left: 4rem; /* Смещаем форму вправо на 10% больше для освобождения лица человека */
+  /* Flex для выравнивания кнопки снизу */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Адаптивность */
@@ -75,9 +91,15 @@ aside.hero-form {
     background: rgba(250, 247, 243, 0.95);
   }
   
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
   .hero-content {
     background: transparent;
     padding: 2rem;
+    max-width: 100%;
   }
   
   .hero-form,
@@ -96,9 +118,17 @@ aside.hero-form {
     background: var(--background);
   }
   
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start; /* Отключаем stretch на мобильных */
+  }
+  
   .hero-content {
     background: transparent;
     padding: 2rem;
+    max-width: 100%;
+    display: block; /* Отключаем flex на мобильных */
   }
   
   .hero-form,
@@ -121,16 +151,97 @@ aside.hero-form {
   text-shadow: none;
 }
 
-/* Социальное доказательство с белым фоном */
+/* Hero content - используем flex для выравнивания badge снизу */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Форма внутри hero-form использует flex для выравнивания кнопки */
+.hero-form form,
+aside.hero-form form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Кнопка формы выравнивается снизу */
+.hero-form form .btn,
+aside.hero-form form .btn {
+  margin-top: auto;
+}
+
+/* Badge выравнивается снизу через margin-top: auto */
 .hero-social-proof {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(107, 124, 110, 0.1);
-  position: relative;
-  z-index: 2;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: auto; /* Выравнивание снизу */
+  margin-bottom: 0;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+  border: none;
+  align-self: flex-start; /* Прижимаем к левому краю */
+}
+
+.hero-social-proof:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.hero-social-proof .stars {
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.hero-social-proof .rating {
+  line-height: 1.4;
+}
+
+.hero-social-proof .rating strong {
+  color: white !important;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* На мобильных отключаем выравнивание */
+@media (max-width: 768px) {
+  .hero-content {
+    display: block;
+  }
+  
+  .hero-social-proof {
+    font-size: 14px;
+    padding: 10px 20px;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 32px; /* Возвращаем обычный отступ на мобильных */
+    margin-bottom: 0;
+    align-self: auto;
+  }
+  
+  .hero-social-proof .stars {
+    font-size: 14px;
+  }
+  
+  .hero-social-proof .rating strong {
+    font-size: 15px;
+  }
+  
+  .hero-form form .btn,
+  aside.hero-form form .btn {
+    margin-top: var(--space-md);
+  }
 }
 
 /* Прозрачный фон для текста */

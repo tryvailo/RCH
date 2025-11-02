@@ -32,6 +32,7 @@
   --success: #7A9471;
   --success-hover: #6B8362;
   --success-light: #8FA386;
+  --success-dark: #5A6B5D;
   
   /* Enhanced Text Colors - WCAG AA Compliant */
   --text-primary: #1A1B1A;        /* 8.2:1 contrast on #FAF7F3 */
